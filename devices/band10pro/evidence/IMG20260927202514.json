@@ -1,0 +1,306 @@
+{
+ "photo": "IMG20260927202514.jpg",
+ "page": 1,
+ "page_key": "tv1",
+ "fit": {
+  "rms_band_px": [
+   0.386,
+   0.167
+  ],
+  "ticks": 85,
+  "dropped": 0,
+  "bloom_px": 1.31,
+  "photo_px_per_band_px": [
+   2.687,
+   2.674
+  ],
+  "edges": {
+   "left_first_visible_x": 3.1324864074535634,
+   "right_last_visible_x": 332.98645305562286,
+   "ticks_seen_left": 43,
+   "ticks_seen_right": 42,
+   "first_tick_y_left": 30,
+   "last_tick_y_left": 450
+  },
+  "ok": true,
+  "notes": []
+ },
+ "samples": [
+  {
+   "id": "tv1.0",
+   "type": "text_v",
+   "spec": {
+    "type": "text_v",
+    "str": "8",
+    "px": 240,
+    "regime": "tall",
+    "weight": "bold",
+    "outline": "pink",
+    "box": {
+     "x": 24,
+     "y": 28,
+     "w": 142,
+     "h": 360
+    },
+    "slot": {
+     "x": 24,
+     "y": 28,
+     "w": 142,
+     "h": 360
+    },
+    "height_css": 360,
+    "border": 1,
+    "id": "tv1.0"
+   },
+   "result": {
+    "box": {
+     "top": 27.97709731543624,
+     "bottom": 388.5031005221932,
+     "left": 25.496825744308232,
+     "right": 166.2170209176788,
+     "wrapped": false,
+     "inferred": []
+    },
+    "box_h": 360.52600320675697,
+    "content_h": 358.52600320675697,
+    "ink_top": 80.93331935098207,
+    "ink_bottom": 275.20672621046936,
+    "clipped_bottom": false,
+    "clipped_top": false,
+    "clipped_right": true,
+    "lines": 1,
+    "line_h": 358.52600320675697,
+    "glyphs": {
+     "8": {
+      "top": 80.89790268456376,
+      "bottom": 275.14790268456375,
+      "left": 13.003174255691768,
+      "right": 137.37817425569176
+     }
+    },
+    "ink_mid_minus_box_mid": -1.1929788226527762
+   }
+  },
+  {
+   "id": "tv1.1",
+   "type": "text_v",
+   "spec": {
+    "type": "text_v",
+    "str": "8",
+    "px": 240,
+    "regime": "nat",
+    "weight": "bold",
+    "outline": "cyan",
+    "box": {
+     "x": 168,
+     "y": 28,
+     "w": 142,
+     "h": null
+    },
+    "slot": {
+     "x": 168,
+     "y": 28,
+     "w": 142,
+     "h": 322
+    },
+    "height_css": "auto",
+    "border": 1,
+    "id": "tv1.1"
+   },
+   "result": {
+    "box": {
+     "top": 27.880438332897832,
+     "bottom": 348.1594525959368,
+     "left": 168.4176698194325,
+     "right": 308.82959855564997,
+     "wrapped": false,
+     "inferred": []
+    },
+    "box_h": 320.27901426303896,
+    "content_h": 318.27901426303896,
+    "ink_top": 60.68206166710217,
+    "ink_bottom": 255.12849024172385,
+    "clipped_bottom": false,
+    "clipped_top": false,
+    "clipped_right": true,
+    "lines": 1,
+    "line_h": 318.27901426303896,
+    "glyphs": {
+     "8": {
+      "top": 60.74456166710217,
+      "bottom": 255.11956166710218,
+      "left": 12.20733018056751,
+      "right": 137.0823301805675
+     }
+    },
+    "ink_mid_minus_box_mid": -1.2342311771064658
+   }
+  },
+  {
+   "id": "tv1.2",
+   "type": "text_v",
+   "spec": {
+    "type": "text_v",
+    "str": "Hg8",
+    "px": 24,
+    "regime": "nat",
+    "weight": "bold",
+    "outline": "cyan",
+    "box": {
+     "x": 24,
+     "y": 394,
+     "w": 50,
+     "h": null
+    },
+    "slot": {
+     "x": 24,
+     "y": 394,
+     "w": 50,
+     "h": 34
+    },
+    "height_css": "auto",
+    "border": 1,
+    "id": "tv1.2"
+   },
+   "result": {
+    "box": {
+     "top": 394.14861341977513,
+     "bottom": 459.92227539945736,
+     "left": 25.22443128559878,
+     "right": 74.87437535907226,
+     "wrapped": true,
+     "inferred": []
+    },
+    "box_h": 65.77366197968223,
+    "content_h": 63.77366197968223,
+    "ink_top": 5.413886580224869,
+    "ink_bottom": 62.53888658022487,
+    "clipped_bottom": true,
+    "clipped_top": false,
+    "clipped_right": false,
+    "wrapped": true,
+    "lines": 2,
+    "line_h": 31.886830989841116,
+    "ink_mid_minus_box_mid": 2.0895555903837533
+   }
+  },
+  {
+   "id": "tv1.3",
+   "type": "text_v",
+   "spec": {
+    "type": "text_v",
+    "str": "Hg8",
+    "px": 32,
+    "regime": "short",
+    "weight": "bold",
+    "outline": "green",
+    "box": {
+     "x": 76,
+     "y": 394,
+     "w": 65,
+     "h": 29
+    },
+    "slot": {
+     "x": 76,
+     "y": 394,
+     "w": 65,
+     "h": 29
+    },
+    "height_css": 29,
+    "border": 1,
+    "id": "tv1.3"
+   },
+   "result": {
+    "box": {
+     "top": 394.22915009940357,
+     "bottom": 423.3981343595175,
+     "left": 77.11022727272727,
+     "right": 143.75539508632139,
+     "wrapped": false,
+     "inferred": []
+    },
+    "box_h": 29.168984260113916,
+    "content_h": 27.168984260113916,
+    "ink_top": 4.915586741917423,
+    "ink_bottom": 25.95834990059643,
+    "clipped_bottom": true,
+    "clipped_top": false,
+    "clipped_right": true,
+    "lines": 1,
+    "line_h": 27.168984260113916,
+    "ink_mid_minus_box_mid": 1.852476191199969
+   }
+  },
+  {
+   "id": "tv1.4",
+   "type": "text_v",
+   "spec": {
+    "type": "text_v",
+    "str": "Hg8",
+    "px": 24,
+    "regime": "short",
+    "weight": "bold",
+    "outline": "green",
+    "box": {
+     "x": 143,
+     "y": 394,
+     "w": 50,
+     "h": 22
+    },
+    "slot": {
+     "x": 143,
+     "y": 394,
+     "w": 50,
+     "h": 22
+    },
+    "height_css": 22,
+    "border": 1,
+    "id": "tv1.4"
+   },
+   "result": {
+    "box": {
+     "top": 394.18781691267753,
+     "bottom": 416.18781691267753,
+     "left": 142.6981529736358,
+     "right": 192.9885101010101,
+     "wrapped": false,
+     "inferred": [
+      "bottom"
+     ]
+    },
+    "box_h": 22.0,
+    "content_h": 20.0,
+    "ink_top": 4.249683087322467,
+    "ink_bottom": 18.749683087322467,
+    "clipped_bottom": true,
+    "clipped_top": false,
+    "clipped_right": true,
+    "lines": 1,
+    "line_h": 20.0,
+    "glyphs": {
+     "H": {
+      "top": 4.312183087322467,
+      "bottom": 18.687183087322467,
+      "left": 2.551847026364186,
+      "right": 16.926847026364186
+     },
+     "g": {
+      "top": 9.687183087322467,
+      "bottom": 18.687183087322467,
+      "left": 19.301847026364186,
+      "right": 31.801847026364186
+     },
+     "8": {
+      "top": 4.687183087322467,
+      "bottom": 18.687183087322467,
+      "left": 35.051847026364186,
+      "right": 46.676847026364186
+     }
+    },
+    "ink_mid_minus_box_mid": 1.4996830873224667
+   }
+  }
+ ],
+ "layout": "band10pro.json",
+ "measured_at": "2026-09-27T20:49:26"
+}

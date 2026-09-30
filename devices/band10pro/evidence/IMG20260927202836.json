@@ -1,0 +1,102 @@
+{
+ "photo": "IMG20260927202836.jpg",
+ "page": 9,
+ "page_key": "th4",
+ "fit": {
+  "rms_band_px": [
+   0.235,
+   0.191
+  ],
+  "ticks": 86,
+  "dropped": 0,
+  "bloom_px": 0.76,
+  "photo_px_per_band_px": [
+   2.252,
+   2.245
+  ],
+  "edges": {
+   "left_first_visible_x": 1.6230747175910076,
+   "right_last_visible_x": 334.5700011976051,
+   "ticks_seen_left": 43,
+   "ticks_seen_right": 43,
+   "first_tick_y_left": 30,
+   "last_tick_y_left": 450
+  },
+  "ok": true,
+  "notes": []
+ },
+ "samples": [
+  {
+   "id": "th4.0",
+   "type": "text_w",
+   "spec": {
+    "type": "text_w",
+    "str": "ABCDEFGHIJKLM",
+    "px": 24,
+    "weight": "bold",
+    "outline": "pink",
+    "box": {
+     "x": 24,
+     "y": 28,
+     "w": null,
+     "h": null
+    },
+    "est_w": 209,
+    "border": 1,
+    "id": "th4.0"
+   },
+   "result": {
+    "box": {
+     "top": 27.650954376163874,
+     "bottom": 62.219537239868565,
+     "left": 24.79594809322034,
+     "right": 234.9136700913242,
+     "wrapped": false,
+     "inferred": []
+    },
+    "outer_w": 210.11772199810386,
+    "content_w": 208.11772199810386,
+    "content_h": 32.56858286370469,
+    "ink_left": 1.391551906779661,
+    "ink_right": 1.2261700913242066
+   }
+  },
+  {
+   "id": "th4.1",
+   "type": "text_w",
+   "spec": {
+    "type": "text_w",
+    "str": "NOPQRSTUVWXYZ",
+    "px": 24,
+    "weight": "bold",
+    "outline": "pink",
+    "box": {
+     "x": 24,
+     "y": 70,
+     "w": null,
+     "h": null
+    },
+    "est_w": 231,
+    "border": 1,
+    "id": "th4.1"
+   },
+   "result": {
+    "box": {
+     "top": 70.21537865687439,
+     "bottom": 104.3502094972067,
+     "left": 24.46762048192771,
+     "right": 253.53851851851852,
+     "wrapped": false,
+     "inferred": []
+    },
+    "outer_w": 229.0708980365908,
+    "content_w": 227.0708980365908,
+    "content_h": 32.13483084033231,
+    "ink_left": 1.3518239658281033,
+    "ink_right": 1.226018518518515
+   }
+  }
+ ],
+ "layout": "band10pro.json",
+ "measured_at": "2026-09-27T20:49:38"
+}

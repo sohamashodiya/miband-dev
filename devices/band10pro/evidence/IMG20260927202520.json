@@ -1,0 +1,304 @@
+{
+ "photo": "IMG20260927202520.jpg",
+ "page": 2,
+ "page_key": "tv2",
+ "fit": {
+  "rms_band_px": [
+   0.295,
+   0.249
+  ],
+  "ticks": 86,
+  "dropped": 0,
+  "bloom_px": 0.4,
+  "photo_px_per_band_px": [
+   2.803,
+   2.803
+  ],
+  "edges": {
+   "left_first_visible_x": 0.7827561642258877,
+   "right_last_visible_x": 335.3171715795728,
+   "ticks_seen_left": 43,
+   "ticks_seen_right": 43,
+   "first_tick_y_left": 30,
+   "last_tick_y_left": 450
+  },
+  "ok": true,
+  "notes": []
+ },
+ "samples": [
+  {
+   "id": "tv2.0",
+   "type": "text_v",
+   "spec": {
+    "type": "text_v",
+    "str": "8",
+    "px": 180,
+    "regime": "tall",
+    "weight": "bold",
+    "outline": "pink",
+    "box": {
+     "x": 24,
+     "y": 28,
+     "w": 107,
+     "h": 270
+    },
+    "slot": {
+     "x": 24,
+     "y": 28,
+     "w": 107,
+     "h": 270
+    },
+    "height_css": 270,
+    "border": 1,
+    "id": "tv2.0"
+   },
+   "result": {
+    "box": {
+     "top": 27.757005899705014,
+     "bottom": 298.3800574425574,
+     "left": 24.65353154756422,
+     "right": 131.02730978260868,
+     "wrapped": false,
+     "inferred": []
+    },
+    "box_h": 270.6230515428524,
+    "content_h": 268.6230515428524,
+    "ink_top": 61.19438298835603,
+    "ink_bottom": 207.4782882188186,
+    "clipped_bottom": false,
+    "clipped_top": false,
+    "clipped_right": true,
+    "lines": 1,
+    "line_h": 268.6230515428524,
+    "glyphs": {
+     "8": {
+      "top": 61.242994100294986,
+      "bottom": 207.492994100295,
+      "left": 9.72146845243578,
+      "right": 103.09646845243577
+     }
+    },
+    "ink_mid_minus_box_mid": 0.02480983216111099
+   }
+  },
+  {
+   "id": "tv2.1",
+   "type": "text_v",
+   "spec": {
+    "type": "text_v",
+    "str": "8",
+    "px": 180,
+    "regime": "nat",
+    "weight": "bold",
+    "outline": "cyan",
+    "box": {
+     "x": 133,
+     "y": 28,
+     "w": 107,
+     "h": null
+    },
+    "slot": {
+     "x": 133,
+     "y": 28,
+     "w": 107,
+     "h": 242
+    },
+    "height_css": "auto",
+    "border": 1,
+    "id": "tv2.1"
+   },
+   "result": {
+    "box": {
+     "top": 27.950411464245175,
+     "bottom": 268.8750386040766,
+     "left": 133.70201273969005,
+     "right": 239.4193306010929,
+     "wrapped": false,
+     "inferred": []
+    },
+    "box_h": 240.92462713983144,
+    "content_h": 238.92462713983144,
+    "ink_top": 45.86208853575482,
+    "ink_bottom": 191.71833853873505,
+    "clipped_bottom": false,
+    "clipped_top": false,
+    "clipped_right": true,
+    "lines": 1,
+    "line_h": 238.92462713983144,
+    "glyphs": {
+     "8": {
+      "top": 45.92458853575482,
+      "bottom": 191.67458853575482,
+      "left": 9.172987260309952,
+      "right": 102.42298726030995
+     }
+    },
+    "ink_mid_minus_box_mid": -0.6721000326707838
+   }
+  },
+  {
+   "id": "tv2.2",
+   "type": "text_v",
+   "spec": {
+    "type": "text_v",
+    "str": "Hg8",
+    "px": 96,
+    "regime": "nat",
+    "weight": "bold",
+    "outline": "cyan",
+    "box": {
+     "x": 24,
+     "y": 304,
+     "w": 187,
+     "h": null
+    },
+    "slot": {
+     "x": 24,
+     "y": 304,
+     "w": 187,
+     "h": 130
+    },
+    "height_css": "auto",
+    "border": 1,
+    "id": "tv2.2"
+   },
+   "result": {
+    "error": "outline not found"
+   }
+  },
+  {
+   "id": "tv2.3",
+   "type": "text_v",
+   "spec": {
+    "type": "text_v",
+    "str": "Hg8",
+    "px": 48,
+    "regime": "nat",
+    "weight": "bold",
+    "outline": "cyan",
+    "box": {
+     "x": 213,
+     "y": 304,
+     "w": 96,
+     "h": null
+    },
+    "slot": {
+     "x": 213,
+     "y": 304,
+     "w": 96,
+     "h": 66
+    },
+    "height_css": "auto",
+    "border": 1,
+    "id": "tv2.3"
+   },
+   "result": {
+    "box": {
+     "top": 304.23461415816325,
+     "bottom": 434.05529141104296,
+     "left": 212.9909755873873,
+     "right": 308.82117837724803,
+     "wrapped": true,
+     "inferred": []
+    },
+    "box_h": 129.8206772528797,
+    "content_h": 127.8206772528797,
+    "ink_top": 12.615385843326862,
+    "ink_bottom": 115.68205250601989,
+    "clipped_bottom": false,
+    "clipped_top": false,
+    "clipped_right": false,
+    "wrapped": true,
+    "lines": 2,
+    "line_h": 63.91033862643985,
+    "glyphs": {
+     "H": {
+      "top": 12.640385841836746,
+      "bottom": 51.140385841836746,
+      "line": 0
+     },
+     "g": {
+      "top": 22.890385841836746,
+      "bottom": 63.265385841836746,
+      "line": 0
+     },
+     "8": {
+      "top": 12.230047215396894,
+      "bottom": 51.730047215396894,
+      "line": 1
+     }
+    },
+    "ink_mid_minus_box_mid": 0.23838054823352195
+   }
+  },
+  {
+   "id": "tv2.4",
+   "type": "text_v",
+   "spec": {
+    "type": "text_v",
+    "str": "Hg8",
+    "px": 32,
+    "regime": "tall",
+    "weight": "bold",
+    "outline": "pink",
+    "box": {
+     "x": 242,
+     "y": 28,
+     "w": 65,
+     "h": 48
+    },
+    "slot": {
+     "x": 242,
+     "y": 28,
+     "w": 65,
+     "h": 48
+    },
+    "height_css": 48,
+    "border": 1,
+    "id": "tv2.4"
+   },
+   "result": {
+    "box": {
+     "top": 27.952560240963855,
+     "bottom": 76.00647627965044,
+     "left": 241.57588729763387,
+     "right": 306.61996791131855,
+     "wrapped": false,
+     "inferred": []
+    },
+    "box_h": 48.05391603868659,
+    "content_h": 46.05391603868659,
+    "ink_top": 5.745356423219285,
+    "ink_bottom": 39.804792699774346,
+    "clipped_bottom": false,
+    "clipped_top": false,
+    "clipped_right": true,
+    "lines": 1,
+    "line_h": 46.05391603868659,
+    "glyphs": {
+     "H": {
+      "top": 6.047439759036145,
+      "bottom": 31.422439759036145,
+      "left": 1.5491127023661306,
+      "right": 21.92411270236613
+     },
+     "g": {
+      "top": 12.797439759036145,
+      "bottom": 39.797439759036145,
+      "left": 24.54911270236613,
+      "right": 42.04911270236613
+     },
+     "8": {
+      "top": 5.797439759036145,
+      "bottom": 32.047439759036145,
+      "left": 45.04911270236613,
+      "right": 61.67411270236613
+     }
+    },
+    "ink_mid_minus_box_mid": -0.25188345784647836
+   }
+  }
+ ],
+ "layout": "band10pro.json",
+ "measured_at": "2026-09-27T20:54:09"
+}

@@ -1,0 +1,166 @@
+{
+ "photo": "IMG20260927202540.jpg",
+ "page": 5,
+ "page_key": "tv5",
+ "fit": {
+  "rms_band_px": [
+   0.283,
+   0.328
+  ],
+  "ticks": 86,
+  "dropped": 0,
+  "bloom_px": 0.53,
+  "photo_px_per_band_px": [
+   3.182,
+   3.167
+  ],
+  "edges": {
+   "left_first_visible_x": 0.8917973552837426,
+   "right_last_visible_x": 335.2754906071579,
+   "ticks_seen_left": 43,
+   "ticks_seen_right": 43,
+   "first_tick_y_left": 30,
+   "last_tick_y_left": 450
+  },
+  "ok": true,
+  "notes": []
+ },
+ "samples": [
+  {
+   "id": "tv5.0",
+   "type": "text_v",
+   "spec": {
+    "type": "text_v",
+    "str": "Hg8",
+    "px": 72,
+    "regime": "short",
+    "weight": "bold",
+    "outline": "green",
+    "box": {
+     "x": 24,
+     "y": 28,
+     "w": 141,
+     "h": 65
+    },
+    "slot": {
+     "x": 24,
+     "y": 28,
+     "w": 141,
+     "h": 65
+    },
+    "height_css": 65,
+    "border": 1,
+    "id": "tv5.0"
+   },
+   "result": {
+    "box": {
+     "top": 27.770123215108246,
+     "bottom": 93.34406565656566,
+     "left": 24.77440102120974,
+     "right": 168.8082337883959,
+     "wrapped": false,
+     "inferred": []
+    },
+    "box_h": 65.57394244145742,
+    "content_h": 63.57394244145742,
+    "ink_top": 16.54862678638187,
+    "ink_bottom": 62.29237678489176,
+    "clipped_bottom": true,
+    "clipped_top": false,
+    "clipped_right": true,
+    "lines": 1,
+    "line_h": 63.57394244145742,
+    "glyphs": {
+     "H": {
+      "top": 16.854876784891754,
+      "bottom": 62.22987678489176,
+      "left": 4.475598978790259,
+      "right": 50.85059897879026
+     },
+     "g": {
+      "top": 31.854876784891754,
+      "bottom": 62.22987678489176,
+      "left": 57.47559897879026,
+      "right": 96.97559897879026
+     },
+     "8": {
+      "top": 16.604876784891754,
+      "bottom": 62.22987678489176,
+      "left": 102.97559897879026,
+      "right": 137.72559897879026
+     }
+    },
+    "ink_mid_minus_box_mid": 7.633530564908106
+   }
+  },
+  {
+   "id": "tv5.1",
+   "type": "text_v",
+   "spec": {
+    "type": "text_v",
+    "str": "Hg8",
+    "px": 48,
+    "regime": "short",
+    "weight": "bold",
+    "outline": "green",
+    "box": {
+     "x": 167,
+     "y": 28,
+     "w": 96,
+     "h": 43
+    },
+    "slot": {
+     "x": 167,
+     "y": 28,
+     "w": 96,
+     "h": 43
+    },
+    "height_css": 43,
+    "border": 1,
+    "id": "tv5.1"
+   },
+   "result": {
+    "box": {
+     "top": 28.005055147058822,
+     "bottom": 71.58988450074516,
+     "left": 167.06426553672316,
+     "right": 262.68444816029364,
+     "wrapped": false,
+     "inferred": []
+    },
+    "box_h": 43.58482935368633,
+    "content_h": 41.58482935368633,
+    "ink_top": 11.057444852941178,
+    "ink_bottom": 40.307444852941174,
+    "clipped_bottom": true,
+    "clipped_top": false,
+    "clipped_right": true,
+    "lines": 1,
+    "line_h": 41.58482935368633,
+    "glyphs": {
+     "H": {
+      "top": 11.619944852941178,
+      "bottom": 40.244944852941174,
+      "left": 3.3107344632768445,
+      "right": 34.310734463276845
+     },
+     "g": {
+      "top": 21.744944852941178,
+      "bottom": 40.244944852941174,
+      "left": 38.185734463276845,
+      "right": 65.06073446327684
+     },
+     "8": {
+      "top": 11.119944852941178,
+      "bottom": 40.244944852941174,
+      "left": 68.68573446327684,
+      "right": 92.31073446327684
+     }
+    },
+    "ink_mid_minus_box_mid": 4.8900301760980085
+   }
+  }
+ ],
+ "layout": "band10pro.json",
+ "measured_at": "2026-09-27T20:49:28"
+}

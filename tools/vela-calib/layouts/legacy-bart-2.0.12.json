@@ -1,0 +1,193 @@
+{
+ "generated_by": "hand (from bart-band index.ux of that version)",
+ "description": "BART Watch 2.0.12 check screen (photo calib2.jpg, 2026-09-27): tight boxes shorter than the line box",
+ "device": "band10pro",
+ "screen": {
+  "w": 336,
+  "h": 480
+ },
+ "frame": {
+  "tick_every": 10,
+  "tick_len": [
+   8,
+   14,
+   22
+  ],
+  "yellow_every": 100,
+  "ticks": [
+   2,
+   0,
+   0,
+   0,
+   0,
+   1,
+   0,
+   0,
+   0,
+   0,
+   2,
+   0,
+   0,
+   0,
+   0,
+   1,
+   0,
+   0,
+   0,
+   0,
+   2,
+   0,
+   0,
+   0,
+   0,
+   1,
+   0,
+   0,
+   0,
+   0,
+   2,
+   0,
+   0,
+   0,
+   0,
+   1,
+   0,
+   0,
+   0,
+   0,
+   2,
+   0,
+   0,
+   0,
+   0,
+   1,
+   0,
+   0
+  ],
+  "bar": {
+   "x": 110,
+   "y": 456,
+   "len": 200,
+   "h": 4
+  },
+  "code": null,
+  "label": {
+   "x": 50,
+   "y": 4,
+   "px": 16
+  },
+  "colours": {
+   "white": "#ffffff",
+   "yellow": "#ffd60a",
+   "pink": "#ff2d95",
+   "cyan": "#00e5ff",
+   "green": "#3cff3c",
+   "grey": "#9a9a9a",
+   "dim": "#505050"
+  }
+ },
+ "pages": [
+  {
+   "id": 0,
+   "key": "legacy-bart-2.0.12",
+   "title": "legacy-bart-2.0.12",
+   "bar": {
+    "x": 110,
+    "y": 456,
+    "len": 200,
+    "h": 4
+   },
+   "code": null,
+   "notes": [],
+   "observe": [],
+   "samples": [
+    {
+     "id": "b12.8",
+     "type": "text_v",
+     "str": "8",
+     "px": 240,
+     "regime": "short",
+     "weight": "bold",
+     "outline": "pink",
+     "box": {
+      "x": 28,
+      "y": 30,
+      "w": 150,
+      "h": 224
+     },
+     "height_css": 224,
+     "border": 1
+    },
+    {
+     "id": "b12.3",
+     "type": "text_v",
+     "str": "3",
+     "px": 140,
+     "regime": "short",
+     "weight": "bold",
+     "outline": "pink",
+     "box": {
+      "x": 184,
+      "y": 30,
+      "w": 90,
+      "h": 132
+     },
+     "height_css": 132,
+     "border": 1
+    },
+    {
+     "id": "b12.0",
+     "type": "text_v",
+     "str": "0",
+     "px": 96,
+     "regime": "short",
+     "weight": "bold",
+     "outline": "pink",
+     "box": {
+      "x": 184,
+      "y": 170,
+      "w": 64,
+      "h": 92
+     },
+     "height_css": 92,
+     "border": 1
+    },
+    {
+     "id": "b12.6",
+     "type": "text_v",
+     "str": "6",
+     "px": 96,
+     "regime": "nat",
+     "weight": "bold",
+     "outline": "cyan",
+     "box": {
+      "x": 252,
+      "y": 170,
+      "w": 60,
+      "h": null
+     },
+     "height_css": "auto",
+     "border": 1
+    },
+    {
+     "id": "b12.5",
+     "type": "text_v",
+     "str": "5",
+     "px": 150,
+     "regime": "short",
+     "weight": "bold",
+     "outline": "pink",
+     "box": {
+      "x": 28,
+      "y": 266,
+      "w": null,
+      "h": 142
+     },
+     "height_css": 142,
+     "border": 1,
+     "est_w": 92
+    }
+   ]
+  }
+ ]
+}

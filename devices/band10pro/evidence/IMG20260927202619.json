@@ -1,0 +1,650 @@
+{
+ "photo": "IMG20260927202619.jpg",
+ "page": 12,
+ "page_key": "bx1",
+ "fit": {
+  "rms_band_px": [
+   0.349,
+   0.234
+  ],
+  "ticks": 84,
+  "dropped": 0,
+  "bloom_px": 0.83,
+  "photo_px_per_band_px": [
+   2.987,
+   2.986
+  ],
+  "edges": {
+   "left_first_visible_x": 0.7780290900734046,
+   "right_last_visible_x": 334.86114503668097,
+   "ticks_seen_left": 43,
+   "ticks_seen_right": 41,
+   "first_tick_y_left": 30,
+   "last_tick_y_left": 450
+  },
+  "ok": true,
+  "notes": []
+ },
+ "samples": [
+  {
+   "id": "bx1.0",
+   "type": "rect",
+   "spec": {
+    "type": "rect",
+    "key": "padding",
+    "what": "padding 10 inside a 1 px pink box: where the white child lands",
+    "fact": "css.padding",
+    "slot": {
+     "x": 24,
+     "y": 28,
+     "w": 88,
+     "h": 96
+    },
+    "metric": "bbox",
+    "colour": "white",
+    "region": [
+     24,
+     28,
+     112,
+     124
+    ],
+    "hyp": {
+     "honoured": [
+      39,
+      43,
+      20,
+      20
+     ],
+     "ignored": [
+      29,
+      33,
+      20,
+      20
+     ]
+    },
+    "id": "bx1.0"
+   },
+   "result": {
+    "bbox": [
+     38.12,
+     42.38,
+     20.75,
+     21.0
+    ],
+    "verdict": "honoured",
+    "distances": {
+     "honoured": 3.25,
+     "ignored": 20.25
+    },
+    "margin": 17.0,
+    "missing": false
+   }
+  },
+  {
+   "id": "bx1.1",
+   "type": "rect",
+   "spec": {
+    "type": "rect",
+    "key": "box-sizing",
+    "what": "width 80 + padding 10 + border 1: outer width of the pink box",
+    "fact": "css.box_sizing",
+    "slot": {
+     "x": 118,
+     "y": 28,
+     "w": 88,
+     "h": 96
+    },
+    "metric": "bbox",
+    "colour": "pink",
+    "region": [
+     118,
+     28,
+     206,
+     124
+    ],
+    "hyp": {
+     "border_box": [
+      122,
+      32,
+      60,
+      40
+     ],
+     "content_box": [
+      122,
+      32,
+      82,
+      62
+     ]
+    },
+    "id": "bx1.1"
+   },
+   "result": {
+    "bbox": [
+     121.0,
+     30.88,
+     63.38,
+     42.25
+    ],
+    "verdict": "border_box",
+    "distances": {
+     "border_box": 7.75,
+     "content_box": 40.5
+    },
+    "margin": 32.75,
+    "missing": false
+   }
+  },
+  {
+   "id": "bx1.2",
+   "type": "rect",
+   "spec": {
+    "type": "rect",
+    "key": "margin",
+    "what": "column: cyan has margin-top 12 under a 40 x 10 white bar",
+    "fact": "css.margin",
+    "slot": {
+     "x": 212,
+     "y": 28,
+     "w": 88,
+     "h": 96
+    },
+    "metric": "bbox",
+    "colour": "cyan",
+    "region": [
+     212,
+     28,
+     300,
+     124
+    ],
+    "hyp": {
+     "honoured": [
+      216,
+      54,
+      40,
+      10
+     ],
+     "ignored": [
+      216,
+      42,
+      40,
+      10
+     ]
+    },
+    "id": "bx1.2"
+   },
+   "result": {
+    "bbox": [
+     214.62,
+     53.5,
+     42.0,
+     11.25
+    ],
+    "verdict": "honoured",
+    "distances": {
+     "honoured": 5.12,
+     "ignored": 16.12
+    },
+    "margin": 11.0,
+    "missing": false
+   }
+  },
+  {
+   "id": "bx1.3",
+   "type": "rect",
+   "spec": {
+    "type": "rect",
+    "key": "neg-margin-top",
+    "what": "column: cyan has margin-top -8 under a 40 x 20 white bar",
+    "fact": "css.negative_margin",
+    "slot": {
+     "x": 24,
+     "y": 132,
+     "w": 88,
+     "h": 96
+    },
+    "metric": "bbox",
+    "colour": "cyan",
+    "region": [
+     24,
+     132,
+     112,
+     228
+    ],
+    "hyp": {
+     "honoured": [
+      28,
+      164,
+      40,
+      10
+     ],
+     "ignored": [
+      28,
+      172,
+      40,
+      10
+     ]
+    },
+    "id": "bx1.3"
+   },
+   "result": {
+    "bbox": [
+     27.25,
+     162.75,
+     41.38,
+     12.0
+    ],
+    "verdict": "honoured",
+    "distances": {
+     "honoured": 5.38,
+     "ignored": 13.38
+    },
+    "margin": 8.0,
+    "missing": false
+   }
+  },
+  {
+   "id": "bx1.4",
+   "type": "rect",
+   "spec": {
+    "type": "rect",
+    "key": "neg-margin-left",
+    "what": "row: cyan has margin-left -10 after a 30 x 20 white box",
+    "fact": "css.negative_margin_left",
+    "slot": {
+     "x": 118,
+     "y": 132,
+     "w": 88,
+     "h": 96
+    },
+    "metric": "bbox",
+    "colour": "cyan",
+    "region": [
+     118,
+     132,
+     206,
+     228
+    ],
+    "hyp": {
+     "honoured": [
+      142,
+      152,
+      30,
+      20
+     ],
+     "ignored": [
+      152,
+      152,
+      30,
+      20
+     ]
+    },
+    "id": "bx1.4"
+   },
+   "result": {
+    "bbox": [
+     141.0,
+     151.12,
+     31.75,
+     21.75
+    ],
+    "verdict": "honoured",
+    "distances": {
+     "honoured": 5.38,
+     "ignored": 15.38
+    },
+    "margin": 10.0,
+    "missing": false
+   }
+  },
+  {
+   "id": "bx1.5",
+   "type": "rect",
+   "spec": {
+    "type": "rect",
+    "key": "abs-in-parent",
+    "what": "green 10 x 10, absolute left/top 20 inside a pink box at +10: parent- or page-relative",
+    "fact": "css.absolute_origin",
+    "slot": {
+     "x": 212,
+     "y": 132,
+     "w": 88,
+     "h": 96
+    },
+    "metric": "bbox",
+    "colour": "green",
+    "region": [
+     0,
+     0,
+     336,
+     480
+    ],
+    "hyp": {
+     "parent_border_box": [
+      242,
+      162,
+      10,
+      10
+     ],
+     "parent_content_box": [
+      243,
+      163,
+      10,
+      10
+     ],
+     "page": [
+      20,
+      20,
+      10,
+      10
+     ]
+    },
+    "id": "bx1.5"
+   },
+   "result": {
+    "bbox": [
+     240.38,
+     162.0,
+     13.75,
+     12.38
+    ],
+    "verdict": "parent_border_box",
+    "distances": {
+     "parent_border_box": 7.75,
+     "parent_content_box": 9.75,
+     "page": 368.5
+    },
+    "margin": 2.0,
+    "missing": false
+   }
+  },
+  {
+   "id": "bx1.6",
+   "type": "rect",
+   "spec": {
+    "type": "rect",
+    "key": "border1",
+    "what": "border-width 1, white, 60 x 50 box: drawn thickness",
+    "fact": "css.border_width",
+    "slot": {
+     "x": 24,
+     "y": 236,
+     "w": 88,
+     "h": 96
+    },
+    "metric": "ring",
+    "colour": "white",
+    "region": [
+     32,
+     250,
+     104,
+     312
+    ],
+    "hyp": {
+     "honoured": {
+      "l": 1,
+      "t": 1,
+      "r": 1,
+      "b": 1
+     }
+    },
+    "id": "bx1.6"
+   },
+   "result": {
+    "thickness": {
+     "l": 0.0,
+     "r": 0.0,
+     "t": 1.0,
+     "b": 1.62
+    },
+    "verdict": "honoured",
+    "distances": {
+     "honoured": 2.62
+    },
+    "margin": null
+   }
+  },
+  {
+   "id": "bx1.7",
+   "type": "rect",
+   "spec": {
+    "type": "rect",
+    "key": "border2",
+    "what": "border-width 2, white, 60 x 50 box: drawn thickness",
+    "fact": "css.border_width",
+    "slot": {
+     "x": 118,
+     "y": 236,
+     "w": 88,
+     "h": 96
+    },
+    "metric": "ring",
+    "colour": "white",
+    "region": [
+     126,
+     250,
+     198,
+     312
+    ],
+    "hyp": {
+     "honoured": {
+      "l": 2,
+      "t": 2,
+      "r": 2,
+      "b": 2
+     }
+    },
+    "id": "bx1.7"
+   },
+   "result": {
+    "thickness": {
+     "l": 0.0,
+     "r": 0.0,
+     "t": 2.12,
+     "b": 2.38
+    },
+    "verdict": "honoured",
+    "distances": {
+     "honoured": 4.5
+    },
+    "margin": null
+   }
+  },
+  {
+   "id": "bx1.8",
+   "type": "rect",
+   "spec": {
+    "type": "rect",
+    "key": "border4",
+    "what": "border-width 4, white, 60 x 50 box: drawn thickness",
+    "fact": "css.border_width",
+    "slot": {
+     "x": 212,
+     "y": 236,
+     "w": 88,
+     "h": 96
+    },
+    "metric": "ring",
+    "colour": "white",
+    "region": [
+     220,
+     250,
+     292,
+     312
+    ],
+    "hyp": {
+     "honoured": {
+      "l": 4,
+      "t": 4,
+      "r": 4,
+      "b": 4
+     }
+    },
+    "id": "bx1.8"
+   },
+   "result": {
+    "thickness": {
+     "l": 4.75,
+     "r": 4.25,
+     "t": 4.0,
+     "b": 3.75
+    },
+    "verdict": "honoured",
+    "distances": {
+     "honoured": 1.25
+    },
+    "margin": null
+   }
+  },
+  {
+   "id": "bx1.9",
+   "type": "rect",
+   "spec": {
+    "type": "rect",
+    "key": "border8",
+    "what": "border-width 8, white, 60 x 50 box: drawn thickness",
+    "fact": "css.border_width",
+    "slot": {
+     "x": 24,
+     "y": 340,
+     "w": 88,
+     "h": 96
+    },
+    "metric": "ring",
+    "colour": "white",
+    "region": [
+     32,
+     354,
+     104,
+     416
+    ],
+    "hyp": {
+     "honoured": {
+      "l": 8,
+      "t": 8,
+      "r": 8,
+      "b": 8
+     }
+    },
+    "id": "bx1.9"
+   },
+   "result": {
+    "thickness": {
+     "l": 0.75,
+     "r": 8.12,
+     "t": 7.0,
+     "b": 6.5
+    },
+    "verdict": "honoured",
+    "distances": {
+     "honoured": 9.88
+    },
+    "margin": null
+   }
+  },
+  {
+   "id": "bx1.10",
+   "type": "rect",
+   "spec": {
+    "type": "rect",
+    "key": "border-left-width",
+    "what": "border 1 + border-left-width 8",
+    "fact": "css.border_side_width",
+    "slot": {
+     "x": 118,
+     "y": 340,
+     "w": 88,
+     "h": 96
+    },
+    "metric": "ring",
+    "colour": "white",
+    "region": [
+     126,
+     354,
+     198,
+     416
+    ],
+    "hyp": {
+     "honoured": {
+      "l": 8,
+      "t": 1,
+      "r": 1,
+      "b": 1
+     },
+     "ignored": {
+      "l": 1,
+      "t": 1,
+      "r": 1,
+      "b": 1
+     }
+    },
+    "id": "bx1.10"
+   },
+   "result": {
+    "thickness": {
+     "l": 1.5,
+     "r": 1.38,
+     "t": 0.0,
+     "b": 0.0
+    },
+    "verdict": "ignored",
+    "distances": {
+     "honoured": 8.88,
+     "ignored": 2.88
+    },
+    "margin": 6.000000000000001
+   }
+  },
+  {
+   "id": "bx1.11",
+   "type": "rect",
+   "spec": {
+    "type": "rect",
+    "key": "border-left-color",
+    "what": "border 4 white + border-left-color pink",
+    "fact": "css.border_side_colour",
+    "slot": {
+     "x": 212,
+     "y": 340,
+     "w": 88,
+     "h": 96
+    },
+    "metric": "colour_at",
+    "points": {
+     "left": [
+      228,
+      385
+     ],
+     "top": [
+      256,
+      362
+     ]
+    },
+    "hyp": {
+     "honoured": {
+      "left": "pink",
+      "top": "white"
+     },
+     "ignored": {
+      "left": "white",
+      "top": "white"
+     }
+    },
+    "id": "bx1.11"
+   },
+   "result": {
+    "colours": {
+     "left": "white",
+     "top": "white"
+    },
+    "verdict": "ignored",
+    "distances": {
+     "honoured": 10,
+     "ignored": 0
+    },
+    "margin": 10
+   }
+  }
+ ],
+ "layout": "band10pro.json",
+ "measured_at": "2026-09-27T20:49:34"
+}

@@ -1,0 +1,349 @@
+{
+ "photo": "IMG20260927202613.jpg",
+ "page": 10,
+ "page_key": "tw1",
+ "fit": {
+  "rms_band_px": [
+   0.429,
+   0.217
+  ],
+  "ticks": 86,
+  "dropped": 0,
+  "bloom_px": 1.21,
+  "photo_px_per_band_px": [
+   3.13,
+   3.107
+  ],
+  "edges": {
+   "left_first_visible_x": 2.535548399358271,
+   "right_last_visible_x": 333.6255170493408,
+   "ticks_seen_left": 43,
+   "ticks_seen_right": 43,
+   "first_tick_y_left": 30,
+   "last_tick_y_left": 450
+  },
+  "ok": true,
+  "notes": []
+ },
+ "samples": [
+  {
+   "id": "tw1.0",
+   "type": "row",
+   "spec": {
+    "type": "row",
+    "key": "row-flex-end",
+    "align": "flex-end",
+    "region": [
+     22,
+     26,
+     174,
+     162
+    ],
+    "big": {
+     "str": "5",
+     "px": 96,
+     "outline": "cyan"
+    },
+    "small": {
+     "str": "min",
+     "px": 32,
+     "outline": "pink"
+    },
+    "id": "tw1.0"
+   },
+   "result": {
+    "big": {
+     "box": [
+      24.0,
+      26.25,
+      64.875,
+      131.875
+     ],
+     "ink_bottom": 131.5625,
+     "ink_top": 52.63749999925494
+    },
+    "small": {
+     "box": [
+      88.25,
+      111.75,
+      58.625,
+      47.0
+     ],
+     "ink_bottom": 147.98750000074506,
+     "ink_top": 119.40625
+    },
+    "box_bottom_diff": 0.625,
+    "ink_bottom_diff": 16.425000000745058
+   }
+  },
+  {
+   "id": "tw1.1",
+   "type": "row",
+   "spec": {
+    "type": "row",
+    "key": "row-baseline",
+    "align": "baseline",
+    "region": [
+     22,
+     168,
+     174,
+     304
+    ],
+    "big": {
+     "str": "5",
+     "px": 96,
+     "outline": "cyan"
+    },
+    "small": {
+     "str": "min",
+     "px": 32,
+     "outline": "pink"
+    },
+    "id": "tw1.1"
+   },
+   "result": {
+    "big": {
+     "box": [
+      23.75,
+      168.75,
+      64.25,
+      131.5
+     ],
+     "ink_bottom": 273.296875,
+     "ink_top": 194.6875
+    },
+    "small": {
+     "box": [
+      88.625,
+      253.75,
+      58.125,
+      46.75
+     ],
+     "ink_bottom": 289.386363632977,
+     "ink_top": 260.8716216236353
+    },
+    "box_bottom_diff": 0.25,
+    "ink_bottom_diff": 16.08948863297701
+   }
+  },
+  {
+   "id": "tw1.2",
+   "type": "wrap",
+   "spec": {
+    "type": "wrap",
+    "key": "lineheight32",
+    "str": "The quick brown fox jumps over the dog",
+    "px": 20,
+    "css": {
+     "line-height": "32px"
+    },
+    "outline": "pink",
+    "box": {
+     "x": 24,
+     "y": 312,
+     "w": 136,
+     "h": null
+    },
+    "slot": {
+     "x": 24,
+     "y": 312,
+     "w": 136,
+     "h": 114
+    },
+    "border": 1,
+    "id": "tw1.2"
+   },
+   "result": {
+    "box": {
+     "top": 312.1544810392674,
+     "bottom": 441.2343694096601,
+     "left": 24.63697973713034,
+     "right": 160.38199943438914
+    },
+    "content_h": 127.07988837039267,
+    "lines": 4,
+    "line_boxes": [
+     {
+      "top": 6.095518960732591,
+      "bottom": 29.09551896073259,
+      "left": 1.2380202628696608,
+      "right": 36.881999434389144
+     },
+     {
+      "top": 38.09551896073259,
+      "bottom": 56.59551896073259,
+      "left": 1.2380202628696608,
+      "right": 33.381999434389144
+     },
+     {
+      "top": 69.97051896073259,
+      "bottom": 93.47051896073259,
+      "left": 1.2380202628696608,
+      "right": 23.756999434389144
+     },
+     {
+      "top": 102.47051896073259,
+      "bottom": 125.59551896073259,
+      "left": 1.2380202628696608,
+      "right": 57.756999434389144
+     }
+    ],
+    "line_pitch": 32.125,
+    "align": "left",
+    "align_spread": {
+     "left": 0.0,
+     "right": 34.0,
+     "center": 34.0
+    },
+    "ellipsis": false,
+    "ink_outside_box": false
+   }
+  },
+  {
+   "id": "tw1.3",
+   "type": "wrap",
+   "spec": {
+    "type": "wrap",
+    "key": "lh72-at48",
+    "str": "Hg8",
+    "px": 48,
+    "css": {
+     "line-height": "72px"
+    },
+    "outline": "pink",
+    "box": {
+     "x": 180,
+     "y": 28,
+     "w": 110,
+     "h": null
+    },
+    "slot": {
+     "x": 180,
+     "y": 28,
+     "w": 110,
+     "h": 110
+    },
+    "border": 1,
+    "id": "tw1.3"
+   },
+   "result": {
+    "box": {
+     "top": 27.99530078296323,
+     "bottom": 102.43354184337008,
+     "left": 180.5501994783766,
+     "right": 290.0176031553536
+    },
+    "content_h": 72.43824106040685,
+    "lines": 1,
+    "line_boxes": [
+     {
+      "top": 15.62969921703677,
+      "bottom": 68.25469921703677,
+      "left": 2.074800521623388,
+      "right": 11.392603155353584
+     }
+    ],
+    "ellipsis": false,
+    "ink_outside_box": false
+   }
+  },
+  {
+   "id": "tw1.4",
+   "type": "wrap",
+   "spec": {
+    "type": "wrap",
+    "key": "lh48-at48",
+    "str": "Hg8",
+    "px": 48,
+    "css": {
+     "line-height": "48px"
+    },
+    "outline": "pink",
+    "box": {
+     "x": 180,
+     "y": 170,
+     "w": 110,
+     "h": null
+    },
+    "slot": {
+     "x": 180,
+     "y": 170,
+     "w": 110,
+     "h": 98
+    },
+    "border": 1,
+    "id": "tw1.4"
+   },
+   "result": {
+    "box": {
+     "top": 170.08222678747333,
+     "bottom": 220.08885997313632,
+     "left": 179.69142376681614,
+     "right": 288.8821543634735
+    },
+    "content_h": 48.00663318566299,
+    "lines": 1,
+    "line_boxes": [
+     {
+      "top": 3.4177732125266687,
+      "bottom": 46.66777321252667,
+      "left": 2.3085762331838566,
+      "right": 11.00715436347349
+     }
+    ],
+    "ellipsis": false,
+    "ink_outside_box": false
+   }
+  },
+  {
+   "id": "tw1.5",
+   "type": "wrap",
+   "spec": {
+    "type": "wrap",
+    "key": "lh40-at48-h48",
+    "str": "Hg8",
+    "px": 48,
+    "css": {
+     "line-height": "40px"
+    },
+    "outline": "pink",
+    "box": {
+     "x": 166,
+     "y": 312,
+     "w": 110,
+     "h": 48
+    },
+    "slot": {
+     "x": 166,
+     "y": 312,
+     "w": 110,
+     "h": 98
+    },
+    "border": 1,
+    "id": "tw1.5"
+   },
+   "result": {
+    "box": {
+     "top": 312.1967348596423,
+     "bottom": 360.38830708450894,
+     "left": 166.0110222868217,
+     "right": 275.3694175515303
+    },
+    "content_h": 46.19157222486666,
+    "lines": 1,
+    "line_boxes": [
+     {
+      "top": 2.1782651403577233,
+      "bottom": 43.92826514035772,
+      "left": 2.4889777131782864,
+      "right": 11.369417551530319
+     }
+    ],
+    "ellipsis": false,
+    "ink_outside_box": false
+   }
+  }
+ ],
+ "layout": "band10pro.json",
+ "measured_at": "2026-09-27T20:49:32"
+}

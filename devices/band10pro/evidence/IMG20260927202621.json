@@ -1,0 +1,719 @@
+{
+ "photo": "IMG20260927202621.jpg",
+ "page": 13,
+ "page_key": "bx2",
+ "fit": {
+  "rms_band_px": [
+   0.332,
+   0.173
+  ],
+  "ticks": 86,
+  "dropped": 0,
+  "bloom_px": 1.11,
+  "photo_px_per_band_px": [
+   3.02,
+   2.999
+  ],
+  "edges": {
+   "left_first_visible_x": 2.495249061669938,
+   "right_last_visible_x": 333.8805121046144,
+   "ticks_seen_left": 43,
+   "ticks_seen_right": 43,
+   "first_tick_y_left": 30,
+   "last_tick_y_left": 450
+  },
+  "ok": true,
+  "notes": []
+ },
+ "samples": [
+  {
+   "id": "bx2.0",
+   "type": "rect",
+   "spec": {
+    "type": "rect",
+    "key": "radius",
+    "what": "border-radius 20 on a 72 x 56 white fill",
+    "fact": "css.border_radius",
+    "slot": {
+     "x": 24,
+     "y": 28,
+     "w": 88,
+     "h": 96
+    },
+    "metric": "corners",
+    "colour": "white",
+    "region": [
+     26,
+     42,
+     110,
+     110
+    ],
+    "hyp": {
+     "honoured": {
+      "tl": 20,
+      "tr": 20,
+      "br": 20,
+      "bl": 20
+     },
+     "ignored": {
+      "tl": 0,
+      "tr": 0,
+      "br": 0,
+      "bl": 0
+     }
+    },
+    "id": "bx2.0"
+   },
+   "result": {
+    "radius": {
+     "tl": 20.49,
+     "tr": 21.34,
+     "bl": 20.91,
+     "br": 23.47
+    },
+    "bbox": [
+     33.38,
+     48.25,
+     71.38,
+     56.0
+    ],
+    "verdict": "honoured",
+    "distances": {
+     "honoured": 6.21,
+     "ignored": 86.21
+    },
+    "margin": 80.0
+   }
+  },
+  {
+   "id": "bx2.1",
+   "type": "rect",
+   "spec": {
+    "type": "rect",
+    "key": "radius-tl",
+    "what": "border-top-left-radius 24 only",
+    "fact": "css.border_radius_per_corner",
+    "slot": {
+     "x": 118,
+     "y": 28,
+     "w": 88,
+     "h": 96
+    },
+    "metric": "corners",
+    "colour": "white",
+    "region": [
+     120,
+     42,
+     204,
+     110
+    ],
+    "hyp": {
+     "honoured": {
+      "tl": 24,
+      "tr": 0,
+      "br": 0,
+      "bl": 0
+     },
+     "ignored": {
+      "tl": 0,
+      "tr": 0,
+      "br": 0,
+      "bl": 0
+     },
+     "all_corners": {
+      "tl": 24,
+      "tr": 24,
+      "br": 24,
+      "bl": 24
+     }
+    },
+    "id": "bx2.1"
+   },
+   "result": {
+    "radius": {
+     "tl": 2.56,
+     "tr": 3.84,
+     "bl": 4.69,
+     "br": 3.84
+    },
+    "bbox": [
+     125.88,
+     48.12,
+     72.12,
+     56.38
+    ],
+    "verdict": "ignored",
+    "distances": {
+     "honoured": 33.81,
+     "ignored": 14.93,
+     "all_corners": 81.07
+    },
+    "margin": 18.880000000000003
+   }
+  },
+  {
+   "id": "bx2.2",
+   "type": "rect",
+   "spec": {
+    "type": "rect",
+    "key": "radius-override",
+    "what": "border-radius 20 then border-top-left-radius 0",
+    "fact": "css.border_radius_per_corner_override",
+    "slot": {
+     "x": 212,
+     "y": 28,
+     "w": 88,
+     "h": 96
+    },
+    "metric": "corners",
+    "colour": "white",
+    "region": [
+     214,
+     42,
+     298,
+     110
+    ],
+    "hyp": {
+     "honoured": {
+      "tl": 0,
+      "tr": 20,
+      "br": 20,
+      "bl": 20
+     },
+     "ignored": {
+      "tl": 20,
+      "tr": 20,
+      "br": 20,
+      "bl": 20
+     },
+     "all_zero": {
+      "tl": 0,
+      "tr": 0,
+      "br": 0,
+      "bl": 0
+     }
+    },
+    "id": "bx2.2"
+   },
+   "result": {
+    "radius": {
+     "tl": 20.49,
+     "tr": 20.91,
+     "bl": 20.49,
+     "br": 22.19
+    },
+    "bbox": [
+     218.75,
+     48.38,
+     72.0,
+     56.5
+    ],
+    "verdict": "ignored",
+    "distances": {
+     "honoured": 24.08,
+     "ignored": 4.08,
+     "all_zero": 84.08
+    },
+    "margin": 20.0
+   }
+  },
+  {
+   "id": "bx2.3",
+   "type": "rect",
+   "spec": {
+    "type": "rect",
+    "key": "radius-ring",
+    "what": "border 3 white + border-radius 16, no fill",
+    "fact": "css.border_radius_outline",
+    "slot": {
+     "x": 24,
+     "y": 132,
+     "w": 88,
+     "h": 96
+    },
+    "metric": "corners",
+    "colour": "white",
+    "region": [
+     26,
+     146,
+     110,
+     214
+    ],
+    "hyp": {
+     "honoured": {
+      "tl": 16,
+      "tr": 16,
+      "br": 16,
+      "bl": 16
+     },
+     "ignored": {
+      "tl": 0,
+      "tr": 0,
+      "br": 0,
+      "bl": 0
+     }
+    },
+    "id": "bx2.3"
+   },
+   "result": {
+    "radius": {
+     "tl": 17.07,
+     "tr": 17.5,
+     "bl": 16.64,
+     "br": 19.63
+    },
+    "bbox": [
+     33.0,
+     151.12,
+     71.75,
+     57.25
+    ],
+    "verdict": "honoured",
+    "distances": {
+     "honoured": 6.84,
+     "ignored": 70.84
+    },
+    "margin": 64.0
+   }
+  },
+  {
+   "id": "bx2.4",
+   "type": "rect",
+   "spec": {
+    "type": "rect",
+    "key": "pill",
+    "what": "border-radius 999 on 72 x 32: clamped to 16?",
+    "fact": "css.border_radius_clamp",
+    "slot": {
+     "x": 118,
+     "y": 132,
+     "w": 88,
+     "h": 96
+    },
+    "metric": "corners",
+    "colour": "white",
+    "region": [
+     120,
+     158,
+     204,
+     202
+    ],
+    "hyp": {
+     "clamped": {
+      "tl": 16,
+      "tr": 16,
+      "br": 16,
+      "bl": 16
+     },
+     "square": {
+      "tl": 0,
+      "tr": 0,
+      "br": 0,
+      "bl": 0
+     }
+    },
+    "id": "bx2.4"
+   },
+   "result": {
+    "radius": {
+     "tl": 16.64,
+     "tr": 17.07,
+     "bl": 16.22,
+     "br": 20.06
+    },
+    "bbox": [
+     126.0,
+     164.0,
+     71.5,
+     32.0
+    ],
+    "verdict": "clamped",
+    "distances": {
+     "clamped": 5.99,
+     "square": 69.99
+    },
+    "margin": 63.99999999999999
+   }
+  },
+  {
+   "id": "bx2.5",
+   "type": "rect",
+   "spec": {
+    "type": "rect",
+    "key": "overflow-hidden",
+    "what": "overflow hidden 60 x 40 box, child 90 wide",
+    "fact": "css.overflow_hidden",
+    "slot": {
+     "x": 212,
+     "y": 132,
+     "w": 88,
+     "h": 96
+    },
+    "metric": "bbox",
+    "colour": "white",
+    "region": [
+     212,
+     132,
+     300,
+     228
+    ],
+    "hyp": {
+     "clips_at_padding_box": [
+      217,
+      157,
+      58,
+      20
+     ],
+     "no_clip": [
+      217,
+      157,
+      90,
+      20
+     ]
+    },
+    "id": "bx2.5"
+   },
+   "result": {
+    "bbox": [
+     215.38,
+     155.62,
+     59.62,
+     22.25
+    ],
+    "verdict": "clips_at_padding_box",
+    "distances": {
+     "clips_at_padding_box": 6.88,
+     "no_clip": 35.62
+    },
+    "margin": 28.74,
+    "missing": false
+   }
+  },
+  {
+   "id": "bx2.6",
+   "type": "rect",
+   "spec": {
+    "type": "rect",
+    "key": "overflow-visible",
+    "what": "default overflow, 60 x 40 box, child 90 wide",
+    "fact": "css.overflow_visible",
+    "slot": {
+     "x": 24,
+     "y": 236,
+     "w": 88,
+     "h": 96
+    },
+    "metric": "bbox",
+    "colour": "white",
+    "region": [
+     24,
+     236,
+     122,
+     332
+    ],
+    "hyp": {
+     "clips": [
+      29,
+      261,
+      58,
+      20
+     ],
+     "draws_outside": [
+      29,
+      261,
+      90,
+      20
+     ],
+     "child_shrunk": [
+      29,
+      261,
+      58,
+      20
+     ]
+    },
+    "id": "bx2.6"
+   },
+   "result": {
+    "bbox": [
+     29.12,
+     259.75,
+     59.5,
+     21.5
+    ],
+    "verdict": "child_shrunk",
+    "distances": {
+     "clips": 4.38,
+     "draws_outside": 33.38,
+     "child_shrunk": 4.38
+    },
+    "margin": 0.0,
+    "missing": false
+   }
+  },
+  {
+   "id": "bx2.7",
+   "type": "rect",
+   "spec": {
+    "type": "rect",
+    "key": "overflow-radius",
+    "what": "overflow hidden + radius 20: is a full-size child clipped round?",
+    "fact": "css.overflow_radius_clip",
+    "slot": {
+     "x": 118,
+     "y": 236,
+     "w": 88,
+     "h": 96
+    },
+    "metric": "corners",
+    "colour": "white",
+    "region": [
+     126,
+     248,
+     198,
+     320
+    ],
+    "hyp": {
+     "round_clip": {
+      "tl": 20,
+      "tr": 20,
+      "br": 20,
+      "bl": 20
+     },
+     "square_clip": {
+      "tl": 0,
+      "tr": 0,
+      "br": 0,
+      "bl": 0
+     }
+    },
+    "id": "bx2.7"
+   },
+   "result": {
+    "radius": {
+     "tl": 21.34,
+     "tr": 21.34,
+     "bl": 22.19,
+     "br": 22.19
+    },
+    "bbox": [
+     131.75,
+     253.5,
+     59.62,
+     59.88
+    ],
+    "verdict": "round_clip",
+    "distances": {
+     "round_clip": 7.06,
+     "square_clip": 87.06
+    },
+    "margin": 80.0
+   }
+  },
+  {
+   "id": "bx2.8",
+   "type": "rect",
+   "spec": {
+    "type": "rect",
+    "key": "opacity",
+    "what": "white fill at opacity 0.5 beside a #808080 fill",
+    "fact": "css.opacity",
+    "slot": {
+     "x": 212,
+     "y": 236,
+     "w": 88,
+     "h": 96
+    },
+    "metric": "luma_pair",
+    "a": [
+     222,
+     262,
+     250,
+     306
+    ],
+    "b": [
+     262,
+     262,
+     290,
+     306
+    ],
+    "hyp": {
+     "honoured": {
+      "ratio": 1
+     },
+     "ignored_full": {
+      "ratio": 2
+     },
+     "invisible": {
+      "ratio": 0
+     }
+    },
+    "id": "bx2.8"
+   },
+   "result": {
+    "luma_a": 133.7,
+    "luma_b": 138.6,
+    "ratio": 0.964,
+    "verdict": "honoured",
+    "distances": {
+     "honoured": 0.04,
+     "ignored_full": 1.04,
+     "invisible": 0.96
+    },
+    "margin": 0.9199999999999999
+   }
+  },
+  {
+   "id": "bx2.9",
+   "type": "rect",
+   "spec": {
+    "type": "rect",
+    "key": "z-index",
+    "what": "white z-index 2 drawn before cyan z-index 1, overlapping",
+    "fact": "css.z_index",
+    "slot": {
+     "x": 24,
+     "y": 340,
+     "w": 88,
+     "h": 96
+    },
+    "metric": "colour_at",
+    "points": {
+     "overlap": [
+      68,
+      392
+     ]
+    },
+    "hyp": {
+     "honoured": {
+      "overlap": "white"
+     },
+     "ignored": {
+      "overlap": "cyan"
+     }
+    },
+    "id": "bx2.9"
+   },
+   "result": {
+    "colours": {
+     "overlap": "cyan"
+    },
+    "verdict": "ignored",
+    "distances": {
+     "honoured": 10,
+     "ignored": 0
+    },
+    "margin": 10
+   }
+  },
+  {
+   "id": "bx2.10",
+   "type": "rect",
+   "spec": {
+    "type": "rect",
+    "key": "translate",
+    "what": "static transform translateX(20px) on a 20 x 20 white square at +10",
+    "fact": "css.transform_translate",
+    "slot": {
+     "x": 118,
+     "y": 340,
+     "w": 88,
+     "h": 96
+    },
+    "metric": "bbox",
+    "colour": "white",
+    "region": [
+     118,
+     340,
+     206,
+     436
+    ],
+    "hyp": {
+     "honoured": [
+      148,
+      378,
+      20,
+      20
+     ],
+     "ignored": [
+      128,
+      378,
+      20,
+      20
+     ]
+    },
+    "id": "bx2.10"
+   },
+   "result": {
+    "bbox": [
+     147.5,
+     377.88,
+     20.12,
+     20.25
+    ],
+    "verdict": "honoured",
+    "distances": {
+     "honoured": 1.0,
+     "ignored": 20.0
+    },
+    "margin": 19.0,
+    "missing": false
+   }
+  },
+  {
+   "id": "bx2.11",
+   "type": "rect",
+   "spec": {
+    "type": "rect",
+    "key": "rotate",
+    "what": "static rotate(45deg) on a 56 x 4 bar",
+    "fact": "css.transform_rotate",
+    "slot": {
+     "x": 212,
+     "y": 340,
+     "w": 88,
+     "h": 96
+    },
+    "metric": "bbox",
+    "colour": "white",
+    "region": [
+     212,
+     340,
+     300,
+     436
+    ],
+    "hyp": {
+     "honoured": [
+      235,
+      367,
+      42,
+      42
+     ],
+     "ignored": [
+      228,
+      386,
+      56,
+      4
+     ]
+    },
+    "id": "bx2.11"
+   },
+   "result": {
+    "bbox": [
+     224.5,
+     386.75,
+     41.5,
+     41.5
+    ],
+    "verdict": "honoured",
+    "distances": {
+     "honoured": 31.25,
+     "ignored": 56.25
+    },
+    "margin": 25.0,
+    "missing": false
+   }
+  }
+ ],
+ "layout": "band10pro.json",
+ "measured_at": "2026-09-27T20:49:34"
+}

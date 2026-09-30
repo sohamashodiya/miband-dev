@@ -1,0 +1,175 @@
+{
+ "generated_by": "hand (from bart-band index.ux of that version)",
+ "description": "BART Watch 2.0.11 calibration screen (photo calib.jpg, 2026-09-27): explicit 1.5 em heights vs natural",
+ "device": "band10pro",
+ "screen": {
+  "w": 336,
+  "h": 480
+ },
+ "frame": {
+  "tick_every": 10,
+  "tick_len": [
+   8,
+   14,
+   22
+  ],
+  "yellow_every": 100,
+  "ticks": [
+   2,
+   0,
+   0,
+   0,
+   0,
+   1,
+   0,
+   0,
+   0,
+   0,
+   2,
+   0,
+   0,
+   0,
+   0,
+   1,
+   0,
+   0,
+   0,
+   0,
+   2,
+   0,
+   0,
+   0,
+   0,
+   1,
+   0,
+   0,
+   0,
+   0,
+   2,
+   0,
+   0,
+   0,
+   0,
+   1,
+   0,
+   0,
+   0,
+   0,
+   2,
+   0,
+   0,
+   0,
+   0,
+   1,
+   0,
+   0
+  ],
+  "bar": {
+   "x": 110,
+   "y": 456,
+   "len": 200,
+   "h": 4
+  },
+  "code": null,
+  "label": {
+   "x": 50,
+   "y": 4,
+   "px": 16
+  },
+  "colours": {
+   "white": "#ffffff",
+   "yellow": "#ffd60a",
+   "pink": "#ff2d95",
+   "cyan": "#00e5ff",
+   "green": "#3cff3c",
+   "grey": "#9a9a9a",
+   "dim": "#505050"
+  }
+ },
+ "pages": [
+  {
+   "id": 0,
+   "key": "legacy-bart-2.0.11",
+   "title": "legacy-bart-2.0.11",
+   "bar": {
+    "x": 110,
+    "y": 456,
+    "len": 200,
+    "h": 4
+   },
+   "code": null,
+   "notes": [],
+   "observe": [],
+   "samples": [
+    {
+     "id": "b11.8",
+     "type": "text_v",
+     "str": "8",
+     "px": 240,
+     "regime": "tall",
+     "weight": "bold",
+     "outline": "pink",
+     "box": {
+      "x": 28,
+      "y": 40,
+      "w": 150,
+      "h": 360
+     },
+     "height_css": 360,
+     "border": 1
+    },
+    {
+     "id": "b11.3",
+     "type": "text_v",
+     "str": "3",
+     "px": 140,
+     "regime": "tall",
+     "weight": "bold",
+     "outline": "pink",
+     "box": {
+      "x": 184,
+      "y": 40,
+      "w": 90,
+      "h": 210
+     },
+     "height_css": 210,
+     "border": 1
+    },
+    {
+     "id": "b11.0",
+     "type": "text_v",
+     "str": "0",
+     "px": 96,
+     "regime": "tall",
+     "weight": "bold",
+     "outline": "pink",
+     "box": {
+      "x": 248,
+      "y": 262,
+      "w": 64,
+      "h": 144
+     },
+     "height_css": 144,
+     "border": 1
+    },
+    {
+     "id": "b11.6",
+     "type": "text_v",
+     "str": "6",
+     "px": 96,
+     "regime": "nat",
+     "weight": "bold",
+     "outline": "cyan",
+     "box": {
+      "x": 182,
+      "y": 262,
+      "w": 64,
+      "h": null
+     },
+     "height_css": "auto",
+     "border": 1
+    }
+   ]
+  }
+ ]
+}

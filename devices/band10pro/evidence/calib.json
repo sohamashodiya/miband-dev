@@ -1,0 +1,228 @@
+{
+ "photo": "calib.jpg",
+ "page": 0,
+ "page_key": "legacy-bart-2.0.11",
+ "fit": {
+  "rms_band_px": [
+   0.26,
+   0.119
+  ],
+  "ticks": 86,
+  "dropped": 0,
+  "bloom_px": 1.3,
+  "photo_px_per_band_px": [
+   3.332,
+   3.305
+  ],
+  "edges": {
+   "left_first_visible_x": 2.4423520931802205,
+   "right_last_visible_x": 333.6471234555479,
+   "ticks_seen_left": 43,
+   "ticks_seen_right": 43,
+   "first_tick_y_left": 30,
+   "last_tick_y_left": 450
+  },
+  "ok": true,
+  "notes": []
+ },
+ "samples": [
+  {
+   "id": "b11.8",
+   "type": "text_v",
+   "spec": {
+    "id": "b11.8",
+    "type": "text_v",
+    "str": "8",
+    "px": 240,
+    "regime": "tall",
+    "weight": "bold",
+    "outline": "pink",
+    "box": {
+     "x": 28,
+     "y": 40,
+     "w": 150,
+     "h": 360
+    },
+    "height_css": 360,
+    "border": 1
+   },
+   "result": {
+    "box": {
+     "top": 39.86277562270315,
+     "bottom": 400.1294396211523,
+     "left": 29.18214201601507,
+     "right": 178.1815621767707,
+     "wrapped": false,
+     "inferred": []
+    },
+    "box_h": 360.26666399844913,
+    "content_h": 358.26666399844913,
+    "ink_top": 80.59555771311372,
+    "ink_bottom": 276.74139104520526,
+    "clipped_bottom": false,
+    "clipped_top": false,
+    "clipped_right": true,
+    "lines": 1,
+    "line_h": 358.26666399844913,
+    "glyphs": {
+     "8": {
+      "top": 80.63722437729686,
+      "bottom": 276.76222437729683,
+      "left": 11.94285798398493,
+      "right": 145.31785798398494
+     }
+    },
+    "ink_mid_minus_box_mid": -0.46485762006508935
+   }
+  },
+  {
+   "id": "b11.3",
+   "type": "text_v",
+   "spec": {
+    "id": "b11.3",
+    "type": "text_v",
+    "str": "3",
+    "px": 140,
+    "regime": "tall",
+    "weight": "bold",
+    "outline": "pink",
+    "box": {
+     "x": 184,
+     "y": 40,
+     "w": 90,
+     "h": 210
+    },
+    "height_css": 210,
+    "border": 1
+   },
+   "result": {
+    "box": {
+     "top": 40.03435708688912,
+     "bottom": 249.70565055901457,
+     "left": 184.2471724787936,
+     "right": 273.49986340154976,
+     "wrapped": false,
+     "inferred": []
+    },
+    "box_h": 209.67129347212546,
+    "content_h": 207.67129347212546,
+    "ink_top": 47.67814291162076,
+    "ink_bottom": 161.52814291311088,
+    "clipped_bottom": false,
+    "clipped_top": false,
+    "clipped_right": false,
+    "lines": 1,
+    "line_h": 207.67129347212546,
+    "glyphs": {
+     "3": {
+      "top": 47.71564291311088,
+      "bottom": 161.46564291311088,
+      "left": 5.252827521206399,
+      "right": 79.3778275212064
+     }
+    },
+    "ink_mid_minus_box_mid": 0.7674961763030979
+   }
+  },
+  {
+   "id": "b11.0",
+   "type": "text_v",
+   "spec": {
+    "id": "b11.0",
+    "type": "text_v",
+    "str": "0",
+    "px": 96,
+    "regime": "tall",
+    "weight": "bold",
+    "outline": "pink",
+    "box": {
+     "x": 248,
+     "y": 262,
+     "w": 64,
+     "h": 144
+    },
+    "height_css": 144,
+    "border": 1
+   },
+   "result": {
+    "box": {
+     "top": 261.76583081677825,
+     "bottom": 406.17546500471934,
+     "left": 247.76065691927514,
+     "right": 311.40385877588443,
+     "wrapped": false,
+     "inferred": []
+    },
+    "box_h": 144.4096341879411,
+    "content_h": 142.4096341879411,
+    "ink_top": 30.421669183221752,
+    "ink_bottom": 110.53774060860007,
+    "clipped_bottom": false,
+    "clipped_top": false,
+    "clipped_right": false,
+    "lines": 1,
+    "line_h": 142.4096341879411,
+    "glyphs": {
+     "0": {
+      "top": 30.484169183221752,
+      "bottom": 110.48416918322175,
+      "left": 3.239343080724865,
+      "right": 58.239343080724865
+     }
+    },
+    "ink_mid_minus_box_mid": -0.7251121980596338
+   }
+  },
+  {
+   "id": "b11.6",
+   "type": "text_v",
+   "spec": {
+    "id": "b11.6",
+    "type": "text_v",
+    "str": "6",
+    "px": 96,
+    "regime": "nat",
+    "weight": "bold",
+    "outline": "cyan",
+    "box": {
+     "x": 182,
+     "y": 262,
+     "w": 64,
+     "h": null
+    },
+    "height_css": "auto",
+    "border": 1
+   },
+   "result": {
+    "box": {
+     "top": 261.58102367688025,
+     "bottom": 390.8902632865993,
+     "left": 182.0196710340941,
+     "right": 244.80539027833805,
+     "wrapped": false,
+     "inferred": []
+    },
+    "box_h": 129.30923960971904,
+    "content_h": 127.30923960971904,
+    "ink_top": 23.936021776310554,
+    "ink_bottom": 102.59397632013952,
+    "clipped_bottom": false,
+    "clipped_top": false,
+    "clipped_right": false,
+    "lines": 1,
+    "line_h": 127.30923960971904,
+    "glyphs": {
+     "6": {
+      "top": 23.91897632311975,
+      "bottom": 102.54397632311975,
+      "left": 3.6053289659058976,
+      "right": 56.9803289659059
+     }
+    },
+    "ink_mid_minus_box_mid": -0.3896207566344856
+   }
+  }
+ ],
+ "layout": "legacy-bart-2.0.11.json",
+ "measured_at": "2026-09-27T20:49:24"
+}

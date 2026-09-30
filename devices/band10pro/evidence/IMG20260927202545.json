@@ -1,0 +1,382 @@
+{
+ "photo": "IMG20260927202545.jpg",
+ "page": 6,
+ "page_key": "th1",
+ "fit": {
+  "rms_band_px": [
+   0.287,
+   0.246
+  ],
+  "ticks": 86,
+  "dropped": 0,
+  "bloom_px": 0.95,
+  "photo_px_per_band_px": [
+   3.352,
+   3.318
+  ],
+  "edges": {
+   "left_first_visible_x": 2.2121828153138132,
+   "right_last_visible_x": 334.4034265201903,
+   "ticks_seen_left": 43,
+   "ticks_seen_right": 43,
+   "first_tick_y_left": 30,
+   "last_tick_y_left": 450
+  },
+  "ok": true,
+  "notes": []
+ },
+ "samples": [
+  {
+   "id": "th1.0",
+   "type": "text_w",
+   "spec": {
+    "type": "text_w",
+    "str": "0000",
+    "px": 96,
+    "weight": "bold",
+    "outline": "pink",
+    "box": {
+     "x": 24,
+     "y": 28,
+     "w": null,
+     "h": null
+    },
+    "est_w": 246,
+    "border": 1,
+    "id": "th1.0"
+   },
+   "result": {
+    "box": {
+     "top": 27.833263069139967,
+     "bottom": 157.02761627906978,
+     "left": 25.135162173546757,
+     "right": 277.364381413911,
+     "wrapped": false,
+     "inferred": []
+    },
+    "outer_w": 252.22921924036427,
+    "content_w": 250.22921924036427,
+    "content_h": 127.1943532099298,
+    "ink_left": 4.322074667774235,
+    "ink_right": 4.051881413911019
+   }
+  },
+  {
+   "id": "th1.1",
+   "type": "text_w",
+   "spec": {
+    "type": "text_w",
+    "str": "0000",
+    "px": 48,
+    "weight": "bold",
+    "outline": "pink",
+    "box": {
+     "x": 24,
+     "y": 166,
+     "w": null,
+     "h": null
+    },
+    "est_w": 123,
+    "border": 1,
+    "id": "th1.1"
+   },
+   "result": {
+    "box": {
+     "top": 166.03453811101906,
+     "bottom": 232.0684575389948,
+     "left": 24.92839861751152,
+     "right": 154.64466208133973,
+     "wrapped": false,
+     "inferred": []
+    },
+    "outer_w": 129.71626346382823,
+    "content_w": 127.71626346382823,
+    "content_h": 64.03391942797575,
+    "ink_left": 2.1931291586105743,
+    "ink_right": 2.0274745813397317
+   }
+  },
+  {
+   "id": "th1.2",
+   "type": "text_w",
+   "spec": {
+    "type": "text_w",
+    "str": "1111",
+    "px": 48,
+    "weight": "bold",
+    "outline": "pink",
+    "box": {
+     "x": 159,
+     "y": 166,
+     "w": null,
+     "h": null
+    },
+    "est_w": 110,
+    "border": 1,
+    "id": "th1.2"
+   },
+   "result": {
+    "box": {
+     "top": 165.89983013589128,
+     "bottom": 231.72326807228916,
+     "left": 159.55628334385915,
+     "right": 248.4782072368421,
+     "wrapped": false,
+     "inferred": []
+    },
+    "outer_w": 88.92192389298296,
+    "content_w": 86.92192389298296,
+    "content_h": 63.82343793639788,
+    "ink_left": 1.3812166561408503,
+    "ink_right": 4.61883223684211
+   }
+  },
+  {
+   "id": "th1.3",
+   "type": "text_w",
+   "spec": {
+    "type": "text_w",
+    "str": "2222",
+    "px": 48,
+    "weight": "bold",
+    "outline": "pink",
+    "box": {
+     "x": 24,
+     "y": 240,
+     "w": null,
+     "h": null
+    },
+    "est_w": 115,
+    "border": 1,
+    "id": "th1.3"
+   },
+   "result": {
+    "box": {
+     "top": 240.13513033175354,
+     "bottom": 306.34599673202615,
+     "left": 24.64253670473083,
+     "right": 142.46212417788914,
+     "wrapped": false,
+     "inferred": []
+    },
+    "outer_w": 117.81958747315831,
+    "content_w": 115.81958747315831,
+    "content_h": 64.21086640027261,
+    "ink_left": 1.41996329526917,
+    "ink_right": 1.2746241778891374
+   }
+  },
+  {
+   "id": "th1.4",
+   "type": "text_w",
+   "spec": {
+    "type": "text_w",
+    "str": "3333",
+    "px": 48,
+    "weight": "bold",
+    "outline": "pink",
+    "box": {
+     "x": 151,
+     "y": 240,
+     "w": null,
+     "h": null
+    },
+    "est_w": 116,
+    "border": 1,
+    "id": "th1.4"
+   },
+   "result": {
+    "box": {
+     "top": 239.6751450365277,
+     "bottom": 305.89383865248226,
+     "left": 151.50262186938227,
+     "right": 272.36276809651474,
+     "wrapped": false,
+     "inferred": []
+    },
+    "outer_w": 120.86014622713247,
+    "content_w": 118.86014622713247,
+    "content_h": 64.21869361595455,
+    "ink_left": 1.442231071355934,
+    "ink_right": 1.300268096514742
+   }
+  },
+  {
+   "id": "th1.5",
+   "type": "text_w",
+   "spec": {
+    "type": "text_w",
+    "str": "4444",
+    "px": 48,
+    "weight": "bold",
+    "outline": "pink",
+    "box": {
+     "x": 24,
+     "y": 314,
+     "w": null,
+     "h": null
+    },
+    "est_w": 119,
+    "border": 1,
+    "id": "th1.5"
+   },
+   "result": {
+    "box": {
+     "top": 314.4874682741117,
+     "bottom": 380.73165529010237,
+     "left": 24.56585743801653,
+     "right": 146.1404137879243,
+     "wrapped": false,
+     "inferred": []
+    },
+    "outer_w": 121.57455634990777,
+    "content_w": 119.57455634990777,
+    "content_h": 64.24418701599069,
+    "ink_left": 1.371642561983471,
+    "ink_right": 1.2029137879243024
+   }
+  },
+  {
+   "id": "th1.6",
+   "type": "text_w",
+   "spec": {
+    "type": "text_w",
+    "str": "5555",
+    "px": 48,
+    "weight": "bold",
+    "outline": "pink",
+    "box": {
+     "x": 155,
+     "y": 314,
+     "w": null,
+     "h": null
+    },
+    "est_w": 117,
+    "border": 1,
+    "id": "th1.6"
+   },
+   "result": {
+    "box": {
+     "top": 313.9598381058147,
+     "bottom": 380.60783617424244,
+     "left": 155.1274115755627,
+     "right": 276.3595779220779,
+     "wrapped": false,
+     "inferred": []
+    },
+    "outer_w": 121.23216634651521,
+    "content_w": 119.23216634651521,
+    "content_h": 64.64799806842774,
+    "ink_left": 1.5065169953336977,
+    "ink_right": 1.2970779220779036
+   }
+  },
+  {
+   "id": "th1.7",
+   "type": "text_w",
+   "spec": {
+    "type": "text_w",
+    "str": "8888",
+    "px": 32,
+    "weight": "bold",
+    "outline": "pink",
+    "box": {
+     "x": 24,
+     "y": 388,
+     "w": null,
+     "h": null
+    },
+    "est_w": 83,
+    "border": 1,
+    "id": "th1.7"
+   },
+   "result": {
+    "box": {
+     "top": 388.7212134632418,
+     "bottom": 432.4484122653863,
+     "left": 24.803037471612413,
+     "right": 110.28756671114076,
+     "wrapped": false,
+     "inferred": []
+    },
+    "outer_w": 85.48452923952834,
+    "content_w": 83.48452923952834,
+    "content_h": 41.72719880214453,
+    "ink_left": 1.384462528387587,
+    "ink_right": 1.2250667111407552
+   }
+  },
+  {
+   "id": "th1.8",
+   "type": "text_w",
+   "spec": {
+    "type": "text_w",
+    "str": "min",
+    "px": 32,
+    "weight": "bold",
+    "outline": "pink",
+    "box": {
+     "x": 119,
+     "y": 388,
+     "w": null,
+     "h": null
+    },
+    "est_w": 62,
+    "border": 1,
+    "id": "th1.8"
+   },
+   "result": {
+    "box": {
+     "top": 388.78063031161474,
+     "bottom": 432.77354185218167,
+     "left": 119.0604674796748,
+     "right": 177.8367581023038,
+     "wrapped": false,
+     "inferred": []
+    },
+    "outer_w": 58.776290622629006,
+    "content_w": 56.776290622629006,
+    "content_h": 41.99291154056692,
+    "ink_left": 1.3770325203252014,
+    "ink_right": 1.2742581023038042
+   }
+  },
+  {
+   "id": "th1.9",
+   "type": "text_w",
+   "spec": {
+    "type": "text_w",
+    "str": "NOW",
+    "px": 32,
+    "weight": "bold",
+    "outline": "pink",
+    "box": {
+     "x": 193,
+     "y": 388,
+     "w": null,
+     "h": null
+    },
+    "est_w": 86,
+    "border": 1,
+    "id": "th1.9"
+   },
+   "result": {
+    "box": {
+     "top": 388.60425420168065,
+     "bottom": 432.7441259398496,
+     "left": 192.49690366972476,
+     "right": 278.3885830965909,
+     "wrapped": false,
+     "inferred": []
+    },
+    "outer_w": 85.89167942686612,
+    "content_w": 83.89167942686612,
+    "content_h": 42.13987173816895,
+    "ink_left": 1.3624713302752411,
+    "ink_right": 1.201083096590878
+   }
+  }
+ ],
+ "layout": "band10pro.json",
+ "measured_at": "2026-09-27T20:49:29"
+}

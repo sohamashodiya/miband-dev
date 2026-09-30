@@ -1,0 +1,456 @@
+{
+ "photo": "IMG20260927202616.jpg",
+ "page": 11,
+ "page_key": "tw2",
+ "fit": {
+  "rms_band_px": [
+   0.282,
+   0.162
+  ],
+  "ticks": 85,
+  "dropped": 1,
+  "bloom_px": 1.12,
+  "photo_px_per_band_px": [
+   3.116,
+   3.092
+  ],
+  "edges": {
+   "left_first_visible_x": 2.3229321580716897,
+   "right_last_visible_x": 333.8567441343446,
+   "ticks_seen_left": 43,
+   "ticks_seen_right": 43,
+   "first_tick_y_left": 30,
+   "last_tick_y_left": 450
+  },
+  "ok": true,
+  "notes": []
+ },
+ "samples": [
+  {
+   "id": "tw2.0",
+   "type": "wrap",
+   "spec": {
+    "type": "wrap",
+    "key": "left",
+    "str": "The quick brown fox jumps over the dog",
+    "px": 20,
+    "css": {
+     "text-align": "left"
+    },
+    "outline": "pink",
+    "box": {
+     "x": 24,
+     "y": 28,
+     "w": 136,
+     "h": null
+    },
+    "slot": {
+     "x": 24,
+     "y": 28,
+     "w": 136,
+     "h": 96
+    },
+    "border": 1,
+    "id": "tw2.0"
+   },
+   "result": {
+    "error": "bottom not found"
+   }
+  },
+  {
+   "id": "tw2.1",
+   "type": "wrap",
+   "spec": {
+    "type": "wrap",
+    "key": "center",
+    "str": "The quick brown fox jumps over the dog",
+    "px": 20,
+    "css": {
+     "text-align": "center"
+    },
+    "outline": "pink",
+    "box": {
+     "x": 166,
+     "y": 28,
+     "w": 136,
+     "h": null
+    },
+    "slot": {
+     "x": 166,
+     "y": 28,
+     "w": 136,
+     "h": 96
+    },
+    "border": 1,
+    "id": "tw2.1"
+   },
+   "result": {
+    "error": "bottom ambiguous: 141.7 px for 4 lines of 31.9 (another outline?)"
+   }
+  },
+  {
+   "id": "tw2.2",
+   "type": "wrap",
+   "spec": {
+    "type": "wrap",
+    "key": "right",
+    "str": "The quick brown fox jumps over the dog",
+    "px": 20,
+    "css": {
+     "text-align": "right"
+    },
+    "outline": "pink",
+    "box": {
+     "x": 24,
+     "y": 132,
+     "w": 136,
+     "h": null
+    },
+    "slot": {
+     "x": 24,
+     "y": 132,
+     "w": 136,
+     "h": 96
+    },
+    "border": 1,
+    "id": "tw2.2"
+   },
+   "result": {
+    "error": "covered by tw2.0, which wrapped",
+    "was": {
+     "box": {
+      "top": 133.02518711476372,
+      "bottom": 291.95804455445545,
+      "left": 25.073875041820006,
+      "right": 160.30775908536376
+     },
+     "content_h": 156.93285743969173,
+     "lines": 5,
+     "line_boxes": [
+      {
+       "top": 1.3498128852362754,
+       "bottom": 26.099812885236275,
+       "left": 28.801124958179994,
+       "right": 7.807759085363756
+      },
+      {
+       "top": 29.724812885236275,
+       "bottom": 48.224812885236275,
+       "left": 26.051124958179994,
+       "right": 6.932759085363756
+      },
+      {
+       "top": 56.599812885236275,
+       "bottom": 80.22481288523628,
+       "left": 14.051124958179994,
+       "right": 6.932759085363756
+      },
+      {
+       "top": 84.22481288523628,
+       "bottom": 128.47481288523628,
+       "left": 1.3011249581799937,
+       "right": 1.307759085363756
+      },
+      {
+       "top": 132.47481288523628,
+       "bottom": 155.59981288523628,
+       "left": 1.3011249581799937,
+       "right": 2.682759085363756
+      }
+     ],
+     "line_pitch": 29.5625,
+     "align": "right",
+     "align_spread": {
+      "left": 27.5,
+      "right": 6.5,
+      "center": 22.375
+     },
+     "ellipsis": true,
+     "ink_outside_box": false
+    }
+   }
+  },
+  {
+   "id": "tw2.3",
+   "type": "wrap",
+   "spec": {
+    "type": "wrap",
+    "key": "height40",
+    "str": "The quick brown fox jumps over the dog",
+    "px": 20,
+    "css": {},
+    "outline": "pink",
+    "box": {
+     "x": 166,
+     "y": 132,
+     "w": 136,
+     "h": 40
+    },
+    "slot": {
+     "x": 166,
+     "y": 132,
+     "w": 136,
+     "h": 96
+    },
+    "border": 1,
+    "id": "tw2.3"
+   },
+   "result": {
+    "error": "covered by tw2.1, which wrapped",
+    "was": {
+     "box": {
+      "top": 133.19672525358516,
+      "bottom": 171.9425385299348,
+      "left": 165.83849909173477,
+      "right": 300.8494106699752
+     },
+     "content_h": 36.74581327634965,
+     "lines": 1,
+     "line_boxes": [
+      {
+       "top": 1.3032747464148429,
+       "bottom": 24.928274746414843,
+       "left": 1.286500908265225,
+       "right": 1.3494106699752138
+      }
+     ],
+     "ellipsis": false,
+     "ink_outside_box": false
+    }
+   }
+  },
+  {
+   "id": "tw2.4",
+   "type": "wrap",
+   "spec": {
+    "type": "wrap",
+    "key": "lines2-ellipsis",
+    "str": "The quick brown fox jumps over the dog",
+    "px": 20,
+    "css": {
+     "lines": 2,
+     "text-overflow": "ellipsis"
+    },
+    "outline": "pink",
+    "box": {
+     "x": 24,
+     "y": 236,
+     "w": 136,
+     "h": null
+    },
+    "slot": {
+     "x": 24,
+     "y": 236,
+     "w": 136,
+     "h": 69
+    },
+    "border": 1,
+    "id": "tw2.4"
+   },
+   "result": {
+    "box": {
+     "top": 236.73558516719064,
+     "bottom": 291.958360817942,
+     "left": 24.828609221466365,
+     "right": 160.25703594958463
+    },
+    "content_h": 53.222775650751345,
+    "lines": 2,
+    "line_boxes": [
+     {
+      "top": 1.264414832809365,
+      "bottom": 24.764414832809365,
+      "left": 1.2963907785336346,
+      "right": 2.0070359495846333
+     },
+     {
+      "top": 28.764414832809365,
+      "bottom": 51.889414832809365,
+      "left": 1.2963907785336346,
+      "right": 2.7570359495846333
+     }
+    ],
+    "line_pitch": 27.125,
+    "align": "left",
+    "align_spread": {
+     "left": 0.0,
+     "right": 0.75,
+     "center": 0.75
+    },
+    "ellipsis": true,
+    "ink_outside_box": false
+   }
+  },
+  {
+   "id": "tw2.5",
+   "type": "wrap",
+   "spec": {
+    "type": "wrap",
+    "key": "lines2-clip",
+    "str": "The quick brown fox jumps over the dog",
+    "px": 20,
+    "css": {
+     "lines": 2
+    },
+    "outline": "pink",
+    "box": {
+     "x": 166,
+     "y": 236,
+     "w": 136,
+     "h": null
+    },
+    "slot": {
+     "x": 166,
+     "y": 236,
+     "w": 136,
+     "h": 69
+    },
+    "border": 1,
+    "id": "tw2.5"
+   },
+   "result": {
+    "box": {
+     "top": 235.85967146872804,
+     "bottom": 291.9321543121882,
+     "left": 166.04222061657032,
+     "right": 301.39393219264895
+    },
+    "content_h": 54.072482843460136,
+    "lines": 2,
+    "line_boxes": [
+     {
+      "top": 2.6403285312719618,
+      "bottom": 25.01532853127196,
+      "left": 1.3327793834296813,
+      "right": 37.39393219264895
+     },
+     {
+      "top": 29.76532853127196,
+      "bottom": 52.76532853127196,
+      "left": 1.3327793834296813,
+      "right": 1.268932192648947
+     }
+    ],
+    "line_pitch": 27.75,
+    "align": "left",
+    "align_spread": {
+     "left": 0.0,
+     "right": 36.125,
+     "center": 36.125
+    },
+    "ellipsis": false,
+    "ink_outside_box": false
+   }
+  },
+  {
+   "id": "tw2.6",
+   "type": "wrap",
+   "spec": {
+    "type": "wrap",
+    "key": "longword",
+    "str": "Embarcaderoembarcadero",
+    "px": 20,
+    "css": {},
+    "outline": "pink",
+    "box": {
+     "x": 24,
+     "y": 313,
+     "w": 136,
+     "h": null
+    },
+    "slot": {
+     "x": 24,
+     "y": 313,
+     "w": 136,
+     "h": 69
+    },
+    "border": 1,
+    "id": "tw2.6"
+   },
+   "result": {
+    "box": {
+     "top": 313.18601813110183,
+     "bottom": 369.4771701388889,
+     "left": 24.428051992670635,
+     "right": 160.1790143828543
+    },
+    "content_h": 54.29115200778705,
+    "lines": 2,
+    "line_boxes": [
+     {
+      "top": 4.438981868898168,
+      "bottom": 22.188981868898168,
+      "left": 1.3219480073293646,
+      "right": 2.554014382854291
+     },
+     {
+      "top": 31.813981868898168,
+      "bottom": 49.31398186889817,
+      "left": 1.3219480073293646,
+      "right": 2.804014382854291
+     }
+    ],
+    "line_pitch": 27.125,
+    "align": "left",
+    "align_spread": {
+     "left": 0.0,
+     "right": 0.25,
+     "center": 0.25
+    },
+    "ellipsis": false,
+    "ink_outside_box": false
+   }
+  },
+  {
+   "id": "tw2.7",
+   "type": "wrap",
+   "spec": {
+    "type": "wrap",
+    "key": "lines1-ellipsis",
+    "str": "Embarcadero to Union City",
+    "px": 20,
+    "css": {
+     "lines": 1,
+     "text-overflow": "ellipsis"
+    },
+    "outline": "pink",
+    "box": {
+     "x": 166,
+     "y": 313,
+     "w": 136,
+     "h": null
+    },
+    "slot": {
+     "x": 166,
+     "y": 313,
+     "w": 136,
+     "h": 42
+    },
+    "border": 1,
+    "id": "tw2.7"
+   },
+   "result": {
+    "box": {
+     "top": 313.1337375859435,
+     "bottom": 342.2113347457627,
+     "left": 165.51908866995075,
+     "right": 301.23242063492063
+    },
+    "content_h": 27.07759715981922,
+    "lines": 1,
+    "line_boxes": [
+     {
+      "top": 3.366262414056507,
+      "bottom": 21.116262414056507,
+      "left": 1.3559113300492527,
+      "right": 7.107420634920629
+     }
+    ],
+    "ellipsis": true,
+    "ink_outside_box": false
+   }
+  }
+ ],
+ "layout": "band10pro.json",
+ "measured_at": "2026-09-27T20:49:33"
+}

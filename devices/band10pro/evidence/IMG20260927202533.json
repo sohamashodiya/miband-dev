@@ -1,0 +1,411 @@
+{
+ "photo": "IMG20260927202533.jpg",
+ "page": 4,
+ "page_key": "tv4",
+ "fit": {
+  "rms_band_px": [
+   0.273,
+   0.201
+  ],
+  "ticks": 86,
+  "dropped": 0,
+  "bloom_px": 0.78,
+  "photo_px_per_band_px": [
+   3.275,
+   3.25
+  ],
+  "edges": {
+   "left_first_visible_x": 1.894586506933078,
+   "right_last_visible_x": 334.40110558452966,
+   "ticks_seen_left": 43,
+   "ticks_seen_right": 43,
+   "first_tick_y_left": 30,
+   "last_tick_y_left": 450
+  },
+  "ok": true,
+  "notes": []
+ },
+ "samples": [
+  {
+   "id": "tv4.0",
+   "type": "text_v",
+   "spec": {
+    "type": "text_v",
+    "str": "Hg8",
+    "px": 96,
+    "regime": "tall",
+    "weight": "bold",
+    "outline": "pink",
+    "box": {
+     "x": 24,
+     "y": 28,
+     "w": 187,
+     "h": 144
+    },
+    "slot": {
+     "x": 24,
+     "y": 28,
+     "w": 187,
+     "h": 144
+    },
+    "height_css": 144,
+    "border": 1,
+    "id": "tv4.0"
+   },
+   "result": {
+    "box": {
+     "top": 28.033723839854414,
+     "bottom": 172.00916199813258,
+     "left": 24.906986531986533,
+     "right": 211.77143620185475,
+     "wrapped": false,
+     "inferred": []
+    },
+    "box_h": 143.97543815827817,
+    "content_h": 141.97543815827817,
+    "ink_top": 22.310026160145586,
+    "ink_bottom": 124.15377616014558,
+    "clipped_bottom": false,
+    "clipped_top": false,
+    "clipped_right": true,
+    "lines": 1,
+    "line_h": 141.97543815827817,
+    "glyphs": {
+     "H": {
+      "top": 23.591276160145586,
+      "bottom": 99.71627616014558,
+      "left": 6.468013468013467,
+      "right": 66.84301346801347
+     },
+     "g": {
+      "top": 43.46627616014558,
+      "bottom": 124.09127616014558,
+      "left": 75.71801346801347,
+      "right": 126.96801346801347
+     },
+     "8": {
+      "top": 22.341276160145586,
+      "bottom": 100.96627616014558,
+      "left": 137.09301346801345,
+      "right": 183.59301346801345
+     }
+    },
+    "ink_mid_minus_box_mid": 2.2441820810064996
+   }
+  },
+  {
+   "id": "tv4.1",
+   "type": "text_v",
+   "spec": {
+    "type": "text_v",
+    "str": "Hg8",
+    "px": 72,
+    "regime": "tall",
+    "weight": "bold",
+    "outline": "pink",
+    "box": {
+     "x": 24,
+     "y": 178,
+     "w": 141,
+     "h": 108
+    },
+    "slot": {
+     "x": 24,
+     "y": 178,
+     "w": 141,
+     "h": 108
+    },
+    "height_css": 108,
+    "border": 1,
+    "id": "tv4.1"
+   },
+   "result": {
+    "box": {
+     "top": 177.92414881820383,
+     "bottom": 285.9359925788497,
+     "left": 24.869063620071685,
+     "right": 164.6947969543147,
+     "wrapped": false,
+     "inferred": []
+    },
+    "box_h": 108.01184376064589,
+    "content_h": 106.01184376064589,
+    "ink_top": 15.536788681796168,
+    "ink_bottom": 92.63053868179617,
+    "clipped_bottom": false,
+    "clipped_top": false,
+    "clipped_right": true,
+    "lines": 1,
+    "line_h": 106.01184376064589,
+    "glyphs": {
+     "H": {
+      "top": 16.450851181796168,
+      "bottom": 73.95085118179617,
+      "left": 4.505936379928315,
+      "right": 50.380936379928315
+     },
+     "g": {
+      "top": 30.950851181796168,
+      "bottom": 92.57585118179617,
+      "left": 56.880936379928315,
+      "right": 95.88093637992831
+     },
+     "8": {
+      "top": 15.575851181796168,
+      "bottom": 74.70085118179617,
+      "left": 102.50593637992831,
+      "right": 136.5059363799283
+     }
+    },
+    "ink_mid_minus_box_mid": 1.0777418014732234
+   }
+  },
+  {
+   "id": "tv4.2",
+   "type": "text_v",
+   "spec": {
+    "type": "text_v",
+    "str": "Hg8",
+    "px": 72,
+    "regime": "nat",
+    "weight": "bold",
+    "outline": "cyan",
+    "box": {
+     "x": 167,
+     "y": 178,
+     "w": 141,
+     "h": null
+    },
+    "slot": {
+     "x": 167,
+     "y": 178,
+     "w": 141,
+     "h": 98
+    },
+    "height_css": "auto",
+    "border": 1,
+    "id": "tv4.2"
+   },
+   "result": {
+    "error": "wrapped, and the bottom found (198.6 px) is not a whole number of lines",
+    "box": {
+     "top": 177.7756264322983,
+     "bottom": 378.36043474766956,
+     "left": 167.0637097922004,
+     "right": 307.50540512174643,
+     "wrapped": true,
+     "inferred": []
+    }
+   }
+  },
+  {
+   "id": "tv4.3",
+   "type": "text_v",
+   "spec": {
+    "type": "text_v",
+    "str": "Hg8",
+    "px": 96,
+    "regime": "short",
+    "weight": "bold",
+    "outline": "green",
+    "box": {
+     "x": 24,
+     "y": 292,
+     "w": 187,
+     "h": 86
+    },
+    "slot": {
+     "x": 24,
+     "y": 292,
+     "w": 187,
+     "h": 86
+    },
+    "height_css": 86,
+    "border": 1,
+    "id": "tv4.3"
+   },
+   "result": {
+    "error": "covered by tv4.2, which wrapped",
+    "was": {
+     "box": {
+      "top": 291.98924753987103,
+      "bottom": 378.65358412322274,
+      "left": 24.45625,
+      "right": 211.45625,
+      "wrapped": false,
+      "inferred": [
+       "right"
+      ]
+     },
+     "box_h": 86.66433658335171,
+     "content_h": 84.66433658335171,
+     "ink_top": 1.3232524601289697,
+     "ink_bottom": 83.44825246012897,
+     "clipped_bottom": true,
+     "clipped_top": true,
+     "clipped_right": true,
+     "lines": 1,
+     "line_h": 84.66433658335171,
+     "glyphs": {
+      "H": {
+       "top": 23.38575246012897,
+       "bottom": 83.38575246012897,
+       "left": 6.418749999999999,
+       "right": 66.79375
+      },
+      "g": {
+       "top": 43.38575246012897,
+       "bottom": 83.38575246012897,
+       "left": 76.16875,
+       "right": 127.16875
+      },
+      "8": {
+       "top": 1.2607524601289697,
+       "bottom": 83.38575246012897,
+       "left": 137.79375,
+       "right": 183.66875
+      }
+     },
+     "ink_mid_minus_box_mid": 0.053584168453113534
+    }
+   }
+  },
+  {
+   "id": "tv4.4",
+   "type": "text_v",
+   "spec": {
+    "type": "text_v",
+    "str": "Hg8",
+    "px": 48,
+    "regime": "tall",
+    "weight": "bold",
+    "outline": "pink",
+    "box": {
+     "x": 213,
+     "y": 28,
+     "w": 96,
+     "h": 72
+    },
+    "slot": {
+     "x": 213,
+     "y": 28,
+     "w": 96,
+     "h": 72
+    },
+    "height_css": 72,
+    "border": 1,
+    "id": "tv4.4"
+   },
+   "result": {
+    "box": {
+     "top": 28.058779761904763,
+     "bottom": 100.21120602507077,
+     "left": 211.66766279837725,
+     "right": 308.5021156052783,
+     "wrapped": false,
+     "inferred": []
+    },
+    "box_h": 72.152426263166,
+    "content_h": 70.152426263166,
+    "ink_top": 10.462053570186807,
+    "ink_bottom": 62.79349296469064,
+    "clipped_bottom": false,
+    "clipped_top": false,
+    "clipped_right": true,
+    "lines": 1,
+    "line_h": 70.152426263166,
+    "glyphs": {
+     "H": {
+      "top": 11.316220238095237,
+      "bottom": 50.31622023809524,
+      "left": 3.7073372016227495,
+      "right": 34.33233720162275
+     },
+     "g": {
+      "top": 21.441220238095237,
+      "bottom": 62.81622023809524,
+      "left": 38.70733720162275,
+      "right": 64.95733720162275
+     },
+     "8": {
+      "top": 10.441220238095237,
+      "bottom": 50.81622023809524,
+      "left": 69.45733720162275,
+      "right": 92.70733720162275
+     }
+    },
+    "ink_mid_minus_box_mid": 1.5515601358557234
+   }
+  },
+  {
+   "id": "tv4.5",
+   "type": "text_v",
+   "spec": {
+    "type": "text_v",
+    "str": "Hg8",
+    "px": 32,
+    "regime": "nat",
+    "weight": "bold",
+    "outline": "cyan",
+    "box": {
+     "x": 213,
+     "y": 292,
+     "w": 65,
+     "h": null
+    },
+    "slot": {
+     "x": 213,
+     "y": 292,
+     "w": 65,
+     "h": 45
+    },
+    "height_css": "auto",
+    "border": 1,
+    "id": "tv4.5"
+   },
+   "result": {
+    "error": "covered by tv4.2, which wrapped",
+    "was": {
+     "box": {
+      "top": 291.88166010498685,
+      "bottom": 378.4022984117288,
+      "left": 212.46367416829744,
+      "right": 277.4095538183365,
+      "wrapped": true,
+      "inferred": []
+     },
+     "box_h": 86.52063830674194,
+     "content_h": 84.52063830674194,
+     "ink_top": 6.517730138006982,
+     "ink_bottom": 75.38656905919629,
+     "clipped_bottom": false,
+     "clipped_top": false,
+     "clipped_right": false,
+     "wrapped": true,
+     "lines": 2,
+     "line_h": 42.26031915337097,
+     "glyphs": {
+      "H": {
+       "top": 6.4933398950131505,
+       "bottom": 32.99333989501315,
+       "line": 0
+      },
+      "g": {
+       "top": 13.49333989501315,
+       "bottom": 41.11833989501315,
+       "line": 0
+      },
+      "8": {
+       "top": 6.483020741642179,
+       "bottom": 33.10802074164218,
+       "line": 1
+      }
+     },
+     "ink_mid_minus_box_mid": -1.3081695547693357
+    }
+   }
+  }
+ ],
+ "layout": "band10pro.json",
+ "measured_at": "2026-09-27T20:49:28"
+}
