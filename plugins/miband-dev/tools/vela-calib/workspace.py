@@ -20,8 +20,11 @@ import os
 import shutil
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-# Shipped defaults: <plugin>/data/profiles when the kit runs from the plugin (tools/vela-calib).
-DEFAULTS_DIR = os.path.normpath(os.path.join(HERE, '..', '..', 'data', 'profiles'))
+# Shipped defaults: <plugin>/data/profiles when the kit runs from the plugin (tools/vela-calib); in a
+# workspace copy of the kit, tools/plugin-defaults/profiles (refreshed by copy-kit.sh).
+_CANDIDATES = [os.path.normpath(os.path.join(HERE, '..', '..', 'data', 'profiles')),
+               os.path.normpath(os.path.join(HERE, '..', 'plugin-defaults', 'profiles'))]
+DEFAULTS_DIR = next((d for d in _CANDIDATES if os.path.isdir(d)), _CANDIDATES[0])
 
 
 def _find_up(start):

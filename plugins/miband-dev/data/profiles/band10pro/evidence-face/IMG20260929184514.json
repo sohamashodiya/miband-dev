@@ -1,0 +1,419 @@
+{
+ "exposure": {
+  "t": 0.058823529411764705,
+  "iso": 2500,
+  "f": 1.8
+ },
+ "photo": "IMG20260929184514.jpg",
+ "page": 4,
+ "page_key": "numbers",
+ "face": 4,
+ "theme": "normal",
+ "taken_at": "2026-09-29T18:45:14",
+ "fit": {
+  "rms_band_px": [
+   0.343,
+   0.444
+  ],
+  "ticks": 86,
+  "dropped": 0,
+  "bloom_px": 0.51,
+  "photo_px_per_band_px": [
+   2.978,
+   2.969
+  ],
+  "edges": {
+   "left_first_visible_x": 1.282427169976551,
+   "right_last_visible_x": 334.8812026384245,
+   "ticks_seen_left": 43,
+   "ticks_seen_right": 43,
+   "first_tick_y_left": 30,
+   "last_tick_y_left": 450
+  },
+  "ok": true,
+  "notes": [],
+  "rotation": "180"
+ },
+ "ruler_edges": {
+  "left": 1.01,
+  "right": 1.01,
+  "rows": 37
+ },
+ "samples": [
+  {
+   "id": "numbers.0",
+   "type": "overlay",
+   "spec": {
+    "type": "overlay",
+    "region": [
+     24,
+     0,
+     312,
+     44
+    ],
+    "id": "numbers.0"
+   },
+   "result": {
+    "found": true,
+    "bbox": [
+     158.2,
+     13.2,
+     177.6,
+     32.8
+    ],
+    "blobs": [
+     [
+      158.2,
+      13.2,
+      177.6,
+      32.8,
+      297.8
+     ]
+    ],
+    "colour": "red",
+    "centre": [
+     167.9,
+     23.0
+    ],
+    "size": [
+     19.4,
+     19.5
+    ]
+   }
+  },
+  {
+   "id": "numbers.1",
+   "type": "number",
+   "spec": {
+    "type": "number",
+    "source": "steps",
+    "x": 92,
+    "y": 78,
+    "align": "left",
+    "count": 5,
+    "spacing": 0,
+    "lz": false,
+    "unit": 0,
+    "region": [
+     0,
+     336
+    ],
+    "row": 0,
+    "id": "numbers.1"
+   },
+   "result": {
+    "left": 92.66,
+    "right": 156.07,
+    "width": 63.41,
+    "cells": 4,
+    "digits": "6962",
+    "value": 6962,
+    "verdict": "anchor_left",
+    "distances": {
+     "anchor_left": 0.66,
+     "anchor_centre": 32.66,
+     "anchor_right": 64.66,
+     "box_centre": 7.34,
+     "box_right": 15.34
+    }
+   }
+  },
+  {
+   "id": "numbers.2",
+   "type": "number",
+   "spec": {
+    "type": "number",
+    "source": "steps",
+    "x": 168,
+    "y": 122,
+    "align": "center",
+    "count": 5,
+    "spacing": 0,
+    "lz": false,
+    "unit": 0,
+    "region": [
+     0,
+     336
+    ],
+    "row": 1,
+    "id": "numbers.2"
+   },
+   "result": {
+    "left": 136.31,
+    "right": 199.74,
+    "width": 63.43,
+    "cells": 4,
+    "digits": "6962",
+    "value": 6962,
+    "verdict": "anchor_centre",
+    "distances": {
+     "anchor_left": 31.69,
+     "anchor_centre": 0.31,
+     "anchor_right": 32.31,
+     "box_centre": 39.69,
+     "box_right": 47.69
+    }
+   }
+  },
+  {
+   "id": "numbers.3",
+   "type": "number",
+   "spec": {
+    "type": "number",
+    "source": "steps",
+    "x": 172,
+    "y": 166,
+    "align": "right",
+    "count": 5,
+    "spacing": 0,
+    "lz": false,
+    "unit": 0,
+    "region": [
+     0,
+     336
+    ],
+    "row": 2,
+    "id": "numbers.3"
+   },
+   "result": {
+    "left": 108.43,
+    "right": 171.92,
+    "width": 63.5,
+    "cells": 4,
+    "digits": "6962",
+    "value": 6962,
+    "verdict": "anchor_right",
+    "distances": {
+     "anchor_left": 63.57,
+     "anchor_centre": 31.57,
+     "anchor_right": 0.43,
+     "box_centre": 71.57,
+     "box_right": 79.57
+    }
+   }
+  },
+  {
+   "id": "numbers.4",
+   "type": "number",
+   "spec": {
+    "type": "number",
+    "source": "battery",
+    "x": 168,
+    "y": 210,
+    "align": "center",
+    "count": 3,
+    "spacing": 0,
+    "lz": false,
+    "unit": 12,
+    "region": [
+     0,
+     336
+    ],
+    "row": 3,
+    "id": "numbers.4"
+   },
+   "result": {
+    "left": 146.16,
+    "right": 162.53,
+    "width": 16.37,
+    "cells": 1,
+    "digits": "3",
+    "value": 3,
+    "verdict": "anchor_right",
+    "distances": {
+     "anchor_left": 21.84,
+     "anchor_centre": 13.84,
+     "anchor_right": 5.84,
+     "box_centre": 37.84,
+     "box_right": 53.84
+    },
+    "unit_left": 188.75,
+    "unit_gap": 26.22
+   }
+  },
+  {
+   "id": "numbers.5",
+   "type": "number",
+   "spec": {
+    "type": "number",
+    "source": "minute",
+    "x": 92,
+    "y": 254,
+    "align": "left",
+    "count": 2,
+    "spacing": 0,
+    "lz": true,
+    "region": [
+     0,
+     148
+    ],
+    "row": 4,
+    "id": "numbers.5"
+   },
+   "result": {
+    "left": 92.25,
+    "right": 124.13,
+    "width": 31.89,
+    "cells": 2,
+    "digits": "45",
+    "value": 45,
+    "verdict": "anchor_left|box_centre|box_right",
+    "distances": {
+     "anchor_left": 0.25,
+     "anchor_centre": 16.25,
+     "anchor_right": 32.25,
+     "box_centre": 0.25,
+     "box_right": 0.25
+    }
+   }
+  },
+  {
+   "id": "numbers.6",
+   "type": "number",
+   "spec": {
+    "type": "number",
+    "source": "hour",
+    "x": 172,
+    "y": 254,
+    "align": "left",
+    "count": 2,
+    "spacing": 0,
+    "lz": false,
+    "region": [
+     148,
+     208
+    ],
+    "row": 4,
+    "id": "numbers.6"
+   },
+   "result": {
+    "left": 172.03,
+    "right": 187.89,
+    "width": 15.86,
+    "cells": 1,
+    "digits": "6",
+    "value": 6,
+    "verdict": "anchor_left",
+    "distances": {
+     "anchor_left": 0.03,
+     "anchor_centre": 8.03,
+     "anchor_right": 16.03,
+     "box_centre": 7.97,
+     "box_right": 15.97
+    }
+   }
+  },
+  {
+   "id": "numbers.7",
+   "type": "number",
+   "spec": {
+    "type": "number",
+    "source": "second",
+    "x": 212,
+    "y": 254,
+    "align": "left",
+    "count": 2,
+    "spacing": 0,
+    "lz": true,
+    "region": [
+     208,
+     336
+    ],
+    "row": 4,
+    "id": "numbers.7"
+   },
+   "result": {
+    "left": 211.92,
+    "right": 243.7,
+    "width": 31.79,
+    "cells": 2,
+    "digits": "17",
+    "value": 17,
+    "verdict": "anchor_left|box_centre|box_right",
+    "distances": {
+     "anchor_left": 0.08,
+     "anchor_centre": 15.92,
+     "anchor_right": 31.92,
+     "box_centre": 0.08,
+     "box_right": 0.08
+    }
+   }
+  },
+  {
+   "id": "numbers.8",
+   "type": "number",
+   "spec": {
+    "type": "number",
+    "source": "steps",
+    "x": 92,
+    "y": 298,
+    "align": "left",
+    "count": 5,
+    "spacing": 6,
+    "lz": false,
+    "unit": 0,
+    "region": [
+     0,
+     336
+    ],
+    "row": 5,
+    "id": "numbers.8"
+   },
+   "result": {
+    "left": 92.13,
+    "right": 174.01,
+    "width": 81.88,
+    "cells": 4,
+    "digits": "6962",
+    "value": 6962,
+    "verdict": "anchor_left",
+    "distances": {
+     "anchor_left": 0.13,
+     "anchor_centre": 41.13,
+     "anchor_right": 82.13,
+     "box_centre": 10.87,
+     "box_right": 21.87
+    }
+   }
+  },
+  {
+   "id": "numbers.9",
+   "type": "number",
+   "spec": {
+    "type": "number",
+    "source": "steps",
+    "x": 92,
+    "y": 342,
+    "align": "left",
+    "count": 5,
+    "spacing": -3,
+    "lz": false,
+    "unit": 0,
+    "region": [
+     0,
+     336
+    ],
+    "row": 6,
+    "id": "numbers.9"
+   },
+   "result": {
+    "left": 92.08,
+    "right": 147.08,
+    "width": 55.0,
+    "cells": 4,
+    "digits": "6962",
+    "value": 6962,
+    "verdict": "anchor_left",
+    "distances": {
+     "anchor_left": 0.08,
+     "anchor_centre": 27.58,
+     "anchor_right": 55.08,
+     "box_centre": 6.42,
+     "box_right": 12.92
+    }
+   }
+  }
+ ],
+ "layout": "face-calib/band10pro b1",
+ "measured_at": "2026-09-29T18:53:35"
+}

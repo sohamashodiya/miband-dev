@@ -1,0 +1,44 @@
+{
+ "schema": "vela-device-spec/1",
+ "id": "band10pro",
+ "name": "Xiaomi Smart Band 10 Pro",
+ "also": [],
+ "verified": true,
+ "about": "The device definition both calibration kits generate from (tools/vela-calib, tools/face-calib). Measured facts live in profile.json, not here.",
+ "screen": {
+  "w": 336,
+  "h": 480,
+  "shape": "rounded_rect",
+  "corner_radius": 48,
+  "diag_in": 1.74,
+  "ppi": 336.7,
+  "source": "maker's spec; size, 1:1 designWidth and corner radius (46-48.5 px) confirmed by Vela Calib 1.0.0 photos, 2026-09-27"
+ },
+ "quickapp": {
+  "design_width": 336,
+  "status": "measured"
+ },
+ "face": {
+  "canvas": { "w": 336, "h": 480 },
+  "id_digit": 2,
+  "builder": "pack.mts",
+  "device_type": null,
+  "status": "verified",
+  "note": "band10-toolkit only targets 212 x 520 (DeviceType 466); pack.mts packs 336 x 480 with the same native packer. Verified 2026-09-29: the Band 10 Pro (fw 3.101.043) accepted all 8 face-calib build 1 faces and they were photographed and measured (profile.json face section). Community DeviceType for this band (567) is inferred, not checked; the packer doesn't write one."
+ },
+ "firmware": {
+  "version": "3.101.043",
+  "note": "the firmware the kits were last run on; profile.json firmware.version is authoritative for its facts"
+ },
+ "calib": {
+  "quickapp": {
+   "text_slack": "measured",
+   "text_w_words": ["min", "NOW", "min, maybe", "Checking…", "UPDATING…", "later 21, 36 min", "CHANGE AT", "Embarcadero", "Union City", "Alerts ON", "0 0 0 0", ":.,-/%"],
+   "note": "text_slack measured: this band's glyph widths were measured, so Text V/W slots use small slack. The word list adds sample strings from a transit-times app (station names, status words)."
+  },
+  "face": {
+   "frame": { "ox": 88, "oy": 50, "bar": { "x": 110, "y": 456, "len": 200, "h": 4 }, "code": { "x": 38, "y": 452, "cell": 6, "pitch": 8, "h": 10 }, "straight": [60, 420], "r": 47 },
+   "note": "frame pinned: face-calib build 1 was photographed with it (2026-09-29)"
+  }
+ }
+}

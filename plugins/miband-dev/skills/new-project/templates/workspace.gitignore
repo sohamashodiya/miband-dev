@@ -27,3 +27,6 @@ devices/*/photos/
 devices/*/results/
 devices/*/results-face/
 tools/*/results/
+
+# ---- Copies of the plugin's shipped profiles/specs for workspace kit copies (refreshed by copy-kit.sh)
+tools/plugin-defaults/

@@ -5,6 +5,16 @@ description: Install a Xiaomi band app (.rpk) or watch face (.bin) on a Smart Ba
 
 # Sideloading through AstroBox
 
+**What AstroBox is, and the account it needs.** AstroBox (`moe.astralsight.astrobox`) is a
+third-party community app, not made or endorsed by Xiaomi. To talk to the band it needs the band's
+auth key, which it gets when the user **signs in to their Xiaomi account inside AstroBox with their
+username and password**. That gives a third-party app those credentials: it's the user's decision.
+Before the first install, make sure they know this (the README's "Before you start"); a strong,
+unique password and two-factor authentication on the Xiaomi account are sensible. Never type or
+handle their Xiaomi credentials yourself. Known behaviour: every AstroBox connect removes the
+phone's Bluetooth pairing with the band and re-creates it (the user accepts the prompts), and Mi
+Fitness may need to re-pair afterwards (below).
+
 The script: `${CLAUDE_SKILL_DIR}/sideload.sh <file.rpk|file.bin|file.face>`. It pushes the file to
 the phone's `Download/miband/`, force-stops Mi Fitness, opens AstroBox, **waits for the user** to
 press Reconnect and accept the pairing prompts (it never taps them), installs through the
@@ -28,7 +38,7 @@ Tested with AstroBox 2.1.0. It writes nothing on the computer.
 - Watch faces on a Band 11: it holds **about 6 custom (sideloaded) faces**; a 7th install is refused
   with `ExceedQuantity` (face calibration: 5 accepted, a 7th refused; 6 untested). Store faces don't
   count, so deleting them doesn't help. Count the custom faces on the band first and uninstall old
-  iterations or calibration faces before installing.
+  iterations or calibration faces before installing. (A Band 10 Pro accepted at least 8.)
 
 ## The sequence (what the script does, and what to do by hand when it can't)
 1. Push the file. Before connecting, force-stop Mi Fitness (`com.mi.health`) so it releases the band.

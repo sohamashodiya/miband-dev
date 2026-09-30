@@ -2,10 +2,11 @@
   "name": "vela-calib-band",
   "version": "2.0.0",
   "private": true,
-  "description": "Vela band calibration kit: full-screen test pages for measuring text, box model, screen, colour, image and animation behaviour from photos",
+  "description": "Vela calibration kit: full-screen test pages for measuring text, box model, screen, colour, image and animation behaviour from photos, for any Vela wearable with a device spec (devices/<id>/device.json)",
   "scripts": {
     "gen": "python3 gen/images.py && node gen/gen.mjs band11 && node gen/gen.mjs band10pro",
     "build": "node gen/build.mjs",
+    "new-device": "node new-device.mjs",
     "test": "node --no-warnings test/profile.test.mjs && node --no-warnings test/layout.test.mjs && python3 measure.py selftest"
   },
   "devDependencies": {

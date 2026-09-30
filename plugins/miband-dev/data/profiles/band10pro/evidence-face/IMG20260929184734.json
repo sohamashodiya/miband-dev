@@ -1,0 +1,137 @@
+{
+ "exposure": {
+  "t": 0.058823529411764705,
+  "iso": 2500,
+  "f": 1.8
+ },
+ "photo": "IMG20260929184734.jpg",
+ "page": 9,
+ "page_key": "aodlua_normal",
+ "face": 8,
+ "theme": "normal",
+ "taken_at": "2026-09-29T18:47:34",
+ "fit": {
+  "rms_band_px": [
+   0.164,
+   0.18
+  ],
+  "ticks": 86,
+  "dropped": 0,
+  "bloom_px": 0.38,
+  "photo_px_per_band_px": [
+   2.83,
+   2.818
+  ],
+  "edges": {
+   "left_first_visible_x": 1.0161435655764783,
+   "right_last_visible_x": 335.2510694897874,
+   "ticks_seen_left": 43,
+   "ticks_seen_right": 43,
+   "first_tick_y_left": 30,
+   "last_tick_y_left": 450
+  },
+  "ok": true,
+  "notes": [],
+  "rotation": "cw90"
+ },
+ "ruler_edges": {
+  "left": 1.01,
+  "right": 0.63,
+  "rows": 37
+ },
+ "samples": [
+  {
+   "id": "aodlua_normal.0",
+   "type": "presence",
+   "spec": {
+    "type": "presence",
+    "what": "widget_square",
+    "box": {
+     "x": 92,
+     "y": 70,
+     "w": 24,
+     "h": 24
+    },
+    "colour": "green",
+    "id": "aodlua_normal.0"
+   },
+   "result": {
+    "present": true,
+    "colour": "green",
+    "rgb": [
+     13,
+     248,
+     169
+    ]
+   }
+  },
+  {
+   "id": "aodlua_normal.1",
+   "type": "presence",
+   "spec": {
+    "type": "presence",
+    "what": "lua_square",
+    "box": {
+     "x": 172,
+     "y": 70,
+     "w": 24,
+     "h": 24
+    },
+    "colour": "green",
+    "id": "aodlua_normal.1"
+   },
+   "result": {
+    "present": true,
+    "colour": "green",
+    "rgb": [
+     14,
+     248,
+     174
+    ]
+   }
+  },
+  {
+   "id": "aodlua_normal.top",
+   "type": "overlay",
+   "spec": {
+    "id": "aodlua_normal.top",
+    "type": "overlay",
+    "region": [
+     24,
+     0,
+     312,
+     42
+    ]
+   },
+   "result": {
+    "found": true,
+    "bbox": [
+     158.0,
+     11.9,
+     177.6,
+     32.6
+    ],
+    "blobs": [
+     [
+      158.0,
+      11.9,
+      177.6,
+      32.6,
+      320.0
+     ]
+    ],
+    "colour": "red",
+    "centre": [
+     167.8,
+     22.2
+    ],
+    "size": [
+     19.6,
+     20.8
+    ]
+   }
+  }
+ ],
+ "layout": "face-calib/band10pro b1",
+ "measured_at": "2026-09-29T18:53:49"
+}

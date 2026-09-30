@@ -6,3 +6,4 @@ dist/
 # Measurement output stays local (photos live in devices/<model>/photos/, also ignored)
 results/
 build-stage-*/
+test/out/

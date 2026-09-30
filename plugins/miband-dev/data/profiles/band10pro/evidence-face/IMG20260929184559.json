@@ -1,0 +1,435 @@
+{
+ "exposure": {
+  "t": 0.058823529411764705,
+  "iso": 2500,
+  "f": 1.8
+ },
+ "photo": "IMG20260929184559.jpg",
+ "page": 5,
+ "page_key": "lists",
+ "face": 5,
+ "theme": "normal",
+ "taken_at": "2026-09-29T18:45:59",
+ "fit": {
+  "rms_band_px": [
+   0.248,
+   0.302
+  ],
+  "ticks": 86,
+  "dropped": 0,
+  "bloom_px": 0.43,
+  "photo_px_per_band_px": [
+   3.057,
+   3.049
+  ],
+  "edges": {
+   "left_first_visible_x": 1.2774409632531796,
+   "right_last_visible_x": 334.8213943859435,
+   "ticks_seen_left": 43,
+   "ticks_seen_right": 43,
+   "first_tick_y_left": 30,
+   "last_tick_y_left": 450
+  },
+  "ok": true,
+  "notes": [],
+  "rotation": "180"
+ },
+ "ruler_edges": {
+  "left": 1.18,
+  "right": 1.06,
+  "rows": 37
+ },
+ "samples": [
+  {
+   "id": "lists.0",
+   "type": "overlay",
+   "spec": {
+    "type": "overlay",
+    "region": [
+     24,
+     0,
+     312,
+     44
+    ],
+    "id": "lists.0"
+   },
+   "result": {
+    "found": true,
+    "bbox": [
+     158.5,
+     13.2,
+     177.8,
+     32.9
+    ],
+    "blobs": [
+     [
+      158.5,
+      13.2,
+      177.8,
+      32.9,
+      296.0
+     ]
+    ],
+    "colour": "red",
+    "centre": [
+     168.1,
+     23.1
+    ],
+    "size": [
+     19.2,
+     19.6
+    ]
+   }
+  },
+  {
+   "id": "lists.1",
+   "type": "number",
+   "spec": {
+    "type": "number",
+    "source": "battery",
+    "x": 92,
+    "y": 78,
+    "align": "left",
+    "count": 3,
+    "spacing": 0,
+    "lz": false,
+    "region": [
+     90,
+     142
+    ],
+    "row": 0,
+    "id": "lists.1"
+   },
+   "result": {
+    "left": 92.82,
+    "right": 124.54,
+    "width": 31.72,
+    "cells": 2,
+    "digits": "38",
+    "value": 38,
+    "verdict": "anchor_left",
+    "distances": {
+     "anchor_left": 0.82,
+     "anchor_centre": 16.82,
+     "anchor_right": 32.82,
+     "box_centre": 7.18,
+     "box_right": 15.18
+    }
+   }
+  },
+  {
+   "id": "lists.2",
+   "type": "number",
+   "spec": {
+    "type": "number",
+    "source": "day",
+    "x": 172,
+    "y": 78,
+    "align": "left",
+    "count": 2,
+    "spacing": 0,
+    "lz": false,
+    "region": [
+     170,
+     206
+    ],
+    "row": 0,
+    "id": "lists.2"
+   },
+   "result": {
+    "left": 172.16,
+    "right": 203.81,
+    "width": 31.65,
+    "cells": 2,
+    "digits": "29",
+    "value": 29,
+    "verdict": "anchor_left|box_centre|box_right",
+    "distances": {
+     "anchor_left": 0.16,
+     "anchor_centre": 16.16,
+     "anchor_right": 32.16,
+     "box_centre": 0.16,
+     "box_right": 0.16
+    }
+   }
+  },
+  {
+   "id": "lists.3",
+   "type": "imagelist",
+   "spec": {
+    "type": "imagelist",
+    "source": "battery",
+    "list": "batt-steps",
+    "x": 92,
+    "y": 126,
+    "values": [
+     0,
+     20,
+     40,
+     60,
+     80,
+     100
+    ],
+    "labels": [
+     "0",
+     "20",
+     "40",
+     "60",
+     "80",
+     "100"
+    ],
+    "id": "lists.3"
+   },
+   "result": {
+    "shown": 1,
+    "value": 20,
+    "label": "20",
+    "left": 92.79,
+    "dx": 0.79
+   }
+  },
+  {
+   "id": "lists.4",
+   "type": "imagelist",
+   "spec": {
+    "type": "imagelist",
+    "source": "battery",
+    "list": "batt-below",
+    "x": 92,
+    "y": 174,
+    "values": [
+     101,
+     102
+    ],
+    "labels": [
+     "101",
+     "102"
+    ],
+    "id": "lists.4"
+   },
+   "result": {
+    "shown": 0,
+    "value": 101,
+    "label": "101",
+    "left": 92.71,
+    "dx": 0.71
+   }
+  },
+  {
+   "id": "lists.5",
+   "type": "imagelist",
+   "spec": {
+    "type": "imagelist",
+    "source": "battery",
+    "list": "batt-above",
+    "x": 172,
+    "y": 174,
+    "values": [
+     0,
+     1
+    ],
+    "labels": [
+     "0",
+     "1"
+    ],
+    "id": "lists.5"
+   },
+   "result": {
+    "shown": 1,
+    "value": 1,
+    "label": "1",
+    "left": 172.12,
+    "dx": 0.12
+   }
+  },
+  {
+   "id": "lists.6",
+   "type": "imagelist",
+   "spec": {
+    "type": "imagelist",
+    "source": "weekday",
+    "list": "weekday",
+    "x": 92,
+    "y": 222,
+    "values": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ],
+    "labels": [
+     "SUN",
+     "MON",
+     "TUE",
+     "WED",
+     "THU",
+     "FRI",
+     "SAT"
+    ],
+    "id": "lists.6"
+   },
+   "result": {
+    "shown": 2,
+    "value": 2,
+    "label": "TUE",
+    "left": 92.64,
+    "dx": 0.64
+   }
+  },
+  {
+   "id": "lists.7",
+   "type": "imagelist",
+   "spec": {
+    "type": "imagelist",
+    "source": "month",
+    "list": "month",
+    "x": 172,
+    "y": 222,
+    "values": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12
+    ],
+    "labels": [
+     "JAN",
+     "FEB",
+     "MAR",
+     "APR",
+     "MAY",
+     "JUN",
+     "JUL",
+     "AUG",
+     "SEP",
+     "OCT",
+     "NOV",
+     "DEC"
+    ],
+    "id": "lists.7"
+   },
+   "result": {
+    "shown": 8,
+    "value": 9,
+    "label": "SEP",
+    "left": 172.13,
+    "dx": 0.13
+   }
+  },
+  {
+   "id": "lists.8",
+   "type": "imagelist",
+   "spec": {
+    "type": "imagelist",
+    "source": "steps",
+    "list": "steps-steps",
+    "x": 92,
+    "y": 270,
+    "values": [
+     0,
+     1000,
+     5000,
+     10000
+    ],
+    "labels": [
+     "0",
+     "1k",
+     "5k",
+     "10k"
+    ],
+    "id": "lists.8"
+   },
+   "result": {
+    "shown": 2,
+    "value": 5000,
+    "label": "5k",
+    "left": 92.5,
+    "dx": 0.5
+   }
+  },
+  {
+   "id": "lists.9",
+   "type": "number",
+   "spec": {
+    "type": "number",
+    "source": "hour",
+    "x": 172,
+    "y": 270,
+    "align": "left",
+    "count": 2,
+    "spacing": 0,
+    "lz": true,
+    "region": [
+     170,
+     206
+    ],
+    "row": 4,
+    "id": "lists.9"
+   },
+   "result": {
+    "left": 172.16,
+    "right": 203.82,
+    "width": 31.66,
+    "cells": 2,
+    "digits": "06",
+    "value": 6,
+    "verdict": "anchor_left|box_centre|box_right",
+    "distances": {
+     "anchor_left": 0.16,
+     "anchor_centre": 16.16,
+     "anchor_right": 32.16,
+     "box_centre": 0.16,
+     "box_right": 0.16
+    }
+   }
+  },
+  {
+   "id": "lists.10",
+   "type": "number",
+   "spec": {
+    "type": "number",
+    "source": "minute",
+    "x": 208,
+    "y": 270,
+    "align": "left",
+    "count": 2,
+    "spacing": 0,
+    "lz": true,
+    "region": [
+     206,
+     242
+    ],
+    "row": 4,
+    "id": "lists.10"
+   },
+   "result": {
+    "left": 207.89,
+    "right": 239.69,
+    "width": 31.8,
+    "cells": 2,
+    "digits": "45",
+    "value": 45,
+    "verdict": "anchor_left|box_centre|box_right",
+    "distances": {
+     "anchor_left": 0.11,
+     "anchor_centre": 15.89,
+     "anchor_right": 31.89,
+     "box_centre": 0.11,
+     "box_right": 0.11
+    }
+   }
+  }
+ ],
+ "layout": "face-calib/band10pro b1",
+ "measured_at": "2026-09-29T18:53:38"
+}

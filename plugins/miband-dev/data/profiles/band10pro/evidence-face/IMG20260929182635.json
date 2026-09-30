@@ -1,0 +1,254 @@
+{
+ "exposure": {
+  "t": 0.025,
+  "iso": 160,
+  "f": 1.8
+ },
+ "photo": "IMG20260929182635.jpg",
+ "page": 1,
+ "page_key": "geo",
+ "face": 1,
+ "theme": "normal",
+ "taken_at": "2026-09-29T18:26:35",
+ "fit": {
+  "rms_band_px": [
+   0.207,
+   0.073
+  ],
+  "ticks": 74,
+  "dropped": 0,
+  "bloom_px": 0.62,
+  "photo_px_per_band_px": [
+   3.134,
+   3.119
+  ],
+  "edges": {
+   "left_first_visible_x": 1.4700337913856476,
+   "right_last_visible_x": 334.7124797616258,
+   "ticks_seen_left": 37,
+   "ticks_seen_right": 37,
+   "first_tick_y_left": 60,
+   "last_tick_y_left": 420
+  },
+  "ok": true,
+  "notes": [],
+  "rotation": "none"
+ },
+ "ruler_edges": {
+  "left": 1.37,
+  "right": 1.25,
+  "rows": 37
+ },
+ "samples": [
+  {
+   "id": "geo.0",
+   "type": "corner",
+   "spec": {
+    "type": "corner",
+    "corner": "tl",
+    "box": {
+     "x": 0,
+     "y": 0,
+     "w": 48,
+     "h": 48
+    },
+    "id": "geo.0"
+   },
+   "result": {
+    "diag_inset_px": 13.38,
+    "radius_px": 46.6,
+    "edge_hidden_x_px": 0.26,
+    "edge_hidden_y_px": -0.91,
+    "arc_points": 517,
+    "fit_rms_px": 0.1
+   }
+  },
+  {
+   "id": "geo.1",
+   "type": "corner",
+   "spec": {
+    "type": "corner",
+    "corner": "tr",
+    "box": {
+     "x": 288,
+     "y": 0,
+     "w": 48,
+     "h": 48
+    },
+    "id": "geo.1"
+   },
+   "result": {
+    "diag_inset_px": 13.25,
+    "radius_px": 46.8,
+    "edge_hidden_x_px": -0.09,
+    "edge_hidden_y_px": -0.98,
+    "arc_points": 633,
+    "fit_rms_px": 0.07
+   }
+  },
+  {
+   "id": "geo.2",
+   "type": "corner",
+   "spec": {
+    "type": "corner",
+    "corner": "bl",
+    "box": {
+     "x": 0,
+     "y": 432,
+     "w": 48,
+     "h": 48
+    },
+    "id": "geo.2"
+   },
+   "result": {
+    "diag_inset_px": 13.88,
+    "radius_px": 47.3,
+    "edge_hidden_x_px": 0.62,
+    "edge_hidden_y_px": -0.91,
+    "arc_points": 658,
+    "fit_rms_px": 0.1
+   }
+  },
+  {
+   "id": "geo.3",
+   "type": "corner",
+   "spec": {
+    "type": "corner",
+    "corner": "br",
+    "box": {
+     "x": 288,
+     "y": 432,
+     "w": 48,
+     "h": 48
+    },
+    "id": "geo.3"
+   },
+   "result": {
+    "diag_inset_px": 13.62,
+    "radius_px": 47.0,
+    "edge_hidden_x_px": 0.35,
+    "edge_hidden_y_px": -0.63,
+    "arc_points": 667,
+    "fit_rms_px": 0.09
+   }
+  },
+  {
+   "id": "geo.4",
+   "type": "comb",
+   "spec": {
+    "type": "comb",
+    "edge": "top",
+    "xs": [
+     60,
+     72,
+     84,
+     96,
+     108,
+     120,
+     132,
+     144,
+     156,
+     168,
+     180,
+     192,
+     204,
+     216,
+     228,
+     240,
+     252,
+     264,
+     276
+    ],
+    "y0": 0,
+    "y1": 20,
+    "centre_x": 168,
+    "id": "geo.4"
+   },
+   "result": {
+    "hidden_px": 0.0,
+    "per_line": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "centre_hidden_px": 0.0
+   }
+  },
+  {
+   "id": "geo.5",
+   "type": "comb",
+   "spec": {
+    "type": "comb",
+    "edge": "bottom",
+    "xs": [
+     60,
+     72,
+     84,
+     96,
+     108,
+     120,
+     132,
+     144,
+     156,
+     168,
+     180,
+     192,
+     204,
+     216,
+     228,
+     240,
+     252,
+     264,
+     276
+    ],
+    "y0": 460,
+    "y1": 480,
+    "centre_x": 168,
+    "id": "geo.5"
+   },
+   "result": {
+    "hidden_px": 0.0,
+    "per_line": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "centre_hidden_px": 0.0
+   }
+  }
+ ],
+ "layout": "face-calib/band10pro b1",
+ "measured_at": "2026-09-29T18:27:14"
+}

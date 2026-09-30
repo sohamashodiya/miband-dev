@@ -3,17 +3,19 @@
 // layout file measure.py reads (layouts/<device>.json). Every test element sits at a position
 // computed here, so the band markup and the measurement always agree. Don't edit index.ux by hand.
 //
-//   node gen/gen.mjs [band10pro|band11]      (default band10pro; `npm run gen` runs images.py first)
+//   node gen/gen.mjs <device id>      (devices/<id>/device.json; default band10pro; `npm run gen` runs images.py first)
 //
-// One .rpk per band model (`npm run build` builds all of them, see gen/build.mjs): each is generated
+// One .rpk per device (`npm run build` builds all of them, see gen/build.mjs): each is generated
 // for its screen with designWidth = the screen width, so 1 design px = 1 panel px. The geometry
 // page and the start page show what @system.device reports, and measure.py checks the scale from
-// the screen's own outline (a capsule's end radius), so a wrong design width can't go unnoticed.
+// the screen's own outline (a capsule's end radius, a circle's radius), so a wrong design width
+// can't go unnoticed.
 //
 // Frame on every page:
 //   - rulers down both edges: a 1 px tick every 10 px (top edge of the tick = y), 8 px long,
 //     14 px every 50, 22 px and yellow every 100; left ruler starts at x 0, right ruler ends at x W.
 //     On a capsule (Band 10 / 11) only the ticks on the straight sides are visible, which is plenty.
+//     On a circle the rulers are two straight columns inside the circle (layout frame.ruler).
 //   - a yellow scale bar exactly BAR.len x 4 px near the bottom (200 px on the Band 10 Pro, 160 px
 //     on the 212 px wide capsule, where it has to stay clear of the rounded end)
 //   - a page barcode (8 cells: on, 5 bits of the page number, even parity, on) next to the bar,
@@ -24,73 +26,127 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { loadSpec, geometry, insidePt } from '../device-spec.mjs'
 
 const HERE = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.join(HERE, '..')
 
-// The kit inside the miband-dev plugin is read-only: generating or building writes into the kit,
-// so it runs only from a copy in your workspace (cp -R "<plugin>/tools/vela-calib" tools/).
-if (fs.existsSync(path.join(ROOT, '..', '..', '.claude-plugin', 'plugin.json'))) {
+// The device comes from its spec (devices/<id>/device.json, or --spec PATH): screen size and shape.
+//   node gen/gen.mjs <id>                          pages in src/ + layouts/<id>.json
+//   node gen/gen.mjs --spec PATH [--layout-only] [--layout-out PATH]
+//     --layout-only: write only the layout (no src/), e.g. to check a device the kit hasn't built for.
+// The shape's outline (capsule ends, rounded corners, circle) is the kit's placement assumption;
+// the geometry page measures the real one.
+const argv = process.argv.slice(2)
+const optv = (k) => { const i = argv.indexOf('--' + k); return i >= 0 ? argv[i + 1] : undefined }
+const LAYOUT_ONLY = argv.includes('--layout-only')
+const specArg = optv('spec') || argv.find((a, i) => !a.startsWith('--') && !['--spec', '--layout-out'].includes(argv[i - 1])) || 'band10pro'
+const SPEC = loadSpec(specArg)
+const DEVICE = SPEC.id
+const D = Object.assign({ name: SPEC.name }, geometry(SPEC))
+
+// The kit inside the miband-dev plugin is read-only: generating writes src/ and layouts/ into the
+// kit, so it runs only from a copy in your workspace (the new-project skill's copy-kit.sh vela-calib).
+// A layout-only run that writes its layout elsewhere (--layout-out, as the tests do) is fine.
+if (fs.existsSync(path.join(ROOT, '..', '..', '.claude-plugin', 'plugin.json')) && !(LAYOUT_ONLY && optv('layout-out'))) {
   console.error('This is the plugin\'s read-only copy of the kit. Copy it into your workspace first:\n' +
-    '  cp -R "' + ROOT + '" <workspace>/tools/vela-calib   (then npm install there)')
+    '  ' + path.join(ROOT, '..', '..', 'skills', 'new-project', 'copy-kit.sh') + ' vela-calib   (from the workspace root; then npm install there)')
   process.exit(2)
 }
-
-// shape: 'rect' (rounded corners, cornerR) or 'capsule' (semicircle ends of radius endR = w / 2).
-// cornerR / endR are the kit's placement assumptions (the geometry page measures the real ones).
-const DEVICES = {
-  band10pro: { name: 'Xiaomi Smart Band 10 Pro', w: 336, h: 480, shape: 'rect', cornerR: 48 },
-  band11: { name: 'Xiaomi Smart Band 10 / 11', w: 212, h: 520, shape: 'capsule', endR: 106 }
-}
-const DEVICE = process.argv[2] || 'band10pro'
-const D = DEVICES[DEVICE]
-if (!D) throw new Error('unknown device ' + DEVICE + ' (known: ' + Object.keys(DEVICES).join(', ') + ')')
 const W = D.w
 const H = D.h
 const CAPSULE = D.shape === 'capsule'
+const CIRCLE = D.shape === 'circle'
+const KIT = (SPEC.calib && SPEC.calib.quickapp) || {}
 
 const VERSION = { name: '2.0.0', code: 2 }
 const PACKAGE = 'com.soham.velacalib'
 
 // ---- frame geometry (band px) -------------------------------------------------------------
 const TICK_EVERY = 10
-const TICKS = Array.from({ length: Math.floor((H - 1) / TICK_EVERY) + 1 }, (_, i) => (i % 10 === 0 ? 2 : i % 5 === 0 ? 1 : 0))
 const TICK_LEN = [8, 14, 22]
 const MARGIN = 4 // every sample keeps this far inside the (assumed) visible outline
-let BAR, CODE, LABEL, AREA
-if (!CAPSULE) {
-  BAR = { x: W - 26 - 200, y: H - 24, len: 200, h: 4 }
-  CODE = { x: 38, y: H - 28, cell: 6, pitch: 8, h: 10 }
-  LABEL = { x: 50, y: 5, w: W - 100, px: 16, align: 'left' }
-  AREA = { x0: 24, x1: W - 24, y0: 28, y1: Math.min(BAR.y, CODE.y) - 6 }
+const RUL = TICK_LEN[2] + 1
+const floor10 = (v) => Math.floor(v / 10) * 10
+// Is (x, y) inside the visible screen, m px in from its outline (the kit's assumed outline)?
+const inside = (x, y, m = MARGIN) => insidePt(D, x, y, m)
+const rectInside = (r, m = MARGIN) => [[r.x, r.y], [r.x + r.w, r.y], [r.x, r.y + r.h], [r.x + r.w, r.y + r.h]].every(([a, b]) => inside(a, b, m))
+
+// Rulers: rect and capsule screens have them down the very edges (left ruler from x 0, right ruler
+// ending at x W, every row). A circle has no straight edge, so its rulers are two straight columns
+// inside the circle (at 0.62 R from the centre), over the rows where their outer ends are visible.
+let RULER
+if (!CIRCLE) {
+  RULER = { left_x: 0, right_x: W, y0: 0, n: Math.floor((H - 1) / TICK_EVERY) + 1 }
 } else {
-  // Capsule: the bottom end narrows below y = H - endR, so the bar sits just inside the straight
-  // part (its ends keep > 8 px from the arc) and the barcode, only 62 px wide, goes under it.
-  BAR = { x: Math.round((W - 160) / 2), y: H - 58, len: 160, h: 4 }
-  CODE = { x: Math.round(W / 2) - 31, y: BAR.y + 12, cell: 6, pitch: 8, h: 10 }
-  LABEL = { x: Math.round(W / 2) - 58, y: 26, w: 116, px: 16, align: 'center' }
-  AREA = { x0: 24, x1: W - 24, y0: 52, y1: BAR.y - 6 }
+  const lx = Math.round(W / 2 - 0.62 * D.radius)
+  const rows = []
+  for (let y = 0; y < H; y += TICK_EVERY) if (inside(lx, y) && inside(lx, y + 1) && inside(W - lx, y) && inside(W - lx, y + 1)) rows.push(y)
+  RULER = { left_x: lx, right_x: W - lx, y0: rows[0], n: rows.length }
+}
+const TICKS = Array.from({ length: RULER.n }, (_, i) => { const k = (RULER.y0 + i * TICK_EVERY) / TICK_EVERY; return k % 10 === 0 ? 2 : k % 5 === 0 ? 1 : 0 })
+const RL = { x0: RULER.left_x + RUL, x1: RULER.right_x - RUL } // clear of both rulers
+
+// The frame, pushed k px further in until every part of it is inside the outline (k = 0 for the
+// Band 10 Pro and Band 11, whose layouts this reproduces exactly). The bar and barcode boxes carry
+// the layout test's 2 px of clearance.
+let BAR, CODE, LABEL, AREA
+const frameOk = () => {
+  const bar = { x: BAR.x, y: BAR.y - 2, w: BAR.len, h: BAR.h + 4 }
+  const code = { x: CODE.x - 2, y: CODE.y - 2, w: 7 * CODE.pitch + CODE.cell + 4, h: CODE.h + 4 }
+  const label = { x: LABEL.x, y: LABEL.y, w: LABEL.w, h: Math.ceil(1.5 * LABEL.px) }
+  const area = { x: AREA.x0, y: AREA.y0, w: AREA.x1 - AREA.x0, h: AREA.y1 - AREA.y0 }
+  return area.w > 0 && area.h > 0 && [bar, code, label, area].every((r) => rectInside(r))
+}
+function frameAt(k) {
+  if (D.shape === 'rect') {
+    const len = Math.min(200, floor10(W - 136))
+    BAR = { x: W - 26 - len - k, y: H - 24 - k, len, h: 4 }
+    CODE = { x: 38 + k, y: H - 28 - k, cell: 6, pitch: 8, h: 10 }
+    LABEL = { x: 50 + k, y: 5 + k, w: W - 100 - 2 * k, px: 16, align: 'left' }
+    AREA = { x0: 24, x1: W - 24, y0: 28 + k, y1: Math.min(BAR.y, CODE.y) - 6 }
+  } else if (CAPSULE) {
+    // Capsule: the bottom end narrows below y = H - endR, so the bar sits just inside the straight
+    // part (its ends keep > 8 px from the arc) and the barcode, only 62 px wide, goes under it.
+    const len = Math.min(160, floor10(W - 52))
+    BAR = { x: Math.round((W - len) / 2), y: H - 58 - k, len, h: 4 }
+    CODE = { x: Math.round(W / 2) - 31, y: BAR.y + 12, cell: 6, pitch: 8, h: 10 }
+    LABEL = { x: Math.round(W / 2) - 58, y: 26 + k, w: 116, px: 16, align: 'center' }
+    AREA = { x0: 24, x1: W - 24, y0: 52 + k, y1: BAR.y - 6 }
+  } else {
+    // Circle: bar and barcode stacked and centred low in the circle, below the rulers' last rows;
+    // the label centred near the top; samples between the rulers.
+    const len = Math.min(200, floor10(RULER.right_x - RULER.left_x - 2 * RUL - 8))
+    const bx = Math.round((W - len) / 2)
+    const fits = (y) => rectInside({ x: bx, y: y - 2, w: len, h: 8 }) && rectInside({ x: Math.round(W / 2) - 33, y: y + 10, w: 66, h: 14 })
+    let by = H - 1
+    while (by > H / 2 && !fits(by)) by--
+    BAR = { x: bx, y: by - k, len, h: 4 }
+    CODE = { x: Math.round(W / 2) - 31, y: BAR.y + 12, cell: 6, pitch: 8, h: 10 }
+    const lw = Math.min(200, floor10(W / 2))
+    let ly = 5
+    while (ly < H / 2 && !rectInside({ x: Math.round((W - lw) / 2), y: ly, w: lw, h: 24 })) ly++
+    LABEL = { x: Math.round((W - lw) / 2), y: ly + k, w: lw, px: 16, align: 'center' }
+    const x0 = RL.x0 + 1
+    const x1 = RL.x1 - 1
+    let y0 = LABEL.y + 30
+    while (y0 < H && !(inside(x0, y0) && inside(x1, y0))) y0++
+    let y1 = BAR.y - 6
+    while (y1 > 0 && !(inside(x0, y1) && inside(x1, y1))) y1--
+    AREA = { x0, x1, y0, y1 }
+  }
+}
+let fk = 0
+for (frameAt(fk); !frameOk(); frameAt(fk)) {
+  fk += 2
+  if (fk > Math.min(W, H) / 4) throw new Error(`${DEVICE}: can't fit the frame (rulers, bar, barcode, label, sample area) inside a ${W} x ${H} ${D.shape}`)
 }
 const AW = AREA.x1 - AREA.x0
 const AH = AREA.y1 - AREA.y0
-
-// Is (x, y) inside the visible screen, m px in from its outline (the kit's assumed outline)?
-function inside(x, y, m = MARGIN) {
-  if (CAPSULE) {
-    const r = D.endR
-    const dy = y < r ? r - y : y > H - r ? y - (H - r) : 0
-    return Math.hypot(x - W / 2, dy) <= r - m + 1e-9
-  }
-  const r = D.cornerR
-  if (x < m || y < m || x > W - m || y > H - m) return false
-  const cx = Math.min(Math.max(x, r), W - r)
-  const cy = Math.min(Math.max(y, r), H - r)
-  return Math.hypot(x - cx, y - cy) <= r - m + 1e-9
-}
-const rectInside = (r, m = MARGIN) => [[r.x, r.y], [r.x + r.w, r.y], [r.x, r.y + r.h], [r.x + r.w, r.y + r.h]].every(([a, b]) => inside(a, b, m))
-for (const [k, r] of Object.entries({ bar: { x: BAR.x, y: BAR.y, w: BAR.len, h: BAR.h }, code: { x: CODE.x, y: CODE.y, w: 7 * CODE.pitch + CODE.cell, h: CODE.h }, area: { x: AREA.x0, y: AREA.y0, w: AW, h: AH } })) {
-  if (!rectInside(r)) throw new Error(`${DEVICE}: frame ${k} is not inside the visible screen: ` + JSON.stringify(r))
-}
+if (AW < 140 || AH < 280) throw new Error(`${DEVICE}: sample area ${AW} x ${AH} px is too small for the kit's pages (needs 140 x 280)`)
+// Size choices below follow the sample area, not the model: a narrow area (< 200 px, e.g. the
+// 212 px capsule) gets smaller test strings.
+const NARROW = AW < 200
 
 // Colours. Outline colours are saturated and never white, so measure.py can tell outline from ink.
 const C = {
@@ -114,10 +170,10 @@ const G = {
   x: 0.578, y: 0.571, z: 0.502
 }
 const em = (s) => [...String(s)].reduce((a, c) => a + (G[c] === undefined ? 1 : G[c]), 0)
-// Slack over those widths / the Band 10 Pro's measured 1.327 em line box. The Band 10 Pro's own
-// metrics are measured, so a little margin does; a new model (Band 11) gets room for glyphs up to
-// ~15 % wider (+ margin) and lines up to 1.5 em.
-const MEASURED_FONT = DEVICE === 'band10pro'
+// Slack over those widths / the Band 10 Pro's measured 1.327 em line box. A device whose own
+// metrics were measured (spec calib.quickapp.text_slack "measured": the Band 10 Pro) needs a little
+// margin; any other gets room for glyphs up to ~15 % wider (+ margin) and lines up to 1.5 em.
+const MEASURED_FONT = KIT.text_slack === 'measured'
 const SLACK_W = MEASURED_FONT ? 1.08 : 1.2
 const SLACK_LINE = MEASURED_FONT ? 1.4 : 1.5
 // Worst-case outer width of a 1 px outlined <text> holding s at px: slack, 1 px tracking per glyph, border.
@@ -196,8 +252,9 @@ function pack(items, mk, area = AREA, gapX = 6, gapY = 8) {
 // wrap and explicit ones measure the plain regime. Two extra pink boxes ("8H" cut after the H's
 // middle) measure the "string wider than its box" regime on purpose (too_wide).
 {
-  // 212 px wide capsule: up to 140 px (a 180 px "8" plus its worst-case slack is the whole width)
-  const SIZES = CAPSULE ? [24, 32, 48, 72, 96, 140] : [24, 32, 48, 72, 96, 140, 180, 240]
+  // Sizes whose "8" box takes at most 80 % of the area's width and whose 1.5 em box fits its height
+  // (212 px capsule: up to 140 px; Band 10 Pro: up to 240 px)
+  const SIZES = [24, 32, 48, 72, 96, 140, 180, 240].filter((s) => worstW('8', s) + 4 <= 0.8 * AW && Math.round(1.5 * s) <= AH)
   const strOf = (s) => (s <= 96 && worstW('Hg8', s) + 4 <= AW ? 'Hg8' : '8')
   const items = []
   const place = (str, s, regime, w, boxH, slotH, extra = {}) => (p, x, y) => {
@@ -221,7 +278,7 @@ function pack(items, mk, area = AREA, gapX = 6, gapY = 8) {
       items.push({ key: `${s}-${regime}`, w, h: slotH, place: place(str, s, regime, w, boxH, slotH) })
     }
   }
-  for (const s of [48, CAPSULE ? 72 : 96]) {
+  for (const s of [48, NARROW ? 72 : 96]) {
     // the "8" whole (even 15 % wider), the "H" cut near its middle (even 15 % narrower)
     const w = Math.ceil((G['8'] + 0.5 * G.H) * s) + 2
     const boxH = Math.round(1.5 * s)
@@ -239,12 +296,11 @@ function pack(items, mk, area = AREA, gapX = 6, gapY = 8) {
 // halved ("0000" -> "00"), and anything still too wide is split at a space.
 {
   const specs = []
-  const DIG = CAPSULE ? 40 : 48 // four digits (+ worst-case slack) across the 164 px capsule area
+  const DIG = worstW('0000', 48) + 6 <= AW ? 48 : 40 // four digits (+ worst-case slack) across the area (40 on the 164 px capsule area)
   for (let d = 0; d <= 9; d++) specs.push([String(d).repeat(4), DIG, 'bold'])
   specs.push(['0000', 24, 'bold'], ['0000', 96, 'bold'], ['8888', 32, 'bold'])
-  // BART Watch's strings on the Band 10 Pro; on other models only the generic ones
-  const WORDS = CAPSULE ? ['min', 'NOW', 'Checking…', '0 0 0 0', ':.,-/%']
-    : ['min', 'NOW', 'min, maybe', 'Checking…', 'UPDATING…', 'later 21, 36 min', 'CHANGE AT', 'Embarcadero', 'Union City', 'Alerts ON', '0 0 0 0', ':.,-/%']
+  // Generic strings; a spec can list its own (calib.quickapp.text_w_words: the Band 10 Pro adds BART Watch's)
+  const WORDS = KIT.text_w_words || ['min', 'NOW', 'Checking…', '0 0 0 0', ':.,-/%']
   for (const w of WORDS) specs.push([w, 32, 'bold'])
   for (const w of ['abcdefghijklm', 'nopqrstuvwxyz', 'ABCDEFGHIJKLM', 'NOPQRSTUVWXYZ']) specs.push([w, 24, 'bold'])
   // Weight: the same strings in normal weight (does the band have a regular face at all?)
@@ -349,9 +405,10 @@ function pack(items, mk, area = AREA, gapX = 6, gapY = 8) {
   })
   // "min" beside a big number: flex row, align-items flex-end (bottom of the line boxes) and baseline
   const rowH = lineSlot(96)
+  const rowW = Math.min(150, AW) // "5" at 96 px + "min" at 32 px is ~100 px; 150 unless the area is narrower
   for (const ai of ['flex-end', 'baseline']) {
     items.push({
-      key: 'row-' + ai, w: 150, h: rowH,
+      key: 'row-' + ai, w: rowW, h: rowH,
       place(p, x, y) {
         p.els.push(el('div', abs(x, y, undefined, undefined, { 'flex-direction': 'row', 'align-items': ai }), {
           kids: [
@@ -359,7 +416,7 @@ function pack(items, mk, area = AREA, gapX = 6, gapY = 8) {
             txt({ 'font-size': '32px', 'font-weight': 'bold', color: C.white, 'border-width': '1px', 'border-color': C.pink }, 'min')
           ]
         }))
-        sample(p, { type: 'row', key: 'row-' + ai, align: ai, region: [x - 2, y - 2, x + 150, y + rowH], slot: { x, y, w: 150, h: rowH }, big: { str: '5', px: 96, outline: 'cyan' }, small: { str: 'min', px: 32, outline: 'pink' } })
+        sample(p, { type: 'row', key: 'row-' + ai, align: ai, region: [x - 2, y - 2, x + rowW, y + rowH], slot: { x, y, w: rowW, h: rowH }, big: { str: '5', px: 96, outline: 'cyan' }, small: { str: 'min', px: 32, outline: 'pink' } })
       }
     })
   }
@@ -494,7 +551,8 @@ function pack(items, mk, area = AREA, gapX = 6, gapY = 8) {
   }))
 
   // keep the declared order (not by height): all slots are the same size
-  const gx = CAPSULE ? 4 : 8
+  // 8 px gaps unless 4 px fits one more column (the 164 px capsule area: 2 columns instead of 1)
+  const gx = Math.floor((AW + 8) / (S.w + 8)) === Math.floor((AW + 4) / (S.w + 4)) ? 8 : 4
   const gy = 6
   const cols = Math.floor((AW + gx) / (S.w + gx))
   const rows = Math.floor((AH + gy) / (S.h + gy))
@@ -513,18 +571,21 @@ function pack(items, mk, area = AREA, gapX = 6, gapY = 8) {
 }
 
 // ---- 5. screen geometry ---------------------------------------------------------------------
-// Band 10 Pro (rounded rectangle): white K x K squares in the four corners (the display's rounded
-// mask cuts them) and a comb of 1 px lines from the top and bottom edges (hidden rows).
+// Rounded rectangle (Band 10 Pro): white K x K squares in the four corners (the display's rounded
+// mask cuts them; K = 48, or 1.2 x a larger corner radius) and a comb of 1 px lines from the top
+// and bottom edges (hidden rows).
 // Capsule (Band 10 / 11): a white cap over each end, full width and taller than the end radius:
 // its visible outline is the screen's arc (radius, centre: which gives the hidden top / bottom rows
 // and the design-px -> panel-px scale) and, in its straight rows, the hidden left / right columns.
-// Both: the rulers' outer tick ends (on every page) show the hidden columns too. The bar and barcode
-// move to the middle here (measure.py tries every bar position the layout lists).
+// Circle: white caps all round the outside of the rulers (top, bottom, left, right boxes); the lit
+// outline is the whole circle, fitted for radius, centre (hidden rows and columns) and design scale.
+// Rect and capsule: the rulers' outer tick ends (on every page) show the hidden columns too. The bar
+// and barcode move to the middle here (measure.py tries every bar position the layout lists).
 {
   const gBar = { x: CAPSULE ? BAR.x : Math.round((W - BAR.len) / 2), y: Math.round(H / 2) - 2, len: BAR.len, h: BAR.h }
-  const gCode = Object.assign({}, CODE, { x: CAPSULE ? CODE.x : gBar.x, y: gBar.y + 14 })
-  if (!CAPSULE) {
-    const K = 48
+  const gCode = Object.assign({}, CODE, { x: CAPSULE ? CODE.x : CIRCLE ? CODE.x : gBar.x, y: gBar.y + 14 })
+  if (D.shape === 'rect') {
+    const K = D.cornerR <= 48 ? 48 : Math.ceil(1.2 * D.cornerR)
     const p = page('geo', 'Screen geometry', { bar: gBar, code: gCode, label: { x: K + 8, y: 26, w: W - 2 * K - 16, px: 16, align: 'left' } })
     const corners = { tl: [0, 0], tr: [W - K, 0], bl: [0, H - K], br: [W - K, H - K] }
     for (const [k, [x, y]] of Object.entries(corners)) {
@@ -539,7 +600,7 @@ function pack(items, mk, area = AREA, gapX = 6, gapY = 8) {
     p.els.push(txt(abs(40, gBar.y - 110, W - 80, undefined, { 'font-size': '20px', 'font-weight': 'bold', color: C.grey, 'text-align': 'center' }), 'Corners and edges. Note anything the system draws on top.'))
     p.els.push(txt(abs(40, gCode.y + 24, W - 80, undefined, { 'font-size': '16px', 'font-weight': 'bold', color: C.yellow, 'text-align': 'center' }), '{{info}}'))
     p.observe.push({ fact: 'screen.system_overlay', ask: 'Right after opening the app: does the band draw anything over the app (status dot, time, indicator)? Where?' })
-  } else {
+  } else if (CAPSULE) {
     const K = D.endR + 9 // taller than the end radius: the last rows are the straight sides
     const p = page('geo', 'Screen geometry', { bar: gBar, code: gCode, label: { x: LABEL.x, y: K + 6, w: LABEL.w, px: 16, align: 'center' } })
     p.els.push(fill(0, 0, W, K, C.white))
@@ -547,6 +608,17 @@ function pack(items, mk, area = AREA, gapX = 6, gapY = 8) {
     p.els.push(fill(0, H - K, W, K, C.white))
     sample(p, { type: 'cap', end: 'bottom', box: { x: 0, y: H - K, w: W, h: K } })
     p.els.push(txt(abs(AREA.x0, K + 34, AW, undefined, { 'font-size': '16px', 'font-weight': 'bold', color: C.grey, 'text-align': 'center' }), 'Capsule ends and edges. Note anything the system draws on top.'))
+    p.els.push(txt(abs(AREA.x0, gCode.y + 22, AW, undefined, { 'font-size': '16px', 'font-weight': 'bold', color: C.yellow, 'text-align': 'center' }), '{{info}}'))
+    p.observe.push({ fact: 'screen.system_overlay', ask: 'Right after opening the app: does the band draw anything over the app (status dot, time, indicator)? Where?' })
+  } else {
+    // 8 px of black between the caps and the ruler ticks, so the fit still finds every tick
+    const yT = RULER.y0 - 8
+    const yB = RULER.y0 + (RULER.n - 1) * TICK_EVERY + 1 + 8
+    const boxes = [[0, 0, W, yT], [0, yB, W, H - yB], [0, yT, RULER.left_x - 6, yB - yT], [RULER.right_x + 6, yT, W - RULER.right_x - 6, yB - yT]]
+    const p = page('geo', 'Screen geometry', { bar: gBar, code: gCode, label: { x: AREA.x0, y: yT + 6, w: AW, px: 16, align: 'center' } })
+    for (const [x, y, w, h] of boxes) p.els.push(fill(x, y, w, h, C.white))
+    sample(p, { type: 'round', boxes, expect: { cx: W / 2, cy: H / 2, r: D.radius } })
+    p.els.push(txt(abs(AREA.x0, gBar.y - 70, AW, undefined, { 'font-size': '16px', 'font-weight': 'bold', color: C.grey, 'text-align': 'center' }), 'Round edge. Note anything the system draws on top.'))
     p.els.push(txt(abs(AREA.x0, gCode.y + 22, AW, undefined, { 'font-size': '16px', 'font-weight': 'bold', color: C.yellow, 'text-align': 'center' }), '{{info}}'))
     p.observe.push({ fact: 'screen.system_overlay', ask: 'Right after opening the app: does the band draw anything over the app (status dot, time, indicator)? Where?' })
   }
@@ -716,6 +788,7 @@ for (const p of pages) {
 }
 
 const f2 = (v) => Math.round(v) // whole px in keyframes
+const RULER_H = CIRCLE ? RULER.n * TICK_EVERY : H
 const ux = `<template>
   <!-- GENERATED by tools/vela-calib/gen/gen.mjs for ${DEVICE} (${W} x ${H}, ${D.shape}). Do not edit by hand.
        ${pages.length} full-screen test pages. Tap or swipe left/up: next page; swipe down: previous;
@@ -919,19 +992,19 @@ export default {
 
 .rl {
   position: absolute;
-  left: 0px;
-  top: 0px;
+  left: ${RULER.left_x}px;
+  top: ${RULER.y0}px;
   width: ${TICK_LEN[2]}px;
-  height: ${H}px;
+  height: ${RULER_H}px;
   flex-direction: column;
 }
 
 .rr {
   position: absolute;
-  left: ${W - TICK_LEN[2]}px;
-  top: 0px;
+  left: ${RULER.right_x - TICK_LEN[2]}px;
+  top: ${RULER.y0}px;
   width: ${TICK_LEN[2]}px;
-  height: ${H}px;
+  height: ${RULER_H}px;
   flex-direction: column;
 }
 
@@ -1052,13 +1125,18 @@ const layout = {
     tick_every: TICK_EVERY, tick_len: TICK_LEN, yellow_every: 100, ticks: TICKS,
     bar: BAR, code: CODE, label: LABEL, area: AREA,
     // the outline the kit placed everything inside (an assumption; the geometry page measures it)
-    visible: CAPSULE ? { shape: 'capsule', end_radius: D.endR, margin: MARGIN } : { shape: 'rect', corner_radius: D.cornerR, margin: MARGIN },
-    // rows where the screen's left and right edges are straight (hidden-column estimates use these)
-    straight_y: CAPSULE ? [D.endR, H - D.endR] : [D.cornerR, H - D.cornerR],
+    visible: CAPSULE ? { shape: 'capsule', end_radius: D.endR, margin: MARGIN } : CIRCLE ? { shape: 'circle', radius: D.radius, margin: MARGIN } : { shape: 'rect', corner_radius: D.cornerR, margin: MARGIN },
+    // rows where the screen's left and right edges are straight (hidden-column estimates use these;
+    // a circle has none)
+    straight_y: CAPSULE ? [D.endR, H - D.endR] : CIRCLE ? null : [D.cornerR, H - D.cornerR],
     colours: C
   },
   pages: pages.map((p) => ({ id: p.id, key: p.key, title: p.title, bar: p.bar, code: p.code, label: p.label, notes: p.notes, observe: p.observe, samples: p.samples }))
 }
+
+// Rulers not at the screen's edges (a circle): where they are. Absent = left ruler from x 0, right
+// ruler ending at x W, ticks from y 0 (rect, capsule).
+if (CIRCLE) layout.frame.ruler = { left_x: RULER.left_x, right_x: RULER.right_x, y0: RULER.y0 }
 
 const manifest = {
   package: PACKAGE,
@@ -1074,10 +1152,13 @@ const manifest = {
   router: { entry: 'pages/index', pages: { 'pages/index': { component: 'index', path: '/' } } }
 }
 
-fs.writeFileSync(path.join(ROOT, 'src/pages/index/index.ux'), ux)
-fs.writeFileSync(path.join(ROOT, 'src/manifest.json'), JSON.stringify(manifest, null, 2) + '\n')
-fs.writeFileSync(path.join(ROOT, 'src/app.ux'), '<script>\nexport default {}\n</script>\n')
-fs.mkdirSync(path.join(ROOT, 'layouts'), { recursive: true })
-fs.writeFileSync(path.join(ROOT, `layouts/${DEVICE}.json`), JSON.stringify(layout, null, 1) + '\n')
+if (!LAYOUT_ONLY) {
+  fs.writeFileSync(path.join(ROOT, 'src/pages/index/index.ux'), ux)
+  fs.writeFileSync(path.join(ROOT, 'src/manifest.json'), JSON.stringify(manifest, null, 2) + '\n')
+  fs.writeFileSync(path.join(ROOT, 'src/app.ux'), '<script>\nexport default {}\n</script>\n')
+}
+const layoutOut = optv('layout-out') || path.join(ROOT, 'layouts', `${DEVICE}.json`)
+fs.mkdirSync(path.dirname(layoutOut), { recursive: true })
+fs.writeFileSync(layoutOut, JSON.stringify(layout, null, 1) + '\n')
 console.log(`${DEVICE}: ${pages.length} pages, ${pages.reduce((a, p) => a + p.samples.length, 0)} samples, ${cssClasses.size} classes (kit ${VERSION.name})`)
 for (const p of pages) console.log(`  ${String(p.id).padStart(2)} ${p.key.padEnd(7)} ${p.title.padEnd(22)} ${p.samples.length} samples`)

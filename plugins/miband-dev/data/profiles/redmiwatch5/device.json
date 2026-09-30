@@ -1,0 +1,40 @@
+{
+ "schema": "vela-device-spec/1",
+ "id": "redmiwatch5",
+ "name": "REDMI Watch 5",
+ "also": [
+  "REDMI Watch 5 eSIM"
+ ],
+ "verified": false,
+ "about": "From devices/KNOWN_DEVICES.md (research 2026-09-29): maker's specs, not yet checked on a device. Onboard with node tools/vela-calib/new-device.mjs redmiwatch5, then calibrate.",
+ "screen": {
+  "w": 432,
+  "h": 514,
+  "shape": "rounded_rect",
+  "corner_radius": null,
+  "diag_in": 2.07,
+  "ppi": 324,
+  "source": "https://iot.mi.com/vela/quickapp/zh/guide/multi-screens/; https://www.mi.com/global/product/redmi-watch-5/specs/; https://github.com/AstralSightStudios/AstroBox-Repo (devices_v2.json) xmrw5 / o65",
+  "corner_radius_note": "not published: the kits assume 0.2 x the short side until the geometry page measures it"
+ },
+ "quickapp": {
+  "design_width": 432,
+  "status": "assumed"
+ },
+ "face": {
+  "canvas": {
+   "w": 432,
+   "h": 514
+  },
+  "id_digit": null,
+  "builder": "pack.mts",
+  "device_type": "465",
+  "status": "experimental",
+  "note": "Not to be confused with the Redmi Watch 5 Active / Lite (RTOS, not Vela). Corner radius not published. Face DeviceType 465 per Mi-Create. Faces packed by pack.mts are experimental on this device until F1 is photographed on it."
+ },
+ "firmware": {
+  "version": null,
+  "note": "the firmware the kits were last run on; profile.json firmware.version is authoritative for its facts"
+ },
+ "calib": {}
+}

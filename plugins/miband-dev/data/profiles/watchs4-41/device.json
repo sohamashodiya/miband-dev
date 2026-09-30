@@ -1,0 +1,37 @@
+{
+ "schema": "vela-device-spec/1",
+ "id": "watchs4-41",
+ "name": "Xiaomi Watch S4 41 mm",
+ "also": [],
+ "verified": false,
+ "about": "From devices/KNOWN_DEVICES.md (research 2026-09-29): maker's specs, not yet checked on a device. Onboard with node tools/vela-calib/new-device.mjs watchs4-41, then calibrate.",
+ "screen": {
+  "w": 466,
+  "h": 466,
+  "shape": "circle",
+  "corner_radius": null,
+  "diag_in": 1.32,
+  "ppi": 352,
+  "source": "https://www.mi.com/global/product/xiaomi-watch-s4-41mm/specs/; https://github.com/AstralSightStudios/AstroBox-Repo (devices_v2.json) xmws441"
+ },
+ "quickapp": {
+  "design_width": 466,
+  "status": "assumed"
+ },
+ "face": {
+  "canvas": {
+   "w": 466,
+   "h": 466
+  },
+  "id_digit": null,
+  "builder": "pack.mts",
+  "device_type": null,
+  "status": "experimental",
+  "note": "Same pixels as the 47 mm S4 on a smaller panel: calibrate it separately (a profile is per model). Face DeviceType unknown. Faces packed by pack.mts are experimental on this device until F1 is photographed on it."
+ },
+ "firmware": {
+  "version": null,
+  "note": "the firmware the kits were last run on; profile.json firmware.version is authoritative for its facts"
+ },
+ "calib": {}
+}

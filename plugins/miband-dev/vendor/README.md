@@ -21,12 +21,18 @@ What the patch does:
 | `package.json`, `package-lock.json` | Adds `fontkit` (the face generators render glyphs with it). |
 | `cli/index.ts` | Resolves project paths from the folder `npm` was started in (`INIT_CWD`), so `npm --prefix vendor/band10-toolkit run band10 -- package faces/<name>` works from the workspace root. |
 
+The toolkit only targets the Band 10's 212 × 520 canvas (FPRJ `DeviceType 466`); the Band 11 uses the
+same canvas. Other canvas sizes are packed by the face kit's `pack.mts`, which calls this clone's
+`builder/native.ts` `packGmfDirectory()` directly (no patch needed): verified on the Band 10 Pro
+(336 × 480, 2026-09-29), experimental on any other device until a face has been photographed on it.
+
 Your faces live in the workspace's `faces/<name>/`, not in the toolkit's `examples/`. The toolkit's
 own examples stay as upstream.
 
 ### Set up from scratch
 
-From the workspace root (once per workspace):
+The `new-project` skill does all of this: run `"${CLAUDE_PLUGIN_ROOT}/skills/new-project/setup-toolkit.sh"`
+from the workspace root (idempotent: each step is skipped when already done). What it runs:
 
 ```sh
 mkdir -p vendor/patches

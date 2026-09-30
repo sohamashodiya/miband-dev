@@ -1,7 +1,12 @@
 #!/usr/bin/env python3
 """Face calibration kit: generate the calibration watch faces and the layout measure_face.py reads.
 
-    python3 gen.py [band11|band10pro|all]        (default all)
+    python3 gen.py [<device id> ...|all] [--spec PATH] [--out DIR]     (default all)
+
+A device is its spec, devices/<id>/device.json (tools/vela-calib/device-spec.mjs): the face canvas,
+shape, face id digit and builder. "all" = every device that already has layouts/<id>.json here
+(onboarded with tools/vela-calib/new-device.mjs). --spec builds from a spec file (the selftests'
+synthetic devices); --out writes faces/ and layouts/ under DIR instead of this folder.
 
 Writes, per model:
   faces/<model>/f<N>-<key>/   one band10-toolkit face project per page (manifest.json, layout.json,
@@ -14,7 +19,14 @@ same frame as the quick-app kit (tools/vela-calib): rulers down both edges (a 1 
 14 px every 50, 22 px and yellow every 100; tick top = y), a yellow scale bar of known length and an
 8-cell page barcode (on, 5 bits of the page number, parity, on). On the Band 10/11 capsule the bar,
 barcode and content stay on the straight part of the screen (y 106-414), clear of the semicircular
-ends. All pixels are drawn at 1x with no anti-aliasing, so the page images are exact.
+ends. On a circle the rulers are two straight columns inside it (layout frame.ruler), like the
+quick-app kit's. All pixels are drawn at 1x with no anti-aliasing, so the page images are exact.
+
+Frames: band11 and band10pro use the frame pinned in their spec (calib.face.frame: build 1 was
+photographed with it). Any other device gets one computed here: the 164 x 330 px content block
+centred between the rulers and as high as the outline allows (y >= 44), the barcode and a 150 px bar
+under it. The content block needs 164 px between the rulers (screens >= 212 px wide; a circle
+>= 342 px); a narrower screen is refused.
 
 Everything here is generated: edit this file, never the faces/ output. Bump KIT_BUILD whenever a
 page changes (every face id contains it; a reinstalled id is silently ignored by the band).
@@ -30,24 +42,68 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-# The kit inside the miband-dev plugin is read-only; generating writes faces/ and layouts/ here, so
-# it runs only from a copy in the workspace (cp -R "<plugin>/tools/face-calib" tools/).
-if __name__ == '__main__' and os.path.exists(os.path.join(HERE, '..', '..', '.claude-plugin', 'plugin.json')):
-    sys.exit('This is the plugin\'s read-only copy of the kit. Copy it into your workspace first:\n'
-             '  cp -R "%s" <workspace>/tools/face-calib' % HERE)
+OUT = HERE  # where faces/ and layouts/ go (--out)
 KIT_BUILD = 1
 FONT = '/System/Library/Fonts/Supplemental/Arial Bold.ttf'
+sys.path.insert(0, os.path.join(HERE, '..', 'vela-calib'))
+sys.dont_write_bytecode = True
+import device_spec as ds  # noqa: E402
 
-MODELS = {
-    # capsule: 212 x 520, ends are semicircles of radius 106 (centres (106,106) and (106,414))
-    'band11': dict(name='Xiaomi Smart Band 10 / 11', W=212, H=520, shape='capsule', r=106, mdigit=1,
-                   ox=26, oy=48, bar=dict(x=31, y=404, len=150, h=4), code=dict(x=31, y=388, cell=6, pitch=8, h=10),
-                   straight=[110, 410]),
-    # rounded rectangle 336 x 480, corner radius ~47 (quick-app kit, 2026-09-27)
-    'band10pro': dict(name='Xiaomi Smart Band 10 Pro', W=336, H=480, shape='rrect', r=47, mdigit=2,
-                      ox=88, oy=50, bar=dict(x=110, y=456, len=200, h=4), code=dict(x=38, y=452, cell=6, pitch=8, h=10),
-                      straight=[60, 420]),
-}
+BLOCK_W, BLOCK_TOP, BLOCK_BOTTOM = 164, -2, 328   # content block: x ox-2 .. ox+162, y oy-2 .. oy+328
+CODE_DY, BAR_DY = 340, 356                         # barcode and bar rows below oy (as on the Band 11)
+
+
+def model(spec):
+    """The kit's model dict for a device spec: canvas, shape ('rrect' | 'capsule' | 'circle'), radius,
+    face id digit, builder, and the frame (pinned in the spec, or computed)."""
+    f = spec.get('face') or {}
+    if not f:
+        raise SystemExit('%s: the spec has no face section' % spec['id'])
+    if f.get('id_digit') is None:
+        raise SystemExit('%s: face.id_digit not assigned yet (onboard the device: node tools/vela-calib/new-device.mjs %s)' % (spec['id'], spec['id']))
+    g = ds.geometry(spec)
+    W, H = f['canvas']['w'], f['canvas']['h']
+    if (W, H) != (g['w'], g['h']):
+        raise SystemExit('%s: face canvas %dx%d differs from the screen %dx%d (not supported)' % (spec['id'], W, H, g['w'], g['h']))
+    shape = {'rect': 'rrect', 'capsule': 'capsule', 'circle': 'circle'}[g['shape']]
+    r = g.get('corner_r', g.get('end_r', g.get('radius')))
+    M = dict(name=spec['name'], W=W, H=H, shape=shape, r=r, mdigit=f['id_digit'], builder=f['builder'],
+             status=f.get('status', 'experimental'), geom=g, ruler=dict(left_x=0, right_x=W, y0=0, n=(H - 1) // TICK_EVERY + 1))
+    pin = ((spec.get('calib') or {}).get('face') or {}).get('frame')
+    if pin:
+        M.update({k: pin[k] for k in ('ox', 'oy', 'bar', 'code', 'straight', 'r') if k in pin})
+        return M
+    if shape == 'circle':
+        lx = round(W / 2 - 0.62 * r)
+        rows = [y for y in range(0, H, TICK_EVERY) if all(ds.inside(g, x, yy, 4) for x in (lx, W - lx) for yy in (y, y + 1))]
+        M['ruler'] = dict(left_x=lx, right_x=W - lx, y0=rows[0], n=len(rows))
+        M['straight'] = None
+    else:
+        lo = r + 4 if shape == 'capsule' else r + 5
+        M['straight'] = [int(math.ceil(lo / 10.0)) * 10, int((H - lo) // 10) * 10]
+    ru = M['ruler']
+    x0, x1 = ru['left_x'] + 24, ru['right_x'] - 24
+    if x1 - x0 < BLOCK_W:
+        raise SystemExit('%s: %d px between the rulers; the face pages need %d (a compact page set for narrow screens is not written yet)'
+                         % (spec['id'], x1 - x0, BLOCK_W))
+    ox = max(x0 + 2, int(round(W / 2 - BLOCK_W / 2 + 2)))
+    cx = int(round(W / 2))
+    for oy in range(44, H // 2, 2):
+        code = dict(x=cx - 75, y=oy + CODE_DY, cell=6, pitch=8, h=10)
+        bar = dict(x=cx - 75, y=oy + BAR_DY, len=150, h=4)
+        parts = [(ox - 2, oy + BLOCK_TOP, BLOCK_W, BLOCK_BOTTOM - BLOCK_TOP), (code['x'] - 2, code['y'] - 2, 7 * 8 + 6 + 4, 14),
+                 (bar['x'], bar['y'] - 2, bar['len'], 8)]
+        if all(ds.rect_inside(g, *p, m=4) for p in parts):
+            M.update(ox=ox, oy=oy, code=code, bar=bar)
+            return M
+    raise SystemExit('%s: the face pages (content block, barcode, bar) do not fit a %dx%d %s' % (spec['id'], W, H, shape))
+
+
+def onboarded():
+    """Devices with a face-kit layout here (and a spec)."""
+    have = set(ds.list_ids())
+    d = os.path.join(HERE, 'layouts')
+    return sorted(f[:-5] for f in os.listdir(d) if f.endswith('.json') and f[:-5] in have) if os.path.isdir(d) else []
 
 C = {
     'white': (255, 255, 255), 'yellow': (255, 214, 10), 'pink': (255, 45, 149), 'cyan': (0, 229, 255),
@@ -227,7 +283,7 @@ class Face:
         self.n = n
         self.slug = slug
         self.title = title
-        self.dir = os.path.join(HERE, 'faces', kit.model, 'f%d-%s' % (n, slug))
+        self.dir = os.path.join(OUT, 'faces', kit.model, 'f%d-%s' % (n, slug))
         self.assets = {}      # rel path -> PIL image
         self.script_files = {}  # name -> bytes or PIL image
         self.widgets = {'normal': [], 'aod': []}
@@ -325,7 +381,7 @@ class Face:
         dump(os.path.join(self.dir, 'calib.json'), {
             'generated_by': 'tools/face-calib/gen.py', 'model': self.kit.model, 'kit_build': KIT_BUILD,
             'pages': {t: p.id for t, p in self.pages.items()}, 'aodScript': self.aod_script,
-            'packer': 'pack.mts' if (self.kit.model != 'band11' or self.aod_script) else 'toolkit-cli'})
+            'packer': 'pack.mts' if (self.kit.M['builder'] != 'band10-toolkit' or self.aod_script) else 'toolkit-cli'})
         if self.lua:
             sd = os.path.join(self.dir, 'script')
             os.makedirs(sd, exist_ok=True)
@@ -453,13 +509,14 @@ end)''' % (sx, sy, op['test'], op['n'], op['x'], op['y'], op['n'] - 1))
 # the kit for one model
 # ---------------------------------------------------------------------------------------------
 class Kit:
-    def __init__(self, model):
-        self.model = model
-        self.M = MODELS[model]
+    def __init__(self, spec):
+        self.model = spec['id']
+        self.M = model(spec)
         self.faces = []
         self.pages = []
-        W, H = self.M['W'], self.M['H']
-        self.ticks = [2 if i % 10 == 0 else 1 if i % 5 == 0 else 0 for i in range((H - 1) // TICK_EVERY + 1)]
+        ru = self.M['ruler']
+        ks = [(ru['y0'] + i * TICK_EVERY) // TICK_EVERY for i in range(ru['n'])]
+        self.ticks = [2 if k % 10 == 0 else 1 if k % 5 == 0 else 0 for k in ks]
 
     def face(self, n, slug, title):
         f = Face(self, n, slug, title)
@@ -475,12 +532,12 @@ class Kit:
     def frame(self, cv, p, label_at=None, label=True):
         """Rulers, bar, barcode and the page label, drawn into the page's background canvas."""
         M = self.M
-        W = M['W']
+        ru = M['ruler']
         for i, t in enumerate(self.ticks):
             ln = TICK_LEN[t]
             c = C['yellow'] if t == 2 else C['white']
-            cv.rect(0, i * TICK_EVERY, ln, 1, c)
-            cv.rect(W - ln, i * TICK_EVERY, ln, 1, c)
+            cv.rect(ru['left_x'], ru['y0'] + i * TICK_EVERY, ln, 1, c)
+            cv.rect(ru['right_x'] - ln, ru['y0'] + i * TICK_EVERY, ln, 1, c)
         b = p.bar
         cv.rect(b['x'], b['y'], b['len'], b['h'], C['yellow'])
         cd = p.code
@@ -517,26 +574,45 @@ class Kit:
         # ---------------- F1 geometry ----------------
         f = self.face(1, 'geometry', 'Geometry')
         if M['shape'] == 'capsule':
+            # end radius R = W / 2 (Band 11: 106): grey fills over rows 30 .. R - 14 of each end
+            R = int(W // 2)
+            cxm = W // 2
             p = self.page(f, 1, 'geo', 'Geometry')
             cv = self.bg()
-            self.frame(cv, p, label_at=(40, 150))
-            xs = [90, 98, 106, 114, 122]
+            self.frame(cv, p, label_at=(40, R + 44))
+            xs = [cxm - 16, cxm - 8, cxm, cxm + 8, cxm + 16]
             for x in xs:
                 cv.rect(x, 0, 1, 24, C['white'])
                 cv.rect(x, H - 24, 1, 24, C['white'])
-            cv.rect(0, 30, W, 63, C['fill'])        # rows 30-92
-            cv.rect(0, H - 92, W, 63, C['fill'])    # rows 428-490
-            cv.text(W // 2, 200, 'Capsule ends', 13, C['grey'], anchor='mm')
-            cv.text(W // 2, 220, 'and edges', 13, C['grey'], anchor='mm')
-            cv.text(W // 2, 250, 'Note anything the', 11, C['grey'], anchor='mm')
-            cv.text(W // 2, 265, 'system draws on top', 11, C['grey'], anchor='mm')
-            p.sample({'type': 'comb', 'edge': 'top', 'xs': xs, 'y0': 0, 'y1': 24, 'centre_x': 106})
-            p.sample({'type': 'comb', 'edge': 'bottom', 'xs': xs, 'y0': H - 24, 'y1': H, 'centre_x': 106})
-            p.sample({'type': 'capsule_end', 'end': 'top', 'rows': [32, 90], 'expect': {'cx': 106, 'cy': 106, 'r': 106}})
-            p.sample({'type': 'capsule_end', 'end': 'bottom', 'rows': [430, 488], 'expect': {'cx': 106, 'cy': H - 106, 'r': 106}})
+            cv.rect(0, 30, W, R - 43, C['fill'])            # rows 30 .. R - 14
+            cv.rect(0, H - (R - 14), W, R - 43, C['fill'])  # rows H - R + 14 .. H - 30
+            cv.text(W // 2, R + 94, 'Capsule ends', 13, C['grey'], anchor='mm')
+            cv.text(W // 2, R + 114, 'and edges', 13, C['grey'], anchor='mm')
+            cv.text(W // 2, R + 144, 'Note anything the', 11, C['grey'], anchor='mm')
+            cv.text(W // 2, R + 159, 'system draws on top', 11, C['grey'], anchor='mm')
+            p.sample({'type': 'comb', 'edge': 'top', 'xs': xs, 'y0': 0, 'y1': 24, 'centre_x': cxm})
+            p.sample({'type': 'comb', 'edge': 'bottom', 'xs': xs, 'y0': H - 24, 'y1': H, 'centre_x': cxm})
+            p.sample({'type': 'capsule_end', 'end': 'top', 'rows': [32, R - 16], 'expect': {'cx': cxm, 'cy': R, 'r': R}})
+            p.sample({'type': 'capsule_end', 'end': 'bottom', 'rows': [H - (R - 16), H - 32], 'expect': {'cx': cxm, 'cy': H - R, 'r': R}})
+        elif M['shape'] == 'circle':
+            # grey fills over everything outside the rulers; their lit outline is the whole circle
+            ru = M['ruler']
+            yT = ru['y0'] - 8
+            yB = ru['y0'] + (ru['n'] - 1) * TICK_EVERY + 1 + 8
+            boxes = [[0, 0, W, yT], [0, yB, W, H - yB], [0, yT, ru['left_x'] - 6, yB - yT], [ru['right_x'] + 6, yT, W - ru['right_x'] - 6, yB - yT]]
+            gbar = {'x': (W - M['bar']['len']) // 2, 'y': H // 2 - 2, 'len': M['bar']['len'], 'h': 4}
+            gcode = dict(M['code'], x=gbar['x'], y=gbar['y'] + 14)
+            p = self.page(f, 1, 'geo', 'Geometry', bar=gbar, code=gcode)
+            cv = self.bg()
+            self.frame(cv, p, label_at=(ru['left_x'] + 30, yT + 12))
+            for x, y, w, h in boxes:
+                cv.rect(x, y, w, h, C['fill'])
+            cv.text(W // 2, gbar['y'] - 60, 'Round edge. Note anything', 13, C['grey'], anchor='mm')
+            cv.text(W // 2, gbar['y'] - 42, 'the system draws on top.', 13, C['grey'], anchor='mm')
+            p.sample({'type': 'round', 'boxes': boxes, 'expect': {'cx': W / 2, 'cy': H / 2, 'r': W / 2}})
         else:
-            K = 48
-            gbar = {'x': (W - 200) // 2, 'y': H // 2 - 2, 'len': 200, 'h': 4}
+            K = 48 if M['r'] <= 48 else int(math.ceil(1.2 * M['r']))
+            gbar = {'x': (W - M['bar']['len']) // 2, 'y': H // 2 - 2, 'len': M['bar']['len'], 'h': 4}
             gcode = dict(M['code'], x=gbar['x'], y=gbar['y'] + 14)
             p = self.page(f, 1, 'geo', 'Geometry', bar=gbar, code=gcode)
             cv = self.bg()
@@ -548,8 +624,9 @@ class Kit:
             for x in xs:
                 cv.rect(x, 0, 1, 20, C['white'])
                 cv.rect(x, H - 20, 1, 20, C['white'])
-            p.sample({'type': 'comb', 'edge': 'top', 'xs': xs, 'y0': 0, 'y1': 20, 'centre_x': W // 2})
-            p.sample({'type': 'comb', 'edge': 'bottom', 'xs': xs, 'y0': H - 20, 'y1': H, 'centre_x': W // 2})
+            cxc = min(xs, key=lambda x: abs(x - W // 2))   # the comb line nearest the centre (Band 10 Pro: 168)
+            p.sample({'type': 'comb', 'edge': 'top', 'xs': xs, 'y0': 0, 'y1': 20, 'centre_x': cxc})
+            p.sample({'type': 'comb', 'edge': 'bottom', 'xs': xs, 'y0': H - 20, 'y1': H, 'centre_x': cxc})
             cv.text(W // 2, gbar['y'] - 80, 'Corners and edges. Note anything', 13, C['grey'], anchor='mm')
             cv.text(W // 2, gbar['y'] - 62, 'the system draws on top.', 13, C['grey'], anchor='mm')
         p.sample({'type': 'ruler_edges', 'rows': M['straight']})
@@ -891,13 +968,16 @@ class Kit:
                       'colours': {k: '#%02x%02x%02x' % v for k, v in C.items()}},
             'cells': {'digit': {'w': CELL_W, 'h': CELL_H, 'bits_at': BITS_AT}, 'frame': {'w': FRAME_W, 'h': FRAME_H, 'bits_at': FRAME_BITS_AT},
                       'bit_sq': BIT_SQ, 'bit_gap': BIT_GAP, 'minus_code': MINUS_CODE, 'tile': TILE},
-            'faces': [{'n': f.n, 'slug': f.slug, 'id': f.id, 'name': f.name, 'project': os.path.relpath(f.dir, HERE),
-                       'bin': os.path.relpath(os.path.join(f.dir, 'dist', f.output + '.bin'), HERE),
+            'faces': [{'n': f.n, 'slug': f.slug, 'id': f.id, 'name': f.name, 'project': os.path.relpath(f.dir, OUT),
+                       'bin': os.path.relpath(os.path.join(f.dir, 'dist', f.output + '.bin'), OUT),
                        'pages': {t: p.id for t, p in f.pages.items()}, 'lua_ops': f.lua, 'aod_script': f.aod_script} for f in self.faces],
             'pages': [p.spec() for p in self.pages],
         }
-        os.makedirs(os.path.join(HERE, 'layouts'), exist_ok=True)
-        dump(os.path.join(HERE, 'layouts', self.model + '.json'), layout)
+        if self.M['shape'] == 'circle':  # rulers inside the circle (absent: at the edges, from y 0)
+            ru = self.M['ruler']
+            layout['frame']['ruler'] = {'left_x': ru['left_x'], 'right_x': ru['right_x'], 'y0': ru['y0']}
+        os.makedirs(os.path.join(OUT, 'layouts'), exist_ok=True)
+        dump(os.path.join(OUT, 'layouts', self.model + '.json'), layout)
         return layout
 
 
@@ -912,16 +992,41 @@ class _PalettePNG:
 
 
 def main(argv):
-    which = argv[1] if len(argv) > 1 else 'all'
-    models = list(MODELS) if which == 'all' else [which]
-    for m in models:
-        if m not in MODELS:
-            raise SystemExit('unknown model %s (known: %s)' % (m, ', '.join(MODELS)))
-        kit = Kit(m).build()
+    global OUT
+    args = argv[1:]
+    if args[:1] == ['--list']:          # onboarded devices and their face builder (build.sh)
+        for m in onboarded():
+            print(m, ds.load(m)['face']['builder'])
+        return
+    specs, ids = [], []
+    i = 0
+    while i < len(args):
+        if args[i] == '--out':
+            OUT = os.path.abspath(args[i + 1])
+            i += 2
+        elif args[i] == '--spec':
+            specs.append(ds.load(args[i + 1]))
+            i += 2
+        else:
+            ids.append(args[i])
+            i += 1
+    if not specs and (not ids or ids == ['all']):
+        ids = onboarded()
+    specs += [ds.load(m) for m in ids if m != 'all']
+    # The kit inside the miband-dev plugin is read-only: writing faces/ and layouts/ here needs a
+    # copy in the workspace (the new-project skill's copy-kit.sh face-calib); --out elsewhere is fine.
+    if OUT == HERE and os.path.exists(os.path.join(HERE, '..', '..', '.claude-plugin', 'plugin.json')):
+        sys.exit('This is the plugin\'s read-only copy of the kit. Copy it into your workspace first:\n'
+                 '  %s/../../skills/new-project/copy-kit.sh face-calib   (from the workspace root; or pass --out DIR)' % HERE)
+    for spec in specs:
+        m = spec['id']
+        kit = Kit(spec).build()
         kit.write()
-        print('%s: %d faces, %d pages -> faces/%s/, layouts/%s.json' % (m, len(kit.faces), len(kit.pages), m, m))
+        rel = lambda q: os.path.relpath(q, HERE) if OUT == HERE else q
+        print('%s: %d faces, %d pages -> %s, %s (faces %s)' % (m, len(kit.faces), len(kit.pages), rel(os.path.join(OUT, 'faces', m)),
+                                                              rel(os.path.join(OUT, 'layouts', m + '.json')), kit.M['status']))
         for f in kit.faces:
-            print('  %s  %-24s %s' % (f.id, f.name, os.path.relpath(f.dir, HERE)))
+            print('  %s  %-24s %s' % (f.id, f.name, rel(f.dir)))
 
 
 if __name__ == '__main__':

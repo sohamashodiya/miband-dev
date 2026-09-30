@@ -2660,51 +2660,863 @@
   }
  },
  "face": {
-  "about": "Watch-face engine facts for this model. Nothing measured yet on the Band 10 Pro: every fact is unknown. Measure before building a face for it.",
+  "about": "Watch-face engine facts for this model, measured with the face calibration kit (tools/face-calib build 1, packed at 336 x 480 by pack.mts; all 8 faces accepted by a Band 10 Pro, fw 3.101.043, and photographed 2026-09-29, 9 photos). Facts still unknown (always-on, Lua timer, seconds) must be measured before a face depends on them. Written by tools/face-calib/measure_face.py (this key only). Quick-app facts never stand in for these.",
   "colour": {
    "floor": {
     "grey": {
-     "value": null,
-     "status": "unknown",
-     "source": "no face calibration yet: build a face-engine calibration face for this model and photograph it (devices/band10pro/CALIBRATION.md)",
-     "date": "2026-09-28"
+     "value": 24,
+     "status": "measured",
+     "source": "face-calib photos IMG20260929184423.jpg",
+     "date": "2026-09-29",
+     "per_ramp": {
+      "grey": 24,
+      "grey_rgba32": 24,
+      "grey_lua": 24
+     },
+     "note": "lowest of the three grey ramps (background image, BGRA32 image, Lua fills); same panel, so glare on one ramp does not count; confirm by eye"
+    },
+    "grey_background": {
+     "value": 24,
+     "status": "measured",
+     "source": "face-calib photos IMG20260929184423.jpg",
+     "date": "2026-09-29",
+     "lumas": {
+      "#000000": 3.7,
+      "#080808": 4.7,
+      "#101010": 9.7,
+      "#181818": 15.0,
+      "#202020": 25.2,
+      "#282828": 27.6,
+      "#303030": 39.6,
+      "#383838": 52.4,
+      "#404040": 66.2,
+      "#484848": 79.2,
+      "#505050": 89.7,
+      "#585858": 97.3,
+      "#606060": 105.1
+     },
+     "black_luma": 3.7,
+     "threshold": 6.0,
+     "note": "lowest channel value the camera saw above black; confirm by eye"
+    },
+    "grey_rgba32": {
+     "value": 24,
+     "status": "measured",
+     "source": "face-calib photos IMG20260929184423.jpg",
+     "date": "2026-09-29",
+     "lumas": {
+      "#000000": 3.9,
+      "#080808": 4.8,
+      "#101010": 9.2,
+      "#181818": 14.6,
+      "#202020": 24.3,
+      "#282828": 27.2,
+      "#303030": 37.4,
+      "#383838": 52.3,
+      "#404040": 65.7,
+      "#484848": 79.3,
+      "#505050": 90.0,
+      "#585858": 98.1,
+      "#606060": 105.3
+     },
+     "black_luma": 3.9,
+     "threshold": 6.0,
+     "note": "lowest channel value the camera saw above black; confirm by eye"
+    },
+    "grey_lua": {
+     "value": 24,
+     "status": "measured",
+     "source": "face-calib photos IMG20260929184423.jpg",
+     "date": "2026-09-29",
+     "lumas": {
+      "#000000": 3.8,
+      "#080808": 4.7,
+      "#101010": 9.5,
+      "#181818": 14.4,
+      "#202020": 24.3,
+      "#282828": 26.9,
+      "#303030": 39.0,
+      "#383838": 53.5,
+      "#404040": 66.0,
+      "#484848": 79.5,
+      "#505050": 91.1,
+      "#585858": 99.9,
+      "#606060": 106.9
+     },
+     "black_luma": 3.8,
+     "threshold": 6.0,
+     "note": "lowest channel value the camera saw above black; confirm by eye"
+    },
+    "red": {
+     "value": 48,
+     "status": "measured",
+     "source": "face-calib photos IMG20260929184423.jpg",
+     "date": "2026-09-29",
+     "lumas": {
+      "#100000": 3.9,
+      "#200000": 7.6,
+      "#300000": 11.4,
+      "#400000": 19.0,
+      "#500000": 31.3,
+      "#600000": 40.5,
+      "#700000": 48.9,
+      "#800000": 55.9
+     },
+     "black_luma": 3.8,
+     "threshold": 6.0,
+     "note": "lowest channel value the camera saw above black; confirm by eye"
+    },
+    "green": {
+     "value": 32,
+     "status": "measured",
+     "source": "face-calib photos IMG20260929184423.jpg",
+     "date": "2026-09-29",
+     "lumas": {
+      "#001000": 5.7,
+      "#002000": 12.0,
+      "#003000": 18.6,
+      "#004000": 36.0,
+      "#005000": 55.8,
+      "#006000": 71.3,
+      "#007000": 84.8,
+      "#008000": 94.2
+     },
+     "black_luma": 3.8,
+     "threshold": 6.0,
+     "note": "lowest channel value the camera saw above black; confirm by eye"
+    },
+    "blue": {
+     "value": 48,
+     "status": "measured",
+     "source": "face-calib photos IMG20260929184423.jpg",
+     "date": "2026-09-29",
+     "lumas": {
+      "#000010": 5.1,
+      "#000020": 9.1,
+      "#000030": 13.2,
+      "#000040": 19.6,
+      "#000050": 26.7,
+      "#000060": 30.4,
+      "#000070": 35.6,
+      "#000080": 41.8
+     },
+     "black_luma": 3.8,
+     "threshold": 6.0,
+     "note": "lowest channel value the camera saw above black; confirm by eye"
+    },
+    "surface": {
+     "value": 32,
+     "status": "measured",
+     "source": "face-calib photos IMG20260929184423.jpg",
+     "date": "2026-09-29",
+     "lumas": {
+      "#202020": 24.7,
+      "#282828": 27.0,
+      "#303030": 40.1,
+      "#383838": 53.1,
+      "#404040": 66.4,
+      "#484848": 80.9
+     },
+     "black_luma": 3.8,
+     "threshold": 6.0,
+     "note": "lowest channel value the camera saw above black; confirm by eye"
     }
    }
   },
   "screen": {
    "status_clear_top_px": {
-    "value": null,
-    "status": "unknown",
-    "source": "no face calibration yet: build a face-engine calibration face for this model and photograph it (devices/band10pro/CALIBRATION.md)",
-    "date": "2026-09-28"
+    "value": 33,
+    "status": "measured",
+    "source": "face-calib photos IMG20260929184423.jpg, IMG20260929184449.jpg, IMG20260929184514.jpg, IMG20260929184559.jpg, IMG20260929184615.jpg, IMG20260929184641.jpg, IMG20260929184734.jpg",
+    "date": "2026-09-29",
+    "note": "bottom of what the system drew in the top strip"
+   },
+   "hidden_px": {
+    "left": {
+     "value": 1.15,
+     "status": "measured",
+     "source": "face-calib photos IMG20260929182635.jpg, IMG20260929184423.jpg, IMG20260929184449.jpg, IMG20260929184514.jpg, IMG20260929184559.jpg, IMG20260929184615.jpg, IMG20260929184641.jpg, IMG20260929184734.jpg",
+     "date": "2026-09-29",
+     "note": "outer ends of the ruler ticks on the straight part of the screen, bloom-corrected, +-1 px"
+    },
+    "right": {
+     "value": 1.01,
+     "status": "measured",
+     "source": "face-calib photos IMG20260929182635.jpg, IMG20260929184423.jpg, IMG20260929184449.jpg, IMG20260929184514.jpg, IMG20260929184559.jpg, IMG20260929184615.jpg, IMG20260929184641.jpg, IMG20260929184734.jpg",
+     "date": "2026-09-29",
+     "note": "outer ends of the ruler ticks on the straight part of the screen, bloom-corrected, +-1 px"
+    },
+    "top": {
+     "value": 0.0,
+     "status": "measured",
+     "source": "face-calib photos IMG20260929182635.jpg",
+     "date": "2026-09-29",
+     "per_line": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     "note": "comb line at the screen centre"
+    },
+    "bottom": {
+     "value": 0.0,
+     "status": "measured",
+     "source": "face-calib photos IMG20260929182635.jpg",
+     "date": "2026-09-29",
+     "per_line": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     "note": "comb line at the screen centre"
+    }
+   },
+   "corner_radius_px": {
+    "value": {
+     "tl": 46.6,
+     "tr": 46.8,
+     "bl": 47.3,
+     "br": 47.0
+    },
+    "status": "measured",
+    "source": "face-calib photos IMG20260929182635.jpg",
+    "date": "2026-09-29"
+   },
+   "status_overlay": {
+    "value": {
+     "pages_checked": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      9
+     ],
+     "found_on": {
+      "2": {
+       "found": true,
+       "bbox": [
+        158.5,
+        13.1,
+        177.2,
+        32.6
+       ],
+       "blobs": [
+        [
+         158.5,
+         13.1,
+         177.2,
+         32.6,
+         288.5
+        ]
+       ],
+       "colour": "red",
+       "centre": [
+        167.9,
+        22.9
+       ],
+       "size": [
+        18.8,
+        19.5
+       ]
+      },
+      "3": {
+       "found": true,
+       "bbox": [
+        159.0,
+        13.5,
+        177.9,
+        32.9
+       ],
+       "blobs": [
+        [
+         159.0,
+         13.5,
+         177.9,
+         32.9,
+         290.8
+        ]
+       ],
+       "colour": "red",
+       "centre": [
+        168.4,
+        23.2
+       ],
+       "size": [
+        18.9,
+        19.4
+       ]
+      },
+      "4": {
+       "found": true,
+       "bbox": [
+        158.2,
+        13.2,
+        177.6,
+        32.8
+       ],
+       "blobs": [
+        [
+         158.2,
+         13.2,
+         177.6,
+         32.8,
+         297.8
+        ]
+       ],
+       "colour": "red",
+       "centre": [
+        167.9,
+        23.0
+       ],
+       "size": [
+        19.4,
+        19.5
+       ]
+      },
+      "5": {
+       "found": true,
+       "bbox": [
+        158.5,
+        13.2,
+        177.8,
+        32.9
+       ],
+       "blobs": [
+        [
+         158.5,
+         13.2,
+         177.8,
+         32.9,
+         296.0
+        ]
+       ],
+       "colour": "red",
+       "centre": [
+        168.1,
+        23.1
+       ],
+       "size": [
+        19.2,
+        19.6
+       ]
+      },
+      "6": {
+       "found": true,
+       "bbox": [
+        158.4,
+        13.2,
+        178.0,
+        33.0
+       ],
+       "blobs": [
+        [
+         158.4,
+         13.2,
+         178.0,
+         33.0,
+         308.6
+        ]
+       ],
+       "colour": "red",
+       "centre": [
+        168.2,
+        23.1
+       ],
+       "size": [
+        19.6,
+        19.8
+       ]
+      },
+      "7": {
+       "found": true,
+       "bbox": [
+        158.1,
+        13.1,
+        178.0,
+        33.0
+       ],
+       "blobs": [
+        [
+         158.1,
+         13.1,
+         178.0,
+         33.0,
+         309.9
+        ]
+       ],
+       "colour": "red",
+       "centre": [
+        168.1,
+        23.1
+       ],
+       "size": [
+        19.9,
+        19.9
+       ]
+      },
+      "9": {
+       "found": true,
+       "bbox": [
+        158.0,
+        11.9,
+        177.6,
+        32.6
+       ],
+       "blobs": [
+        [
+         158.0,
+         11.9,
+         177.6,
+         32.6,
+         320.0
+        ]
+       ],
+       "colour": "red",
+       "centre": [
+        167.8,
+        22.2
+       ],
+       "size": [
+        19.6,
+        20.8
+       ]
+      }
+     }
+    },
+    "status": "measured",
+    "source": "face-calib photos IMG20260929184423.jpg, IMG20260929184449.jpg, IMG20260929184514.jpg, IMG20260929184559.jpg, IMG20260929184615.jpg, IMG20260929184641.jpg, IMG20260929184734.jpg",
+    "date": "2026-09-29",
+    "note": "lit pixels in the top strip, which every page leaves black; confirm by eye (glare can trip it)"
+   },
+   "corner_detail": {
+    "value": {
+     "tl": {
+      "diag_inset_px": 13.38,
+      "radius_px": 46.6,
+      "edge_hidden_x_px": 0.26,
+      "edge_hidden_y_px": -0.91,
+      "arc_points": 517,
+      "fit_rms_px": 0.1
+     },
+     "tr": {
+      "diag_inset_px": 13.25,
+      "radius_px": 46.8,
+      "edge_hidden_x_px": -0.09,
+      "edge_hidden_y_px": -0.98,
+      "arc_points": 633,
+      "fit_rms_px": 0.07
+     },
+     "bl": {
+      "diag_inset_px": 13.88,
+      "radius_px": 47.3,
+      "edge_hidden_x_px": 0.62,
+      "edge_hidden_y_px": -0.91,
+      "arc_points": 658,
+      "fit_rms_px": 0.1
+     },
+     "br": {
+      "diag_inset_px": 13.62,
+      "radius_px": 47.0,
+      "edge_hidden_x_px": 0.35,
+      "edge_hidden_y_px": -0.63,
+      "arc_points": 667,
+      "fit_rms_px": 0.09
+     }
+    },
+    "status": "measured",
+    "source": "face-calib photos IMG20260929182635.jpg",
+    "date": "2026-09-29"
    }
   },
   "lua": {
    "image_format": {
-    "value": null,
-    "status": "unknown",
-    "source": "no face calibration yet: build a face-engine calibration face for this model and photograph it (devices/band10pro/CALIBRATION.md)",
-    "date": "2026-09-28"
+    "value": [
+     "png8",
+     "png_grey",
+     "png_rgb",
+     "png_rgba",
+     "v8_tca32",
+     "v9_argb8888"
+    ],
+    "status": "measured",
+    "source": "face-calib photos IMG20260929184449.jpg",
+    "date": "2026-09-29",
+    "per_format": {
+     "png_rgba": {
+      "verdict": "correct",
+      "alpha": "honoured"
+     },
+     "png8": {
+      "verdict": "correct",
+      "alpha": "honoured"
+     },
+     "png_grey": {
+      "verdict": "correct",
+      "alpha": "honoured"
+     },
+     "png_rgb": {
+      "verdict": "correct",
+      "alpha": "n/a (no alpha)"
+     },
+     "v8_tca32": {
+      "verdict": "correct",
+      "alpha": "honoured"
+     },
+     "v8_tca16": {
+      "verdict": "missing",
+      "alpha": "honoured"
+     },
+     "v9_argb8888": {
+      "verdict": "correct",
+      "alpha": "honoured"
+     },
+     "v9_rgb565": {
+      "verdict": "garbled",
+      "alpha": "other:blue"
+     }
+    },
+    "note": "formats the Lua layer drew correctly (tile quadrants and alpha hole checked)"
    },
    "runs_on_aod": {
+    "value": true,
+    "status": "measured",
+    "source": "face-calib photos IMG20260929185159.jpg",
+    "date": "2026-09-29",
+    "widget_square": {
+     "present": true,
+     "colour": "green",
+     "rgb": [
+      13,
+      235,
+      122
+     ]
+    },
+    "lua_square": {
+     "present": true,
+     "colour": "green",
+     "rgb": [
+      13,
+      235,
+      125
+     ]
+    }
+   },
+   "runs": {
+    "value": true,
+    "status": "measured",
+    "source": "face-calib photos IMG20260929184423.jpg, IMG20260929184449.jpg, IMG20260929184615.jpg, IMG20260929184734.jpg",
+    "date": "2026-09-29"
+   },
+   "image_zoom": {
+    "value": {
+     "zoom": "scaled",
+     "scale": "not_scaled"
+    },
+    "status": "measured",
+    "source": "face-calib photos IMG20260929184449.jpg",
+    "date": "2026-09-29",
+    "note": "Image:set{zoom=512} / set{scale=512} on a 32 px PNG: scaled means it drew ~64 px"
+   },
+   "api_status": {
+    "value": {
+     "alive": "ok",
+     "object_fill": "ok",
+     "image_png_rgba": "ok",
+     "image_png8": "ok",
+     "image_png_grey": "ok",
+     "image_png_rgb": "ok",
+     "image_v8_tca32": "ok",
+     "image_v8_tca16": "ok",
+     "image_v9_argb8888": "ok",
+     "image_v9_rgb565": "ok",
+     "image_zoom": "ok",
+     "image_scale": "ok",
+     "place_0": "ok",
+     "place_1": "ok",
+     "hor_res": "ok",
+     "ver_res": "ok",
+     "lua_hour": "ok",
+     "lua_minute": "ok",
+     "raw_minute_low": "ok",
+     "label": "ok",
+     "timer": "ok"
+    },
+    "status": "measured",
+    "source": "face-calib photos IMG20260929184423.jpg, IMG20260929184449.jpg, IMG20260929184615.jpg, IMG20260929184734.jpg",
+    "date": "2026-09-29",
+    "note": "ok = the pcall returned; error = it raised; not_drawn = the script never got there (or did not run)"
+   },
+   "placement_offset_px": {
+    "value": {
+     "dx": 0.58,
+     "dy": 0.11
+    },
+    "status": "measured",
+    "source": "face-calib photos IMG20260929184615.jpg",
+    "date": "2026-09-29",
+    "note": "drawn position minus the requested x, y (band px, +-0.5)"
+   },
+   "canvas_px": {
+    "value": {
+     "w": 336,
+     "h": 480
+    },
+    "status": "measured",
+    "source": "face-calib photos IMG20260929184615.jpg",
+    "date": "2026-09-29",
+    "note": "lvgl.HOR_RES() / VER_RES() as the Lua layer reports them"
+   },
+   "dataman_scale": {
+    "value": 256.0,
+    "status": "measured",
+    "source": "face-calib photos IMG20260929184615.jpg",
+    "date": "2026-09-29",
+    "raw_minute_low": 1536,
+    "minute": 46
+   },
+   "time_matches_widget": {
+    "value": true,
+    "status": "measured",
+    "source": "face-calib photos IMG20260929184615.jpg",
+    "date": "2026-09-29",
+    "lua": [
+     6,
+     46
+    ],
+    "widget": [
+     6,
+     46
+    ]
+   },
+   "label_draws": {
+    "value": true,
+    "status": "measured",
+    "source": "face-calib photos IMG20260929184615.jpg",
+    "date": "2026-09-29",
+    "detail": {
+     "present": true,
+     "peak_luma": 243.0
+    }
+   },
+   "timer_runs": {
     "value": null,
     "status": "unknown",
-    "source": "no face calibration yet: build a face-engine calibration face for this model and photograph it (devices/band10pro/CALIBRATION.md)",
-    "date": "2026-09-28"
+    "source": "not measured yet: tools/face-calib",
+    "date": "2026-09-29"
+   },
+   "object_fill_lumas": {
+    "value": {
+     "#ffffff": 254.8,
+     "#808080": 161.9,
+     "#404040": 71.5
+    },
+    "status": "measured",
+    "source": "face-calib photos IMG20260929184615.jpg",
+    "date": "2026-09-29"
    }
   },
   "widgets": {
    "number_anchor_fixed": {
-    "value": null,
-    "status": "unknown",
-    "source": "no face calibration yet: build a face-engine calibration face for this model and photograph it (devices/band10pro/CALIBRATION.md)",
-    "date": "2026-09-28"
+    "value": false,
+    "status": "measured",
+    "source": "face-calib photos IMG20260929184514.jpg",
+    "date": "2026-09-29",
+    "centre_verdict": "anchor_centre"
    },
    "image_list_frames_same_size": {
-    "value": null,
-    "status": "unknown",
-    "source": "no face calibration yet: build a face-engine calibration face for this model and photograph it (devices/band10pro/CALIBRATION.md)",
-    "date": "2026-09-28"
+    "value": true,
+    "status": "measured",
+    "source": "face-calib photos IMG20260929184559.jpg",
+    "date": "2026-09-29",
+    "status_note": "format rule: an image-list block has one width/height for all frames (parser/imageCodec.ts)"
+   },
+   "placement_offset_px": {
+    "value": {
+     "dx": 0.58,
+     "dy": 0.12
+    },
+    "status": "measured",
+    "source": "face-calib photos IMG20260929184615.jpg",
+    "date": "2026-09-29",
+    "note": "drawn position minus the requested x, y (band px, +-0.5)"
+   },
+   "number": {
+    "align": {
+     "value": {
+      "left": {
+       "verdict": "anchor_left",
+       "cells": 4,
+       "count": 5,
+       "value": 6962,
+       "distances": {
+        "anchor_left": 0.66,
+        "anchor_centre": 32.66,
+        "anchor_right": 64.66,
+        "box_centre": 7.34,
+        "box_right": 15.34
+       }
+      },
+      "center": {
+       "verdict": "anchor_centre",
+       "cells": 4,
+       "count": 5,
+       "value": 6962,
+       "distances": {
+        "anchor_left": 31.69,
+        "anchor_centre": 0.31,
+        "anchor_right": 32.31,
+        "box_centre": 39.69,
+        "box_right": 47.69
+       }
+      },
+      "right": {
+       "verdict": "anchor_right",
+       "cells": 4,
+       "count": 5,
+       "value": 6962,
+       "distances": {
+        "anchor_left": 63.57,
+        "anchor_centre": 31.57,
+        "anchor_right": 0.43,
+        "box_centre": 71.57,
+        "box_right": 79.57
+       }
+      },
+      "battery_center": {
+       "verdict": "anchor_right",
+       "cells": 1,
+       "count": 3,
+       "value": 3,
+       "distances": {
+        "anchor_left": 21.84,
+        "anchor_centre": 13.84,
+        "anchor_right": 5.84,
+        "box_centre": 37.84,
+        "box_right": 53.84
+       }
+      }
+     },
+     "status": "measured",
+     "source": "face-calib photos IMG20260929184514.jpg",
+     "date": "2026-09-29",
+     "note": "anchor_* = x is the left/centre/right of the digits drawn; box_* = the digits are aligned inside a slot of `count` cells starting at x. Only told apart when fewer digits than `count` are drawn."
+    },
+    "spacing_px": {
+     "value": {
+      "6": 5.96,
+      "-3": -3.0
+     },
+     "status": "measured",
+     "source": "face-calib photos IMG20260929184514.jpg",
+     "date": "2026-09-29",
+     "note": "requested spacing -> measured gap between cells; a huge gap for -3 means the byte is read unsigned"
+    },
+    "pads_to_count": {
+     "value": false,
+     "status": "measured",
+     "source": "face-calib photos IMG20260929184514.jpg",
+     "date": "2026-09-29",
+     "steps": 6962,
+     "cells": 4
+    },
+    "leading_zero": {
+     "value": {
+      "minute": {
+       "lz": true,
+       "digits": "45"
+      },
+      "hour": {
+       "lz": false,
+       "digits": "6"
+      },
+      "second": {
+       "lz": true,
+       "digits": "17"
+      }
+     },
+     "status": "measured",
+     "source": "face-calib photos IMG20260929184514.jpg",
+     "date": "2026-09-29"
+    },
+    "unit_gap_px": {
+     "value": 26.22,
+     "status": "measured",
+     "source": "face-calib photos IMG20260929184514.jpg",
+     "date": "2026-09-29",
+     "note": "gap between the last digit and the unit image"
+    },
+    "second_updates": {
+     "value": null,
+     "status": "unknown",
+     "source": "not measured yet: tools/face-calib",
+     "date": "2026-09-29"
+    }
+   },
+   "image_list": {
+    "fallback": {
+     "value": "floor",
+     "status": "measured",
+     "source": "face-calib photos IMG20260929184559.jpg",
+     "date": "2026-09-29",
+     "battery": 38,
+     "frame_value": 20,
+     "note": "several names = this battery value cannot tell them apart; retake at another charge"
+    },
+    "below_first": {
+     "value": "frame 101",
+     "status": "measured",
+     "source": "face-calib photos IMG20260929184559.jpg",
+     "date": "2026-09-29",
+     "battery": 38
+    },
+    "above_last": {
+     "value": "frame 1",
+     "status": "measured",
+     "source": "face-calib photos IMG20260929184559.jpg",
+     "date": "2026-09-29",
+     "battery": 38
+    },
+    "u16_values": {
+     "value": 5000,
+     "status": "measured",
+     "source": "face-calib photos IMG20260929184559.jpg",
+     "date": "2026-09-29",
+     "note": "frame shown for steps with frames at 0/1000/5000/10000 (values above 255 work if not always 0)"
+    }
    }
   },
   "data_sources": {
@@ -2719,6 +3531,160 @@
     "status": "unknown",
     "source": "no face calibration yet: build a face-engine calibration face for this model and photograph it (devices/band10pro/CALIBRATION.md)",
     "date": "2026-09-28"
+   },
+   "weekday_sunday_zero": {
+    "value": true,
+    "status": "measured",
+    "source": "face-calib photos IMG20260929184559.jpg",
+    "date": "2026-09-29",
+    "shown": 2,
+    "photo_weekday": "Tuesday"
+   },
+   "month_one_based": {
+    "value": true,
+    "status": "measured",
+    "source": "face-calib photos IMG20260929184559.jpg",
+    "date": "2026-09-29",
+    "shown": 9,
+    "photo_month": 9
+   },
+   "hour_observed": {
+    "value": {
+     "widget": 6,
+     "photo_hour": 18,
+     "looks_12h": true
+    },
+    "status": "measured",
+    "source": "face-calib photos IMG20260929184559.jpg",
+    "date": "2026-09-29",
+    "note": "record the band's 12/24-hour setting with `set data_sources.hour_follows_12_24_setting`"
+   }
+  },
+  "image": {
+   "encoding": {
+    "png_indexed": {
+     "value": "correct",
+     "status": "measured",
+     "source": "face-calib photos IMG20260929184449.jpg",
+     "date": "2026-09-29",
+     "alpha": "honoured",
+     "detail": {
+      "verdict": "correct",
+      "quadrants": {
+       "tl": "white",
+       "tr": "red",
+       "bl": "green",
+       "br": "blue"
+      },
+      "lumas": {
+       "tl": 240.8,
+       "tr": 102.8,
+       "bl": 159.1,
+       "br": 103.2
+      },
+      "centre": "black",
+      "alpha": "honoured"
+     }
+    },
+    "png_rgba32": {
+     "value": "correct",
+     "status": "measured",
+     "source": "face-calib photos IMG20260929184449.jpg",
+     "date": "2026-09-29",
+     "alpha": "honoured",
+     "detail": {
+      "verdict": "correct",
+      "quadrants": {
+       "tl": "white",
+       "tr": "red",
+       "bl": "green",
+       "br": "blue"
+      },
+      "lumas": {
+       "tl": 239.7,
+       "tr": 99.0,
+       "bl": 160.4,
+       "br": 102.6
+      },
+      "centre": "black",
+      "alpha": "honoured"
+     }
+    }
+   },
+   "alpha_over_black": {
+    "value": "matches_opaque_grey",
+    "status": "measured",
+    "source": "face-calib photos IMG20260929184449.jpg",
+    "date": "2026-09-29",
+    "detail": {
+     "alpha": [
+      13.9,
+      50.9,
+      135.5,
+      192.7,
+      225.8
+     ],
+     "grey": [
+      14.4,
+      54.7,
+      135.0,
+      197.0,
+      225.1
+     ],
+     "rms_diff": 2.4
+    }
+   },
+   "alpha_over_element": {
+    "value": "blend",
+    "status": "measured",
+    "source": "face-calib photos IMG20260929184449.jpg",
+    "date": "2026-09-29",
+    "detail": {
+     "verdict": "blend",
+     "distances": {
+      "blend": 52.2,
+      "opaque": 162.6,
+      "missing": 81.2,
+      "over_black": 260.9
+     },
+     "normalised_rgb": [
+      251,
+      174,
+      248
+     ]
+    }
+   }
+  },
+  "aod": {
+   "shows": {
+    "value": null,
+    "status": "unknown",
+    "source": "not measured yet: tools/face-calib",
+    "date": "2026-09-29"
+   },
+   "dim_ratio": {
+    "value": null,
+    "status": "unknown",
+    "source": "not measured yet: tools/face-calib",
+    "date": "2026-09-29"
+   },
+   "colour_floor_grey": {
+    "value": null,
+    "status": "unknown",
+    "source": "not measured yet: tools/face-calib",
+    "date": "2026-09-29"
+   },
+   "number_widgets": {
+    "value": null,
+    "status": "unknown",
+    "source": "not measured yet: tools/face-calib",
+    "date": "2026-09-29"
+   },
+   "second_updates": {
+    "value": null,
+    "status": "unknown",
+    "source": "not measured yet: tools/face-calib",
+    "date": "2026-09-29"
    }
   }
  }

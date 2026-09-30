@@ -1,0 +1,39 @@
+{
+ "schema": "vela-device-spec/1",
+ "id": "band9",
+ "name": "Xiaomi Smart Band 9",
+ "also": [
+  "Xiaomi Smart Band 9 NFC"
+ ],
+ "verified": false,
+ "about": "From devices/KNOWN_DEVICES.md (research 2026-09-29): maker's specs, not yet checked on a device. Onboard with node tools/vela-calib/new-device.mjs band9, then calibrate.",
+ "screen": {
+  "w": 192,
+  "h": 490,
+  "shape": "capsule",
+  "corner_radius": null,
+  "diag_in": 1.62,
+  "ppi": 325,
+  "source": "https://iot.mi.com/vela/quickapp/zh/guide/multi-screens/; https://www.mi.com/global/product/xiaomi-smart-band-9/specs/; https://github.com/AstralSightStudios/AstroBox-Repo (devices_v2.json) xmb9 / n66"
+ },
+ "quickapp": {
+  "design_width": 192,
+  "status": "assumed"
+ },
+ "face": {
+  "canvas": {
+   "w": 192,
+   "h": 490
+  },
+  "id_digit": null,
+  "builder": "pack.mts",
+  "device_type": "366",
+  "status": "experimental",
+  "note": "AstroBox lists quick apps and faces (codename n66). Face DeviceType 366 per Mi-Create. The face kit's pages need 212 px: this 192 px screen needs a compact face page set (not written). Faces packed by pack.mts are experimental on this device until F1 is photographed on it."
+ },
+ "firmware": {
+  "version": null,
+  "note": "the firmware the kits were last run on; profile.json firmware.version is authoritative for its facts"
+ },
+ "calib": {}
+}

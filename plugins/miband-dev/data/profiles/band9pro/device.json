@@ -1,0 +1,38 @@
+{
+ "schema": "vela-device-spec/1",
+ "id": "band9pro",
+ "name": "Xiaomi Smart Band 9 Pro",
+ "also": [],
+ "verified": false,
+ "about": "From devices/KNOWN_DEVICES.md (research 2026-09-29): maker's specs, not yet checked on a device. Onboard with node tools/vela-calib/new-device.mjs band9pro, then calibrate.",
+ "screen": {
+  "w": 336,
+  "h": 480,
+  "shape": "rounded_rect",
+  "corner_radius": null,
+  "diag_in": 1.74,
+  "ppi": 336,
+  "source": "https://iot.mi.com/vela/quickapp/zh/guide/multi-screens/; https://www.mi.com/global/product/xiaomi-smart-band-9-pro/specs/; https://github.com/AstralSightStudios/AstroBox-Repo (devices_v2.json) xmb9p / n67",
+  "corner_radius_note": "not published: the kits assume 0.2 x the short side until the geometry page measures it"
+ },
+ "quickapp": {
+  "design_width": 336,
+  "status": "assumed"
+ },
+ "face": {
+  "canvas": {
+   "w": 336,
+   "h": 480
+  },
+  "id_digit": null,
+  "builder": "pack.mts",
+  "device_type": "367",
+  "status": "experimental",
+  "note": "Same panel size as the Band 10 Pro (336 x 480); corner radius not published (the Band 10 Pro measured ~47 px). Face DeviceType 367 per Mi-Create. Faces packed by pack.mts are experimental on this device until F1 is photographed on it."
+ },
+ "firmware": {
+  "version": null,
+  "note": "the firmware the kits were last run on; profile.json firmware.version is authoritative for its facts"
+ },
+ "calib": {}
+}

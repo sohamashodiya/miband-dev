@@ -6,7 +6,9 @@
                                              [--page N] [--out results] [--dry-run]
     python3 measure.py set PATH VALUE --source TEXT [--device ...]      # record an observation
     python3 measure.py show [--device ...]                              # print every fact and its status
-    python3 measure.py selftest                                         # synthetic end-to-end check
+    python3 measure.py selftest [--device X] [--layout L.json] [--spec S.json]
+                                        # synthetic end-to-end check (default: band10pro, band11 and the
+                                        # synthetic 466 px circle and 390 x 450 rect in test/specs/)
 
 Where it reads and writes (workspace.py): the profile, evidence/ and results/ live in your
 workspace's devices/<model>/ (--workspace, $MIBAND_WORKSPACE, or the nearest folder above the
@@ -145,6 +147,15 @@ def end_along(ch, c, u, span, outward, thick=0.0):
     return (np.interp(t, np.arange(n), xs), np.interp(t, np.arange(n), ys))
 
 
+def ruler_geom(layout):
+    """(left_x, right_x, y0) of the rulers: the left ruler's outer end, the right ruler's outer end,
+    the first tick's y. Rect / capsule layouts have none recorded: (0, W, 0), the screen's edges.
+    A circle's rulers are straight columns inside it (layout frame.ruler)."""
+    W = layout['screen']['w']
+    r = layout['frame'].get('ruler') or {}
+    return r.get('left_x', 0), r.get('right_x', W), r.get('y0', 0)
+
+
 class Fit:
     """Homography band -> photo, fitted to the rulers and the bar."""
 
@@ -157,6 +168,9 @@ class Fit:
         self.every = fr['tick_every']
         self.lens = fr['tick_len']
         self.ticks = fr['ticks']
+        self.rx0, self.rx1, self.ry0 = ruler_geom(layout)
+        # rulers inside the screen (a circle): their outer ends are not the screen's edges
+        self.inset = self.rx0 > 0 or self.rx1 < self.W
         self.ok = False
         self.notes = []
 
@@ -193,6 +207,8 @@ class Fit:
             to where the similarity puts one: yellow text (the geometry page's device line) and
             other yellow content near the rulers must not become ticks."""
             vx = (np.array(e1) - np.array(e0)) / blen                 # photo px per band px along x
+            if float(np.linalg.norm(vx)) < 0.3:                        # a degenerate "bar" (a speck of yellow in the background)
+                return [], [], [], 0.0
             vy = np.array([-vx[1], vx[0]])                             # band y is 90 deg clockwise (image y down)
             o = np.array(e0) - bl['x'] * vx - by * vy                  # photo position of band (0, 0)
             simA = np.array([[vx[0], vy[0], o[0]], [vx[1], vy[1], o[1]], [0, 0, 1]])
@@ -207,9 +223,9 @@ class Fit:
                 if not (0.5 * L <= length <= 1.6 * L + 4 and width <= 4.0):
                     continue
                 bx, byy, _ = simI @ np.array([b['cx'], b['cy'], 1.0])
-                for side, xc in (('L', L / 2), ('R', self.W - L / 2)):
+                for side, xc in (('L', self.rx0 + L / 2), ('R', self.rx1 - L / 2)):
                     yy = round((byy - 0.5) / 100) * 100
-                    if abs(bx - xc) < 14 and abs(byy - (yy + 0.5)) < 15 and 0 <= yy < self.H:
+                    if abs(bx - xc) < 14 and abs(byy - (yy + 0.5)) < 15 and self.ry0 <= yy < self.ry0 + len(self.ticks) * self.every:
                         src.append((xc, yy + 0.5))
                         dst.append((b['cx'], b['cy']))
                         kind.append('y' + side)
@@ -219,6 +235,8 @@ class Fit:
         # bar vertical in the photo): try both ends as the left end, keep the one the ticks agree with.
         cands = [match(ea, eb), match(eb, ea)]
         src, dst, kind, self.scale0 = max(cands, key=lambda m: len(m[0]))
+        if len(src) < 5:
+            raise RuntimeError('too few yellow ruler ticks matched (%d); is the whole screen in the photo?' % max(0, len(src) - 2))
         e0, e1 = dst[0], dst[1]
         if len(src) < 5:
             raise RuntimeError('too few yellow ruler ticks matched (%d); is the whole screen in the photo?' % (len(src) - 2))
@@ -238,10 +256,10 @@ class Fit:
             src, dst, kind, outer = [], [], [], []
             for i, t in enumerate(self.ticks):
                 ln = self.lens[t]
-                y = i * self.every
+                y = self.ry0 + i * self.every
                 for side in ('L', 'R'):
                     sgn = 1 if side == 'L' else -1
-                    xm = 0.6 * ln if side == 'L' else self.W - 0.6 * ln
+                    xm = self.rx0 + 0.6 * ln if side == 'L' else self.rx1 - 0.6 * ln
                     pc = self._row_peak(ch, Hm, xm, y + 0.5)
                     if pc is None:
                         continue
@@ -250,7 +268,7 @@ class Fit:
                     reach = 0.4 * ln * self.scale0 + 3 * self.scale0
                     ein = end_along(ch, pc, (ux[0] * sgn, ux[1] * sgn), reach, 1)
                     eout = end_along(ch, pc, (-ux[0] * sgn, -ux[1] * sgn), 0.6 * ln * self.scale0 + 3 * self.scale0, 1)
-                    src.append((ln + d if side == 'L' else self.W - ln - d, y + 0.5))
+                    src.append((self.rx0 + ln + d if side == 'L' else self.rx1 - ln - d, y + 0.5))
                     dst.append(ein)
                     kind.append('t' + side)
                     outer.append((side, y, eout))
@@ -291,13 +309,18 @@ class Fit:
         sy = self.layout['frame'].get('straight_y')
         if sy:
             outer = [o for o in outer if sy[0] <= o[1] <= sy[1]]
+        if self.inset:
+            # the outer ends are drawn well inside the screen: they say nothing about its edges
+            # (the geometry page's round fit does); keep only which sides had ticks
+            outer = []
+            n_l, n_r = sum(1 for k in kind if k == 'tL'), sum(1 for k in kind if k == 'tR')
         ol = [cv2.perspectiveTransform(np.array([[e]], np.float64), self.Hi)[0][0][0] for s_, y, e in outer if s_ == 'L']
         orr = [cv2.perspectiveTransform(np.array([[e]], np.float64), self.Hi)[0][0][0] for s_, y, e in outer if s_ == 'R']
         self.edge = {
             # half-max tick ends read `bloom` px outside the true end: correct inward
             'left_first_visible_x': float(np.median(ol)) + self.bloom if ol else None,
             'right_last_visible_x': float(np.median(orr)) - self.bloom if orr else None,
-            'ticks_seen_left': len(ol), 'ticks_seen_right': len(orr),
+            'ticks_seen_left': n_l if self.inset else len(ol), 'ticks_seen_right': n_r if self.inset else len(orr),
             'first_tick_y_left': min([y for s_, y, e in outer if s_ == 'L'], default=None),
             'last_tick_y_left': max([y for s_, y, e in outer if s_ == 'L'], default=None),
         }
@@ -305,7 +328,7 @@ class Fit:
         sy = np.linalg.norm(_proj(Hm, self.W / 2, self.H / 2 + 50) - _proj(Hm, self.W / 2, self.H / 2 - 50)) / 100
         self.scale = [float(sx), float(sy)]
         self.ok = self.n_ticks >= 12 and max(self.rms) < 0.5
-        if not orr or not ol:
+        if (not orr or not ol) if not self.inset else (not n_l or not n_r):
             self.notes.append('no %s ruler ticks seen: is the page drawn larger than the screen (manifest designWidth '
                               'smaller than the panel), or is that edge out of the photo?' % ('right' if not orr else 'left'))
         if self.n_ticks < 12:
@@ -551,13 +574,14 @@ def ruler_white(rect, layout):
     fr = layout['frame']
     W, H = layout['screen']['w'], layout['screen']['h']
     y0, y1 = fr.get('straight_y') or [0, H]
+    rx0, rx1, ry0 = ruler_geom(layout)
     px = []
     for i, t in enumerate(fr['ticks']):
-        y = i * fr['tick_every']
+        y = ry0 + i * fr['tick_every']
         if t == 2 or not (y0 <= y <= y1):
             continue  # the 100s are yellow
         ln = fr['tick_len'][t]
-        for xa, xb in ((1, ln - 1), (W - ln + 1, W - 1)):
+        for xa, xb in ((rx0 + 1, rx0 + ln - 1), (rx1 - ln + 1, rx1 - 1)):
             a = rect[y * S + 2:y * S + S - 2, xa * S:xb * S].reshape(-1, 3).astype(np.float64)
             if len(a):
                 px.append(a)
@@ -1076,6 +1100,64 @@ def measure_cap(R, s):
     return out
 
 
+def measure_round(R, s):
+    """Round screen: white boxes cover everything outside the rulers (s['boxes'], [x, y, w, h] band
+    px). Their lit part is bounded by the screen's circle wherever it cuts them: every lit pixel with
+    an unlit neighbour inside the boxes is on the circle (a box's inner edge borders black outside
+    the boxes, so it never counts). A circle fitted to those points (least squares, outliers
+    dropped) gives the radius, the centre, the hidden strip on each side (centre -+ radius against
+    the page's edges) and the design scale, W/2 over the radius (~1.00-1.03 when 1 design px = 1
+    panel px). The half-max edge of a saturated white area reads `bloom` px outside the true edge
+    (the ruler fit's estimate), so the radius is reduced by it."""
+    lum = R.sc['luma']
+    Hr, Wr = lum.shape
+    W, H = Wr / S, Hr / S
+    cap = np.zeros((Hr, Wr), bool)
+    for x, y, w, h in s['boxes']:
+        cap[max(0, int(round(y * S))):min(Hr, int(round((y + h) * S))), max(0, int(round(x * S))):min(Wr, int(round((x + w) * S)))] = True
+    if not cap.any():
+        return {'error': 'no boxes'}
+    # a ~1 band px blur first: a sharp close-up resolves the panel's pixel grid
+    sm = cv2.blur(lum.astype(np.float32), (S + 1, S + 1))
+    pk = float(np.percentile(sm[cap], 99))
+    if pk < 60:
+        return {'error': 'round edge boxes not visible'}
+    lit = ndi.binary_opening(sm > pk / 2, structure=np.ones((3, 3)))
+    dark = cap & ~lit
+    nb = np.zeros_like(lit)
+    nb[1:, :] |= dark[:-1, :]
+    nb[:-1, :] |= dark[1:, :]
+    nb[:, 1:] |= dark[:, :-1]
+    nb[:, :-1] |= dark[:, 1:]
+    ys, xs = np.nonzero(lit & nb & cap)
+    if len(xs) < 40:
+        return {'error': 'too few edge points (%d)' % len(xs)}
+    step = max(1, len(xs) // 6000)
+    P = np.c_[(xs[::step] + 0.5) / S, (ys[::step] + 0.5) / S].astype(float)
+    for _ in range(8):
+        A = np.c_[2 * P[:, 0], 2 * P[:, 1], np.ones(len(P))]
+        cx, cy, c = np.linalg.lstsq(A, (P ** 2).sum(1), rcond=None)[0]
+        r = math.sqrt(max(c + cx * cx + cy * cy, 0))
+        res = np.abs(np.hypot(P[:, 0] - cx, P[:, 1] - cy) - r)
+        keep = res < max(0.6, 2.5 * np.median(res))
+        if keep.sum() < 40 or keep.all():
+            break
+        P = P[keep]
+    res = np.hypot(P[:, 0] - cx, P[:, 1] - cy) - r
+    bloom = getattr(R, 'bloom', 0.0)
+    r_true = r - bloom
+    # how much of the circle the points cover (a fit to a short arc is weak): angular spread
+    ang = np.degrees(np.arctan2(P[:, 1] - cy, P[:, 0] - cx))
+    cover = int(len(np.unique(np.floor((ang + 180) / 10)))) * 10
+    return {'radius_raw_px': round(r, 2), 'radius_px': round(r_true, 2), 'bloom_px': round(bloom, 2),
+            'centre_x': round(cx, 2), 'centre_y': round(cy, 2),
+            'centre_offset_x': round(cx - W / 2, 2), 'centre_offset_y': round(cy - H / 2, 2),
+            'hidden_left_px': round(max(0.0, cx - r_true), 2), 'hidden_right_px': round(max(0.0, W - (cx + r_true)), 2),
+            'hidden_top_px': round(max(0.0, cy - r_true), 2), 'hidden_bottom_px': round(max(0.0, H - (cy + r_true)), 2),
+            'arc_points': int(len(P)), 'arc_cover_deg': cover, 'fit_rms_px': round(float(np.sqrt((res ** 2).mean())), 2),
+            'design_scale': round((W / 2) / r_true, 4)}
+
+
 def measure_comb(R, s):
     vals = []
     for x in s['xs']:
@@ -1115,7 +1197,7 @@ def measure_ramp(R, s):
 
 
 MEASURE = {'text_v': measure_text_v, 'text_w': measure_text_w, 'wrap': measure_wrap, 'row': measure_row,
-           'rect': measure_rect, 'corner': measure_corner, 'cap': measure_cap, 'comb': measure_comb, 'swatch': measure_swatch,
+           'rect': measure_rect, 'corner': measure_corner, 'cap': measure_cap, 'round': measure_round, 'comb': measure_comb, 'swatch': measure_swatch,
            'background': measure_swatch,
            'ramp': measure_ramp}
 
@@ -1478,6 +1560,30 @@ def apply_results(profile, results):
         else:
             print('WARNING: the capsule outline says the page is drawn at %.3f panel px per design px (centre offset %.1f px): '
                   'the kit\'s designWidth is wrong for this band, and every other fact from these photos is in design px' % (1 / sc, off))
+    # round screen: one circle; radius, hidden strips and the design-px scale check
+    rounds = [s['result'] for s in samples if s['type'] == 'round' and 'error' not in s['result']]
+    if rounds:
+        rad = round(float(np.median([v['radius_px'] for v in rounds])), 2)
+        put('screen.shape', 'circle', 'round')
+        put('screen.radius_px', rad, 'round', {'note': 'radius of the visible circle (bloom-corrected), band px'})
+        put('screen.corner_radius_px', {'tl': rad, 'tr': rad, 'bl': rad, 'br': rad}, 'round',
+            {'note': 'circle: one radius, given per corner so profile.js safeArea / xRange work unchanged'})
+        put('screen.round_detail', rounds[-1], 'round')
+        for k in ('left', 'right', 'top', 'bottom'):
+            put('screen.hidden_px.' + k, round(float(np.median([v['hidden_%s_px' % k] for v in rounds])), 2), 'round')
+        cap_sides = True
+        sc = float(np.mean([v['design_scale'] for v in rounds]))
+        off = max(max(abs(v['centre_offset_x']), abs(v['centre_offset_y'])) for v in rounds)
+        one = abs(sc - 1) < 0.06 and off < 4
+        Wd = profile['device']['screen']['w']['value'] if isinstance(profile['device']['screen'].get('w'), dict) else profile['device']['screen']['w']
+        put('device.design_scale', round(sc, 4), 'round', {'one_to_one': one, 'centre_offset': off,
+            'note': 'W/2 over the fitted radius: ~1.00-1.03 when 1 design px = 1 panel px (a round panel\'s radius is half its width)'})
+        if one:
+            put('device.design_width', Wd, 'round', {'note': 'manifest designWidth %s draws 1 design px per panel px: the circle fits radius %s centred at %s'
+                                                     % (Wd, rad, [[v['centre_x'], v['centre_y']] for v in rounds])})
+        else:
+            print('WARNING: the round outline says the page is drawn at %.3f panel px per design px (centre offset %.1f px): '
+                  'the kit\'s designWidth is wrong for this device, and every other fact from these photos is in design px' % (1 / sc, off))
     fits = [r['fit']['edges'] for r in results if 'fit' in r and r['fit']['ok']]
     lv = [e['left_first_visible_x'] for e in fits if e.get('left_first_visible_x') is not None]
     rv = [e['right_last_visible_x'] for e in fits if e.get('right_last_visible_x') is not None]
@@ -1591,10 +1697,12 @@ def save_json(p, d):
 # ---------------------------------------------------------------------------------------------
 # synthetic self-test
 # ---------------------------------------------------------------------------------------------
-def render_synthetic(layout, page, rule_short='top', rule_tall='centre', rule_wide='top', line_em=1.3, K=4, corner_r=0, capsule_inset=None):
+def render_synthetic(layout, page, rule_short='top', rule_tall='centre', rule_wide='top', line_em=1.3, K=4, corner_r=0, capsule_inset=None,
+                     circle_inset=None):
     """Draw a page at K px per band px the way the band would (rulers, bar, barcode, text samples).
     corner_r: a rounded-rectangle screen mask; capsule_inset: a capsule mask (semicircle ends) whose
-    straight sides are that many px inside the page's left and right edges."""
+    straight sides are that many px inside the page's left and right edges; circle_inset: a circular
+    mask that many px inside the page's edges all round."""
     from PIL import ImageDraw, ImageFont
     W, H = layout['screen']['w'], layout['screen']['h']
     im = Image.new('RGB', (W * K, H * K), (0, 0, 0))
@@ -1605,11 +1713,12 @@ def render_synthetic(layout, page, rule_short='top', rule_tall='centre', rule_wi
     def rect(x, y, w, h, c):
         dr.rectangle((x * K, y * K, (x + w) * K - 1, (y + h) * K - 1), fill=c)
 
+    rx0, rx1, ry0 = ruler_geom(layout)
     for i, t in enumerate(fr['ticks']):
         ln = fr['tick_len'][t]
         c = col['yellow'] if t == 2 else col['white']
-        rect(0, i * fr['tick_every'], ln, 1, c)
-        rect(W - ln, i * fr['tick_every'], ln, 1, c)
+        rect(rx0, ry0 + i * fr['tick_every'], ln, 1, c)
+        rect(rx1 - ln, ry0 + i * fr['tick_every'], ln, 1, c)
     bar = page.get('bar') or fr['bar']
     rect(bar['x'], bar['y'], bar['len'], bar['h'], col['yellow'])
     code = page.get('code') or fr['code']
@@ -1654,6 +1763,9 @@ def render_synthetic(layout, page, rule_short='top', rule_tall='centre', rule_wi
             b = s['box']
             c = col['white'] if t in ('corner', 'cap') else tuple(int(s['hex'][i:i + 2], 16) for i in (1, 3, 5))
             rect(b['x'], b['y'], b['w'], b['h'], c)
+        elif t == 'round':
+            for x, y, w, h in s['boxes']:
+                rect(x, y, w, h, col['white'])
         elif t == 'comb':
             for x in s['xs']:
                 rect(x, s['y0'], 1, s['y1'] - s['y0'], col['white'])
@@ -1688,40 +1800,72 @@ def render_synthetic(layout, page, rule_short='top', rule_tall='centre', rule_wi
         r = (W - 2 * capsule_inset) / 2
         ImageDraw.Draw(mask).rounded_rectangle((capsule_inset * K, 0, (W - capsule_inset) * K - 1, im.size[1] - 1), radius=r * K, fill=255)
         im = Image.composite(im, Image.new('RGB', im.size, (0, 0, 0)), mask)
+    if circle_inset is not None:
+        mask = Image.new('L', im.size, 0)
+        ImageDraw.Draw(mask).ellipse((circle_inset * K, circle_inset * K, (W - circle_inset) * K - 1, (H - circle_inset) * K - 1), fill=255)
+        im = Image.composite(im, Image.new('RGB', im.size, (0, 0, 0)), mask)
     return im
 
 
-def selftest(devices=('band10pro', 'band11')):
-    """Synthetic end-to-end check for every layout: render pages as the band would (a rounded-corner
-    screen for the Band 10 Pro, a capsule with 2 px hidden at each side for the Band 11), warp and
-    blur them like a handheld photo, and check that page ID, ruler fit, line box, regimes (incl. a
-    string wider than its box), advance widths, box-model verdicts and the screen outline (corner
-    radius / capsule end radius, hidden edges, design scale) come back right."""
+SELFTEST_SPECS = os.path.join(HERE, 'test', 'specs')
+
+
+def selftest_layouts(devices=None, layouts=(), specs=()):
+    """(name, layout) pairs to test: layouts/<device>.json for each device, each --layout file, and a
+    fresh layout for each spec (gen.mjs --layout-only). With nothing given: band10pro, band11 and
+    every synthetic spec in test/specs/ (a 466 px circle, a 390 x 450 rounded rectangle)."""
+    import subprocess
+    import tempfile
+    if not devices and not layouts and not specs:
+        devices = ['band10pro', 'band11']
+        specs = sorted(os.path.join(SELFTEST_SPECS, f) for f in os.listdir(SELFTEST_SPECS) if f.endswith('.json')) if os.path.isdir(SELFTEST_SPECS) else []
+    out = [(d, load_json(os.path.join(HERE, 'layouts', d + '.json'))) for d in (devices or [])]
+    out += [(os.path.basename(p), load_json(p)) for p in layouts]
+    for sp in specs:
+        lp = os.path.join(tempfile.mkdtemp(), 'layout.json')
+        subprocess.run(['node', os.path.join(HERE, 'gen', 'gen.mjs'), '--spec', sp, '--layout-only', '--layout-out', lp], check=True, stdout=subprocess.DEVNULL)
+        L = load_json(lp)
+        out.append((L['device'], L))
+    return out
+
+
+def selftest(devices=None, layouts=(), specs=()):
+    """Synthetic end-to-end check for every layout: render pages as the device would (a rounded-corner
+    screen for a rect layout, a capsule with 2 px hidden at each side, a circle with 2 px hidden all
+    round), warp and blur them like a handheld photo, and check that page ID, ruler fit, line box,
+    regimes (incl. a string wider than its box), advance widths, box-model verdicts and the screen
+    outline (corner radius / capsule end radius / circle radius, hidden edges, design scale) come
+    back right."""
     ok = True
-    for dev in devices:
-        ok = _selftest_device(dev) and ok
+    for name, layout in selftest_layouts(devices, layouts, specs):
+        ok = _selftest_device(name, layout) and ok
     print('selftest', 'PASS' if ok else 'FAIL')
     return 0 if ok else 1
 
 
-def _selftest_device(dev):
+def _selftest_device(dev, layout):
     import tempfile
     from PIL import ImageFont
-    layout = load_json(os.path.join(HERE, 'layouts', dev + '.json'))
     W, H = layout['screen']['w'], layout['screen']['h']
-    capsule = layout['screen'].get('shape') == 'capsule'
-    INSET = 2  # capsule: hidden columns on each side
+    shape = layout['frame']['visible']['shape']
+    capsule, circle = shape == 'capsule', shape == 'circle'
+    INSET = 2  # capsule: hidden columns on each side; circle: hidden all round
+    # rect: the synthetic panel's corners are 5/8 of the kit's assumed radius (Band 10 Pro: 48 -> 30),
+    # so the measured radius can't just echo the layout
+    true_r = 0 if capsule or circle else round(0.625 * layout['frame']['visible']['corner_radius'])
     rng = np.random.default_rng(3)
     ok = True
     tmp = tempfile.mkdtemp()
     results = []
-    keys = [p['key'] for p in layout['pages'] if p['key'].startswith('tv')] + ['th1', 'bx1', 'bx2', 'geo', 'colour']
-    print('--- %s (%d x %d, %s): pages %s' % (dev, W, H, 'capsule, %d px hidden each side' % INSET if capsule else 'corner radius 30', ' '.join(keys)))
+    have = [p['key'] for p in layout['pages']]
+    keys = [k for k in have if k.startswith('tv')] + [k for k in ('th1', 'bx1', 'bx2', 'geo', 'colour') if k in have]
+    how = 'capsule, %d px hidden each side' % INSET if capsule else 'circle, %d px hidden all round' % INSET if circle else 'corner radius %d' % true_r
+    print('--- %s (%d x %d, %s): pages %s' % (dev, W, H, how, ' '.join(keys)))
     for key in keys:
         page = next(p for p in layout['pages'] if p['key'] == key)
         K = 4
-        band = np.asarray(render_synthetic(layout, page, K=K, corner_r=0 if capsule else 30,
-                                           capsule_inset=INSET if capsule else None)).astype(np.float32)
+        band = np.asarray(render_synthetic(layout, page, K=K, corner_r=true_r,
+                                           capsule_inset=INSET if capsule else None, circle_inset=INSET if circle else None)).astype(np.float32)
         # place the screen in a 3000 x 4000 photo with keystone, rotation and blur
         scale = 3.3 / K
         cx, cy = 1500, 2000
@@ -1753,8 +1897,8 @@ def _selftest_device(dev):
             elif sp['type'] == 'rect' and sp['metric'] in ('bbox', 'ring', 'corners', 'colour_at') and res.get('verdict') != next(iter(sp['hyp'])):
                 print('FAIL', s['id'], sp['metric'], 'verdict', res.get('verdict'), res.get('distances'))
                 ok = False
-            elif sp['type'] == 'corner' and abs(res['radius_px'] - 30) > 3:
-                print('FAIL', s['id'], 'corner radius', res['radius_px'], '(want 30)')
+            elif sp['type'] == 'corner' and abs(res['radius_px'] - true_r) > 3:
+                print('FAIL', s['id'], 'corner radius', res['radius_px'], '(want %d)' % true_r)
                 ok = False
             elif sp['type'] == 'comb' and (res['hidden_px'] is None or abs(res['hidden_px']) > 0.6):
                 print('FAIL', s['id'], 'comb', res['hidden_px'])
@@ -1767,6 +1911,14 @@ def _selftest_device(dev):
                 if (abs(res['radius_px'] - want_r) > 1.5 or res['hidden_end_px'] > 0.8 or abs(res['centre_offset_x']) > 1.0
                         or abs((res.get('hidden_left_px') or -9) - INSET) > 0.8 or abs((res.get('hidden_right_px') or -9) - INSET) > 0.8):
                     print('FAIL', s['id'], 'capsule end')
+                    ok = False
+            elif sp['type'] == 'round':
+                want_r = W / 2 - INSET
+                hid = [res['hidden_%s_px' % k] for k in ('left', 'right', 'top', 'bottom')]
+                print('       round radius %.2f (want %.1f) centre (%.2f, %.2f) hidden l/r/t/b %s design scale %.3f rms %.2f, %d points over %d deg' % (
+                    res['radius_px'], want_r, res['centre_x'], res['centre_y'], hid, res['design_scale'], res['fit_rms_px'], res['arc_points'], res['arc_cover_deg']))
+                if abs(res['radius_px'] - want_r) > 1.5 or max(abs(res['centre_offset_x']), abs(res['centre_offset_y'])) > 1.0 or any(abs(v - INSET) > 0.8 for v in hid):
+                    print('FAIL', s['id'], 'round edge')
                     ok = False
     prof = {'device': {'screen': {'w': W}}, 'font': {}}
     apply_results(prof, results)
@@ -1783,14 +1935,21 @@ def _selftest_device(dev):
         lb or -1, tall, short, wide, clipped, adv0, true0))
     ok = ok and lb and abs(lb - 1.30) < 0.01 and tall == 'centre' and short == 'top' and wide == 'top' and clipped
     ok = ok and adv0 and abs(adv0 - true0) < 0.01
-    if capsule:
+    if capsule or circle:
         sc = prof['device'].get('design_scale', {})
-        er = prof.get('screen', {}).get('end_radius_px', {}).get('value')
         hid = {k: v.get('value') for k, v in prof.get('screen', {}).get('hidden_px', {}).items()}
         dw = prof['device'].get('design_width', {}).get('value')
-        print('capsule: end radius %s, hidden %s, design scale %s (1:1 %s), design_width %s' % (er, hid, sc.get('value'), sc.get('one_to_one'), dw))
-        ok = ok and sc.get('one_to_one') is True and dw == W and er and all(abs(v - (W - 2 * INSET) / 2) < 1.5 for v in er.values())
-        ok = ok and abs(hid.get('left', -9) - INSET) < 0.8 and abs(hid.get('right', -9) - INSET) < 0.8 and hid.get('top', 9) < 0.8 and hid.get('bottom', 9) < 0.8
+        if capsule:
+            er = prof.get('screen', {}).get('end_radius_px', {}).get('value')
+            print('capsule: end radius %s, hidden %s, design scale %s (1:1 %s), design_width %s' % (er, hid, sc.get('value'), sc.get('one_to_one'), dw))
+            ok = ok and sc.get('one_to_one') is True and dw == W and er and all(abs(v - (W - 2 * INSET) / 2) < 1.5 for v in er.values())
+            ok = ok and abs(hid.get('left', -9) - INSET) < 0.8 and abs(hid.get('right', -9) - INSET) < 0.8 and hid.get('top', 9) < 0.8 and hid.get('bottom', 9) < 0.8
+        else:
+            rr = prof.get('screen', {}).get('radius_px', {}).get('value')
+            shp = prof.get('screen', {}).get('shape', {}).get('value')
+            print('circle: shape %s, radius %s, hidden %s, design scale %s (1:1 %s), design_width %s' % (shp, rr, hid, sc.get('value'), sc.get('one_to_one'), dw))
+            ok = ok and shp == 'circle' and sc.get('one_to_one') is True and dw == W and rr and abs(rr - (W / 2 - INSET)) < 1.5
+            ok = ok and all(abs(hid.get(k, -9) - INSET) < 0.8 for k in ('left', 'right', 'top', 'bottom'))
     print('%s: %s' % (dev, 'PASS' if ok else 'FAIL'))
     return bool(ok)
 
@@ -1822,11 +1981,14 @@ def main(argv=None):
     sh.add_argument('--profile', default=None)
     sh.add_argument('--workspace', default=None)
     st = sub.add_parser('selftest')
-    st.add_argument('--device', action='append', default=None, help='layout(s) to test (default: band10pro and band11)')
+    st.add_argument('--device', action='append', default=None, help='layouts/<device>.json to test (repeatable)')
+    st.add_argument('--layout', action='append', default=[], help='a layout file to test (repeatable)')
+    st.add_argument('--spec', action='append', default=[], help='a device spec to generate a layout for and test (repeatable)')
     a = ap.parse_args(argv)
 
     if a.cmd == 'selftest':
-        return selftest(tuple(a.device) if a.device else ('band10pro', 'band11'))
+        # nothing given: band10pro, band11 and the synthetic specs in test/specs/
+        return selftest(a.device, a.layout, a.spec)
     if a.cmd == 'set':
         ppath = profile_arg(a, write=True)
         prof, nested = flat_view(load_json(ppath))

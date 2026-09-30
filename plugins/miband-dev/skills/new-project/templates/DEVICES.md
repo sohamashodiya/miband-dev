@@ -27,10 +27,16 @@ project's `PROJECT.md`. The Band 11 holds about 6 custom faces; list them here.
 
 | Model | Profile in use | Firmware it was measured on | Quick app (`quickapp`) | Watch face (`face`) |
 |---|---|---|---|---|
-| `band10pro` | plugin default (or `devices/band10pro/profile.json` once you calibrate) | 3.101.043 | measured (Vela Calib 1.0.0, 17 photos, 2026-09-27) | unknown (not calibrated) |
+| `band10pro` | plugin default (or `devices/band10pro/profile.json` once you calibrate) | 3.101.043 | measured (Vela Calib 1.0.0, 17 photos, 2026-09-27) | measured (face kit build 1 at 336×480 via pack.mts, 9 photos, 2026-09-29) |
 | `band11` | plugin default (or `devices/band11/profile.json` once you calibrate) | 4.100.139 | measured (Vela Calib 2.0.0, 27 photos, 2026-09-28/29) | measured (face kit build 1, 13 photos, 2026-09-29/30) |
 
+Other devices: onboard with the calibration kit's `new-device.mjs` (the plugin ships unverified
+specs for the Band 9 / 9 Pro, REDMI Watch 5 / 6 and Watch S3 / S4 / S5; see its `data/KNOWN_DEVICES.md`).
+
 Rules:
+- Each model also has a **device spec** (`device.json`: screen size and shape, design width, face
+  canvas and packer, firmware); both calibration kits generate from it. A workspace
+  `devices/<model>/device.json` overrides the plugin's shipped one.
 - One profile per band **model**, tied to the firmware it was measured on (`firmware.version`).
   If your band's firmware differs, re-run the calibration kit and compare before trusting it.
 - A workspace profile (`devices/<model>/profile.json`) overrides the plugin's shipped default.

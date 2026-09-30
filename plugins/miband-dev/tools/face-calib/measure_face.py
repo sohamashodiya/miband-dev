@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """Face calibration kit: measure photos of the calibration faces and write the `face` section.
 
-    python3 measure_face.py run PHOTO [PHOTO ...] --device band11|band10pro [--page N] [--dry-run]
+    python3 measure_face.py run PHOTO [PHOTO ...] --device <id> [--page N] [--dry-run]   (a device with layouts/<id>.json)
     python3 measure_face.py set PATH VALUE --source TEXT --device ...     # an observation (face.* path)
     python3 measure_face.py show --device ...                             # every face fact and its status
     python3 measure_face.py seed --device ...                             # add the kit's facts as unknown
-    python3 measure_face.py selftest                                      # synthetic end-to-end check
+    python3 measure_face.py selftest [--device X] [--spec S.json]          # synthetic end-to-end check (default:
+                                          band11, band10pro and the synthetic circle / rect in tools/vela-calib/test/specs)
 
 Where it writes (all in your workspace, never next to this script; see ../vela-calib/workspace.py):
   <workspace>/devices/<model>/profile.json, the "face" key only (nothing else in the file is touched; the
@@ -19,7 +20,9 @@ feeds a homography (band px -> photo px), camera bloom is estimated from the tic
 screen is rectified to 8 px per band px. The page barcode says which face (and normal / always-on
 view) the photo shows. Each sample of that page (layouts/<model>.json, written by gen.py) is then
 measured: swatches, digit and frame cells (their value is in 4 bit squares), placement targets,
-image-format tiles, Lua status squares, the capsule ends / corners, the edge combs and the top strip.
+image-format tiles, Lua status squares, the capsule ends / corners / round edge, the edge combs and
+the top strip. Faces for any device other than the Band 10 / 11 (212 x 520, band10-toolkit's own
+target) are experimental until a photo of F1 on that device measures (see README.md).
 """
 import argparse
 import datetime
@@ -337,7 +340,7 @@ def m_overlay(R, s, L):
 def inside_screen(L, x, y, inset=0.0):
     """Boolean array: band points (x, y) at least `inset` px inside the nominal screen shape."""
     W, H, r = L['screen']['w'], L['screen']['h'], L['screen']['r']
-    if L['screen']['shape'] == 'capsule':
+    if L['screen']['shape'] in ('capsule', 'circle'):
         r = W / 2
     cx = np.clip(x, r, W - r)
     cy = np.clip(y, r, H - r)
@@ -347,11 +350,15 @@ def inside_screen(L, x, y, inset=0.0):
 def ruler_edges(R, L, bloom):
     """Visible screen edge from the outer ends of the ruler ticks on the straight part of the screen."""
     W = L['screen']['w']
+    rx0, rx1, ry0 = vm.ruler_geom(L)
+    if not L['screen'].get('straight_rows') or rx0 > 0 or rx1 < W:
+        # a circle: the rulers are drawn inside the screen, so their ends are not its edges (F1's round fit is)
+        return {'left': None, 'right': None, 'rows': 0}
     a, b = L['screen']['straight_rows']
     lum = R.sc['luma']
     left, right = [], []
     for i, t in enumerate(L['frame']['ticks']):
-        y = i * L['frame']['tick_every']
+        y = ry0 + i * L['frame']['tick_every']
         if not a <= y <= b:
             continue
         ln = L['frame']['tick_len'][t]
@@ -372,15 +379,17 @@ def ruler_edges(R, L, bloom):
 MEASURE = {'number': m_number, 'imagelist': m_imagelist, 'digits': m_digits, 'status': m_status, 'presence': m_presence,
            'tile': m_tile, 'blend': m_blend, 'target': m_target, 'comb': m_comb, 'overlay': m_overlay,
            'corner': lambda R, s, L: vm.measure_corner(R, s), 'swatch': lambda R, s, L: vm.measure_swatch(R, s),
+           'round': lambda R, s, L: vm.measure_round(R, s),
            'ramp': lambda R, s, L: vm.measure_ramp(R, s)}
 
 
-def isolate_screen(img):
+def isolate_screen(img, aspect=2.45):
     """Blank everything outside the band's screen: the photo's background can outscore the rulers on
     "yellow" (a tan table, an orange frame in daylight, Band 11 round 2, 2026-09-29), and vm.Fit's
     thresholds are percentiles of the whole photo. The screen is the largest dark region (black panel +
     bezel) with the content holes filled; the mask is its convex hull. Returns
     (image, found)."""
+    expect = aspect
     small = cv2.resize(img, None, fx=0.25, fy=0.25, interpolation=cv2.INTER_AREA)
     lum = cv2.GaussianBlur(cv2.cvtColor(small, cv2.COLOR_RGB2GRAY), (0, 0), 2)
     dark = (lum < 55).astype(np.uint8)
@@ -398,7 +407,10 @@ def isolate_screen(img):
         solidity = a / max(cv2.contourArea(hull), 1)
         (_, _), (rw, rh), _ = cv2.minAreaRect(hull)
         aspect = max(rw, rh) / max(1, min(rw, rh))
-        sc = cv2.contourArea(hull) * (1.0 if 1.2 < aspect < 3.5 else 0.2) * (0.5 + min(solidity, 1))
+        # the band's dark region (screen + bezel) roughly has the screen's aspect: a tall band 1.2-3.5,
+        # a round or square watch 1.0-1.5
+        lo, hi = (1.2, 3.5) if expect > 1.3 else (1.0, 1.5)
+        sc = cv2.contourArea(hull) * (1.0 if lo < aspect < hi else 0.2) * (0.5 + min(solidity, 1))
         if sc > score:
             best, score = (x, y, hull), sc
     if best is None:
@@ -448,7 +460,7 @@ def measure_photo(path, L, page_id=None, annotate_dir=None):
     # all four orientations and keep the best fit; the page barcode must read in the chosen one.
     best, errors = None, []
     candidates = [img0]
-    iso, found = isolate_screen(img0)
+    iso, found = isolate_screen(img0, max(L['screen']['w'], L['screen']['h']) / min(L['screen']['w'], L['screen']['h']))
     if found:
         candidates.append(iso)
     for rot, base in [(r, b) for b in candidates for r in ROTATIONS]:
@@ -469,6 +481,7 @@ def measure_photo(path, L, page_id=None, annotate_dir=None):
         return {'photo': os.path.basename(path), 'error': '; '.join(errors)}
     f = best
     R = vm.Rect(f.rectify())
+    R.bloom = f.bloom  # measure_round takes the bloom out of the round edge
     pid = page_id
     if pid is None:
         for p in L['pages']:
@@ -556,6 +569,14 @@ def apply_face(face, results, L):
     if ends:
         put('screen.corner_radius_px', {k: v['r'] for k, v in ends.items()}, [1], {'note': 'capsule: radius of each semicircular end (circle fit to the lit fill)'})
         put('screen.capsule_ends', ends, [1])
+    rnd = [s['result'] for r, s in samples([1], 'round')]
+    if rnd:
+        rad = round(float(np.median([v['radius_px'] for v in rnd])), 2)
+        put('screen.corner_radius_px', {k: rad for k in ('tl', 'tr', 'bl', 'br')}, [1], {'note': 'circle: one radius (circle fit to the lit fills), given per corner'})
+        put('screen.round_edge', rnd[-1], [1])
+        for side in ('left', 'right', 'top', 'bottom'):
+            put('screen.hidden_px.' + side, round(float(np.median([v['hidden_%s_px' % side] for v in rnd])), 2), [1],
+                {'note': 'from the circle fit on F1 (centre -+ radius against the canvas edges)'})
     cs = {s['spec']['corner']: s['result'] for r, s in samples([1], 'corner')}
     if cs:
         put('screen.corner_radius_px', {k: v.get('radius_px') for k, v in cs.items()}, [1])
@@ -837,9 +858,9 @@ def _png(path):
     return np.asarray(Image.open(path).convert('RGBA'))
 
 
-def render_page(L, face, page, truth):
+def render_page(L, face, page, truth, base=HERE):
     W, H = L['screen']['w'], L['screen']['h']
-    d = os.path.join(HERE, face['project'])
+    d = os.path.join(base, face['project'])
     lay = json.load(open(os.path.join(d, 'layout.json')))
     theme = page['theme']
     cv = np.zeros((H, W, 3), np.float32)
@@ -934,7 +955,7 @@ def render_page(L, face, page, truth):
         yy, xx = np.mgrid[0:H, 0:W]
         cv[(xx - W / 2 + 0.5) ** 2 + (yy - y + 0.5) ** 2 <= r * r] = 230
     mask = Image.new('L', (W * 4, H * 4), 0)
-    rr = L['screen']['r'] if L['screen']['shape'] == 'rrect' else W / 2
+    rr = L['screen']['r'] if L['screen']['shape'] == 'rrect' else W / 2   # capsule ends / circle: W / 2
     ImageDraw.Draw(mask).rounded_rectangle((0, 0, W * 4 - 1, H * 4 - 1), radius=rr * 4, fill=255)
     return cv, np.asarray(mask).astype(np.float32) / 255
 
@@ -966,12 +987,32 @@ def photograph(cv, mask, rng, K=4, backdrop=False):
     return np.clip(photo * 1.1 + rng.normal(0, 3, photo.shape) + 6, 0, 255).astype(np.uint8)
 
 
-def selftest(models=('band11', 'band10pro')):
+SPECS = os.path.normpath(os.path.join(HERE, '..', 'vela-calib', 'test', 'specs'))
+
+
+def selftest_layouts(models=None, specs=()):
+    """(name, layout, base dir) to test: layouts/<model>.json here, and each spec generated with
+    gen.py into a temp dir. Nothing given: band11, band10pro and the synthetic specs (a 466 px circle,
+    a 390 x 450 rounded rectangle) in tools/vela-calib/test/specs/."""
+    import subprocess
+    import tempfile
+    if not models and not specs:
+        models = ['band11', 'band10pro']
+        specs = sorted(os.path.join(SPECS, f) for f in os.listdir(SPECS) if f.endswith('.json')) if os.path.isdir(SPECS) else []
+    out = [(m, json.load(open(os.path.join(HERE, 'layouts', m + '.json'))), HERE) for m in (models or [])]
+    for sp in specs:
+        d = tempfile.mkdtemp()
+        subprocess.run([sys.executable, os.path.join(HERE, 'gen.py'), '--spec', sp, '--out', d], check=True, stdout=subprocess.DEVNULL)
+        sid = json.load(open(sp))['id']
+        out.append((sid, json.load(open(os.path.join(d, 'layouts', sid + '.json'))), d))
+    return out
+
+
+def selftest(models=None, specs=()):
     import tempfile
     tmp = tempfile.mkdtemp()
     ok_all = True
-    for model in models:
-        L = json.load(open(os.path.join(HERE, 'layouts', model + '.json')))
+    for model, L, base in selftest_layouts(models, specs):
         W, H = L['screen']['w'], L['screen']['h']
         faces = {f['n']: f for f in L['faces']}
         for truth in TRUTHS:
@@ -979,7 +1020,7 @@ def selftest(models=('band11', 'band10pro')):
             results = []
             fails = []
             for page in L['pages']:
-                cv, mask = render_page(L, faces[page['face']], page, truth)
+                cv, mask = render_page(L, faces[page['face']], page, truth, base)
                 p = os.path.join(tmp, '%s_%s_p%d.png' % (model, truth['name'], page['id']))
                 ph = photograph(cv, mask, rng, backdrop=truth['name'] == 'B')
                 turn = page['id'] % 3  # upright, band lying with its top to the left, top to the right
@@ -1009,7 +1050,7 @@ def selftest(models=('band11', 'band10pro')):
                 v = g('screen.hidden_px.' + side)
                 check('hidden ' + side, v is not None and abs(v) < 1.0, v)
             cr = g('screen.corner_radius_px') or {}
-            want_r = 106 if L['screen']['shape'] == 'capsule' else L['screen']['r']
+            want_r = W / 2 if L['screen']['shape'] in ('capsule', 'circle') else L['screen']['r']
             check('corner radius', cr and all(v is not None and abs(v - want_r) < 3 for v in cr.values()), cr)
             ov = g('screen.status_clear_top_px')
             if truth['dot']:
@@ -1074,7 +1115,7 @@ def main(argv=None):
     sub = ap.add_subparsers(dest='cmd', required=True)
     r = sub.add_parser('run')
     r.add_argument('photos', nargs='+')
-    r.add_argument('--device', required=True, choices=['band11', 'band10pro'])
+    r.add_argument('--device', required=True, help='device id (layouts/<id>.json)')
     r.add_argument('--page', type=int, default=None)
     r.add_argument('--out', default=None, help='annotated images (default <workspace>/devices/<model>/results-face)')
     r.add_argument('--dry-run', action='store_true')
@@ -1083,13 +1124,14 @@ def main(argv=None):
     s_.add_argument('value')
     s_.add_argument('--source', required=True)
     s_.add_argument('--status', default='measured', choices=['measured', 'assumed', 'unknown'])
-    s_.add_argument('--device', required=True, choices=['band11', 'band10pro'])
+    s_.add_argument('--device', required=True)
     sh = sub.add_parser('show')
-    sh.add_argument('--device', required=True, choices=['band11', 'band10pro'])
+    sh.add_argument('--device', required=True)
     se = sub.add_parser('seed')
-    se.add_argument('--device', required=True, choices=['band11', 'band10pro'])
+    se.add_argument('--device', required=True)
     st = sub.add_parser('selftest')
-    st.add_argument('--device', default=None, choices=['band11', 'band10pro'])
+    st.add_argument('--device', action='append', default=None, help='layouts/<id>.json to test (repeatable)')
+    st.add_argument('--spec', action='append', default=[], help='a device spec to generate faces for and test (repeatable)')
     for sp in (r, s_, sh, se):
         sp.add_argument('--workspace', default=None, help='workspace root (default: $MIBAND_WORKSPACE, else the nearest folder with devices/)')
     a = ap.parse_args(argv)
@@ -1097,7 +1139,7 @@ def main(argv=None):
     WS = getattr(a, 'workspace', None)
 
     if a.cmd == 'selftest':
-        return selftest((a.device,) if a.device else ('band11', 'band10pro'))
+        return selftest(a.device, a.spec)
     if a.cmd == 'show':
         for p, v in _walk(load_face(a.device)['face'], 'face'):
             val = json.dumps(v['value'])

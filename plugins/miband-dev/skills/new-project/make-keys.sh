@@ -7,8 +7,9 @@
 # with the same certificate, so both builds must come from this key. Run ONCE per workspace, then
 # back up <workspace>/signing/ somewhere private: losing it means reinstalling every app.
 #
-#   make-keys.sh [--workspace DIR]             create the key (refuses if one exists), copy the PEMs
-#                                              into every band app it finds
+#   make-keys.sh [--workspace DIR]             create the key and copy the PEMs into every band app
+#                                              it finds; with a key already there it never
+#                                              regenerates it and just does --sync (idempotent)
 #   make-keys.sh --sync [--workspace DIR]      copy the existing key's PEMs into band apps that
 #                                              don't have sign/ yet (a new project)
 #
@@ -52,6 +53,11 @@ band_apps() {
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
 
+if [[ -f "$P12" ]] && (( ! SYNC )); then
+  echo "Key exists ($P12): never regenerated; copying its PEMs to band apps that lack them (--sync)."
+  SYNC=1
+fi
+
 if (( SYNC )); then
   [[ -f "$P12" && -f "$PROPS" ]] || { echo "No key in $SIGN yet: run make-keys.sh without --sync first." >&2; exit 1; }
   PASS="$(sed -n 's/^storePassword=//p' "$PROPS")"
@@ -60,10 +66,6 @@ if (( SYNC )); then
   "$OPENSSL" pkcs12 -in "$P12" -passin "pass:$PASS" -clcerts -nokeys 2>/dev/null \
     | "$OPENSSL" x509 -out "$TMP/certificate.pem"
 else
-  if [[ -f "$P12" ]]; then
-    echo "Refusing to overwrite existing $P12 (never regenerate it; use --sync for a new band app)." >&2
-    exit 1
-  fi
   mkdir -p "$SIGN"
   PASS="$("$OPENSSL" rand -hex 24)"
   # 1. Key + self-signed certificate (RSA 2048, 30 years), packed as PKCS#12.

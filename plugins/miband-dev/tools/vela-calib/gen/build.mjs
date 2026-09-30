@@ -1,31 +1,36 @@
 #!/usr/bin/env node
-// Builds one .rpk per band model: for each, generate the pages for its screen (designWidth = its
+// Builds one .rpk per device: for each, generate the pages for its screen (designWidth = its
 // width, so 1 design px = 1 panel px), run `aiot build`, and rename the output to
-// dist/com.soham.velacalib.<device>.debug.<version>.rpk (same package, so installing one model's
-// build replaces the other on a band; install the one for that band's model).
-// The last model built is band10pro, so src/ in git stays the Band 10 Pro's pages.
+// dist/com.soham.velacalib.<device>.debug.<version>.rpk (same package, so installing one device's
+// build replaces another's on a band; install the one for that device).
+// "All" = every device with a spec (devices/<id>/device.json) and a kit layout (layouts/<id>.json,
+// written by new-device.mjs or gen.mjs). src/ in git stays the Band 10 Pro's pages: it is built
+// last when it is in the list.
 //
-//   npm run build                  (all models)
+//   npm run build                  (all onboarded devices)
 //   node gen/build.mjs band11      (just one; npm run build -- band11)
 import fs from 'node:fs'
 import path from 'node:path'
 import { execFileSync, execSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
+import { listSpecs } from '../device-spec.mjs'
 
 const HERE = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.join(HERE, '..')
 
 // The kit inside the miband-dev plugin is read-only: generating or building writes into the kit,
-// so it runs only from a copy in your workspace (cp -R "<plugin>/tools/vela-calib" tools/).
+// so it runs only from a copy in your workspace (the new-project skill's copy-kit.sh vela-calib).
 if (fs.existsSync(path.join(ROOT, '..', '..', '.claude-plugin', 'plugin.json'))) {
   console.error('This is the plugin\'s read-only copy of the kit. Copy it into your workspace first:\n' +
-    '  cp -R "' + ROOT + '" <workspace>/tools/vela-calib   (then npm install there)')
+    '  ' + path.join(ROOT, '..', '..', 'skills', 'new-project', 'copy-kit.sh') + ' vela-calib   (from the workspace root; then npm install there)')
   process.exit(2)
 }
-const ALL = ['band11', 'band10pro']
+const SRC_DEVICE = 'band10pro' // whose pages src/ keeps in git
+const ALL = listSpecs().filter((d) => fs.existsSync(path.join(ROOT, 'layouts', d + '.json')))
+  .sort((a, b) => (a === SRC_DEVICE) - (b === SRC_DEVICE) || a.localeCompare(b))
 const want = process.argv.slice(2)
 const devices = want.length ? ALL.filter((d) => want.includes(d)) : ALL
-if (!devices.length) throw new Error('unknown device(s) ' + want.join(', ') + ' (known: ' + ALL.join(', ') + ')')
+if (!devices.length || devices.length !== (want.length || ALL.length)) throw new Error('unknown device(s) ' + want.join(', ') + ' (onboarded: ' + ALL.join(', ') + '; a new one: node new-device.mjs)')
 
 execFileSync('python3', [path.join(HERE, 'images.py')], { stdio: 'inherit' })
 const dist = path.join(ROOT, 'dist')

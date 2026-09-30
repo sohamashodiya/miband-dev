@@ -1,0 +1,13 @@
+{
+ "schema": "vela-device-spec/1",
+ "id": "test-round466",
+ "name": "Synthetic round 466 (selftests)",
+ "also": [],
+ "verified": false,
+ "about": "Synthetic device for the kits' layout tests and selftests (Xiaomi Watch S3 / S4 class screen). Not a real device.",
+ "screen": { "w": 466, "h": 466, "shape": "circle", "corner_radius": null, "diag_in": null, "ppi": null, "source": "synthetic" },
+ "quickapp": { "design_width": 466, "status": "assumed" },
+ "face": { "canvas": { "w": 466, "h": 466 }, "id_digit": 9, "builder": "pack.mts", "device_type": null, "status": "experimental", "note": "synthetic" },
+ "firmware": { "version": null },
+ "calib": {}
+}

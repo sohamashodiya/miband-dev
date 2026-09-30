@@ -1,6 +1,6 @@
 {
   "name": "miband-dev",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Builds Xiaomi Smart Band 10 / 10 Pro / 11 watch faces and Vela JS apps (with an optional Android companion) and sideloads them from an Android phone over adb through AstroBox, using device profiles measured from photos of calibration apps and faces.",
   "author": {
     "name": "sohamashodiya",

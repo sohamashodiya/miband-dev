@@ -3,11 +3,15 @@
 //   vendor/band10-toolkit/node_modules/.bin/tsx tools/face-calib/pack.mts <project dir> [...]
 //
 // Used where the band10-toolkit CLI can't: its schema only accepts the Band 10's 212 x 520 canvas
-// (so every Band 10 Pro page, 336 x 480), and its gmf step only puts the Lua script on the normal
-// face (F8 puts it on the always-on face too, calib.json "aodScript"). It writes the same wfDef.json
-// the toolkit's builder/gmf.ts writes (widget -> GMF element mapping copied from there) and calls
-// the same packGmfDirectory() (builder/native.ts). The binary has no resolution or device field;
-// whether a 336 x 480 face made this way installs on a Band 10 Pro is what F1 finds out.
+// (so every page of any other device: the Band 10 Pro's 336 x 480, a round 466 x 466...), and its
+// gmf step only puts the Lua script on the normal face (F8 puts it on the always-on face too,
+// calib.json "aodScript"). It writes the same wfDef.json the toolkit's builder/gmf.ts writes
+// (widget -> GMF element mapping copied from there) and calls the same packGmfDirectory()
+// (builder/native.ts). Nothing here depends on the canvas size except the bounds check (W x H from
+// layout.json). The binary has no resolution or device field (device flags 0x800 are fixed by the
+// packer; wfDef's deviceType is not written), so whether a device accepts and draws a face made this
+// way is only known from a photo of F1 on it: every non-212 x 520 face is EXPERIMENTAL per device
+// until then (its spec's face.status says which).
 import { copyFile, cp, mkdir, readdir, readFile, rm, stat, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { packGmfDirectory } from '../../vendor/band10-toolkit/builder/native.ts'

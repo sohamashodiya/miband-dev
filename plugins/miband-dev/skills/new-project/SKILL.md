@@ -1,12 +1,14 @@
 ---
 name: new-project
-description: Set up a workspace for Xiaomi band apps and watch faces (registry README, devices/DEVICES.md, .gitignore, the shared signing key, the band10-toolkit), start a new band app or watch face project from the templates, and make its design mock-ups. Use for a first-time setup, a new project, or a new phone or band.
+description: Set up (idempotently) a workspace for Xiaomi band apps and watch faces (folder layout, registry README, devices/DEVICES.md, .gitignore; the signing key, band10-toolkit and calibration kit copies when first needed), start a new band app or watch face project from the templates, and make its design mock-ups. Use for a first-time setup, a new project, or a new phone or band.
 ---
 
 # Workspace and new projects
 
-Templates (read-only): `${CLAUDE_SKILL_DIR}/templates/`. Signing script: `${CLAUDE_SKILL_DIR}/make-keys.sh`.
-Everything below is created in the user's workspace (their repo), never in the plugin.
+Scripts (all idempotent, all write only into the workspace): `${CLAUDE_SKILL_DIR}/init-workspace.sh`,
+`make-keys.sh`, `setup-toolkit.sh`, `copy-kit.sh`. Templates (read-only): `${CLAUDE_SKILL_DIR}/templates/`.
+The agent's tools, the kits and the shipped profiles stay in the plugin; only the user's own
+projects and data (and kit copies, once they calibrate) live in the workspace.
 
 ## The workspace contract
 ```
@@ -16,35 +18,45 @@ apps/<project>/      a band app + phone companion: PROJECT.md, band/, phone/, (d
 faces/<project>/     a watch face: PROJECT.md, generate.ts, layout.json, manifest.json, assets/, script/
 faces/package.json   runs the toolkit CLI for any face (node_modules -> the toolkit's)
 vendor/              band10-toolkit clone (ignored) + patches/band10-toolkit.patch
-tools/               workspace copies of the calibration kits, only when they need building
+tools/               workspace copies of the calibration kits (+ plugin-defaults/, ignored), only once needed
 signing/             the shared key (keys ignored)
 ```
 - **One folder per project** (`apps/<name>/` or `faces/<name>/`); nothing project-specific at the top level.
-- Profiles: `devices/<model>/profile.json` in the workspace overrides the plugin's shipped default
-  (`${CLAUDE_PLUGIN_ROOT}/data/profiles/<model>/`). Don't copy defaults in by hand unless a
-  workspace copy of a kit needs them; the kits create the workspace profile on their first write.
+- Profiles and specs: `devices/<model>/profile.json` / `device.json` in the workspace override the
+  plugin's shipped defaults (`${CLAUDE_PLUGIN_ROOT}/data/profiles/<model>/`). Never copy defaults in
+  by hand; the kits create the workspace profile on their first write.
 
-## First-time setup (ask before each step that changes their repo)
-1. `git init` if needed. Copy `templates/workspace.gitignore` to `.gitignore` (merge with an
-   existing one), `templates/README-workspace.md` to `README.md`, and `templates/DEVICES.md` to
-   `devices/DEVICES.md`.
-2. Fill in `devices/DEVICES.md` with the user: each phone (model, screen, adb serial from
+## First-time setup (`/miband-dev:new-project` in an empty folder or an existing repo)
+Everything here is idempotent: run it again at any time and it only adds what's missing. Nothing
+the user has is overwritten. Tell the user what each step adds.
+1. **Layout and files:** `"${CLAUDE_SKILL_DIR}/init-workspace.sh"` from the workspace root. It runs
+   `git init` if needed, creates `devices/`, `apps/`, `faces/`, and adds `README.md` (registry),
+   `devices/DEVICES.md`, `faces/package.json` and `.gitignore` from the templates when they don't
+   exist (an existing `.gitignore` only gets the missing lines).
+2. **Fill in `devices/DEVICES.md` with the user:** each phone (model, screen, adb serial from
    `adb devices -l`, Android version, Mi Fitness and AstroBox versions) and each band (model,
    firmware from Mi Fitness, paired phone). Remind them to keep serials, Bluetooth addresses and
    account IDs out of any public copy.
-3. Check the band's firmware against the profile's `firmware.version` (Band 10 Pro 3.101.043,
+3. **Check the band's firmware** against the profile's `firmware.version` (Band 10 Pro 3.101.043,
    Band 11 4.100.139). A different firmware means re-running calibration before trusting the
-   profile (`calibrate-quickapp`, `calibrate-face`).
-4. Signing key (only needed for band apps): `"${CLAUDE_SKILL_DIR}/make-keys.sh"` from the workspace
-   root. Run it **once per workspace**; it refuses to overwrite. It writes `signing/band.p12` +
-   `signing/keystore.properties` (phone APK) and `sign/{debug,release}/` PEMs into every band app
-   it finds (`apps/*/band`, `tools/vela-calib`). For a band app added later:
-   `"${CLAUDE_SKILL_DIR}/make-keys.sh" --sync`. Tell the user to back up `signing/` privately:
-   losing it means reinstalling every app, and phone ⇄ band messages only work when the APK and the
-   `.rpk` share this certificate.
-5. Faces: set up the toolkit (`${CLAUDE_PLUGIN_ROOT}/vendor/README.md`, which also copies
-   `templates/faces-package.json` to `faces/package.json`).
-6. Tools the user installs: `adb`; Node.js; `aiot-toolkit` (per band app via `npm install`);
+   profile (`calibrate-quickapp`, `calibrate-face`). A device with no shipped profile has to be
+   onboarded and calibrated first (`calibrate-quickapp`).
+4. **AstroBox:** make sure the user has read the README's "Before you start" (AstroBox is a
+   third-party app; it needs them to sign in to their Xiaomi account in it to get the band's auth
+   key; its connect re-pairs the band). It's their decision; don't sign in for them.
+5. **Only when needed, later (each idempotent):**
+   - first band app: `"${CLAUDE_SKILL_DIR}/make-keys.sh"` (creates the signing key once; later runs
+     never regenerate it and just copy the PEMs into new band apps), and
+     `"${CLAUDE_SKILL_DIR}/copy-kit.sh" vela-calib` (the band apps' `npm run device` uses its
+     `export.mjs`). Tell the user to back up `signing/` privately: losing it means reinstalling
+     every app, and phone ⇄ band messages only work when the APK and the `.rpk` share this
+     certificate.
+   - first watch face: `"${CLAUDE_SKILL_DIR}/setup-toolkit.sh"` (clones band10-toolkit into
+     `vendor/`, pins it, applies the plugin's patch, `npm install`, links `faces/node_modules`).
+   - first calibration: `"${CLAUDE_SKILL_DIR}/copy-kit.sh" vela-calib` / `face-calib` (the kits'
+     builds write files, so they run from a workspace copy; the copy reads the shipped profiles and
+     specs from `tools/plugin-defaults/`, refreshed on every run).
+6. **Tools the user installs** (check with `which`, and say what's missing): `adb`, Node.js, git;
    JDK 21 and the Android SDK for companions; Python 3 with OpenCV, NumPy, SciPy and Pillow for
    calibration. On the phone: USB debugging, Mi Fitness, AstroBox.
 
@@ -56,8 +68,8 @@ signing/             the shared key (keys ignored)
 3. Make the design mock-ups (below) and get approval before any code.
 4. Band app: package name `com.<you>.<name>`, the same for the APK and the `.rpk`; add
    `"device": "node ../../../tools/vela-calib/export.mjs <model> src/common/device.js"` and a
-   `prebuild` that runs it (the workspace copy of the kit, `calibrate-quickapp`), a fit test that
-   runs `export.mjs --check`, and `make-keys.sh --sync` for `sign/`. Details: `build-band-app`.
+   `prebuild` that runs it (`copy-kit.sh vela-calib` provides it), a fit test that runs
+   `export.mjs --check`, and run `make-keys.sh` for `sign/`. Details: `build-band-app`.
 5. Face: a generator `faces/<name>/generate.ts` writing `assets/`, `layout.json`, `script/`.
    Details: `build-face`.
 

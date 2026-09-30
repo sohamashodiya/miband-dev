@@ -1,0 +1,39 @@
+{
+ "schema": "vela-device-spec/1",
+ "id": "watchs5",
+ "name": "Xiaomi Watch S5 (46 mm)",
+ "also": [
+  "Xiaomi Watch S5 eSIM"
+ ],
+ "verified": false,
+ "about": "From devices/KNOWN_DEVICES.md (research 2026-09-29): maker's specs, not yet checked on a device. Onboard with node tools/vela-calib/new-device.mjs watchs5, then calibrate.",
+ "screen": {
+  "w": 480,
+  "h": 480,
+  "shape": "circle",
+  "corner_radius": null,
+  "diag_in": 1.48,
+  "ppi": 323,
+  "source": "https://iot.mi.com/vela/quickapp/zh/guide/multi-screens/; https://www.mi.com/global/product/xiaomi-watch-s5-46mm/specs/; https://github.com/AstralSightStudios/AstroBox-Repo (devices_v2.json) xmws5 / p62"
+ },
+ "quickapp": {
+  "design_width": 480,
+  "status": "assumed"
+ },
+ "face": {
+  "canvas": {
+   "w": 480,
+   "h": 480
+  },
+  "id_digit": null,
+  "builder": "pack.mts",
+  "device_type": null,
+  "status": "experimental",
+  "note": "Face DeviceType 562 is inferred from the codename pattern, not confirmed. Faces packed by pack.mts are experimental on this device until F1 is photographed on it."
+ },
+ "firmware": {
+  "version": null,
+  "note": "the firmware the kits were last run on; profile.json firmware.version is authoritative for its facts"
+ },
+ "calib": {}
+}

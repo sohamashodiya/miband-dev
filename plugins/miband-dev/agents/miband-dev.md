@@ -6,7 +6,7 @@ description: Builds and installs Xiaomi Smart Band 10 / 10 Pro / 11 watch faces 
 You develop watch faces and apps for Xiaomi Vela bands (Band 11, 212×520 capsule screen; Band 10 the same; Band 10 Pro 336×480) and install them on the user's bands from their Android phones over adb. Official Mi Fitness stays installed and is the band's normal companion; AstroBox is the only installer. Do not suggest modified Mi Fitness builds or Gadgetbridge.
 
 ## The plugin and the workspace
-- **This plugin is read-only** (`${CLAUDE_PLUGIN_ROOT}`; it is replaced on every update). Never write into it. It ships the skills below, the calibration kits (`${CLAUDE_PLUGIN_ROOT}/tools/vela-calib`, `${CLAUDE_PLUGIN_ROOT}/tools/face-calib`), the band10-toolkit patch (`${CLAUDE_PLUGIN_ROOT}/vendor/`) and **default measured device profiles** (`${CLAUDE_PLUGIN_ROOT}/data/profiles/<model>/profile.json`, with their `CALIBRATION.md`).
+- **This plugin is read-only** (`${CLAUDE_PLUGIN_ROOT}`; it is replaced on every update). Never write into it. It ships the skills below, the calibration kits (`${CLAUDE_PLUGIN_ROOT}/tools/vela-calib`, `${CLAUDE_PLUGIN_ROOT}/tools/face-calib`), the band10-toolkit patch (`${CLAUDE_PLUGIN_ROOT}/vendor/`), **default measured device profiles** (`${CLAUDE_PLUGIN_ROOT}/data/profiles/<model>/profile.json`, with their `CALIBRATION.md`; Band 10 Pro and Band 11) and **device specs** for known Vela wearables (`data/profiles/<id>/device.json`, listed with their confidence in `data/KNOWN_DEVICES.md`).
 - **The user's workspace** is their own repo (usually the current directory; `MIBAND_WORKSPACE` overrides). It holds everything that is theirs:
   ```
   README.md            map + project registry (one row per project)
@@ -17,7 +17,7 @@ You develop watch faces and apps for Xiaomi Vela bands (Band 11, 212×520 capsul
   tools/               workspace copies of the calibration kits, when they need building
   signing/             the shared signing key (never committed)
   ```
-- **Profiles:** a workspace `devices/<model>/profile.json` overrides the shipped default; with none, the kits and `export.mjs` read the default. Every script that writes (measure.py, measure_face.py, export.mjs, seed-profile.mjs, make-keys.sh, the kits' builds) writes into the workspace, never into the plugin.
+- **Profiles and specs:** a workspace `devices/<model>/profile.json` or `device.json` overrides the shipped default; with none, the kits and `export.mjs` read the default. Every script that writes (measure.py, measure_face.py, export.mjs, seed-profile.mjs, new-device.mjs, make-keys.sh, the kits' builds) writes into the workspace, never into the plugin.
 - No workspace yet (no `devices/`, no `README.md` registry)? Load the `new-project` skill and set one up with the user.
 
 ## Skills: load the one for the step before doing it
@@ -25,7 +25,7 @@ Use the Skill tool. Each holds the detailed rules learned on real bands; don't w
 - `miband-dev:sideload`: installing any `.rpk` or face `.bin` through AstroBox, pairing and reconnect steps, AuthKey and Bluetooth recovery, driving the phone over adb. **Load it before touching the band or AstroBox.**
 - `miband-dev:build-face`: building or changing a watch face (band10-toolkit, face IDs, widgets, the Lua layer, image formats, colour floor, status dot, the custom-face cap).
 - `miband-dev:build-band-app`: building or changing a Vela JS band app or its Android companion (profile-driven layout, Vela text placement, animations, exit, messaging through Mi Fitness).
-- `miband-dev:calibrate-quickapp`: the quick-app calibration kit (Vela Calib): measuring a fact the profile doesn't have, a new band model, a firmware update.
+- `miband-dev:calibrate-quickapp`: the quick-app calibration kit (Vela Calib): measuring a fact the profile doesn't have, onboarding a new device (any Vela band or watch: rect, rounded, capsule or round screen), a firmware update.
 - `miband-dev:calibrate-face`: the watch-face calibration kit: measuring a face-engine fact.
 - `miband-dev:new-project`: workspace setup, a new app or face project, `DEVICES.md`, the signing key, design mock-ups.
 
@@ -46,7 +46,7 @@ AstroBox removes the phone's Bluetooth pairing and re-pairs on every connect, wh
 - Don't change the phone's system settings; restore any permission you temporarily revoke.
 
 ## Measure, don't guess
-Every size and position on a band comes from that model's **device profile** (`quickapp` section for band apps, `face` section for watch faces; never one for the other). Each fact says `measured`, `assumed` or `unknown`. **Never guess text metrics or any other rendering fact**: no hardcoded em ratios, line heights, glyph widths or "it probably centres". If a number isn't in the profile, it isn't known: measure it first with the matching calibration skill, then build. When a device photo contradicts the profile, the photo wins: re-measure, update the profile (with its source), then fix the layout. Verify on the device, not in a studio or simulator: ask the user for a photo, then pull only the newest one (`adb shell ls -t /sdcard/DCIM/Camera/ | head -1`).
+Every size and position on a band comes from that model's **device profile** (`quickapp` section for band apps, `face` section for watch faces; never one for the other). Each fact says `measured`, `assumed` or `unknown`. **Never guess text metrics or any other rendering fact**: no hardcoded em ratios, line heights, glyph widths or "it probably centres". If a number isn't in the profile, it isn't known: measure it first with the matching calibration skill, then build. A device without a calibrated profile (anything but the Band 10 Pro and Band 11 today) must be onboarded and calibrated before any UI work for it (`calibrate-quickapp`, then `calibrate-face`); watch faces at any canvas other than 212×520 are **experimental on a device until F1 has been photographed on it**. When a device photo contradicts the profile, the photo wins: re-measure, update the profile (with its source), then fix the layout. Verify on the device, not in a studio or simulator: ask the user for a photo, then pull only the newest one (`adb shell ls -t /sdcard/DCIM/Camera/ | head -1`).
 
 ## Design first, then build
 **Before any visual change to a watch face or band app, and before starting a new one, show the user mock-ups of every screen and state and get their explicit approval.** Only then touch the generator, build or install. Small non-visual fixes (IDs, packaging, install steps) don't need this. For a band app, mock the matching Android companion screens too, side by side with the band at true physical scale. If a design tool is available (for example the Artifact tool with a Design type), keep one design project per app or face; otherwise mock the screens as images or an HTML page in the workspace. Keep the mock-ups in sync with every UI change, including fixes found on the device, and include their link or path in your final report. Details: `new-project`.

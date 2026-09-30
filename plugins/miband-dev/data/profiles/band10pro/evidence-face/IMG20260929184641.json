@@ -1,0 +1,647 @@
+{
+ "exposure": {
+  "t": 0.058823529411764705,
+  "iso": 2000,
+  "f": 1.8
+ },
+ "photo": "IMG20260929184641.jpg",
+ "page": 7,
+ "page_key": "aod_normal",
+ "face": 7,
+ "theme": "normal",
+ "taken_at": "2026-09-29T18:46:41",
+ "fit": {
+  "rms_band_px": [
+   0.325,
+   0.426
+  ],
+  "ticks": 86,
+  "dropped": 0,
+  "bloom_px": 0.53,
+  "photo_px_per_band_px": [
+   3.035,
+   3.02
+  ],
+  "edges": {
+   "left_first_visible_x": 1.2406782749026597,
+   "right_last_visible_x": 334.9639903783339,
+   "ticks_seen_left": 43,
+   "ticks_seen_right": 43,
+   "first_tick_y_left": 30,
+   "last_tick_y_left": 450
+  },
+  "ok": true,
+  "notes": [],
+  "rotation": "cw90"
+ },
+ "ruler_edges": {
+  "left": 1.03,
+  "right": 0.9,
+  "rows": 37
+ },
+ "samples": [
+  {
+   "id": "aod_normal.0",
+   "type": "overlay",
+   "spec": {
+    "type": "overlay",
+    "region": [
+     24,
+     0,
+     312,
+     44
+    ],
+    "id": "aod_normal.0"
+   },
+   "result": {
+    "found": true,
+    "bbox": [
+     158.1,
+     13.1,
+     178.0,
+     33.0
+    ],
+    "blobs": [
+     [
+      158.1,
+      13.1,
+      178.0,
+      33.0,
+      309.9
+     ]
+    ],
+    "colour": "red",
+    "centre": [
+     168.1,
+     23.1
+    ],
+    "size": [
+     19.9,
+     19.9
+    ]
+   }
+  },
+  {
+   "id": "aod_normal.1",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "aod_grey",
+    "hex": "#000000",
+    "value": 0,
+    "box": {
+     "x": 91,
+     "y": 70,
+     "w": 10,
+     "h": 34
+    },
+    "id": "aod_normal.1"
+   },
+   "result": {
+    "rgb": [
+     4.1,
+     4.1,
+     4.1
+    ],
+    "luma": 4.1,
+    "sd": 1.14
+   }
+  },
+  {
+   "id": "aod_normal.2",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "aod_grey",
+    "hex": "#080808",
+    "value": 8,
+    "box": {
+     "x": 103,
+     "y": 70,
+     "w": 10,
+     "h": 34
+    },
+    "id": "aod_normal.2"
+   },
+   "result": {
+    "rgb": [
+     6.0,
+     6.0,
+     6.0
+    ],
+    "luma": 6.0,
+    "sd": 1.33
+   }
+  },
+  {
+   "id": "aod_normal.3",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "aod_grey",
+    "hex": "#101010",
+    "value": 16,
+    "box": {
+     "x": 115,
+     "y": 70,
+     "w": 10,
+     "h": 34
+    },
+    "id": "aod_normal.3"
+   },
+   "result": {
+    "rgb": [
+     10.1,
+     11.9,
+     24.4
+    ],
+    "luma": 12.8,
+    "sd": 1.6
+   }
+  },
+  {
+   "id": "aod_normal.4",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "aod_grey",
+    "hex": "#181818",
+    "value": 24,
+    "box": {
+     "x": 127,
+     "y": 70,
+     "w": 10,
+     "h": 34
+    },
+    "id": "aod_normal.4"
+   },
+   "result": {
+    "rgb": [
+     15.0,
+     21.0,
+     43.8
+    ],
+    "luma": 21.8,
+    "sd": 1.75
+   }
+  },
+  {
+   "id": "aod_normal.5",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "aod_grey",
+    "hex": "#202020",
+    "value": 32,
+    "box": {
+     "x": 139,
+     "y": 70,
+     "w": 10,
+     "h": 34
+    },
+    "id": "aod_normal.5"
+   },
+   "result": {
+    "rgb": [
+     22.7,
+     33.4,
+     68.6
+    ],
+    "luma": 34.2,
+    "sd": 1.63
+   }
+  },
+  {
+   "id": "aod_normal.6",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "aod_grey",
+    "hex": "#282828",
+    "value": 40,
+    "box": {
+     "x": 151,
+     "y": 70,
+     "w": 10,
+     "h": 34
+    },
+    "id": "aod_normal.6"
+   },
+   "result": {
+    "rgb": [
+     23.5,
+     36.5,
+     70.9
+    ],
+    "luma": 36.6,
+    "sd": 1.81
+   }
+  },
+  {
+   "id": "aod_normal.7",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "aod_grey",
+    "hex": "#303030",
+    "value": 48,
+    "box": {
+     "x": 163,
+     "y": 70,
+     "w": 10,
+     "h": 34
+    },
+    "id": "aod_normal.7"
+   },
+   "result": {
+    "rgb": [
+     29.7,
+     52.6,
+     90.6
+    ],
+    "luma": 50.1,
+    "sd": 2.34
+   }
+  },
+  {
+   "id": "aod_normal.8",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "aod_grey",
+    "hex": "#383838",
+    "value": 56,
+    "box": {
+     "x": 175,
+     "y": 70,
+     "w": 10,
+     "h": 34
+    },
+    "id": "aod_normal.8"
+   },
+   "result": {
+    "rgb": [
+     36.2,
+     68.0,
+     110.5
+    ],
+    "luma": 63.4,
+    "sd": 2.22
+   }
+  },
+  {
+   "id": "aod_normal.9",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "aod_grey",
+    "hex": "#404040",
+    "value": 64,
+    "box": {
+     "x": 187,
+     "y": 70,
+     "w": 10,
+     "h": 34
+    },
+    "id": "aod_normal.9"
+   },
+   "result": {
+    "rgb": [
+     47.7,
+     82.9,
+     128.9
+    ],
+    "luma": 77.6,
+    "sd": 3.13
+   }
+  },
+  {
+   "id": "aod_normal.10",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "aod_grey",
+    "hex": "#484848",
+    "value": 72,
+    "box": {
+     "x": 199,
+     "y": 70,
+     "w": 10,
+     "h": 34
+    },
+    "id": "aod_normal.10"
+   },
+   "result": {
+    "rgb": [
+     58.9,
+     97.9,
+     147.1
+    ],
+    "luma": 91.9,
+    "sd": 2.99
+   }
+  },
+  {
+   "id": "aod_normal.11",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "aod_grey",
+    "hex": "#505050",
+    "value": 80,
+    "box": {
+     "x": 211,
+     "y": 70,
+     "w": 10,
+     "h": 34
+    },
+    "id": "aod_normal.11"
+   },
+   "result": {
+    "rgb": [
+     69.7,
+     110.0,
+     162.7
+    ],
+    "luma": 104.0,
+    "sd": 2.47
+   }
+  },
+  {
+   "id": "aod_normal.12",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "aod_grey",
+    "hex": "#585858",
+    "value": 88,
+    "box": {
+     "x": 223,
+     "y": 70,
+     "w": 10,
+     "h": 34
+    },
+    "id": "aod_normal.12"
+   },
+   "result": {
+    "rgb": [
+     80.0,
+     120.0,
+     176.5
+    ],
+    "luma": 114.5,
+    "sd": 2.61
+   }
+  },
+  {
+   "id": "aod_normal.13",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "aod_grey",
+    "hex": "#606060",
+    "value": 96,
+    "box": {
+     "x": 235,
+     "y": 70,
+     "w": 10,
+     "h": 34
+    },
+    "id": "aod_normal.13"
+   },
+   "result": {
+    "rgb": [
+     88.4,
+     131.3,
+     188.8
+    ],
+    "luma": 125.0,
+    "sd": 2.92
+   }
+  },
+  {
+   "id": "aod_normal.14",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "aod_level",
+    "hex": "#808080",
+    "value": 128,
+    "box": {
+     "x": 92,
+     "y": 114,
+     "w": 48,
+     "h": 28
+    },
+    "id": "aod_normal.14"
+   },
+   "result": {
+    "rgb": [
+     120.1,
+     166.9,
+     232.0
+    ],
+    "luma": 160.3,
+    "sd": 1.7
+   }
+  },
+  {
+   "id": "aod_normal.15",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "aod_level",
+    "hex": "#c0c0c0",
+    "value": 192,
+    "box": {
+     "x": 144,
+     "y": 114,
+     "w": 48,
+     "h": 28
+    },
+    "id": "aod_normal.15"
+   },
+   "result": {
+    "rgb": [
+     164.8,
+     219.1,
+     251.8
+    ],
+    "luma": 206.6,
+    "sd": 1.71
+   }
+  },
+  {
+   "id": "aod_normal.16",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "aod_level",
+    "hex": "#ffffff",
+    "value": 255,
+    "box": {
+     "x": 196,
+     "y": 114,
+     "w": 48,
+     "h": 28
+    },
+    "id": "aod_normal.16"
+   },
+   "result": {
+    "rgb": [
+     226.6,
+     254.1,
+     254.1
+    ],
+    "luma": 245.9,
+    "sd": 0.78
+   }
+  },
+  {
+   "id": "aod_normal.17",
+   "type": "number",
+   "spec": {
+    "type": "number",
+    "source": "hour",
+    "x": 92,
+    "y": 162,
+    "align": "left",
+    "count": 2,
+    "spacing": 0,
+    "lz": true,
+    "region": [
+     90,
+     126
+    ],
+    "row": 2,
+    "id": "aod_normal.17"
+   },
+   "result": {
+    "left": 92.56,
+    "right": 124.23,
+    "width": 31.68,
+    "cells": 2,
+    "digits": "06",
+    "value": 6,
+    "verdict": "anchor_left|box_centre|box_right",
+    "distances": {
+     "anchor_left": 0.56,
+     "anchor_centre": 16.56,
+     "anchor_right": 32.56,
+     "box_centre": 0.56,
+     "box_right": 0.56
+    }
+   }
+  },
+  {
+   "id": "aod_normal.18",
+   "type": "number",
+   "spec": {
+    "type": "number",
+    "source": "minute",
+    "x": 132,
+    "y": 162,
+    "align": "left",
+    "count": 2,
+    "spacing": 0,
+    "lz": true,
+    "region": [
+     130,
+     166
+    ],
+    "row": 2,
+    "id": "aod_normal.18"
+   },
+   "result": {
+    "left": 132.31,
+    "right": 163.93,
+    "width": 31.62,
+    "cells": 2,
+    "digits": "46",
+    "value": 46,
+    "verdict": "anchor_left|box_centre|box_right",
+    "distances": {
+     "anchor_left": 0.31,
+     "anchor_centre": 16.31,
+     "anchor_right": 32.31,
+     "box_centre": 0.31,
+     "box_right": 0.31
+    }
+   }
+  },
+  {
+   "id": "aod_normal.19",
+   "type": "number",
+   "spec": {
+    "type": "number",
+    "source": "second",
+    "x": 172,
+    "y": 162,
+    "align": "left",
+    "count": 2,
+    "spacing": 0,
+    "lz": true,
+    "region": [
+     170,
+     206
+    ],
+    "row": 2,
+    "id": "aod_normal.19"
+   },
+   "result": {
+    "left": 171.99,
+    "right": 203.73,
+    "width": 31.74,
+    "cells": 2,
+    "digits": "41",
+    "value": 41,
+    "verdict": "anchor_left|box_centre|box_right",
+    "distances": {
+     "anchor_left": 0.01,
+     "anchor_centre": 15.99,
+     "anchor_right": 31.99,
+     "box_centre": 0.01,
+     "box_right": 0.01
+    }
+   }
+  },
+  {
+   "id": "aod_normal.20",
+   "type": "number",
+   "spec": {
+    "type": "number",
+    "source": "battery",
+    "x": 92,
+    "y": 206,
+    "align": "left",
+    "count": 3,
+    "spacing": 0,
+    "lz": false,
+    "region": [
+     88,
+     140
+    ],
+    "row": 3,
+    "id": "aod_normal.20"
+   },
+   "result": {
+    "left": 92.51,
+    "right": 124.24,
+    "width": 31.73,
+    "cells": 2,
+    "digits": "37",
+    "value": 37,
+    "verdict": "anchor_left",
+    "distances": {
+     "anchor_left": 0.51,
+     "anchor_centre": 16.51,
+     "anchor_right": 32.51,
+     "box_centre": 7.49,
+     "box_right": 15.49
+    }
+   }
+  }
+ ],
+ "layout": "face-calib/band10pro b1",
+ "measured_at": "2026-09-29T18:53:46"
+}

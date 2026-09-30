@@ -12,8 +12,11 @@ import { fileURLToPath } from 'node:url'
 import { makeProfile } from './profile.js'
 
 const HERE = path.dirname(fileURLToPath(import.meta.url))
-// Shipped defaults: <plugin>/data/profiles when this file runs from the plugin (tools/vela-calib).
-export const DEFAULTS_DIR = path.resolve(HERE, '..', '..', 'data', 'profiles')
+// Shipped defaults: <plugin>/data/profiles when this file runs from the plugin (tools/vela-calib);
+// in a workspace copy of the kit, tools/plugin-defaults/profiles (refreshed by the new-project
+// skill's copy-kit.sh from the installed plugin).
+export const DEFAULTS_DIR = [path.resolve(HERE, '..', '..', 'data', 'profiles'), path.resolve(HERE, '..', 'plugin-defaults', 'profiles')]
+  .find((d) => fs.existsSync(d)) || path.resolve(HERE, '..', '..', 'data', 'profiles')
 
 function findUp(start) {
   let d = path.resolve(start)

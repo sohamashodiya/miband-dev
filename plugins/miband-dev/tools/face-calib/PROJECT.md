@@ -16,14 +16,19 @@ Read this before working on the kit. It applies only to the kit; the facts it me
   `devices/band11/profile.json` (the rest belongs to the quick-app kit). Until 2026-09-29 it was a
   face-only `profile.face.json`; merged into `profile.json` and removed.
 - Band 10 Pro (336 × 480): `band10pro`. Output: the `face` key of `devices/band10pro/profile.json`.
-  **Faces for this model are unverified**: band10-toolkit only targets the Band 10 (`o66`); the kit
-  packs 336 × 480 faces with the toolkit's native packer directly (`pack.mts`). Install F1 alone
-  first.
+  band10-toolkit only targets the Band 10 (`o66`); the kit packs 336 × 480 faces with the toolkit's
+  native packer directly (`pack.mts`). **Verified 2026-09-29**: all 8 faces accepted and measured.
+- Any other device: from its spec (`devices/<id>/device.json`, onboarded with
+  `tools/vela-calib/new-device.mjs`). Faces packed by `pack.mts` are **experimental on each device
+  until F1 is photographed on it** (spec `face.status`). Needs >= 164 px between the rulers (screens
+  >= 212 px wide; round >= 342 px): the Band 9 (192 px) is refused.
 
 ## Code
-- `gen.py` generates everything under `faces/` and `layouts/` (don't hand-edit). `KIT_BUILD` is in
-  every face id (`8<model><build:5><face:2>`); bump it whenever a page changes.
-- `build.sh`: Band 11 through the toolkit CLI; Band 10 Pro and F8 (Lua on AOD) through `pack.mts`.
+- `gen.py` generates everything under `faces/` and `layouts/` (don't hand-edit) from device specs.
+  `KIT_BUILD` is in every face id (`8<spec face.id_digit><build:5><face:2>`); bump it whenever a page
+  changes. The Band 11's and Band 10 Pro's frames are pinned in their specs (`calib.face.frame`).
+- `build.sh`: specs with builder `band10-toolkit` (212 × 520) through the toolkit CLI; every other
+  size and F8 (Lua on AOD) through `pack.mts`.
 - `measure_face.py` imports `tools/vela-calib/measure.py` read-only (another kit, another owner).
 
 ## State
@@ -97,3 +102,22 @@ Read this before working on the kit. It applies only to the kit; the facts it me
   replaces a measured fact whose source isn't this kit's photos; it adds `photo_check` instead
   (both agree: the Lua and image squares are both drawn in the F8 AOD photo).
 - `lua.dataman_scale` untested: F6 was shot at :50 (minute-low 0, raw 0).
+
+## Any device (2026-09-29)
+- `gen.py`, `build.sh`, `measure_face.py` take any device spec (`tools/vela-calib/device_spec.py`);
+  `MODELS` is gone. `gen.py --out DIR` writes elsewhere (the selftest and bit-for-bit checks use it).
+- Band 11 and Band 10 Pro output is **byte-identical** to build 1 (all 318 files: JSON, Lua, PNGs),
+  checked by generating into a scratch folder; `measure_face.py` gives identical results on all 22
+  real face photos (13 Band 11, 9 Band 10 Pro), old code vs new.
+- Round screens: inset ruler columns (layout `frame.ruler`), F1 = grey fills outside the rulers,
+  measured by the quick-app kit's `measure_round` (circle fit). `ruler_edges` is skipped there (the
+  ruler ends aren't the screen's edge). `isolate_screen` expects a near-square dark region for
+  square/round screens.
+- Generic F1 fix: a rounded rectangle's comb "centre line" is the comb line nearest the centre (the
+  Band 10 Pro's is still 168).
+- Selftest (both truths) passes for a synthetic 466 px circle and 390 × 450 rect (80 px corners), on
+  top of the Band 11 and Band 10 Pro. Round and rect faces pack with `pack.mts` (466 × 466 F1, F2, F8
+  with Lua on AOD; 390 × 450 F4).
+- Not done: a compact page set for screens under 212 px (Band 9); no round device has been
+  photographed.
+

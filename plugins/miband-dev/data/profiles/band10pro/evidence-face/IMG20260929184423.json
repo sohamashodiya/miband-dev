@@ -1,0 +1,1927 @@
+{
+ "exposure": {
+  "t": 0.058823529411764705,
+  "iso": 3200,
+  "f": 1.8
+ },
+ "photo": "IMG20260929184423.jpg",
+ "page": 2,
+ "page_key": "colour",
+ "face": 2,
+ "theme": "normal",
+ "taken_at": "2026-09-29T18:44:23",
+ "fit": {
+  "rms_band_px": [
+   0.197,
+   0.251
+  ],
+  "ticks": 86,
+  "dropped": 0,
+  "bloom_px": 0.39,
+  "photo_px_per_band_px": [
+   3.018,
+   3.004
+  ],
+  "edges": {
+   "left_first_visible_x": 1.2107760148716178,
+   "right_last_visible_x": 334.99592963948913,
+   "ticks_seen_left": 43,
+   "ticks_seen_right": 43,
+   "first_tick_y_left": 30,
+   "last_tick_y_left": 450
+  },
+  "ok": true,
+  "notes": [],
+  "rotation": "cw90"
+ },
+ "ruler_edges": {
+  "left": 1.26,
+  "right": 1.01,
+  "rows": 37
+ },
+ "samples": [
+  {
+   "id": "colour.0",
+   "type": "overlay",
+   "spec": {
+    "type": "overlay",
+    "region": [
+     24,
+     0,
+     312,
+     44
+    ],
+    "id": "colour.0"
+   },
+   "result": {
+    "found": true,
+    "bbox": [
+     158.5,
+     13.1,
+     177.2,
+     32.6
+    ],
+    "blobs": [
+     [
+      158.5,
+      13.1,
+      177.2,
+      32.6,
+      288.5
+     ]
+    ],
+    "colour": "red",
+    "centre": [
+     167.9,
+     22.9
+    ],
+    "size": [
+     18.8,
+     19.5
+    ]
+   }
+  },
+  {
+   "id": "colour.1",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey",
+    "hex": "#000000",
+    "value": 0,
+    "box": {
+     "x": 91,
+     "y": 70,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.1"
+   },
+   "result": {
+    "rgb": [
+     3.7,
+     3.7,
+     3.7
+    ],
+    "luma": 3.7,
+    "sd": 1.41
+   }
+  },
+  {
+   "id": "colour.2",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey",
+    "hex": "#080808",
+    "value": 8,
+    "box": {
+     "x": 103,
+     "y": 70,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.2"
+   },
+   "result": {
+    "rgb": [
+     4.7,
+     4.7,
+     4.7
+    ],
+    "luma": 4.7,
+    "sd": 1.29
+   }
+  },
+  {
+   "id": "colour.3",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey",
+    "hex": "#101010",
+    "value": 16,
+    "box": {
+     "x": 115,
+     "y": 70,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.3"
+   },
+   "result": {
+    "rgb": [
+     8.6,
+     8.9,
+     16.4
+    ],
+    "luma": 9.7,
+    "sd": 1.73
+   }
+  },
+  {
+   "id": "colour.4",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey",
+    "hex": "#181818",
+    "value": 24,
+    "box": {
+     "x": 127,
+     "y": 70,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.4"
+   },
+   "result": {
+    "rgb": [
+     11.4,
+     14.4,
+     27.6
+    ],
+    "luma": 15.0,
+    "sd": 2.43
+   }
+  },
+  {
+   "id": "colour.5",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey",
+    "hex": "#202020",
+    "value": 32,
+    "box": {
+     "x": 139,
+     "y": 70,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.5"
+   },
+   "result": {
+    "rgb": [
+     18.4,
+     23.4,
+     51.7
+    ],
+    "luma": 25.2,
+    "sd": 2.92
+   }
+  },
+  {
+   "id": "colour.6",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey",
+    "hex": "#282828",
+    "value": 40,
+    "box": {
+     "x": 151,
+     "y": 70,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.6"
+   },
+   "result": {
+    "rgb": [
+     19.8,
+     26.3,
+     54.7
+    ],
+    "luma": 27.6,
+    "sd": 3.73
+   }
+  },
+  {
+   "id": "colour.7",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey",
+    "hex": "#303030",
+    "value": 48,
+    "box": {
+     "x": 163,
+     "y": 70,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.7"
+   },
+   "result": {
+    "rgb": [
+     25.8,
+     39.6,
+     75.4
+    ],
+    "luma": 39.6,
+    "sd": 4.62
+   }
+  },
+  {
+   "id": "colour.8",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey",
+    "hex": "#383838",
+    "value": 56,
+    "box": {
+     "x": 175,
+     "y": 70,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.8"
+   },
+   "result": {
+    "rgb": [
+     32.3,
+     54.3,
+     95.3
+    ],
+    "luma": 52.4,
+    "sd": 4.91
+   }
+  },
+  {
+   "id": "colour.9",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey",
+    "hex": "#404040",
+    "value": 64,
+    "box": {
+     "x": 187,
+     "y": 70,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.9"
+   },
+   "result": {
+    "rgb": [
+     42.6,
+     69.4,
+     111.5
+    ],
+    "luma": 66.2,
+    "sd": 5.34
+   }
+  },
+  {
+   "id": "colour.10",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey",
+    "hex": "#484848",
+    "value": 72,
+    "box": {
+     "x": 199,
+     "y": 70,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.10"
+   },
+   "result": {
+    "rgb": [
+     54.2,
+     82.5,
+     127.6
+    ],
+    "luma": 79.2,
+    "sd": 6.38
+   }
+  },
+  {
+   "id": "colour.11",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey",
+    "hex": "#505050",
+    "value": 80,
+    "box": {
+     "x": 211,
+     "y": 70,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.11"
+   },
+   "result": {
+    "rgb": [
+     62.8,
+     93.8,
+     139.7
+    ],
+    "luma": 89.7,
+    "sd": 5.99
+   }
+  },
+  {
+   "id": "colour.12",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey",
+    "hex": "#585858",
+    "value": 88,
+    "box": {
+     "x": 223,
+     "y": 70,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.12"
+   },
+   "result": {
+    "rgb": [
+     69.5,
+     101.0,
+     150.7
+    ],
+    "luma": 97.3,
+    "sd": 5.74
+   }
+  },
+  {
+   "id": "colour.13",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey",
+    "hex": "#606060",
+    "value": 96,
+    "box": {
+     "x": 235,
+     "y": 70,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.13"
+   },
+   "result": {
+    "rgb": [
+     76.1,
+     109.0,
+     160.8
+    ],
+    "luma": 105.1,
+    "sd": 5.58
+   }
+  },
+  {
+   "id": "colour.14",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey_rgba32",
+    "hex": "#000000",
+    "value": 0,
+    "box": {
+     "x": 91,
+     "y": 114,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.14"
+   },
+   "result": {
+    "rgb": [
+     3.9,
+     3.9,
+     3.9
+    ],
+    "luma": 3.9,
+    "sd": 1.29
+   }
+  },
+  {
+   "id": "colour.15",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey_rgba32",
+    "hex": "#080808",
+    "value": 8,
+    "box": {
+     "x": 103,
+     "y": 114,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.15"
+   },
+   "result": {
+    "rgb": [
+     4.8,
+     4.8,
+     4.8
+    ],
+    "luma": 4.8,
+    "sd": 1.32
+   }
+  },
+  {
+   "id": "colour.16",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey_rgba32",
+    "hex": "#101010",
+    "value": 16,
+    "box": {
+     "x": 115,
+     "y": 114,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.16"
+   },
+   "result": {
+    "rgb": [
+     8.2,
+     8.5,
+     15.5
+    ],
+    "luma": 9.2,
+    "sd": 1.59
+   }
+  },
+  {
+   "id": "colour.17",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey_rgba32",
+    "hex": "#181818",
+    "value": 24,
+    "box": {
+     "x": 127,
+     "y": 114,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.17"
+   },
+   "result": {
+    "rgb": [
+     11.2,
+     13.8,
+     27.0
+    ],
+    "luma": 14.6,
+    "sd": 2.56
+   }
+  },
+  {
+   "id": "colour.18",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey_rgba32",
+    "hex": "#202020",
+    "value": 32,
+    "box": {
+     "x": 139,
+     "y": 114,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.18"
+   },
+   "result": {
+    "rgb": [
+     17.4,
+     23.2,
+     47.9
+    ],
+    "luma": 24.3,
+    "sd": 3.04
+   }
+  },
+  {
+   "id": "colour.19",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey_rgba32",
+    "hex": "#282828",
+    "value": 40,
+    "box": {
+     "x": 151,
+     "y": 114,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.19"
+   },
+   "result": {
+    "rgb": [
+     19.5,
+     25.7,
+     54.8
+    ],
+    "luma": 27.2,
+    "sd": 3.19
+   }
+  },
+  {
+   "id": "colour.20",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey_rgba32",
+    "hex": "#303030",
+    "value": 48,
+    "box": {
+     "x": 163,
+     "y": 114,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.20"
+   },
+   "result": {
+    "rgb": [
+     24.5,
+     37.3,
+     71.8
+    ],
+    "luma": 37.4,
+    "sd": 4.42
+   }
+  },
+  {
+   "id": "colour.21",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey_rgba32",
+    "hex": "#383838",
+    "value": 56,
+    "box": {
+     "x": 175,
+     "y": 114,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.21"
+   },
+   "result": {
+    "rgb": [
+     32.2,
+     54.7,
+     92.8
+    ],
+    "luma": 52.3,
+    "sd": 4.54
+   }
+  },
+  {
+   "id": "colour.22",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey_rgba32",
+    "hex": "#404040",
+    "value": 64,
+    "box": {
+     "x": 187,
+     "y": 114,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.22"
+   },
+   "result": {
+    "rgb": [
+     41.4,
+     69.3,
+     110.8
+    ],
+    "luma": 65.7,
+    "sd": 5.37
+   }
+  },
+  {
+   "id": "colour.23",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey_rgba32",
+    "hex": "#484848",
+    "value": 72,
+    "box": {
+     "x": 199,
+     "y": 114,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.23"
+   },
+   "result": {
+    "rgb": [
+     53.5,
+     83.2,
+     127.2
+    ],
+    "luma": 79.3,
+    "sd": 5.36
+   }
+  },
+  {
+   "id": "colour.24",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey_rgba32",
+    "hex": "#505050",
+    "value": 80,
+    "box": {
+     "x": 211,
+     "y": 114,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.24"
+   },
+   "result": {
+    "rgb": [
+     63.2,
+     94.0,
+     139.7
+    ],
+    "luma": 90.0,
+    "sd": 4.94
+   }
+  },
+  {
+   "id": "colour.25",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey_rgba32",
+    "hex": "#585858",
+    "value": 88,
+    "box": {
+     "x": 223,
+     "y": 114,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.25"
+   },
+   "result": {
+    "rgb": [
+     70.0,
+     102.0,
+     151.0
+    ],
+    "luma": 98.1,
+    "sd": 5.21
+   }
+  },
+  {
+   "id": "colour.26",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey_rgba32",
+    "hex": "#606060",
+    "value": 96,
+    "box": {
+     "x": 235,
+     "y": 114,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.26"
+   },
+   "result": {
+    "rgb": [
+     75.3,
+     109.5,
+     161.9
+    ],
+    "luma": 105.3,
+    "sd": 4.63
+   }
+  },
+  {
+   "id": "colour.27",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey_lua",
+    "hex": "#000000",
+    "value": 0,
+    "box": {
+     "x": 91,
+     "y": 160,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.27"
+   },
+   "result": {
+    "rgb": [
+     3.8,
+     3.8,
+     3.8
+    ],
+    "luma": 3.8,
+    "sd": 1.35
+   }
+  },
+  {
+   "id": "colour.28",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey_lua",
+    "hex": "#080808",
+    "value": 8,
+    "box": {
+     "x": 103,
+     "y": 160,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.28"
+   },
+   "result": {
+    "rgb": [
+     4.7,
+     4.7,
+     4.7
+    ],
+    "luma": 4.7,
+    "sd": 1.32
+   }
+  },
+  {
+   "id": "colour.29",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey_lua",
+    "hex": "#101010",
+    "value": 16,
+    "box": {
+     "x": 115,
+     "y": 160,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.29"
+   },
+   "result": {
+    "rgb": [
+     8.5,
+     9.0,
+     14.6
+    ],
+    "luma": 9.5,
+    "sd": 1.73
+   }
+  },
+  {
+   "id": "colour.30",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey_lua",
+    "hex": "#181818",
+    "value": 24,
+    "box": {
+     "x": 127,
+     "y": 160,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.30"
+   },
+   "result": {
+    "rgb": [
+     11.6,
+     13.6,
+     26.2
+    ],
+    "luma": 14.4,
+    "sd": 2.23
+   }
+  },
+  {
+   "id": "colour.31",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey_lua",
+    "hex": "#202020",
+    "value": 32,
+    "box": {
+     "x": 139,
+     "y": 160,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.31"
+   },
+   "result": {
+    "rgb": [
+     17.3,
+     23.1,
+     48.7
+    ],
+    "luma": 24.3,
+    "sd": 2.52
+   }
+  },
+  {
+   "id": "colour.32",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey_lua",
+    "hex": "#282828",
+    "value": 40,
+    "box": {
+     "x": 151,
+     "y": 160,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.32"
+   },
+   "result": {
+    "rgb": [
+     19.3,
+     25.6,
+     53.3
+    ],
+    "luma": 26.9,
+    "sd": 2.95
+   }
+  },
+  {
+   "id": "colour.33",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey_lua",
+    "hex": "#303030",
+    "value": 48,
+    "box": {
+     "x": 163,
+     "y": 160,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.33"
+   },
+   "result": {
+    "rgb": [
+     25.4,
+     39.2,
+     74.0
+    ],
+    "luma": 39.0,
+    "sd": 4.05
+   }
+  },
+  {
+   "id": "colour.34",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey_lua",
+    "hex": "#383838",
+    "value": 56,
+    "box": {
+     "x": 175,
+     "y": 160,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.34"
+   },
+   "result": {
+    "rgb": [
+     32.6,
+     56.0,
+     95.4
+    ],
+    "luma": 53.5,
+    "sd": 4.3
+   }
+  },
+  {
+   "id": "colour.35",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey_lua",
+    "hex": "#404040",
+    "value": 64,
+    "box": {
+     "x": 187,
+     "y": 160,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.35"
+   },
+   "result": {
+    "rgb": [
+     41.7,
+     69.6,
+     111.5
+    ],
+    "luma": 66.0,
+    "sd": 4.22
+   }
+  },
+  {
+   "id": "colour.36",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey_lua",
+    "hex": "#484848",
+    "value": 72,
+    "box": {
+     "x": 199,
+     "y": 160,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.36"
+   },
+   "result": {
+    "rgb": [
+     52.7,
+     83.8,
+     127.7
+    ],
+    "luma": 79.5,
+    "sd": 4.52
+   }
+  },
+  {
+   "id": "colour.37",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey_lua",
+    "hex": "#505050",
+    "value": 80,
+    "box": {
+     "x": 211,
+     "y": 160,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.37"
+   },
+   "result": {
+    "rgb": [
+     64.2,
+     95.0,
+     141.3
+    ],
+    "luma": 91.1,
+    "sd": 4.26
+   }
+  },
+  {
+   "id": "colour.38",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey_lua",
+    "hex": "#585858",
+    "value": 88,
+    "box": {
+     "x": 223,
+     "y": 160,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.38"
+   },
+   "result": {
+    "rgb": [
+     72.0,
+     103.9,
+     152.2
+    ],
+    "luma": 99.9,
+    "sd": 4.63
+   }
+  },
+  {
+   "id": "colour.39",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "grey_lua",
+    "hex": "#606060",
+    "value": 96,
+    "box": {
+     "x": 235,
+     "y": 160,
+     "w": 10,
+     "h": 34
+    },
+    "id": "colour.39"
+   },
+   "result": {
+    "rgb": [
+     76.9,
+     111.1,
+     163.6
+    ],
+    "luma": 106.9,
+    "sd": 4.2
+   }
+  },
+  {
+   "id": "colour.40",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "red",
+    "hex": "#100000",
+    "value": 16,
+    "box": {
+     "x": 93,
+     "y": 204,
+     "w": 17,
+     "h": 22
+    },
+    "id": "colour.40"
+   },
+   "result": {
+    "rgb": [
+     3.9,
+     3.9,
+     3.9
+    ],
+    "luma": 3.9,
+    "sd": 1.42
+   }
+  },
+  {
+   "id": "colour.41",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "red",
+    "hex": "#200000",
+    "value": 32,
+    "box": {
+     "x": 112,
+     "y": 204,
+     "w": 17,
+     "h": 22
+    },
+    "id": "colour.41"
+   },
+   "result": {
+    "rgb": [
+     16.5,
+     3.8,
+     3.8
+    ],
+    "luma": 7.6,
+    "sd": 1.35
+   }
+  },
+  {
+   "id": "colour.42",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "red",
+    "hex": "#300000",
+    "value": 48,
+    "box": {
+     "x": 131,
+     "y": 204,
+     "w": 17,
+     "h": 22
+    },
+    "id": "colour.42"
+   },
+   "result": {
+    "rgb": [
+     26.3,
+     5.2,
+     4.4
+    ],
+    "luma": 11.4,
+    "sd": 1.63
+   }
+  },
+  {
+   "id": "colour.43",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "red",
+    "hex": "#400000",
+    "value": 64,
+    "box": {
+     "x": 150,
+     "y": 204,
+     "w": 17,
+     "h": 22
+    },
+    "id": "colour.43"
+   },
+   "result": {
+    "rgb": [
+     48.4,
+     6.4,
+     6.3
+    ],
+    "luma": 19.0,
+    "sd": 2.0
+   }
+  },
+  {
+   "id": "colour.44",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "red",
+    "hex": "#500000",
+    "value": 80,
+    "box": {
+     "x": 169,
+     "y": 204,
+     "w": 17,
+     "h": 22
+    },
+    "id": "colour.44"
+   },
+   "result": {
+    "rgb": [
+     82.7,
+     9.5,
+     8.3
+    ],
+    "luma": 31.3,
+    "sd": 1.74
+   }
+  },
+  {
+   "id": "colour.45",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "red",
+    "hex": "#600000",
+    "value": 96,
+    "box": {
+     "x": 188,
+     "y": 204,
+     "w": 17,
+     "h": 22
+    },
+    "id": "colour.45"
+   },
+   "result": {
+    "rgb": [
+     107.1,
+     12.4,
+     10.5
+    ],
+    "luma": 40.5,
+    "sd": 2.12
+   }
+  },
+  {
+   "id": "colour.46",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "red",
+    "hex": "#700000",
+    "value": 112,
+    "box": {
+     "x": 207,
+     "y": 204,
+     "w": 17,
+     "h": 22
+    },
+    "id": "colour.46"
+   },
+   "result": {
+    "rgb": [
+     127.8,
+     15.8,
+     12.3
+    ],
+    "luma": 48.9,
+    "sd": 2.48
+   }
+  },
+  {
+   "id": "colour.47",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "red",
+    "hex": "#800000",
+    "value": 128,
+    "box": {
+     "x": 226,
+     "y": 204,
+     "w": 17,
+     "h": 22
+    },
+    "id": "colour.47"
+   },
+   "result": {
+    "rgb": [
+     145.1,
+     18.8,
+     13.4
+    ],
+    "luma": 55.9,
+    "sd": 2.92
+   }
+  },
+  {
+   "id": "colour.48",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "green",
+    "hex": "#001000",
+    "value": 16,
+    "box": {
+     "x": 93,
+     "y": 230,
+     "w": 17,
+     "h": 22
+    },
+    "id": "colour.48"
+   },
+   "result": {
+    "rgb": [
+     5.7,
+     5.7,
+     5.7
+    ],
+    "luma": 5.7,
+    "sd": 1.53
+   }
+  },
+  {
+   "id": "colour.49",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "green",
+    "hex": "#002000",
+    "value": 32,
+    "box": {
+     "x": 112,
+     "y": 230,
+     "w": 17,
+     "h": 22
+    },
+    "id": "colour.49"
+   },
+   "result": {
+    "rgb": [
+     4.3,
+     16.8,
+     7.1
+    ],
+    "luma": 12.0,
+    "sd": 1.95
+   }
+  },
+  {
+   "id": "colour.50",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "green",
+    "hex": "#003000",
+    "value": 48,
+    "box": {
+     "x": 131,
+     "y": 230,
+     "w": 17,
+     "h": 22
+    },
+    "id": "colour.50"
+   },
+   "result": {
+    "rgb": [
+     3.7,
+     28.1,
+     9.1
+    ],
+    "luma": 18.6,
+    "sd": 2.79
+   }
+  },
+  {
+   "id": "colour.51",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "green",
+    "hex": "#004000",
+    "value": 64,
+    "box": {
+     "x": 150,
+     "y": 230,
+     "w": 17,
+     "h": 22
+    },
+    "id": "colour.51"
+   },
+   "result": {
+    "rgb": [
+     3.9,
+     57.0,
+     12.1
+    ],
+    "luma": 36.0,
+    "sd": 2.42
+   }
+  },
+  {
+   "id": "colour.52",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "green",
+    "hex": "#005000",
+    "value": 80,
+    "box": {
+     "x": 169,
+     "y": 230,
+     "w": 17,
+     "h": 22
+    },
+    "id": "colour.52"
+   },
+   "result": {
+    "rgb": [
+     5.6,
+     89.4,
+     13.9
+    ],
+    "luma": 55.8,
+    "sd": 2.59
+   }
+  },
+  {
+   "id": "colour.53",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "green",
+    "hex": "#006000",
+    "value": 96,
+    "box": {
+     "x": 188,
+     "y": 230,
+     "w": 17,
+     "h": 22
+    },
+    "id": "colour.53"
+   },
+   "result": {
+    "rgb": [
+     6.8,
+     114.2,
+     19.6
+    ],
+    "luma": 71.3,
+    "sd": 3.22
+   }
+  },
+  {
+   "id": "colour.54",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "green",
+    "hex": "#007000",
+    "value": 112,
+    "box": {
+     "x": 207,
+     "y": 230,
+     "w": 17,
+     "h": 22
+    },
+    "id": "colour.54"
+   },
+   "result": {
+    "rgb": [
+     7.6,
+     136.1,
+     23.4
+    ],
+    "luma": 84.8,
+    "sd": 3.48
+   }
+  },
+  {
+   "id": "colour.55",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "green",
+    "hex": "#008000",
+    "value": 128,
+    "box": {
+     "x": 226,
+     "y": 230,
+     "w": 17,
+     "h": 22
+    },
+    "id": "colour.55"
+   },
+   "result": {
+    "rgb": [
+     8.5,
+     151.1,
+     26.4
+    ],
+    "luma": 94.2,
+    "sd": 3.87
+   }
+  },
+  {
+   "id": "colour.56",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "blue",
+    "hex": "#000010",
+    "value": 16,
+    "box": {
+     "x": 93,
+     "y": 256,
+     "w": 17,
+     "h": 22
+    },
+    "id": "colour.56"
+   },
+   "result": {
+    "rgb": [
+     4.1,
+     4.0,
+     13.9
+    ],
+    "luma": 5.1,
+    "sd": 1.54
+   }
+  },
+  {
+   "id": "colour.57",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "blue",
+    "hex": "#000020",
+    "value": 32,
+    "box": {
+     "x": 112,
+     "y": 256,
+     "w": 17,
+     "h": 22
+    },
+    "id": "colour.57"
+   },
+   "result": {
+    "rgb": [
+     3.4,
+     5.4,
+     42.9
+    ],
+    "luma": 9.1,
+    "sd": 1.73
+   }
+  },
+  {
+   "id": "colour.58",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "blue",
+    "hex": "#000030",
+    "value": 48,
+    "box": {
+     "x": 131,
+     "y": 256,
+     "w": 17,
+     "h": 22
+    },
+    "id": "colour.58"
+   },
+   "result": {
+    "rgb": [
+     3.6,
+     7.4,
+     68.2
+    ],
+    "luma": 13.2,
+    "sd": 2.04
+   }
+  },
+  {
+   "id": "colour.59",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "blue",
+    "hex": "#000040",
+    "value": 64,
+    "box": {
+     "x": 150,
+     "y": 256,
+     "w": 17,
+     "h": 22
+    },
+    "id": "colour.59"
+   },
+   "result": {
+    "rgb": [
+     4.4,
+     11.2,
+     102.3
+    ],
+    "luma": 19.6,
+    "sd": 2.52
+   }
+  },
+  {
+   "id": "colour.60",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "blue",
+    "hex": "#000050",
+    "value": 80,
+    "box": {
+     "x": 169,
+     "y": 256,
+     "w": 17,
+     "h": 22
+    },
+    "id": "colour.60"
+   },
+   "result": {
+    "rgb": [
+     5.0,
+     16.5,
+     135.9
+    ],
+    "luma": 26.7,
+    "sd": 4.8
+   }
+  },
+  {
+   "id": "colour.61",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "blue",
+    "hex": "#000060",
+    "value": 96,
+    "box": {
+     "x": 188,
+     "y": 256,
+     "w": 17,
+     "h": 22
+    },
+    "id": "colour.61"
+   },
+   "result": {
+    "rgb": [
+     4.9,
+     18.9,
+     156.8
+    ],
+    "luma": 30.4,
+    "sd": 5.8
+   }
+  },
+  {
+   "id": "colour.62",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "blue",
+    "hex": "#000070",
+    "value": 112,
+    "box": {
+     "x": 207,
+     "y": 256,
+     "w": 17,
+     "h": 22
+    },
+    "id": "colour.62"
+   },
+   "result": {
+    "rgb": [
+     5.3,
+     23.5,
+     177.3
+    ],
+    "luma": 35.6,
+    "sd": 6.05
+   }
+  },
+  {
+   "id": "colour.63",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "blue",
+    "hex": "#000080",
+    "value": 128,
+    "box": {
+     "x": 226,
+     "y": 256,
+     "w": 17,
+     "h": 22
+    },
+    "id": "colour.63"
+   },
+   "result": {
+    "rgb": [
+     6.3,
+     30.6,
+     192.3
+    ],
+    "luma": 41.8,
+    "sd": 6.75
+   }
+  },
+  {
+   "id": "colour.64",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "surface",
+    "hex": "#202020",
+    "value": 32,
+    "box": {
+     "x": 91,
+     "y": 284,
+     "w": 24,
+     "h": 28
+    },
+    "id": "colour.64"
+   },
+   "result": {
+    "rgb": [
+     17.8,
+     23.3,
+     50.0
+    ],
+    "luma": 24.7,
+    "sd": 2.58
+   }
+  },
+  {
+   "id": "colour.65",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "surface",
+    "hex": "#282828",
+    "value": 40,
+    "box": {
+     "x": 117,
+     "y": 284,
+     "w": 24,
+     "h": 28
+    },
+    "id": "colour.65"
+   },
+   "result": {
+    "rgb": [
+     19.7,
+     25.5,
+     54.2
+    ],
+    "luma": 27.0,
+    "sd": 2.74
+   }
+  },
+  {
+   "id": "colour.66",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "surface",
+    "hex": "#303030",
+    "value": 48,
+    "box": {
+     "x": 143,
+     "y": 284,
+     "w": 24,
+     "h": 28
+    },
+    "id": "colour.66"
+   },
+   "result": {
+    "rgb": [
+     26.0,
+     40.0,
+     77.0
+    ],
+    "luma": 40.1,
+    "sd": 3.03
+   }
+  },
+  {
+   "id": "colour.67",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "surface",
+    "hex": "#383838",
+    "value": 56,
+    "box": {
+     "x": 169,
+     "y": 284,
+     "w": 24,
+     "h": 28
+    },
+    "id": "colour.67"
+   },
+   "result": {
+    "rgb": [
+     32.3,
+     55.5,
+     95.1
+    ],
+    "luma": 53.1,
+    "sd": 4.24
+   }
+  },
+  {
+   "id": "colour.68",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "surface",
+    "hex": "#404040",
+    "value": 64,
+    "box": {
+     "x": 195,
+     "y": 284,
+     "w": 24,
+     "h": 28
+    },
+    "id": "colour.68"
+   },
+   "result": {
+    "rgb": [
+     42.1,
+     69.7,
+     112.8
+    ],
+    "luma": 66.4,
+    "sd": 3.83
+   }
+  },
+  {
+   "id": "colour.69",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "surface",
+    "hex": "#484848",
+    "value": 72,
+    "box": {
+     "x": 221,
+     "y": 284,
+     "w": 24,
+     "h": 28
+    },
+    "id": "colour.69"
+   },
+   "result": {
+    "rgb": [
+     53.3,
+     85.2,
+     130.7
+    ],
+    "luma": 80.9,
+    "sd": 3.96
+   }
+  },
+  {
+   "id": "colour.70",
+   "type": "status",
+   "spec": {
+    "type": "status",
+    "test": "alive",
+    "box": {
+     "x": 91,
+     "y": 320,
+     "w": 6,
+     "h": 6
+    },
+    "id": "colour.70"
+   },
+   "result": {
+    "status": "ok",
+    "rgb": [
+     14,
+     223,
+     132
+    ]
+   }
+  },
+  {
+   "id": "colour.71",
+   "type": "status",
+   "spec": {
+    "type": "status",
+    "test": "object_fill",
+    "box": {
+     "x": 238,
+     "y": 320,
+     "w": 6,
+     "h": 6
+    },
+    "id": "colour.71"
+   },
+   "result": {
+    "status": "ok",
+    "rgb": [
+     14,
+     234,
+     138
+    ]
+   }
+  }
+ ],
+ "layout": "face-calib/band10pro b1",
+ "measured_at": "2026-09-29T18:53:27"
+}

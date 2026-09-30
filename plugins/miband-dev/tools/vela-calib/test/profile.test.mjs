@@ -156,16 +156,23 @@ t('export.mjs writes a self-contained module that works', () => {
   return import(dest).then((m) => assert.equal(m.default.lineH(96), p.lineH(96)))
 })
 
-t('profile layout: firmware, quickapp section with short paths, face section unknown', () => {
+t('profile layout: firmware, quickapp section with short paths, face section by full path', () => {
   assert.equal(p.firmware(), '3.101.043')
   assert.ok(p.data.quickapp && p.data.quickapp.font, 'quick-app facts live under quickapp')
   assert.equal(p.data.font, undefined, 'no quick-app facts at the top level')
   assert.equal(p.fact('font.line_box_em'), p.data.quickapp.font.line_box_em.value)
   assert.equal(p.fact('quickapp.font.line_box_em'), p.fact('font.line_box_em'))
   assert.equal(p.fact('device.screen.w'), 336)
-  assert.equal(p.status('face.colour.floor.grey'), 'unknown')
-  assert.throws(() => p.need('face.colour.floor.grey'), /not known/)
-  assert.ok(p.unknowns().some((u) => u.path === 'face.lua.image_format'))
+  // face facts by their full path (the Band 10 Pro's face section was measured 2026-09-29); an
+  // unknown one refuses, whichever section it is in (checked on a copy with two face facts blanked)
+  assert.ok(['measured', 'assumed', 'unknown'].includes(p.status('face.colour.floor.grey')))
+  const blanked = JSON.parse(JSON.stringify(p.data))
+  blanked.face.colour.floor.grey = { value: null, status: 'unknown', source: 'test', date: 'x' }
+  blanked.face.lua.image_format = { value: null, status: 'unknown', source: 'test', date: 'x' }
+  const pb = makeProfile(blanked)
+  assert.equal(pb.status('face.colour.floor.grey'), 'unknown')
+  assert.throws(() => pb.need('face.colour.floor.grey'), /not known/)
+  assert.ok(pb.unknowns().some((u) => u.path === 'face.lua.image_format'))
   // an old flat (schema /1) profile still loads
   const flat = JSON.parse(JSON.stringify(p.data))
   Object.assign(flat, flat.quickapp); delete flat.quickapp

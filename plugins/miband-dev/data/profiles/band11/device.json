@@ -1,0 +1,39 @@
+{
+ "schema": "vela-device-spec/1",
+ "id": "band11",
+ "name": "Xiaomi Smart Band 10 / 11",
+ "also": ["Xiaomi Smart Band 10", "Xiaomi Smart Band 10 NFC", "Xiaomi Smart Band 11 NFC"],
+ "verified": true,
+ "about": "The device definition both calibration kits generate from (tools/vela-calib, tools/face-calib). Measured facts live in profile.json, not here.",
+ "screen": {
+  "w": 212,
+  "h": 520,
+  "shape": "capsule",
+  "corner_radius": null,
+  "diag_in": 1.72,
+  "ppi": 326,
+  "source": "maker's spec; capsule ends (r 103.3 px), 1:1 designWidth confirmed by Vela Calib 2.0.0 photos, 2026-09-29"
+ },
+ "quickapp": {
+  "design_width": 212,
+  "status": "measured"
+ },
+ "face": {
+  "canvas": { "w": 212, "h": 520 },
+  "id_digit": 1,
+  "builder": "band10-toolkit",
+  "device_type": "466",
+  "status": "verified",
+  "note": "band10-toolkit's own target (Band 10, codename o66, FPRJ DeviceType 466). Faces built with it install and render on the Band 11 (fw 4.100.139)."
+ },
+ "firmware": {
+  "version": "4.100.139",
+  "note": "the firmware the kits were last run on; profile.json firmware.version is authoritative for its facts"
+ },
+ "calib": {
+  "face": {
+   "frame": { "ox": 26, "oy": 48, "bar": { "x": 31, "y": 404, "len": 150, "h": 4 }, "code": { "x": 31, "y": 388, "cell": 6, "pitch": 8, "h": 10 }, "straight": [110, 410], "r": 106 },
+   "note": "frame pinned: face-calib build 1 was photographed with it"
+  }
+ }
+}

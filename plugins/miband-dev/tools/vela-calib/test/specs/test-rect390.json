@@ -1,0 +1,13 @@
+{
+ "schema": "vela-device-spec/1",
+ "id": "test-rect390",
+ "name": "Synthetic rounded rect 390 x 450 (selftests)",
+ "also": [],
+ "verified": false,
+ "about": "Synthetic device for the kits' layout tests and selftests (Redmi Watch 4 class screen, large corner radius). Not a real device.",
+ "screen": { "w": 390, "h": 450, "shape": "rounded_rect", "corner_radius": 80, "diag_in": null, "ppi": null, "source": "synthetic" },
+ "quickapp": { "design_width": 390, "status": "assumed" },
+ "face": { "canvas": { "w": 390, "h": 450 }, "id_digit": 9, "builder": "pack.mts", "device_type": null, "status": "experimental", "note": "synthetic" },
+ "firmware": { "version": null },
+ "calib": {}
+}

@@ -15,6 +15,10 @@ workspace's `devices/<model>/profile.json`, or the plugin's shipped default, and
   a workspace copy in `devices/band10pro/` overrides it). Measured on the band that ran the BART Watch app.
 - Band 10 / 11 (212 × 520 capsule, fw 4.100.139): kit 2.0.0 builds `dist/com.soham.velacalib.band11.debug.2.0.0.rpk`;
   measured 2026-09-28/29 (below; `CALIBRATION.md` next to the profile).
+- Any other Vela device: a spec in `devices/<id>/device.json` (the plugin ships known specs, unverified,
+  in `data/profiles/<id>/device.json` and `data/KNOWN_DEVICES.md`: Band 9 / 9 Pro, REDMI Watch 5 / 6,
+  Watch S3 / S4 / S4 41 mm / S5), onboarded with `node new-device.mjs <id>`. Nothing in the kit names a
+  model any more.
 
 ## Code
 - Package `com.soham.velacalib` (rename it in `gen/gen.mjs` if you like; nothing measured depends on it),
@@ -166,3 +170,34 @@ both), not yet installed on any band.
 - Next kit version (only if pages change anyway): draw the geometry page's device line in grey
   (yellow is reserved for the rulers and bar), wider grey swatches (8 px catch bloom), and an
   opacity-based finish marker.
+
+## Any device (2026-09-29): device specs, round screens, new-device
+- **Device spec** `devices/<id>/device.json` (schema `vela-device-spec/1`, `device-spec.mjs` /
+  `device_spec.py`): screen w x h and shape (`rect`, `rounded_rect` + corner radius, `capsule`,
+  `circle`), diagonal / ppi, quick-app design width, face canvas / id digit / builder / status,
+  firmware, and per-device kit overrides (`calib`). `gen.mjs`, `build.mjs`, `seed-profile.mjs`, the
+  layout test and `measure.py selftest` all take any spec. `DEVICES` in gen.mjs is gone.
+- **Bit-for-bit:** the Band 10 Pro's and Band 11's `index.ux`, `manifest.json` and layouts are
+  byte-identical to kit 2.0.0's (the frame formulas are the old ones, parametrised; the Band 10 Pro's
+  tighter text slack and BART strings moved to its spec). `measure.py` gives identical results on 15
+  real photos (both models, incl. legacy layouts) and the face kit's measurer on all 22 real face
+  photos, old code vs new.
+- **Round screens:** rulers are two straight tick columns inside the circle at 0.62 R from the
+  centre (layout `frame.ruler`, read by `Fit` and `ruler_white` through `ruler_geom()`); the bar and
+  barcode sit low in the circle; the geometry page covers everything outside the rulers with white
+  boxes and `measure_round` fits the whole circle (radius, centre, four hidden edges, design scale).
+  Picked over radial ticks because the existing homography fit, bloom estimate and tick matching work
+  unchanged on straight columns, and the selftest proves it: a 466 px circle masked 2 px inside,
+  72 ticks, rms 0.08 px, radius 230.6 (want 231), hidden 2.4 each side, 1:1 detected.
+- **Sizes from the area, not the model:** Text V sizes (largest "8" <= 80 % of the area width, 1.5 em
+  <= its height), 40 / 48 px digits, box gaps, the too-wide sample, the Wrap row width (<= area).
+  Every known spec generates a valid layout (Band 9 192 px capsule: 30 pages; S5 480 circle: 27).
+- **Fit robustness:** a degenerate "bar" (a speck of yellow in the background) is now skipped
+  instead of raising a singular-matrix error (found by the face selftest's daylight backdrop on a
+  round screen).
+- `new-device.mjs` onboards a device (spec, profile, both kits' layouts checked, CALIBRATION.md from
+  `devices/CALIBRATION.md`, next steps). Tested end to end with a throwaway 466 px circle (removed),
+  including an `aiot build` of its round pages (compiles, 25 KB rpk; not installed anywhere).
+- Not done: no real round or third-shape device has been photographed; the circle fit, the inset
+  rulers and the auto-sized pages are proven only on synthetic photos.
+
