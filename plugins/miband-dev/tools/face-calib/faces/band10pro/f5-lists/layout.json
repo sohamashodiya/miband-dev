@@ -1,0 +1,302 @@
+{
+  "$schema": "../../../../../vendor/band10-toolkit/schemas/layout.schema.json",
+  "formatVersion": 1,
+  "canvas": {
+    "width": 336,
+    "height": 480,
+    "clip": "rectangle"
+  },
+  "assets": {
+    "digitSets": {
+      "cell": {
+        "digits": [
+          "assets/digits/0.png",
+          "assets/digits/1.png",
+          "assets/digits/2.png",
+          "assets/digits/3.png",
+          "assets/digits/4.png",
+          "assets/digits/5.png",
+          "assets/digits/6.png",
+          "assets/digits/7.png",
+          "assets/digits/8.png",
+          "assets/digits/9.png"
+        ],
+        "minus": "assets/digits/minus.png"
+      }
+    }
+  },
+  "normal": {
+    "background": "#000000",
+    "widgets": [
+      {
+        "id": "bg",
+        "type": "image",
+        "asset": "assets/bg.png",
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "allowOverlap": true
+      },
+      {
+        "id": "battery-n0",
+        "type": "number",
+        "source": "battery",
+        "digitSet": "cell",
+        "digits": 3,
+        "align": "left",
+        "spacing": 0,
+        "leadingZero": false,
+        "x": 92,
+        "y": 78,
+        "z": 1,
+        "allowOverlap": true
+      },
+      {
+        "id": "day-n0",
+        "type": "number",
+        "source": "day",
+        "digitSet": "cell",
+        "digits": 2,
+        "align": "left",
+        "spacing": 0,
+        "leadingZero": false,
+        "x": 172,
+        "y": 78,
+        "z": 2,
+        "allowOverlap": true
+      },
+      {
+        "id": "batt-steps",
+        "type": "image-list",
+        "source": "battery",
+        "fallback": "floor",
+        "x": 92,
+        "y": 126,
+        "items": [
+          {
+            "value": 0,
+            "asset": "assets/batt-steps/0.png"
+          },
+          {
+            "value": 20,
+            "asset": "assets/batt-steps/1.png"
+          },
+          {
+            "value": 40,
+            "asset": "assets/batt-steps/2.png"
+          },
+          {
+            "value": 60,
+            "asset": "assets/batt-steps/3.png"
+          },
+          {
+            "value": 80,
+            "asset": "assets/batt-steps/4.png"
+          },
+          {
+            "value": 100,
+            "asset": "assets/batt-steps/5.png"
+          }
+        ],
+        "z": 3,
+        "allowOverlap": true
+      },
+      {
+        "id": "batt-below",
+        "type": "image-list",
+        "source": "battery",
+        "fallback": "floor",
+        "x": 92,
+        "y": 174,
+        "items": [
+          {
+            "value": 101,
+            "asset": "assets/batt-below/0.png"
+          },
+          {
+            "value": 102,
+            "asset": "assets/batt-below/1.png"
+          }
+        ],
+        "z": 4,
+        "allowOverlap": true
+      },
+      {
+        "id": "batt-above",
+        "type": "image-list",
+        "source": "battery",
+        "fallback": "floor",
+        "x": 172,
+        "y": 174,
+        "items": [
+          {
+            "value": 0,
+            "asset": "assets/batt-above/0.png"
+          },
+          {
+            "value": 1,
+            "asset": "assets/batt-above/1.png"
+          }
+        ],
+        "z": 5,
+        "allowOverlap": true
+      },
+      {
+        "id": "weekday",
+        "type": "image-list",
+        "source": "weekday",
+        "fallback": "floor",
+        "x": 92,
+        "y": 222,
+        "items": [
+          {
+            "value": 0,
+            "asset": "assets/weekday/0.png"
+          },
+          {
+            "value": 1,
+            "asset": "assets/weekday/1.png"
+          },
+          {
+            "value": 2,
+            "asset": "assets/weekday/2.png"
+          },
+          {
+            "value": 3,
+            "asset": "assets/weekday/3.png"
+          },
+          {
+            "value": 4,
+            "asset": "assets/weekday/4.png"
+          },
+          {
+            "value": 5,
+            "asset": "assets/weekday/5.png"
+          },
+          {
+            "value": 6,
+            "asset": "assets/weekday/6.png"
+          }
+        ],
+        "z": 6,
+        "allowOverlap": true
+      },
+      {
+        "id": "month",
+        "type": "image-list",
+        "source": "month",
+        "fallback": "floor",
+        "x": 172,
+        "y": 222,
+        "items": [
+          {
+            "value": 1,
+            "asset": "assets/month/0.png"
+          },
+          {
+            "value": 2,
+            "asset": "assets/month/1.png"
+          },
+          {
+            "value": 3,
+            "asset": "assets/month/2.png"
+          },
+          {
+            "value": 4,
+            "asset": "assets/month/3.png"
+          },
+          {
+            "value": 5,
+            "asset": "assets/month/4.png"
+          },
+          {
+            "value": 6,
+            "asset": "assets/month/5.png"
+          },
+          {
+            "value": 7,
+            "asset": "assets/month/6.png"
+          },
+          {
+            "value": 8,
+            "asset": "assets/month/7.png"
+          },
+          {
+            "value": 9,
+            "asset": "assets/month/8.png"
+          },
+          {
+            "value": 10,
+            "asset": "assets/month/9.png"
+          },
+          {
+            "value": 11,
+            "asset": "assets/month/10.png"
+          },
+          {
+            "value": 12,
+            "asset": "assets/month/11.png"
+          }
+        ],
+        "z": 7,
+        "allowOverlap": true
+      },
+      {
+        "id": "steps-steps",
+        "type": "image-list",
+        "source": "steps",
+        "fallback": "floor",
+        "x": 92,
+        "y": 270,
+        "items": [
+          {
+            "value": 0,
+            "asset": "assets/steps-steps/0.png"
+          },
+          {
+            "value": 1000,
+            "asset": "assets/steps-steps/1.png"
+          },
+          {
+            "value": 5000,
+            "asset": "assets/steps-steps/2.png"
+          },
+          {
+            "value": 10000,
+            "asset": "assets/steps-steps/3.png"
+          }
+        ],
+        "z": 8,
+        "allowOverlap": true
+      },
+      {
+        "id": "hour-n4",
+        "type": "number",
+        "source": "hour",
+        "digitSet": "cell",
+        "digits": 2,
+        "align": "left",
+        "spacing": 0,
+        "leadingZero": true,
+        "x": 172,
+        "y": 270,
+        "z": 9,
+        "allowOverlap": true
+      },
+      {
+        "id": "minute-n4",
+        "type": "number",
+        "source": "minute",
+        "digitSet": "cell",
+        "digits": 2,
+        "align": "left",
+        "spacing": 0,
+        "leadingZero": true,
+        "x": 208,
+        "y": 270,
+        "z": 10,
+        "allowOverlap": true
+      }
+    ]
+  }
+}

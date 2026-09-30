@@ -1,0 +1,96 @@
+{
+ "exposure": {
+  "t": 0.01061,
+  "iso": 25,
+  "f": 1.7
+ },
+ "photo": "PXL_20260929_235559318.MACRO_FOCUS.jpg",
+ "page": 10,
+ "page_key": "aodlua_aod",
+ "face": 8,
+ "theme": "aod",
+ "taken_at": "2026-09-29T16:55:59",
+ "fit": {
+  "rms_band_px": [
+   0.254,
+   0.106
+  ],
+  "ticks": 67,
+  "dropped": 0,
+  "bloom_px": 0.2,
+  "photo_px_per_band_px": [
+   3.818,
+   3.805
+  ],
+  "edges": {
+   "left_first_visible_x": -0.19044855058497984,
+   "right_last_visible_x": 212.07561927619616,
+   "ticks_seen_left": 37,
+   "ticks_seen_right": 30,
+   "first_tick_y_left": 90,
+   "last_tick_y_left": 450
+  },
+  "ok": true,
+  "notes": [],
+  "rotation": "ccw90 (screen isolated)"
+ },
+ "ruler_edges": {
+  "left": 0.0,
+  "right": 0.0,
+  "rows": 31
+ },
+ "samples": [
+  {
+   "id": "aodlua_aod.0",
+   "type": "presence",
+   "spec": {
+    "type": "presence",
+    "what": "widget_square",
+    "box": {
+     "x": 30,
+     "y": 68,
+     "w": 24,
+     "h": 24
+    },
+    "colour": "green",
+    "id": "aodlua_aod.0"
+   },
+   "result": {
+    "present": true,
+    "colour": "green",
+    "rgb": [
+     23,
+     174,
+     94
+    ]
+   }
+  },
+  {
+   "id": "aodlua_aod.1",
+   "type": "presence",
+   "spec": {
+    "type": "presence",
+    "what": "lua_square",
+    "box": {
+     "x": 110,
+     "y": 68,
+     "w": 24,
+     "h": 24
+    },
+    "colour": "green",
+    "id": "aodlua_aod.1"
+   },
+   "result": {
+    "present": true,
+    "colour": "green",
+    "rgb": [
+     23,
+     171,
+     94
+    ]
+   }
+  }
+ ],
+ "layout": "face-calib/band11 b1",
+ "measured_at": "2026-09-29T17:22:32"
+}

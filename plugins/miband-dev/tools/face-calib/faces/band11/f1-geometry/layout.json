@@ -1,0 +1,26 @@
+{
+  "$schema": "../../../../../vendor/band10-toolkit/schemas/layout.schema.json",
+  "formatVersion": 1,
+  "canvas": {
+    "width": 212,
+    "height": 520,
+    "clip": "pill"
+  },
+  "assets": {
+    "digitSets": {}
+  },
+  "normal": {
+    "background": "#000000",
+    "widgets": [
+      {
+        "id": "bg",
+        "type": "image",
+        "asset": "assets/bg.png",
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "allowOverlap": true
+      }
+    ]
+  }
+}

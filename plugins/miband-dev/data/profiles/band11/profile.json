@@ -1,0 +1,3532 @@
+{
+ "schema": "vela-device-profile/2",
+ "about": "Measured facts about how this band model renders UI, tied to one firmware version (`firmware`). Every leaf is {value, status, source, date}: status \"measured\" (from a device photo or observation), \"assumed\" (from a spec, a font file or another model) or \"unknown\" (value null). Top level: `device` and `screen` (the panel itself, true for everything drawn on it). `quickapp`: how the Vela quick-app (JS app) renderer draws text, boxes, CSS, colour, images and animation. `face`: how the watch-face engine (band10-toolkit .bin faces: widgets, image lists, the Lua layer, always-on) draws; a different renderer, so quick-app facts never stand in for face facts. Layout code reads it through tools/vela-calib/profile.js (quick-app paths like 'font.line_box_em' resolve inside `quickapp`); tools/vela-calib/measure.py writes it from photos of the calibration app. Units: band px (= design px when designWidth = the screen width; the geometry page checks it) and em (x font-size).",
+ "updated": "2026-09-29",
+ "firmware": {
+  "version": "4.100.139",
+  "note": "Every measured fact here was measured on this firmware. After a firmware update, re-run the calibration kit (tools/vela-calib) and compare before trusting the profile; then bump this."
+ },
+ "device": {
+  "id": "band11",
+  "name": "Xiaomi Smart Band 11 (and Band 10)",
+  "firmware": {
+   "value": "4.100.139",
+   "status": "measured",
+   "source": "Mi Fitness device page of a Band 11",
+   "date": "2026-09-29"
+  },
+  "screen": {
+   "w": 212,
+   "h": 520,
+   "diag_in": {
+    "value": 1.72,
+    "status": "assumed",
+    "source": "maker's spec",
+    "date": "2026-09-29"
+   },
+   "ppi": {
+    "value": 326,
+    "status": "assumed",
+    "source": "maker's spec",
+    "date": "2026-09-29"
+   },
+   "mm_per_px": {
+    "value": 0.0779,
+    "status": "assumed",
+    "source": "25.4 / 326",
+    "date": "2026-09-29"
+   },
+   "size_mm": {
+    "value": [
+     16.5,
+     40.5
+    ],
+    "status": "assumed",
+    "source": "212 x 520 px at 0.0779 mm",
+    "date": "2026-09-29"
+   }
+  },
+  "design_width": {
+   "value": 212,
+   "status": "measured",
+   "source": "photos PXL_20260929_130635086.MACRO_FOCUS.jpg",
+   "date": "2026-09-29",
+   "note": "manifest designWidth 212 draws 1 design px per panel px: the end arcs fit radius {'top': 103.32, 'bottom': 103.44} centred at x [105.67, 105.92]"
+  },
+  "design_scale": {
+   "value": 1.0253,
+   "status": "measured",
+   "source": "photos PXL_20260929_130635086.MACRO_FOCUS.jpg",
+   "date": "2026-09-29",
+   "one_to_one": true,
+   "centre_offset_x": 0.33,
+   "note": "W/2 over the fitted end radius: ~1.00-1.03 when 1 design px = 1 panel px (a capsule end radius is half the panel width)"
+  }
+ },
+ "screen": {
+  "corner_radius_px": {
+   "value": {
+    "tl": 103.32,
+    "tr": 103.32,
+    "bl": 103.44,
+    "br": 103.44
+   },
+   "status": "measured",
+   "source": "photos PXL_20260929_130635086.MACRO_FOCUS.jpg",
+   "date": "2026-09-29",
+   "note": "capsule: each end is one arc; given per corner so profile.js safeArea / xRange work unchanged"
+  },
+  "hidden_px": {
+   "top": {
+    "value": 1.84,
+    "status": "measured",
+    "source": "photos PXL_20260929_130635086.MACRO_FOCUS.jpg",
+    "date": "2026-09-29"
+   },
+   "bottom": {
+    "value": 0.25,
+    "status": "measured",
+    "source": "photos PXL_20260929_130635086.MACRO_FOCUS.jpg",
+    "date": "2026-09-29"
+   },
+   "left": {
+    "value": 0.9,
+    "status": "measured",
+    "source": "photos PXL_20260929_130635086.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "note": "from the outer ends of the ruler ticks (bloom-corrected), +-1 px; the Screen geometry page measures it directly"
+   },
+   "right": {
+    "value": 1.9,
+    "status": "measured",
+    "source": "photos PXL_20260929_130635086.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "note": "from the outer ends of the ruler ticks (bloom-corrected), +-1 px; the Screen geometry page measures it directly"
+   }
+  },
+  "system_overlay": {
+   "value": null,
+   "status": "unknown",
+   "source": "Vela Calib 2.0.0 Screen geometry page: observe (measure.py set)",
+   "date": "2026-09-29"
+  },
+  "shape": {
+   "value": "capsule",
+   "status": "measured",
+   "source": "photos PXL_20260929_130635086.MACRO_FOCUS.jpg",
+   "date": "2026-09-29"
+  },
+  "end_radius_px": {
+   "value": {
+    "top": 103.32,
+    "bottom": 103.44
+   },
+   "status": "measured",
+   "source": "photos PXL_20260929_130635086.MACRO_FOCUS.jpg",
+   "date": "2026-09-29",
+   "note": "radius of each semicircular end (bloom-corrected), band px"
+  },
+  "cap_detail": {
+   "value": {
+    "top": {
+     "radius_raw_px": 103.59,
+     "radius_px": 103.32,
+     "bloom_px": 0.27,
+     "centre_x": 105.67,
+     "centre_from_end_px": 105.16,
+     "hidden_end_px": 1.84,
+     "arc_points": 2177,
+     "fit_rms_px": 0.22,
+     "centre_offset_x": -0.33,
+     "design_scale": 1.0259,
+     "hidden_left_px": 1.02,
+     "hidden_right_px": 2.02,
+     "straight_rows": 55
+    },
+    "bottom": {
+     "radius_raw_px": 103.7,
+     "radius_px": 103.44,
+     "bloom_px": 0.27,
+     "centre_x": 105.92,
+     "centre_from_end_px": 103.68,
+     "hidden_end_px": 0.25,
+     "arc_points": 2207,
+     "fit_rms_px": 0.25,
+     "centre_offset_x": -0.08,
+     "design_scale": 1.0248,
+     "hidden_left_px": 0.77,
+     "hidden_right_px": 1.77,
+     "straight_rows": 67
+    }
+   },
+   "status": "measured",
+   "source": "photos PXL_20260929_130635086.MACRO_FOCUS.jpg",
+   "date": "2026-09-29"
+  }
+ },
+ "quickapp": {
+  "font": {
+   "family": {
+    "value": null,
+    "status": "unknown",
+    "source": "a Text W / Text V photo compared with the font files",
+    "date": "2026-09-29"
+   },
+   "line_box_em": {
+    "value": 1.3308,
+    "status": "measured",
+    "source": "photos PXL_20260929_025810478.MACRO_FOCUS.jpg, PXL_20260929_025818255.MACRO_FOCUS.jpg, PXL_20260929_025859047.MACRO_FOCUS.jpg, PXL_20260929_025908130.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "by_size_px": {
+     "24": 32.25,
+     "32": 42.61,
+     "48": 64.17,
+     "72": 95.36,
+     "96": 127.35,
+     "140": 186.55
+    }
+   },
+   "ascent_em": {
+    "value": null,
+    "status": "unknown",
+    "source": "Vela Calib 2.0.0 Text V pages",
+    "date": "2026-09-29"
+   },
+   "descent_em": {
+    "value": null,
+    "status": "unknown",
+    "source": "Vela Calib 2.0.0 Text V pages",
+    "date": "2026-09-29"
+   },
+   "baseline_em": {
+    "value": null,
+    "status": "unknown",
+    "source": "Vela Calib 2.0.0 Text V pages",
+    "date": "2026-09-29"
+   },
+   "ink": {
+    "digit": {
+     "top_em": {
+      "value": 0.2526,
+      "status": "measured",
+      "source": "photos PXL_20260929_025810478.MACRO_FOCUS.jpg, PXL_20260929_025818255.MACRO_FOCUS.jpg, PXL_20260929_025859047.MACRO_FOCUS.jpg, PXL_20260929_025908130.MACRO_FOCUS.jpg",
+      "date": "2026-09-29"
+     },
+     "bottom_em": {
+      "value": 1.0639,
+      "status": "measured",
+      "source": "photos PXL_20260929_025810478.MACRO_FOCUS.jpg, PXL_20260929_025818255.MACRO_FOCUS.jpg, PXL_20260929_025859047.MACRO_FOCUS.jpg, PXL_20260929_025908130.MACRO_FOCUS.jpg",
+      "date": "2026-09-29"
+     },
+     "note": "round digits, from the line-box top, half-brightness edges (includes ~1 px camera bloom per side, so slightly large = conservative)"
+    },
+    "cap": {
+     "top_em": {
+      "value": 0.2482,
+      "status": "measured",
+      "source": "photos PXL_20260929_025810478.MACRO_FOCUS.jpg, PXL_20260929_025818255.MACRO_FOCUS.jpg, PXL_20260929_025859047.MACRO_FOCUS.jpg, PXL_20260929_025908130.MACRO_FOCUS.jpg",
+      "date": "2026-09-29"
+     },
+     "bottom_em": {
+      "value": 1.0367,
+      "status": "measured",
+      "source": "photos PXL_20260929_025810478.MACRO_FOCUS.jpg, PXL_20260929_025818255.MACRO_FOCUS.jpg, PXL_20260929_025859047.MACRO_FOCUS.jpg, PXL_20260929_025908130.MACRO_FOCUS.jpg",
+      "date": "2026-09-29"
+     }
+    },
+    "descender": {
+     "top_em": {
+      "value": 0.4513,
+      "status": "measured",
+      "source": "photos PXL_20260929_025810478.MACRO_FOCUS.jpg, PXL_20260929_025818255.MACRO_FOCUS.jpg, PXL_20260929_025859047.MACRO_FOCUS.jpg, PXL_20260929_025908130.MACRO_FOCUS.jpg",
+      "date": "2026-09-29"
+     },
+     "bottom_em": {
+      "value": 1.2675,
+      "status": "measured",
+      "source": "photos PXL_20260929_025810478.MACRO_FOCUS.jpg, PXL_20260929_025818255.MACRO_FOCUS.jpg, PXL_20260929_025859047.MACRO_FOCUS.jpg, PXL_20260929_025908130.MACRO_FOCUS.jpg",
+      "date": "2026-09-29"
+     }
+    }
+   },
+   "regime": {
+    "taller_box": {
+     "rule": {
+      "value": "centre",
+      "status": "measured",
+      "source": "photos PXL_20260929_025810478.MACRO_FOCUS.jpg, PXL_20260929_025818255.MACRO_FOCUS.jpg, PXL_20260929_025859047.MACRO_FOCUS.jpg, PXL_20260929_025908130.MACRO_FOCUS.jpg",
+      "date": "2026-09-29",
+      "fit_error_em": {
+       "centre": 0.0274,
+       "top": 0.1389,
+       "bottom": 0.1107
+      },
+      "samples": 6
+     },
+     "clipped": {
+      "value": false,
+      "status": "measured",
+      "source": "photos PXL_20260929_025810478.MACRO_FOCUS.jpg, PXL_20260929_025818255.MACRO_FOCUS.jpg, PXL_20260929_025859047.MACRO_FOCUS.jpg, PXL_20260929_025908130.MACRO_FOCUS.jpg",
+      "date": "2026-09-29"
+     }
+    },
+    "shorter_box": {
+     "rule": {
+      "value": "top",
+      "status": "measured",
+      "source": "photos PXL_20260929_025810478.MACRO_FOCUS.jpg, PXL_20260929_025818255.MACRO_FOCUS.jpg, PXL_20260929_025859047.MACRO_FOCUS.jpg, PXL_20260929_025908130.MACRO_FOCUS.jpg",
+      "date": "2026-09-29",
+      "fit_error_em": {
+       "centre": 0.1992,
+       "top": 0.0684,
+       "bottom": 0.4518
+      },
+      "samples": 6
+     },
+     "clipped": {
+      "value": true,
+      "status": "measured",
+      "source": "photos PXL_20260929_025810478.MACRO_FOCUS.jpg, PXL_20260929_025818255.MACRO_FOCUS.jpg, PXL_20260929_025859047.MACRO_FOCUS.jpg, PXL_20260929_025908130.MACRO_FOCUS.jpg",
+      "date": "2026-09-29"
+     }
+    },
+    "taller_box_text_too_wide": {
+     "rule": {
+      "value": "top",
+      "status": "measured",
+      "source": "photos PXL_20260929_025810478.MACRO_FOCUS.jpg, PXL_20260929_025818255.MACRO_FOCUS.jpg, PXL_20260929_025859047.MACRO_FOCUS.jpg, PXL_20260929_025908130.MACRO_FOCUS.jpg",
+      "date": "2026-09-29",
+      "fit_error_em": {
+       "centre": 0.1654,
+       "top": 0.0402,
+       "bottom": 0.2933
+      },
+      "samples": 2
+     },
+     "clipped": {
+      "value": false,
+      "status": "measured",
+      "source": "photos PXL_20260929_025810478.MACRO_FOCUS.jpg, PXL_20260929_025818255.MACRO_FOCUS.jpg, PXL_20260929_025859047.MACRO_FOCUS.jpg, PXL_20260929_025908130.MACRO_FOCUS.jpg",
+      "date": "2026-09-29"
+     }
+    }
+   },
+   "ink_clipped_to_own_box": {
+    "value": null,
+    "status": "unknown",
+    "source": "Vela Calib 2.0.0 Text V pages",
+    "date": "2026-09-29"
+   },
+   "explicit_height_honoured": {
+    "value": null,
+    "status": "unknown",
+    "source": "Vela Calib 2.0.0 Text V pages",
+    "date": "2026-09-29"
+   },
+   "advance_em": {
+    "0": {
+     "value": 0.6544,
+     "status": "measured",
+     "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+     "date": "2026-09-29"
+    },
+    "1": {
+     "value": 0.4468,
+     "status": "measured",
+     "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+     "date": "2026-09-29"
+    },
+    "2": {
+     "value": 0.5954,
+     "status": "measured",
+     "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+     "date": "2026-09-29"
+    },
+    "3": {
+     "value": 0.6244,
+     "status": "measured",
+     "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+     "date": "2026-09-29"
+    },
+    "4": {
+     "value": 0.6217,
+     "status": "measured",
+     "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+     "date": "2026-09-29"
+    },
+    "5": {
+     "value": 0.6193,
+     "status": "measured",
+     "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+     "date": "2026-09-29"
+    },
+    "6": {
+     "value": 0.6443,
+     "status": "measured",
+     "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+     "date": "2026-09-29"
+    },
+    "7": {
+     "value": 0.5463,
+     "status": "measured",
+     "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+     "date": "2026-09-29"
+    },
+    "8": {
+     "value": 0.6508,
+     "status": "measured",
+     "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+     "date": "2026-09-29"
+    },
+    "9": {
+     "value": 0.6211,
+     "status": "measured",
+     "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+     "date": "2026-09-29"
+    },
+    " ": {
+     "value": 0.3394,
+     "status": "measured",
+     "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+     "date": "2026-09-29"
+    },
+    "!": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "\"": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "#": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "$": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "%": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "&": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "'": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "(": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    ")": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "*": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "+": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    ",": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "-": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    ".": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "/": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    ":": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    ";": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "<": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "=": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    ">": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "?": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "@": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "A": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "B": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "C": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "D": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "E": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "F": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "G": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "H": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "I": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "J": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "K": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "L": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "M": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "N": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "O": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "P": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "Q": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "R": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "S": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "T": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "U": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "V": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "W": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "X": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "Y": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "Z": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "[": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "\\": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "]": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "^": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "_": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "`": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "a": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "b": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "c": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "d": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "e": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "f": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "g": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "h": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "i": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "j": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "k": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "l": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "m": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "n": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "o": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "p": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "q": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "r": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "s": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "t": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "u": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "v": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "w": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "x": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "y": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "z": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "{": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "|": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "}": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "~": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "–": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "…": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "·": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "’": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    " ": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    },
+    "—": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (digits, space); letters only from a font check",
+     "date": "2026-09-29"
+    }
+   },
+   "advance_safety": {
+    "assumed": {
+     "value": 1.1,
+     "status": "assumed",
+     "source": "kit policy (profile.js width() safety), copied from band10pro; not a device fact",
+     "date": "2026-09-29",
+     "note": "2026-09-27 photos: every measured bold string is 0.79-1.07x the assumed table (letters 0.92-1.00, digits 0.79 ('1') to 1.03, '0 0 0 0' 1.07 because the space is 0.339 em, not 0.283). 1.1 still covers all of them. Digit strings run about 1 px per glyph wider than the table's em widths (0000: 65.0/127.7/250.2 px at 24/48/96 = 0.64 em + 1 px per glyph), so at small sizes the fixed px matters: at 16 px a digit string reaches ~1.10x."
+    },
+    "measured": {
+     "value": 1.02,
+     "status": "assumed",
+     "source": "kit policy (profile.js width() safety), copied from band10pro; not a device fact",
+     "date": "2026-09-29",
+     "note": "Widths measured at one size carry ~1 px per glyph of fixed tracking: a digit advance measured at 48 px (em + 1/48) under-reads at 24 px by ~0.02 em per glyph (3 %), over-reads at larger sizes. 1.02 covers sizes >= ~30 px; below that add 1 px per glyph."
+    }
+   },
+   "advance_tracking": {
+    "value": null,
+    "status": "unknown",
+    "source": "Vela Calib 2.0.0 Text W pages (0000 at 24 / 48 / 96 px)",
+    "date": "2026-09-29"
+   },
+   "string_em": {
+    "bold": {
+     "00": {
+      "value": 1.3112,
+      "status": "measured",
+      "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+      "date": "2026-09-29"
+     },
+     "0000": {
+      "value": 2.6106,
+      "status": "measured",
+      "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+      "date": "2026-09-29"
+     },
+     "1111": {
+      "value": 1.7871,
+      "status": "measured",
+      "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+      "date": "2026-09-29"
+     },
+     "2222": {
+      "value": 2.3817,
+      "status": "measured",
+      "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+      "date": "2026-09-29"
+     },
+     "3333": {
+      "value": 2.4974,
+      "status": "measured",
+      "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+      "date": "2026-09-29"
+     },
+     "4444": {
+      "value": 2.4869,
+      "status": "measured",
+      "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+      "date": "2026-09-29"
+     },
+     "5555": {
+      "value": 2.4774,
+      "status": "measured",
+      "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+      "date": "2026-09-29"
+     },
+     "6666": {
+      "value": 2.5773,
+      "status": "measured",
+      "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+      "date": "2026-09-29"
+     },
+     "7777": {
+      "value": 2.1852,
+      "status": "measured",
+      "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+      "date": "2026-09-29"
+     },
+     "8888": {
+      "value": 2.6033,
+      "status": "measured",
+      "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+      "date": "2026-09-29"
+     },
+     "9999": {
+      "value": 2.4845,
+      "status": "measured",
+      "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+      "date": "2026-09-29"
+     },
+     "min": {
+      "value": 1.7667,
+      "status": "measured",
+      "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+      "date": "2026-09-29"
+     },
+     "NOW": {
+      "value": 2.6072,
+      "status": "measured",
+      "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+      "date": "2026-09-29"
+     },
+     "0 0 0 0": {
+      "value": 3.6288,
+      "status": "measured",
+      "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+      "date": "2026-09-29"
+     },
+     ":.,-/%": {
+      "value": 2.5587,
+      "status": "measured",
+      "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+      "date": "2026-09-29"
+     },
+     "Hg8 min": {
+      "value": 4.1734,
+      "status": "measured",
+      "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+      "date": "2026-09-29"
+     },
+     "abcdefg": {
+      "value": 3.9643,
+      "status": "measured",
+      "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+      "date": "2026-09-29"
+     },
+     "hijklm": {
+      "value": 2.9876,
+      "status": "measured",
+      "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+      "date": "2026-09-29"
+     },
+     "nopqrst": {
+      "value": 3.811,
+      "status": "measured",
+      "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+      "date": "2026-09-29"
+     },
+     "uvwxyz": {
+      "value": 3.7751,
+      "status": "measured",
+      "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+      "date": "2026-09-29"
+     },
+     "ABCDEFG": {
+      "value": 4.9096,
+      "status": "measured",
+      "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+      "date": "2026-09-29"
+     },
+     "HIJKLM": {
+      "value": 3.7806,
+      "status": "measured",
+      "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+      "date": "2026-09-29"
+     },
+     "NOPQRST": {
+      "value": 4.8824,
+      "status": "measured",
+      "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+      "date": "2026-09-29"
+     },
+     "UVWXYZ": {
+      "value": 4.5417,
+      "status": "measured",
+      "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+      "date": "2026-09-29"
+     },
+     "Checking…": {
+      "value": 5.5983,
+      "status": "measured",
+      "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+      "date": "2026-09-29"
+     }
+    },
+    "normal": {
+     "0000": {
+      "value": 2.4718,
+      "status": "measured",
+      "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+      "date": "2026-09-29"
+     },
+     "Hg8 min": {
+      "value": 4.0021,
+      "status": "measured",
+      "source": "photos PXL_20260929_025916847.MACRO_FOCUS.jpg, PXL_20260929_025923403.MACRO_FOCUS.jpg, PXL_20260929_025929775.MACRO_FOCUS.jpg, PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_025954175.MACRO_FOCUS.jpg",
+      "date": "2026-09-29"
+     }
+    }
+   },
+   "weights": {
+    "normal_differs_from_bold": {
+     "value": null,
+     "status": "unknown",
+     "source": "Vela Calib 2.0.0 Text W pages (normal vs bold)",
+     "date": "2026-09-29"
+    }
+   }
+  },
+  "text": {
+   "line_height_css": {
+    "value": "honoured",
+    "status": "measured",
+    "source": "photos PXL_20260929_025959482.MACRO_FOCUS.jpg, PXL_20260929_030031975.MACRO_FOCUS.jpg, PXL_20260929_030037254.MACRO_FOCUS.jpg, PXL_20260929_130600566.MACRO_FOCUS.jpg, PXL_20260929_130614099.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": true,
+    "detail": {
+     "css": "72px",
+     "px": 48,
+     "content_h": 72.19
+    }
+   },
+   "wrap": {
+    "lineheight32": {
+     "value": {
+      "lines": 4,
+      "line_pitch": 32.5,
+      "align": "left",
+      "ellipsis": false,
+      "content_h": 127.95197537675041
+     },
+     "status": "measured",
+     "source": "photos PXL_20260929_025959482.MACRO_FOCUS.jpg, PXL_20260929_030031975.MACRO_FOCUS.jpg, PXL_20260929_030037254.MACRO_FOCUS.jpg, PXL_20260929_130600566.MACRO_FOCUS.jpg, PXL_20260929_130614099.MACRO_FOCUS.jpg",
+     "date": "2026-09-29"
+    },
+    "lh72-at48": {
+     "value": {
+      "lines": 1,
+      "line_pitch": null,
+      "align": null,
+      "ellipsis": false,
+      "content_h": 72.18839814354601
+     },
+     "status": "measured",
+     "source": "photos PXL_20260929_025959482.MACRO_FOCUS.jpg, PXL_20260929_030031975.MACRO_FOCUS.jpg, PXL_20260929_030037254.MACRO_FOCUS.jpg, PXL_20260929_130600566.MACRO_FOCUS.jpg, PXL_20260929_130614099.MACRO_FOCUS.jpg",
+     "date": "2026-09-29"
+    },
+    "lh48-at48": {
+     "value": {
+      "lines": 1,
+      "line_pitch": null,
+      "align": null,
+      "ellipsis": false,
+      "content_h": 48.04938597373007
+     },
+     "status": "measured",
+     "source": "photos PXL_20260929_025959482.MACRO_FOCUS.jpg, PXL_20260929_030031975.MACRO_FOCUS.jpg, PXL_20260929_030037254.MACRO_FOCUS.jpg, PXL_20260929_130600566.MACRO_FOCUS.jpg, PXL_20260929_130614099.MACRO_FOCUS.jpg",
+     "date": "2026-09-29"
+    },
+    "lh40-at48-h48": {
+     "value": {
+      "lines": 1,
+      "line_pitch": null,
+      "align": null,
+      "ellipsis": false,
+      "content_h": 46.17326089554223
+     },
+     "status": "measured",
+     "source": "photos PXL_20260929_025959482.MACRO_FOCUS.jpg, PXL_20260929_030031975.MACRO_FOCUS.jpg, PXL_20260929_030037254.MACRO_FOCUS.jpg, PXL_20260929_130600566.MACRO_FOCUS.jpg, PXL_20260929_130614099.MACRO_FOCUS.jpg",
+     "date": "2026-09-29"
+    },
+    "lines2-ellipsis": {
+     "value": {
+      "lines": 2,
+      "line_pitch": 25.25,
+      "align": "left",
+      "ellipsis": true,
+      "content_h": 54.0035701621876
+     },
+     "status": "measured",
+     "source": "photos PXL_20260929_025959482.MACRO_FOCUS.jpg, PXL_20260929_030031975.MACRO_FOCUS.jpg, PXL_20260929_030037254.MACRO_FOCUS.jpg, PXL_20260929_130600566.MACRO_FOCUS.jpg, PXL_20260929_130614099.MACRO_FOCUS.jpg",
+     "date": "2026-09-29"
+    },
+    "lines2-clip": {
+     "value": {
+      "lines": 2,
+      "line_pitch": 25.125,
+      "align": "left",
+      "ellipsis": false,
+      "content_h": 53.773029492408284
+     },
+     "status": "measured",
+     "source": "photos PXL_20260929_025959482.MACRO_FOCUS.jpg, PXL_20260929_030031975.MACRO_FOCUS.jpg, PXL_20260929_030037254.MACRO_FOCUS.jpg, PXL_20260929_130600566.MACRO_FOCUS.jpg, PXL_20260929_130614099.MACRO_FOCUS.jpg",
+     "date": "2026-09-29"
+    },
+    "longword": {
+     "value": {
+      "lines": 2,
+      "line_pitch": 26.875,
+      "align": "right",
+      "ellipsis": false,
+      "content_h": 53.70373323496901
+     },
+     "status": "measured",
+     "source": "photos PXL_20260929_025959482.MACRO_FOCUS.jpg, PXL_20260929_030031975.MACRO_FOCUS.jpg, PXL_20260929_030037254.MACRO_FOCUS.jpg, PXL_20260929_130600566.MACRO_FOCUS.jpg, PXL_20260929_130614099.MACRO_FOCUS.jpg",
+     "date": "2026-09-29"
+    },
+    "lines1-ellipsis": {
+     "value": {
+      "lines": 1,
+      "line_pitch": null,
+      "align": null,
+      "ellipsis": true,
+      "content_h": 27.125274327083353
+     },
+     "status": "measured",
+     "source": "photos PXL_20260929_025959482.MACRO_FOCUS.jpg, PXL_20260929_030031975.MACRO_FOCUS.jpg, PXL_20260929_030037254.MACRO_FOCUS.jpg, PXL_20260929_130600566.MACRO_FOCUS.jpg, PXL_20260929_130614099.MACRO_FOCUS.jpg",
+     "date": "2026-09-29"
+    },
+    "left": {
+     "value": {
+      "lines": 4,
+      "line_pitch": 25.5,
+      "align": "left",
+      "ellipsis": false,
+      "content_h": 107.74852280898472
+     },
+     "status": "measured",
+     "source": "photos PXL_20260929_025959482.MACRO_FOCUS.jpg, PXL_20260929_030031975.MACRO_FOCUS.jpg, PXL_20260929_030037254.MACRO_FOCUS.jpg, PXL_20260929_130600566.MACRO_FOCUS.jpg, PXL_20260929_130614099.MACRO_FOCUS.jpg",
+     "date": "2026-09-29"
+    },
+    "height40": {
+     "value": {
+      "lines": 1,
+      "line_pitch": null,
+      "align": null,
+      "ellipsis": false,
+      "content_h": 37.61266967409852
+     },
+     "status": "measured",
+     "source": "photos PXL_20260929_025959482.MACRO_FOCUS.jpg, PXL_20260929_030031975.MACRO_FOCUS.jpg, PXL_20260929_030037254.MACRO_FOCUS.jpg, PXL_20260929_130600566.MACRO_FOCUS.jpg, PXL_20260929_130614099.MACRO_FOCUS.jpg",
+     "date": "2026-09-29"
+    },
+    "center": {
+     "value": {
+      "lines": 4,
+      "line_pitch": 26.375,
+      "align": "center",
+      "ellipsis": false,
+      "content_h": 108.6423801960699
+     },
+     "status": "measured",
+     "source": "photos PXL_20260929_025959482.MACRO_FOCUS.jpg, PXL_20260929_030031975.MACRO_FOCUS.jpg, PXL_20260929_030037254.MACRO_FOCUS.jpg, PXL_20260929_130600566.MACRO_FOCUS.jpg, PXL_20260929_130614099.MACRO_FOCUS.jpg",
+     "date": "2026-09-29"
+    },
+    "right": {
+     "value": {
+      "lines": 4,
+      "line_pitch": 26.0,
+      "align": "right",
+      "ellipsis": false,
+      "content_h": 107.67024351968891
+     },
+     "status": "measured",
+     "source": "photos PXL_20260929_025959482.MACRO_FOCUS.jpg, PXL_20260929_030031975.MACRO_FOCUS.jpg, PXL_20260929_030037254.MACRO_FOCUS.jpg, PXL_20260929_130600566.MACRO_FOCUS.jpg, PXL_20260929_130614099.MACRO_FOCUS.jpg",
+     "date": "2026-09-29"
+    }
+   },
+   "row": {
+    "flex-end": {
+     "value": {
+      "box_bottom_diff": -1.0,
+      "ink_bottom_diff": 15.88151041418314
+     },
+     "status": "measured",
+     "source": "photos PXL_20260929_030031975.MACRO_FOCUS.jpg, PXL_20260929_030037254.MACRO_FOCUS.jpg",
+     "date": "2026-09-29"
+    },
+    "baseline": {
+     "value": {
+      "box_bottom_diff": 0.0,
+      "ink_bottom_diff": 16.5
+     },
+     "status": "measured",
+     "source": "photos PXL_20260929_030031975.MACRO_FOCUS.jpg, PXL_20260929_030037254.MACRO_FOCUS.jpg",
+     "date": "2026-09-29"
+    }
+   },
+   "explicit_height_text_too_wide": {
+    "value": null,
+    "status": "unknown",
+    "source": "Vela Calib 2.0.0 Wrap pages",
+    "date": "2026-09-29"
+   },
+   "natural_box_wraps": {
+    "value": null,
+    "status": "unknown",
+    "source": "Vela Calib 2.0.0 Wrap pages",
+    "date": "2026-09-29"
+   },
+   "align": {
+    "value": null,
+    "status": "unknown",
+    "source": "Vela Calib 2.0.0 Wrap pages",
+    "date": "2026-09-29"
+   },
+   "lines_without_ellipsis": {
+    "value": null,
+    "status": "unknown",
+    "source": "Vela Calib 2.0.0 Wrap pages",
+    "date": "2026-09-29"
+   }
+  },
+  "colour": {
+   "floor": {
+    "grey": {
+     "value": 8,
+     "status": "measured",
+     "source": "photos PXL_20260929_030122049.MACRO_FOCUS.MP.jpg",
+     "date": "2026-09-29",
+     "contaminated": "the #000000 swatch reads 44.6 over black 3.0 (glare / bloom from neighbours); judged against it instead",
+     "levels": {
+      "#000000": 44.6,
+      "#080808": 49.8,
+      "#101010": 54.8,
+      "#181818": 67.1,
+      "#202020": 84.3,
+      "#282828": 98.6,
+      "#303030": 111.4,
+      "#383838": 124.3,
+      "#404040": 140.3,
+      "#484848": 145.8,
+      "#505050": 149.9,
+      "#585858": 152.5,
+      "#606060": 147.0
+     },
+     "black_level": 44.6,
+     "measure": "luma",
+     "threshold": 4.7,
+     "note": "lowest value the camera saw above black (the lowest step on the page is #000000); confirm by eye"
+    },
+    "red": {
+     "value": 16,
+     "status": "measured",
+     "source": "photos PXL_20260929_030122049.MACRO_FOCUS.MP.jpg",
+     "date": "2026-09-29",
+     "levels": {
+      "#100000": 11.3,
+      "#200000": 65.0,
+      "#300000": 101.2,
+      "#400000": 124.3,
+      "#500000": 153.3,
+      "#600000": 176.6,
+      "#700000": 182.6,
+      "#800000": 181.6
+     },
+     "black_level": 2.5,
+     "measure": "channel",
+     "threshold": 4.7,
+     "note": "lowest value the camera saw above black (the lowest step on the page is #100000); confirm by eye"
+    },
+    "green": {
+     "value": 16,
+     "status": "measured",
+     "source": "photos PXL_20260929_030122049.MACRO_FOCUS.MP.jpg",
+     "date": "2026-09-29",
+     "levels": {
+      "#001000": 13.8,
+      "#002000": 56.2,
+      "#003000": 95.7,
+      "#004000": 128.6,
+      "#005000": 158.6,
+      "#006000": 173.1,
+      "#007000": 181.1,
+      "#008000": 178.8
+     },
+     "black_level": 2.9,
+     "measure": "channel",
+     "threshold": 4.7,
+     "note": "lowest value the camera saw above black (the lowest step on the page is #001000); confirm by eye"
+    },
+    "blue": {
+     "value": 16,
+     "status": "measured",
+     "source": "photos PXL_20260929_030122049.MACRO_FOCUS.MP.jpg",
+     "date": "2026-09-29",
+     "levels": {
+      "#000010": 63.4,
+      "#000020": 103.4,
+      "#000030": 146.8,
+      "#000040": 168.8,
+      "#000050": 186.8,
+      "#000060": 202.4,
+      "#000070": 208.8,
+      "#000080": 210.6
+     },
+     "black_level": 4.8,
+     "measure": "channel",
+     "threshold": 4.7,
+     "note": "lowest value the camera saw above black (the lowest step on the page is #000010); confirm by eye"
+    },
+    "surface": {
+     "value": 32,
+     "status": "measured",
+     "source": "photos PXL_20260929_030122049.MACRO_FOCUS.MP.jpg",
+     "date": "2026-09-29",
+     "levels": {
+      "#202020": 60.6,
+      "#282828": 78.8,
+      "#303030": 92.0,
+      "#383838": 108.8,
+      "#404040": 122.8,
+      "#484848": 122.4
+     },
+     "black_level": 3.0,
+     "measure": "luma",
+     "threshold": 4.7,
+     "note": "lowest value the camera saw above black (the lowest step on the page is #202020); confirm by eye"
+    }
+   },
+   "brand": {
+    "value": {
+     "#ffd60a": [
+      194.2,
+      168.9,
+      32.9
+     ],
+     "#ff2d95": [
+      174.9,
+      1.0,
+      139.2
+     ],
+     "#00e5ff": [
+      13.2,
+      128.5,
+      223.0
+     ],
+     "#3cff3c": [
+      18.3,
+      169.9,
+      132.7
+     ],
+     "#ff0000": [
+      182.5,
+      2.7,
+      2.7
+     ],
+     "#0099cc": [
+      8.5,
+      91.6,
+      212.0
+     ],
+     "#ff9933": [
+      187.6,
+      96.6,
+      36.2
+     ],
+     "#339933": [
+      23.1,
+      167.1,
+      113.3
+     ],
+     "#0a84ff": [
+      6.9,
+      60.1,
+      215.1
+     ],
+     "#c8c8c8": [
+      105.3,
+      129.5,
+      218.0
+     ],
+     "#808080": [
+      91.9,
+      110.2,
+      201.7
+     ],
+     "#ffffff": [
+      115.9,
+      140.3,
+      227.0
+     ]
+    },
+    "status": "measured",
+    "source": "photos PXL_20260929_030122049.MACRO_FOCUS.MP.jpg",
+    "date": "2026-09-29"
+   }
+  },
+  "css": {
+   "box_sizing": {
+    "value": "border_box",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": null,
+    "what": "width 50 + padding 10 + border 1: outer width of the pink box",
+    "detail": {
+     "bbox": [
+      111.0,
+      53.75,
+      51.5,
+      42.88
+     ],
+     "distances": {
+      "border_box": 7.62,
+      "content_box": 42.88
+     },
+     "margin": 35.260000000000005,
+     "missing": false
+    }
+   },
+   "border_radius": {
+    "value": "honoured",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": true,
+    "what": "border-radius 20 on a 64 x 56 white fill",
+    "detail": {
+     "radius": {
+      "tl": 21.34,
+      "tr": 20.49,
+      "bl": 20.06,
+      "br": 20.49
+     },
+     "bbox": [
+      32.0,
+      275.75,
+      64.38,
+      56.5
+     ],
+     "distances": {
+      "honoured": 2.38,
+      "ignored": 82.38
+     },
+     "margin": 80.0
+    }
+   },
+   "border_radius_per_corner": {
+    "value": "ignored",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": false,
+    "what": "border-top-left-radius 24 only",
+    "detail": {
+     "radius": {
+      "tl": 1.71,
+      "tr": 1.71,
+      "bl": 1.28,
+      "br": 1.28
+     },
+     "bbox": [
+      115.5,
+      275.5,
+      64.12,
+      56.62
+     ],
+     "distances": {
+      "honoured": 26.56,
+      "ignored": 5.98,
+      "all_corners": 90.02
+     },
+     "margin": 20.58
+    }
+   },
+   "overflow_hidden": {
+    "value": "clips_at_padding_box",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": true,
+    "what": "overflow hidden 40 x 40 box, absolute child 70 wide",
+    "detail": {
+     "bbox": [
+      114.25,
+      79.25,
+      35.75,
+      19.38
+     ],
+     "distances": {
+      "clips_at_padding_box": 6.38,
+      "no_clip": 38.38
+     },
+     "margin": 32.0,
+     "missing": false
+    }
+   },
+   "overflow_visible": {
+    "value": "clips",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": false,
+    "what": "default overflow, 40 x 40 box, absolute child 70 wide",
+    "detail": {
+     "bbox": [
+      30.62,
+      181.12,
+      36.12,
+      19.25
+     ],
+     "distances": {
+      "clips": 6.38,
+      "draws_outside": 38.38
+     },
+     "margin": 32.0,
+     "missing": false
+    }
+   },
+   "negative_margin": {
+    "value": "honoured",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": true,
+    "what": "column: cyan has margin-top -8 under a 40 x 20 white bar",
+    "detail": {
+     "bbox": [
+      111.25,
+      174.62,
+      41.0,
+      22.38
+     ],
+     "distances": {
+      "honoured": 25.5,
+      "ignored": 33.5
+     },
+     "margin": 8.0,
+     "missing": false
+    }
+   },
+   "absolute_origin": {
+    "value": "parent_border_box|parent_content_box",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": null,
+    "what": "green 10 x 10, absolute left/top 20 inside a pink box at +10: parent- or page-relative",
+    "detail": {
+     "bbox": [
+      137.5,
+      287.0,
+      11.38,
+      10.75
+     ],
+     "distances": {
+      "parent_border_box": 3.62,
+      "parent_content_box": 3.62,
+      "page": 386.62
+     },
+     "margin": 0.0,
+     "missing": false
+    }
+   },
+   "compiler_accepts": {
+    "value": null,
+    "status": "unknown",
+    "source": "aiot-toolkit build of a test page",
+    "date": "2026-09-29"
+   },
+   "text_auto_width": {
+    "value": "shrink_wrap",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": true,
+    "what": "absolute <text> with no width: box extent",
+    "detail": {
+     "bbox": [
+      22.75,
+      108.0,
+      68.88,
+      47.0
+     ],
+     "distances": {
+      "shrink_wrap": 7.12,
+      "stretch_to_right_edge": 125.38
+     },
+     "margin": 118.25999999999999,
+     "missing": false
+    }
+   },
+   "padding": {
+    "value": "honoured",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": true,
+    "what": "padding 10 inside a 1 px pink box: where the white child lands",
+    "detail": {
+     "bbox": [
+      38.88,
+      84.12,
+      13.25,
+      3.62
+     ],
+     "distances": {
+      "honoured": 40.38,
+      "ignored": 60.12
+     },
+     "margin": 19.739999999999995,
+     "missing": false
+    }
+   },
+   "margin": {
+    "value": "honoured",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": true,
+    "what": "column: cyan has margin-top 12 under a 40 x 10 white bar",
+    "detail": {
+     "bbox": [
+      27.75,
+      180.12,
+      41.5,
+      10.75
+     ],
+     "distances": {
+      "honoured": 2.62,
+      "ignored": 14.62
+     },
+     "margin": 12.0,
+     "missing": false
+    }
+   },
+   "negative_margin_left": {
+    "value": "honoured",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": true,
+    "what": "row: cyan has margin-left -10 after a 30 x 20 white box",
+    "detail": {
+     "bbox": [
+      47.75,
+      275.38,
+      31.5,
+      21.5
+     ],
+     "distances": {
+      "honoured": 3.88,
+      "ignored": 13.88
+     },
+     "margin": 10.0,
+     "missing": false
+    }
+   },
+   "border_width": {
+    "value": "honoured",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": true,
+    "what": "border-width 8, white, 60 x 50 box: drawn thickness",
+    "detail": {
+     "thickness": {
+      "l": 8.5,
+      "r": 8.5,
+      "t": 0.0,
+      "b": 8.38
+     },
+     "distances": {
+      "honoured": 9.38
+     },
+     "margin": null
+    }
+   },
+   "border_side_width": {
+    "value": "ignored",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": false,
+    "what": "border 1 + border-left-width 8",
+    "detail": {
+     "thickness": {
+      "l": 2.0,
+      "r": 1.5,
+      "t": 1.5,
+      "b": 1.38
+     },
+     "distances": {
+      "honoured": 7.38,
+      "ignored": 2.38
+     },
+     "margin": 5.0
+    }
+   },
+   "border_side_colour": {
+    "value": "ignored",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": false,
+    "what": "border 4 white + border-left-color pink",
+    "detail": {
+     "colours": {
+      "left": "white",
+      "top": "white"
+     },
+     "distances": {
+      "honoured": 10,
+      "ignored": 0
+     },
+     "margin": 10
+    }
+   },
+   "border_radius_per_corner_override": {
+    "value": "ignored",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": false,
+    "what": "border-radius 20 then border-top-left-radius 0",
+    "detail": {
+     "radius": {
+      "tl": 22.19,
+      "tr": 20.91,
+      "bl": 20.49,
+      "br": 22.19
+     },
+     "bbox": [
+      31.62,
+      376.88,
+      64.88,
+      58.62
+     ],
+     "distances": {
+      "honoured": 25.78,
+      "ignored": 5.78,
+      "all_zero": 85.78
+     },
+     "margin": 20.0
+    }
+   },
+   "border_radius_outline": {
+    "value": "honoured",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": true,
+    "what": "border 3 white + border-radius 16, no fill",
+    "detail": {
+     "radius": {
+      "tl": 17.07,
+      "tr": 17.07,
+      "bl": 17.07,
+      "br": 17.07
+     },
+     "bbox": [
+      115.5,
+      376.88,
+      64.25,
+      58.88
+     ],
+     "distances": {
+      "honoured": 4.28,
+      "ignored": 68.28
+     },
+     "margin": 64.0
+    }
+   },
+   "border_radius_clamp": {
+    "value": "clamped",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": true,
+    "what": "border-radius 999 on 64 x 32: clamped to 16?",
+    "detail": {
+     "radius": {
+      "tl": 15.79,
+      "tr": 17.07,
+      "bl": 17.5,
+      "br": 15.79
+     },
+     "bbox": [
+      31.25,
+      83.88,
+      65.0,
+      32.62
+     ],
+     "distances": {
+      "clamped": 2.99,
+      "square": 66.15
+     },
+     "margin": 63.160000000000004
+    }
+   },
+   "overflow_radius_clip": {
+    "value": "round_clip",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": true,
+    "what": "overflow hidden + radius 20: is a full-size child clipped round?",
+    "detail": {
+     "radius": {
+      "tl": 20.91,
+      "tr": 20.49,
+      "bl": 20.06,
+      "br": 21.34
+     },
+     "bbox": [
+      34.0,
+      273.62,
+      60.5,
+      61.12
+     ],
+     "distances": {
+      "round_clip": 2.8,
+      "square_clip": 82.8
+     },
+     "margin": 80.0
+    }
+   },
+   "opacity": {
+    "value": "honoured",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": true,
+    "what": "white fill at opacity 0.5 beside a #808080 fill",
+    "detail": {
+     "luma_a": 141.6,
+     "luma_b": 137.9,
+     "ratio": 1.027,
+     "distances": {
+      "honoured": 0.03,
+      "ignored_full": 0.97,
+      "invisible": 1.03
+     },
+     "margin": 0.94
+    }
+   },
+   "z_index": {
+    "value": "ignored",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": false,
+    "what": "white z-index 2 drawn before cyan z-index 1, overlapping",
+    "detail": {
+     "colours": {
+      "overlap": "cyan"
+     },
+     "distances": {
+      "honoured": 10,
+      "ignored": 0
+     },
+     "margin": 10
+    }
+   },
+   "transform_translate": {
+    "value": "honoured",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": true,
+    "what": "static transform translateX(20px) on a 20 x 20 white square at +10",
+    "detail": {
+     "bbox": [
+      137.38,
+      414.0,
+      20.0,
+      3.62
+     ],
+     "distances": {
+      "honoured": 35.0,
+      "ignored": 53.75
+     },
+     "margin": 18.75,
+     "missing": false
+    }
+   },
+   "transform_rotate": {
+    "value": "honoured",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": true,
+    "what": "static rotate(45deg) on a 56 x 4 bar",
+    "detail": {
+     "bbox": [
+      33.75,
+      99.25,
+      41.5,
+      41.38
+     ],
+     "distances": {
+      "honoured": 30.62,
+      "ignored": 55.38
+     },
+     "margin": 24.76,
+     "missing": false
+    }
+   },
+   "percent_width": {
+    "value": "honoured",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": true,
+    "what": "child width 50% of a 72 px parent",
+    "detail": {
+     "bbox": [
+      111.5,
+      82.0,
+      35.88,
+      20.62
+     ],
+     "distances": {
+      "honoured": 1.25,
+      "ignored_full": 37.25
+     },
+     "margin": 36.0,
+     "missing": false
+    }
+   },
+   "justify_content": {
+    "value": "honoured",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": true,
+    "what": "row, justify-content center, 20 px child in 72",
+    "detail": {
+     "bbox": [
+      54.12,
+      184.25,
+      20.12,
+      20.25
+     ],
+     "distances": {
+      "honoured": 0.75,
+      "ignored": 26.75
+     },
+     "margin": 26.0,
+     "missing": false
+    }
+   },
+   "box_shadow": {
+    "value": "honoured|ignored",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": null,
+    "what": "box-shadow 0 0 12px white on a 40 x 40 fill",
+    "detail": {
+     "luma_a": 34.8,
+     "luma_b": 232.6,
+     "ratio": 0.15,
+     "distances": {
+      "honoured": 0.15,
+      "ignored": 0.15
+     },
+     "margin": 0.0
+    }
+   },
+   "text_background": {
+    "value": "honoured",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": true,
+    "what": "text with background-color #505050 and radius 12 (a pill label)",
+    "detail": {
+     "radius": {
+      "tl": 12.8,
+      "tr": 12.8,
+      "bl": 12.38,
+      "br": 12.38
+     },
+     "bbox": [
+      28.75,
+      285.5,
+      71.25,
+      36.0
+     ],
+     "distances": {
+      "honoured": 2.36,
+      "square": 50.36
+     },
+     "margin": 48.0
+    }
+   },
+   "align_items_baseline": {
+    "value": null,
+    "status": "unknown",
+    "source": "Vela Calib 2.0.0 Box pages",
+    "date": "2026-09-29"
+   },
+   "flex_shrink_zero": {
+    "value": "honoured",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": true,
+    "what": "row 72 wide: white 44 (flex-shrink 0) + cyan 44 (flex-shrink 1): where the cyan lands",
+    "detail": {
+     "bbox": [
+      154.0,
+      184.25,
+      29.75,
+      20.38
+     ],
+     "distances": {
+      "honoured": 4.38,
+      "ignored": 12.88
+     },
+     "margin": 8.5,
+     "missing": false
+    }
+   }
+  },
+  "animation": {
+   "class_binding_rerender_restarts": {
+    "value": true,
+    "status": "measured",
+    "source": "animation page watched, kit 2.0.0, a Band 11 fw 4.100.139, 2026-09-28",
+    "date": "2026-09-29"
+   },
+   "steps_timing": {
+    "value": "supported",
+    "status": "measured",
+    "source": "animation page watched, kit 2.0.0, a Band 11 fw 4.100.139, 2026-09-28",
+    "date": "2026-09-29"
+   },
+   "translate_px_max_seen": {
+    "value": 600,
+    "status": "measured",
+    "source": "animation page watched, kit 2.0.0, a Band 11 fw 4.100.139, 2026-09-28",
+    "date": "2026-09-29"
+   },
+   "lane_A": {
+    "value": "smooth, slow; never turned yellow",
+    "status": "measured",
+    "source": "animation page watched, kit 2.0.0, a Band 11 fw 4.100.139, 2026-09-28",
+    "date": "2026-09-29"
+   },
+   "lane_B": {
+    "value": "smooth, slow; only reaches ~50% (class rebound every 3 s restarts it)",
+    "status": "measured",
+    "source": "animation page watched, kit 2.0.0, a Band 11 fw 4.100.139, 2026-09-28",
+    "date": "2026-09-29"
+   },
+   "lane_C": {
+    "value": "smooth, slow; no yellow",
+    "status": "measured",
+    "source": "animation page watched, kit 2.0.0, a Band 11 fw 4.100.139, 2026-09-28",
+    "date": "2026-09-29"
+   },
+   "lane_D": {
+    "value": "choppy (steps)",
+    "status": "measured",
+    "source": "animation page watched, kit 2.0.0, a Band 11 fw 4.100.139, 2026-09-28",
+    "date": "2026-09-29"
+   },
+   "lane_E": {
+    "value": "smooth, fast; runs off the right edge of the screen",
+    "status": "measured",
+    "source": "animation page watched, kit 2.0.0, a Band 11 fw 4.100.139, 2026-09-28",
+    "date": "2026-09-29"
+   },
+   "lane_F": {
+    "value": "smooth, slow; never dimmed",
+    "status": "measured",
+    "source": "animation page watched, kit 2.0.0, a Band 11 fw 4.100.139, 2026-09-28",
+    "date": "2026-09-29"
+   },
+   "lane_G": {
+    "value": "fades in and out in place",
+    "status": "measured",
+    "source": "animation page watched, kit 2.0.0, a Band 11 fw 4.100.139, 2026-09-28",
+    "date": "2026-09-29"
+   },
+   "opacity_keyframes": {
+    "value": "supported",
+    "status": "measured",
+    "source": "animation page watched, kit 2.0.0, a Band 11 fw 4.100.139, 2026-09-28",
+    "date": "2026-09-29"
+   },
+   "unchanged_primitive_binding_rerender_restarts": {
+    "value": false,
+    "status": "measured",
+    "source": "animation page watched, kit 2.0.0, a Band 11 fw 4.100.139, 2026-09-28",
+    "date": "2026-09-29"
+   },
+   "class_swap_restarts": {
+    "value": true,
+    "status": "measured",
+    "source": "animation page watched, kit 2.0.0, a Band 11 fw 4.100.139, 2026-09-28",
+    "date": "2026-09-29"
+   },
+   "image_src_swap_restarts": {
+    "value": false,
+    "status": "measured",
+    "source": "animation page watched, kit 2.0.0, a Band 11 fw 4.100.139, 2026-09-28",
+    "date": "2026-09-29"
+   },
+   "lane_H": {
+    "value": "smooth, slow; only reaches ~10% (object replaced every 1 s restarts it)",
+    "status": "measured",
+    "source": "animation page watched, kit 2.0.0, a Band 11 fw 4.100.139, 2026-09-28",
+    "date": "2026-09-29"
+   },
+   "finish_marker": {
+    "value": false,
+    "status": "measured",
+    "source": "animation page watched, kit 2.0.0, a Band 11 fw 4.100.139, 2026-09-28",
+    "date": "2026-09-29"
+   }
+  },
+  "image": {
+   "format": {
+    "value": null,
+    "status": "unknown",
+    "source": "Vela Calib 2.0.0 Images pages",
+    "date": "2026-09-29"
+   },
+   "natural": {
+    "value": "natural",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": null,
+    "what": "image checker32.png in auto x auto {}",
+    "detail": {
+     "bbox": [
+      100.62,
+      358.25,
+      32.5,
+      32.88
+     ],
+     "distances": {
+      "natural": 2.5
+     },
+     "margin": null,
+     "missing": false
+    }
+   },
+   "x2": {
+    "value": "scaled",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": true,
+    "what": "image checker32.png in 64 x 64 {}",
+    "detail": {
+     "bbox": [
+      26.88,
+      53.12,
+      64.38,
+      66.0
+     ],
+     "distances": {
+      "scaled": 4.38,
+      "natural_top_left": 68.38,
+      "natural_centred": 100.38
+     },
+     "margin": 63.99999999999999,
+     "missing": false
+    }
+   },
+   "stretch": {
+    "value": "stretched",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": true,
+    "what": "image checker32.png in 64 x 32 {}",
+    "detail": {
+     "bbox": [
+      100.62,
+      418.12,
+      64.12,
+      33.0
+     ],
+     "distances": {
+      "stretched": 2.38,
+      "natural_top_left": 34.38,
+      "contain_centred": 50.38
+     },
+     "margin": 32.0,
+     "missing": false
+    }
+   },
+   "png8": {
+    "value": "drawn",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": true,
+    "what": "image checker32_p8.png in 32 x 32 {}",
+    "detail": {
+     "bbox": [
+      25.12,
+      52.0,
+      34.88,
+      35.12
+     ],
+     "distances": {
+      "drawn": 10.88,
+      "missing": 147.12
+     },
+     "margin": 136.24,
+     "missing": false
+    }
+   },
+   "grey8": {
+    "value": "drawn",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": true,
+    "what": "image checker32_l.png in 32 x 32 {}",
+    "detail": {
+     "bbox": [
+      99.88,
+      52.25,
+      34.0,
+      34.75
+     ],
+     "distances": {
+      "drawn": 8.62,
+      "missing": 220.88
+     },
+     "margin": 212.26,
+     "missing": false
+    }
+   },
+   "disc": {
+    "value": "drawn",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": true,
+    "what": "image disc64.png in 64 x 64 {}",
+    "detail": {
+     "bbox": [
+      102.62,
+      55.25,
+      60.38,
+      62.0
+     ],
+     "distances": {
+      "drawn": 4.5
+     },
+     "margin": null,
+     "missing": false
+    }
+   },
+   "disc-p8": {
+    "value": "drawn",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": true,
+    "what": "image disc64_p8.png in 64 x 64 {}",
+    "detail": {
+     "bbox": [
+      29.25,
+      132.38,
+      60.12,
+      61.0
+     ],
+     "distances": {
+      "drawn": 2.0,
+      "missing": 282.75
+     },
+     "margin": 280.75,
+     "missing": false
+    }
+   },
+   "disc-hard": {
+    "value": "drawn",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": true,
+    "what": "image disc64_hard.png in 64 x 64 {}",
+    "detail": {
+     "bbox": [
+      102.75,
+      132.38,
+      60.0,
+      60.88
+     ],
+     "distances": {
+      "drawn": 1.75
+     },
+     "margin": null,
+     "missing": false
+    }
+   },
+   "fit-fill": {
+    "value": "fill",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": true,
+    "what": "image wide64x32.png in 64 x 64 {\"object-fit\":\"fill\"}",
+    "detail": {
+     "bbox": [
+      27.38,
+      207.0,
+      64.25,
+      63.5
+     ],
+     "distances": {
+      "fill": 1.12,
+      "contain": 48.12,
+      "none_top_left": 32.12
+     },
+     "margin": 30.999999999999996,
+     "missing": false
+    }
+   },
+   "fit-contain": {
+    "value": "contain",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": true,
+    "what": "image wide64x32.png in 64 x 64 {\"object-fit\":\"contain\"}",
+    "detail": {
+     "bbox": [
+      101.0,
+      222.75,
+      63.25,
+      32.38
+     ],
+     "distances": {
+      "fill": 48.12,
+      "contain": 1.38,
+      "none_top_left": 16.88
+     },
+     "margin": 15.5,
+     "missing": false
+    }
+   },
+   "fit-cover": {
+    "value": "cover",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": true,
+    "what": "image wide64x32_q.png in 64 x 64 {\"object-fit\":\"cover\"}",
+    "detail": {
+     "bbox": [
+      27.25,
+      282.25,
+      32.75,
+      64.62
+     ],
+     "distances": {
+      "cover": 2.38,
+      "fill": 33.88,
+      "contain": 81.88
+     },
+     "margin": 31.500000000000004,
+     "missing": false
+    }
+   },
+   "fit-none": {
+    "value": "contain",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": true,
+    "what": "image wide64x32.png in 64 x 64 {\"object-fit\":\"none\"}",
+    "detail": {
+     "bbox": [
+      100.88,
+      298.5,
+      63.38,
+      32.38
+     ],
+     "distances": {
+      "fill": 47.88,
+      "contain": 1.62,
+      "none_top_left": 16.62
+     },
+     "margin": 15.0,
+     "missing": false
+    }
+   },
+   "alpha_blend": {
+    "value": "matches_opaque_grey",
+    "status": "measured",
+    "source": "photos PXL_20260929_030142016.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "detail": {
+     "alpha": [
+      63.7,
+      143.9,
+      148.1,
+      141.6,
+      134.9
+     ],
+     "grey": [
+      68.5,
+      143.4,
+      146.0,
+      140.4,
+      135.7
+     ],
+     "rms_diff": 5.1
+    }
+   },
+   "x1.5": {
+    "value": "scaled",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": true,
+    "what": "image checker32.png in 48 x 48 {}",
+    "detail": {
+     "bbox": [
+      27.0,
+      358.0,
+      48.62,
+      49.12
+     ],
+     "distances": {
+      "scaled": 2.75,
+      "natural_top_left": 34.75,
+      "natural_centred": 50.75
+     },
+     "margin": 32.0,
+     "missing": false
+    }
+   },
+   "x0.5": {
+    "value": "cropped|scaled",
+    "status": "measured",
+    "source": "photos PXL_20260929_025948378.MACRO_FOCUS.jpg, PXL_20260929_030048738.MACRO_FOCUS.jpg, PXL_20260929_030055478.MACRO_FOCUS.jpg, PXL_20260929_030100747.MACRO_FOCUS.jpg, PXL_20260929_030105369.MACRO_FOCUS.jpg, PXL_20260929_030142016.MACRO_FOCUS.jpg, PXL_20260929_130656218.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "supported": null,
+    "what": "image checker32.png in 16 x 16 {}",
+    "detail": {
+     "bbox": [
+      27.0,
+      418.25,
+      16.75,
+      17.12
+     ],
+     "distances": {
+      "scaled": 2.62,
+      "cropped": 2.62
+     },
+     "margin": 0.0,
+     "missing": false
+    }
+   }
+  },
+  "behaviour": {
+   "system_back_swipe_single_page": {
+    "value": null,
+    "status": "unknown",
+    "source": "observe on the band (measure.py set)",
+    "date": "2026-09-29"
+   },
+   "exit_pattern": {
+    "value": null,
+    "status": "unknown",
+    "source": "observe on the band (measure.py set)",
+    "date": "2026-09-29"
+   },
+   "reinstall_keeps_running_instance": {
+    "value": null,
+    "status": "unknown",
+    "source": "observe on the band (measure.py set)",
+    "date": "2026-09-29"
+   }
+  }
+ },
+ "face": {
+  "about": "Watch-face engine facts for this model, measured with the face calibration kit (tools/face-calib: calibration faces photographed on a Band 11, fw 4.100.139, 2026-09-29, two rounds) plus observations recorded with measure_face.py set. Written by tools/face-calib/measure_face.py (this key only). Quick-app facts never stand in for these.",
+  "screen": {
+   "hidden_px": {
+    "left": {
+     "value": 0.0,
+     "status": "measured",
+     "source": "face-calib photos PXL_20260929_030603545.MACRO_FOCUS.jpg, PXL_20260929_030614978.MACRO_FOCUS.MP.jpg, PXL_20260929_030623652.MACRO_FOCUS.jpg, PXL_20260929_030631001.MACRO_FOCUS.MP.jpg, PXL_20260929_030637991.MACRO_FOCUS.MP.jpg, PXL_20260929_235556255.MACRO_FOCUS.jpg, PXL_20260930_004326132.MACRO_FOCUS.jpg, PXL_20260930_004518127.MACRO_FOCUS.jpg",
+     "date": "2026-09-29",
+     "note": "outer ends of the ruler ticks on the straight part of the screen, bloom-corrected, +-1 px"
+    },
+    "right": {
+     "value": 1.15,
+     "status": "measured",
+     "source": "face-calib photos PXL_20260929_030603545.MACRO_FOCUS.jpg, PXL_20260929_030614978.MACRO_FOCUS.MP.jpg, PXL_20260929_030623652.MACRO_FOCUS.jpg, PXL_20260929_030631001.MACRO_FOCUS.MP.jpg, PXL_20260929_030637991.MACRO_FOCUS.MP.jpg, PXL_20260929_235556255.MACRO_FOCUS.jpg, PXL_20260930_004326132.MACRO_FOCUS.jpg, PXL_20260930_004518127.MACRO_FOCUS.jpg",
+     "date": "2026-09-29",
+     "note": "outer ends of the ruler ticks on the straight part of the screen, bloom-corrected, +-1 px"
+    },
+    "top": {
+     "value": 0.0,
+     "status": "measured",
+     "source": "face-calib photos PXL_20260929_030603545.MACRO_FOCUS.jpg",
+     "date": "2026-09-29",
+     "per_line": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     "note": "comb line at the screen centre"
+    },
+    "bottom": {
+     "value": 1.12,
+     "status": "measured",
+     "source": "face-calib photos PXL_20260929_030603545.MACRO_FOCUS.jpg",
+     "date": "2026-09-29",
+     "per_line": [
+      1.25,
+      0.88,
+      1.12,
+      0.5,
+      1.38
+     ],
+     "note": "comb line at the screen centre"
+    }
+   },
+   "corner_radius_px": {
+    "value": {
+     "top": 105.39,
+     "bottom": 104.86
+    },
+    "status": "measured",
+    "source": "face-calib photos PXL_20260929_030603545.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "note": "capsule: radius of each semicircular end (circle fit to the lit fill)"
+   },
+   "status_overlay": {
+    "value": {
+     "pages_checked": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      9
+     ],
+     "found_on": {
+      "6": {
+       "found": true,
+       "bbox": [
+        96.4,
+        4.2,
+        115.2,
+        24.5
+       ],
+       "blobs": [
+        [
+         96.4,
+         4.2,
+         115.2,
+         24.5,
+         299.9
+        ]
+       ],
+       "colour": "red",
+       "centre": [
+        105.8,
+        14.4
+       ],
+       "size": [
+        18.9,
+        20.2
+       ]
+      },
+      "7": {
+       "found": true,
+       "bbox": [
+        96.4,
+        4.0,
+        115.2,
+        24.5
+       ],
+       "blobs": [
+        [
+         96.4,
+         4.0,
+         115.2,
+         24.5,
+         310.9
+        ]
+       ],
+       "colour": "red",
+       "centre": [
+        105.8,
+        14.2
+       ],
+       "size": [
+        18.9,
+        20.5
+       ]
+      },
+      "9": {
+       "found": true,
+       "bbox": [
+        96.6,
+        4.0,
+        115.9,
+        24.1
+       ],
+       "blobs": [
+        [
+         96.6,
+         4.0,
+         115.9,
+         24.1,
+         318.7
+        ]
+       ],
+       "colour": "red",
+       "centre": [
+        106.2,
+        14.1
+       ],
+       "size": [
+        19.2,
+        20.1
+       ]
+      }
+     }
+    },
+    "status": "measured",
+    "source": "face-calib photos PXL_20260929_030614978.MACRO_FOCUS.MP.jpg, PXL_20260929_030623652.MACRO_FOCUS.jpg, PXL_20260929_030631001.MACRO_FOCUS.MP.jpg, PXL_20260929_030637991.MACRO_FOCUS.MP.jpg, PXL_20260929_235556255.MACRO_FOCUS.jpg, PXL_20260930_004326132.MACRO_FOCUS.jpg, PXL_20260930_004518127.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "note": "lit pixels in the top strip, which every page leaves black; confirm by eye (glare can trip it)"
+   },
+   "status_clear_top_px": {
+    "value": 25,
+    "status": "measured",
+    "source": "face-calib photos PXL_20260929_235556255.MACRO_FOCUS.jpg, PXL_20260930_004326132.MACRO_FOCUS.jpg, PXL_20260930_004518127.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "note": "bottom of what the system drew in the top strip"
+   },
+   "capsule_ends": {
+    "value": {
+     "top": {
+      "cx": 105.72,
+      "cy": 102.7,
+      "r": 105.39,
+      "r_raw": 105.91,
+      "points": 232,
+      "fit_rms_px": 0.149,
+      "expect": {
+       "cx": 106,
+       "cy": 106,
+       "r": 106
+      },
+      "hidden_top_px": -2.69,
+      "hidden_left_px": 0.32,
+      "hidden_right_px": 0.89
+     },
+     "bottom": {
+      "cx": 105.99,
+      "cy": 415.43,
+      "r": 104.86,
+      "r_raw": 105.37,
+      "points": 232,
+      "fit_rms_px": 0.156,
+      "expect": {
+       "cx": 106,
+       "cy": 414,
+       "r": 106
+      },
+      "hidden_bottom_px": -0.28,
+      "hidden_left_px": 1.14,
+      "hidden_right_px": 1.15
+     }
+    },
+    "status": "measured",
+    "source": "face-calib photos PXL_20260929_030603545.MACRO_FOCUS.jpg",
+    "date": "2026-09-29"
+   },
+   "system_overlay": {
+    "value": "red notification dot drawn at the top centre over the face (seen on F7 and F8 normal views)",
+    "status": "measured",
+    "source": "watched + photos, round 2, a Band 11 fw 4.100.139, 2026-09-29",
+    "date": "2026-09-29"
+   }
+  },
+  "colour": {
+   "floor": {
+    "grey": {
+     "value": 16,
+     "status": "measured",
+     "source": "face-calib photos PXL_20260929_030614978.MACRO_FOCUS.MP.jpg",
+     "date": "2026-09-29",
+     "per_ramp": {
+      "grey": 24,
+      "grey_rgba32": 16,
+      "grey_lua": 16
+     },
+     "note": "lowest of the three grey ramps (background image, BGRA32 image, Lua fills); same panel, so glare on one ramp does not count; confirm by eye"
+    },
+    "grey_rgba32": {
+     "value": 16,
+     "status": "measured",
+     "source": "face-calib photos PXL_20260929_030614978.MACRO_FOCUS.MP.jpg",
+     "date": "2026-09-29",
+     "lumas": {
+      "#000000": 10.7,
+      "#080808": 9.8,
+      "#101010": 27.7,
+      "#181818": 39.8,
+      "#202020": 53.3,
+      "#282828": 66.3,
+      "#303030": 83.0,
+      "#383838": 96.9,
+      "#404040": 110.3,
+      "#484848": 122.4,
+      "#505050": 136.6,
+      "#585858": 142.9,
+      "#606060": 145.0
+     },
+     "black_luma": 10.7,
+     "threshold": 6.0,
+     "note": "lowest channel value the camera saw above black; confirm by eye"
+    },
+    "grey_lua": {
+     "value": 16,
+     "status": "measured",
+     "source": "face-calib photos PXL_20260929_030614978.MACRO_FOCUS.MP.jpg",
+     "date": "2026-09-29",
+     "lumas": {
+      "#000000": 6.4,
+      "#080808": 6.0,
+      "#101010": 26.5,
+      "#181818": 39.8,
+      "#202020": 53.8,
+      "#282828": 64.7,
+      "#303030": 81.1,
+      "#383838": 95.8,
+      "#404040": 111.0,
+      "#484848": 123.6,
+      "#505050": 136.7,
+      "#585858": 143.2,
+      "#606060": 144.4
+     },
+     "black_luma": 6.4,
+     "threshold": 6.0,
+     "note": "lowest channel value the camera saw above black; confirm by eye"
+    },
+    "red": {
+     "value": 32,
+     "status": "measured",
+     "source": "face-calib photos PXL_20260929_030614978.MACRO_FOCUS.MP.jpg",
+     "date": "2026-09-29",
+     "lumas": {
+      "#100000": 4.7,
+      "#200000": 17.3,
+      "#300000": 36.4,
+      "#400000": 43.5,
+      "#500000": 52.5,
+      "#600000": 66.8,
+      "#700000": 77.9,
+      "#800000": 81.3
+     },
+     "black_luma": 10.7,
+     "threshold": 6.0,
+     "note": "lowest channel value the camera saw above black; confirm by eye"
+    },
+    "green": {
+     "value": 48,
+     "status": "measured",
+     "source": "face-calib photos PXL_20260929_030614978.MACRO_FOCUS.MP.jpg",
+     "date": "2026-09-29",
+     "lumas": {
+      "#001000": 5.6,
+      "#002000": 15.1,
+      "#003000": 40.5,
+      "#004000": 61.9,
+      "#005000": 82.2,
+      "#006000": 102.5,
+      "#007000": 112.4,
+      "#008000": 113.7
+     },
+     "black_luma": 10.7,
+     "threshold": 6.0,
+     "note": "lowest channel value the camera saw above black; confirm by eye"
+    },
+    "blue": {
+     "value": 32,
+     "status": "measured",
+     "source": "face-calib photos PXL_20260929_030614978.MACRO_FOCUS.MP.jpg",
+     "date": "2026-09-29",
+     "lumas": {
+      "#000010": 11.1,
+      "#000020": 20.3,
+      "#000030": 27.2,
+      "#000040": 33.3,
+      "#000050": 39.0,
+      "#000060": 41.9,
+      "#000070": 38.6,
+      "#000080": 38.6
+     },
+     "black_luma": 10.7,
+     "threshold": 6.0,
+     "note": "lowest channel value the camera saw above black; confirm by eye"
+    },
+    "surface": {
+     "value": 32,
+     "status": "measured",
+     "source": "face-calib photos PXL_20260929_030614978.MACRO_FOCUS.MP.jpg",
+     "date": "2026-09-29",
+     "lumas": {
+      "#202020": 49.4,
+      "#282828": 61.5,
+      "#303030": 76.1,
+      "#383838": 90.6,
+      "#404040": 105.4,
+      "#484848": 115.3
+     },
+     "black_luma": 10.7,
+     "threshold": 6.0,
+     "note": "lowest channel value the camera saw above black; confirm by eye"
+    },
+    "grey_background": {
+     "value": 24,
+     "status": "measured",
+     "source": "face-calib photos PXL_20260929_030614978.MACRO_FOCUS.MP.jpg",
+     "date": "2026-09-29",
+     "lumas": {
+      "#000000": 21.5,
+      "#080808": 16.6,
+      "#101010": 32.6,
+      "#181818": 42.7,
+      "#202020": 55.2,
+      "#282828": 69.0,
+      "#303030": 83.5,
+      "#383838": 99.4,
+      "#404040": 115.0,
+      "#484848": 126.8,
+      "#505050": 137.5,
+      "#585858": 142.2,
+      "#606060": 146.9
+     },
+     "black_luma": 21.5,
+     "threshold": 11.5,
+     "note": "lowest channel value the camera saw above black; confirm by eye"
+    }
+   }
+  },
+  "image": {
+   "encoding": {
+    "png_indexed": {
+     "value": "correct",
+     "status": "measured",
+     "source": "face-calib photos PXL_20260929_030623652.MACRO_FOCUS.jpg",
+     "date": "2026-09-29",
+     "alpha": "honoured",
+     "detail": {
+      "verdict": "correct",
+      "quadrants": {
+       "tl": "white",
+       "tr": "red",
+       "bl": "green",
+       "br": "blue"
+      },
+      "lumas": {
+       "tl": 194.4,
+       "tr": 75.6,
+       "bl": 146.3,
+       "br": 27.8
+      },
+      "centre": "black",
+      "alpha": "honoured"
+     }
+    },
+    "png_rgba32": {
+     "value": "correct",
+     "status": "measured",
+     "source": "face-calib photos PXL_20260929_030623652.MACRO_FOCUS.jpg",
+     "date": "2026-09-29",
+     "alpha": "honoured",
+     "detail": {
+      "verdict": "correct",
+      "quadrants": {
+       "tl": "white",
+       "tr": "red",
+       "bl": "green",
+       "br": "blue"
+      },
+      "lumas": {
+       "tl": 194.1,
+       "tr": 72.3,
+       "bl": 148.6,
+       "br": 27.8
+      },
+      "centre": "black",
+      "alpha": "honoured"
+     }
+    }
+   },
+   "alpha_over_black": {
+    "value": "matches_opaque_grey",
+    "status": "measured",
+    "source": "face-calib photos PXL_20260929_030623652.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "detail": {
+     "alpha": [
+      39.5,
+      80.0,
+      113.6,
+      175.7,
+      222.0
+     ],
+     "grey": [
+      42.6,
+      85.8,
+      111.9,
+      181.0,
+      215.0
+     ],
+     "rms_diff": 7.3
+    }
+   },
+   "alpha_over_element": {
+    "value": "blend",
+    "status": "measured",
+    "source": "face-calib photos PXL_20260929_030623652.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "detail": {
+     "verdict": "blend",
+     "distances": {
+      "blend": 88.5,
+      "opaque": 170.8,
+      "missing": 118.8,
+      "over_black": 300.1
+     },
+     "normalised_rgb": [
+      327,
+      161,
+      252
+     ]
+    }
+   }
+  },
+  "lua": {
+   "runs": {
+    "value": true,
+    "status": "measured",
+    "source": "face-calib photos PXL_20260929_030614978.MACRO_FOCUS.MP.jpg, PXL_20260929_030623652.MACRO_FOCUS.jpg, PXL_20260929_235556255.MACRO_FOCUS.jpg, PXL_20260930_004326132.MACRO_FOCUS.jpg",
+    "date": "2026-09-29"
+   },
+   "image_format": {
+    "value": [
+     "png8",
+     "png_grey",
+     "png_rgb",
+     "png_rgba",
+     "v9_argb8888"
+    ],
+    "status": "measured",
+    "source": "face-calib photos PXL_20260929_030623652.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "per_format": {
+     "png_rgba": {
+      "verdict": "correct",
+      "alpha": "honoured"
+     },
+     "png8": {
+      "verdict": "correct",
+      "alpha": "honoured"
+     },
+     "png_grey": {
+      "verdict": "correct",
+      "alpha": "honoured"
+     },
+     "png_rgb": {
+      "verdict": "correct",
+      "alpha": "n/a (no alpha)"
+     },
+     "v8_tca32": {
+      "verdict": "garbled",
+      "alpha": "other:white"
+     },
+     "v8_tca16": {
+      "verdict": "garbled",
+      "alpha": "other:blue"
+     },
+     "v9_argb8888": {
+      "verdict": "correct",
+      "alpha": "honoured"
+     },
+     "v9_rgb565": {
+      "verdict": "garbled",
+      "alpha": "other:blue"
+     }
+    },
+    "note": "formats the Lua layer drew correctly (tile quadrants and alpha hole checked)"
+   },
+   "image_zoom": {
+    "value": {
+     "zoom": "scaled",
+     "scale": "not_scaled"
+    },
+    "status": "measured",
+    "source": "face-calib photos PXL_20260929_030623652.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "note": "Image:set{zoom=512} / set{scale=512} on a 32 px PNG: scaled means it drew ~64 px"
+   },
+   "api_status": {
+    "value": {
+     "alive": "ok",
+     "object_fill": "ok",
+     "image_png_rgba": "ok",
+     "image_png8": "ok",
+     "image_png_grey": "ok",
+     "image_png_rgb": "ok",
+     "image_v8_tca32": "ok",
+     "image_v8_tca16": "ok",
+     "image_v9_argb8888": "ok",
+     "image_v9_rgb565": "ok",
+     "image_zoom": "ok",
+     "image_scale": "ok",
+     "place_0": "ok",
+     "place_1": "ok",
+     "hor_res": "ok",
+     "ver_res": "ok",
+     "lua_hour": "ok",
+     "lua_minute": "ok",
+     "raw_minute_low": "ok",
+     "label": "ok",
+     "timer": "ok"
+    },
+    "status": "measured",
+    "source": "face-calib photos PXL_20260929_030614978.MACRO_FOCUS.MP.jpg, PXL_20260929_030623652.MACRO_FOCUS.jpg, PXL_20260929_235556255.MACRO_FOCUS.jpg, PXL_20260930_004326132.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "note": "ok = the pcall returned; error = it raised; not_drawn = the script never got there (or did not run)"
+   },
+   "placement_offset_px": {
+    "value": {
+     "dx": 0.14,
+     "dy": -0.23
+    },
+    "status": "measured",
+    "source": "face-calib photos PXL_20260930_004326132.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "note": "drawn position minus the requested x, y (band px, +-0.5)"
+   },
+   "canvas_px": {
+    "value": {
+     "w": 212,
+     "h": 520
+    },
+    "status": "measured",
+    "source": "face-calib photos PXL_20260930_004326132.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "note": "lvgl.HOR_RES() / VER_RES() as the Lua layer reports them"
+   },
+   "dataman_scale": {
+    "value": 256.0,
+    "status": "measured",
+    "source": "face-calib photos PXL_20260930_004326132.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "raw_minute_low": 768,
+    "minute": 43
+   },
+   "time_matches_widget": {
+    "value": true,
+    "status": "measured",
+    "source": "face-calib photos PXL_20260930_004326132.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "lua": [
+     5,
+     43
+    ],
+    "widget": [
+     5,
+     43
+    ]
+   },
+   "label_draws": {
+    "value": true,
+    "status": "measured",
+    "source": "face-calib photos PXL_20260930_004326132.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "detail": {
+     "present": true,
+     "peak_luma": 184.5
+    }
+   },
+   "timer_runs": {
+    "value": true,
+    "status": "measured",
+    "source": "watched + photos, round 2, a Band 11 fw 4.100.139, 2026-09-29",
+    "date": "2026-09-29"
+   },
+   "runs_on_aod": {
+    "value": true,
+    "status": "measured",
+    "source": "watched + photos, round 2, a Band 11 fw 4.100.139, 2026-09-29",
+    "date": "2026-09-29",
+    "note": "the toolkit never put a script on AOD; F8 tests it directly",
+    "photo_check": {
+     "value": true,
+     "source": "face-calib photos PXL_20260929_235559318.MACRO_FOCUS.jpg",
+     "widget_square": {
+      "present": true,
+      "colour": "green",
+      "rgb": [
+       23,
+       174,
+       94
+      ]
+     },
+     "lua_square": {
+      "present": true,
+      "colour": "green",
+      "rgb": [
+       23,
+       171,
+       94
+      ]
+     }
+    }
+   },
+   "object_fill_lumas": {
+    "value": {
+     "#ffffff": 141.8,
+     "#808080": 120.1,
+     "#404040": 54.0
+    },
+    "status": "measured",
+    "source": "face-calib photos PXL_20260930_004326132.MACRO_FOCUS.jpg",
+    "date": "2026-09-29"
+   }
+  },
+  "widgets": {
+   "placement_offset_px": {
+    "value": {
+     "dx": 0.04,
+     "dy": -0.23
+    },
+    "status": "measured",
+    "source": "face-calib photos PXL_20260930_004326132.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "note": "drawn position minus the requested x, y (band px, +-0.5)"
+   },
+   "number": {
+    "align": {
+     "value": {
+      "left": {
+       "verdict": "anchor_left",
+       "cells": 4,
+       "count": 5,
+       "value": 1368,
+       "distances": {
+        "anchor_left": 0.08,
+        "anchor_centre": 32.08,
+        "anchor_right": 64.08,
+        "box_centre": 7.92,
+        "box_right": 15.92
+       }
+      },
+      "center": {
+       "verdict": "anchor_centre",
+       "cells": 4,
+       "count": 5,
+       "value": 1368,
+       "distances": {
+        "anchor_left": 31.81,
+        "anchor_centre": 0.19,
+        "anchor_right": 32.19,
+        "box_centre": 39.81,
+        "box_right": 47.81
+       }
+      },
+      "right": {
+       "verdict": "anchor_right",
+       "cells": 4,
+       "count": 5,
+       "value": 1368,
+       "distances": {
+        "anchor_left": 63.42,
+        "anchor_centre": 31.42,
+        "anchor_right": 0.58,
+        "box_centre": 71.42,
+        "box_right": 79.42
+       }
+      },
+      "battery_center": {
+       "verdict": "anchor_centre",
+       "cells": 3,
+       "count": 3,
+       "value": 100,
+       "distances": {
+        "anchor_left": 29.71,
+        "anchor_centre": 5.71,
+        "anchor_right": 18.29,
+        "box_centre": 29.71,
+        "box_right": 29.71
+       }
+      }
+     },
+     "status": "measured",
+     "source": "face-calib photos PXL_20260929_030631001.MACRO_FOCUS.MP.jpg",
+     "date": "2026-09-29",
+     "note": "anchor_* = x is the left/centre/right of the digits drawn; box_* = the digits are aligned inside a slot of `count` cells starting at x. Only told apart when fewer digits than `count` are drawn."
+    },
+    "spacing_px": {
+     "value": {
+      "6": 5.79,
+      "-3": -3.11
+     },
+     "status": "measured",
+     "source": "face-calib photos PXL_20260929_030631001.MACRO_FOCUS.MP.jpg",
+     "date": "2026-09-29",
+     "note": "requested spacing -> measured gap between cells; a huge gap for -3 means the byte is read unsigned"
+    },
+    "pads_to_count": {
+     "value": false,
+     "status": "measured",
+     "source": "face-calib photos PXL_20260929_030631001.MACRO_FOCUS.MP.jpg",
+     "date": "2026-09-29",
+     "steps": 1368,
+     "cells": 4
+    },
+    "leading_zero": {
+     "value": {
+      "minute": {
+       "lz": true,
+       "digits": "06"
+      },
+      "hour": {
+       "lz": false,
+       "digits": "8"
+      },
+      "second": {
+       "lz": true,
+       "digits": "29"
+      }
+     },
+     "status": "measured",
+     "source": "face-calib photos PXL_20260929_030631001.MACRO_FOCUS.MP.jpg",
+     "date": "2026-09-29"
+    },
+    "unit_gap_px": {
+     "value": 0.88,
+     "status": "measured",
+     "source": "face-calib photos PXL_20260929_030631001.MACRO_FOCUS.MP.jpg",
+     "date": "2026-09-29",
+     "note": "gap between the last digit and the unit image"
+    },
+    "second_updates": {
+     "value": null,
+     "status": "unknown",
+     "source": "not measured yet: tools/face-calib (build the calibration faces, photograph them, measure_face.py run)",
+     "date": "2026-09-28"
+    }
+   },
+   "number_anchor_fixed": {
+    "value": false,
+    "status": "measured",
+    "source": "face-calib photos PXL_20260929_030631001.MACRO_FOCUS.MP.jpg",
+    "date": "2026-09-29",
+    "centre_verdict": "anchor_centre"
+   },
+   "image_list": {
+    "fallback": {
+     "value": "floor|ceil|nearest",
+     "status": "measured",
+     "source": "face-calib photos PXL_20260929_030637991.MACRO_FOCUS.MP.jpg",
+     "date": "2026-09-29",
+     "battery": 100,
+     "frame_value": 100,
+     "note": "several names = this battery value cannot tell them apart; retake at another charge"
+    },
+    "below_first": {
+     "value": "frame 101",
+     "status": "measured",
+     "source": "face-calib photos PXL_20260929_030637991.MACRO_FOCUS.MP.jpg",
+     "date": "2026-09-29",
+     "battery": 100
+    },
+    "above_last": {
+     "value": "frame 1",
+     "status": "measured",
+     "source": "face-calib photos PXL_20260929_030637991.MACRO_FOCUS.MP.jpg",
+     "date": "2026-09-29",
+     "battery": 100
+    },
+    "u16_values": {
+     "value": 1000,
+     "status": "measured",
+     "source": "face-calib photos PXL_20260929_030637991.MACRO_FOCUS.MP.jpg",
+     "date": "2026-09-29",
+     "note": "frame shown for steps with frames at 0/1000/5000/10000 (values above 255 work if not always 0)"
+    }
+   },
+   "image_list_frames_same_size": {
+    "value": true,
+    "status": "measured",
+    "source": "face-calib photos PXL_20260929_030637991.MACRO_FOCUS.MP.jpg",
+    "date": "2026-09-29",
+    "status_note": "format rule: an image-list block has one width/height for all frames (parser/imageCodec.ts)"
+   }
+  },
+  "data_sources": {
+   "weekday_sunday_zero": {
+    "value": true,
+    "status": "measured",
+    "source": "face-calib photos PXL_20260929_030637991.MACRO_FOCUS.MP.jpg",
+    "date": "2026-09-29",
+    "shown": 1,
+    "photo_weekday": "Monday"
+   },
+   "month_one_based": {
+    "value": true,
+    "status": "measured",
+    "source": "face-calib photos PXL_20260929_030637991.MACRO_FOCUS.MP.jpg",
+    "date": "2026-09-29",
+    "shown": 9,
+    "photo_month": 9
+   },
+   "hour_observed": {
+    "value": {
+     "widget": 8,
+     "photo_hour": 20,
+     "looks_12h": true
+    },
+    "status": "measured",
+    "source": "face-calib photos PXL_20260929_030637991.MACRO_FOCUS.MP.jpg",
+    "date": "2026-09-29",
+    "note": "record the band's 12/24-hour setting with `set data_sources.hour_follows_12_24_setting`"
+   },
+   "hour_follows_12_24_setting": {
+    "value": true,
+    "status": "assumed",
+    "source": "two watch faces built with this agent (Vriddhi, Mor Pankh) on the band, not a calibration photo",
+    "date": "2026-09-28"
+   },
+   "temperatureF_D031": {
+    "value": true,
+    "status": "measured",
+    "source": "°F test face on the Band 11, fw 4.100.139, 2026-09-24 (vendor/README.md)",
+    "date": "2026-09-28"
+   }
+  },
+  "aod": {
+   "shows": {
+    "value": "the face AOD view (F7 page 8 ALWAYS-ON) replaces the normal view about 4 s after the last touch",
+    "status": "measured",
+    "source": "watched + photos, round 2, a Band 11 fw 4.100.139, 2026-09-29",
+    "date": "2026-09-29",
+    "photo_check": {
+     "value": "face_aod",
+     "source": "face-calib photos PXL_20260930_004239459.MACRO_FOCUS.jpg",
+     "note": "the photo of the dimmed band shows the face's own AOD view (barcode p8)"
+    }
+   },
+   "dim_ratio": {
+    "value": 0.5,
+    "status": "measured",
+    "source": "by eye (user), a Band 11 fw 4.100.139, 2026-09-29; photo pair not usable (exposure not locked)",
+    "date": "2026-09-29",
+    "note": "exposure differs between the two photos (EXIF time x ISO / f^2), so the ratio is not the dimming. level_shape (each swatch / #ffffff within one photo) is still valid. Retake F7 with exposure locked."
+   },
+   "colour_floor_grey": {
+    "value": 24,
+    "status": "measured",
+    "source": "face-calib photos PXL_20260930_004239459.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "lumas": {
+     "#000000": 2.6,
+     "#080808": 2.1,
+     "#101010": 2.8,
+     "#181818": 18.8,
+     "#202020": 33.6,
+     "#282828": 41.3,
+     "#303030": 50.2,
+     "#383838": 59.3,
+     "#404040": 70.6,
+     "#484848": 79.8,
+     "#505050": 92.8,
+     "#585858": 104.6,
+     "#606060": 113.3
+    }
+   },
+   "number_widgets": {
+    "value": {
+     "hour": 5,
+     "minute": 42,
+     "second": 22,
+     "battery": 100
+    },
+    "status": "measured",
+    "source": "face-calib photos PXL_20260930_004239459.MACRO_FOCUS.jpg",
+    "date": "2026-09-29",
+    "note": "values the AOD number widgets drew"
+   },
+   "second_updates": {
+    "value": false,
+    "status": "measured",
+    "source": "watched + photos, round 2, a Band 11 fw 4.100.139, 2026-09-29",
+    "date": "2026-09-29"
+   }
+  }
+ }
+}

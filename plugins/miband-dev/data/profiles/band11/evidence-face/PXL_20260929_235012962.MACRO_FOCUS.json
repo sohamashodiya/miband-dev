@@ -1,0 +1,676 @@
+{
+ "exposure": {
+  "t": 0.004757,
+  "iso": 39,
+  "f": 1.7
+ },
+ "photo": "PXL_20260929_235012962.MACRO_FOCUS.jpg",
+ "page": 6,
+ "page_key": "lua",
+ "face": 6,
+ "theme": "normal",
+ "taken_at": "2026-09-29T16:50:12",
+ "fit": {
+  "rms_band_px": [
+   0.262,
+   0.154
+  ],
+  "ticks": 72,
+  "dropped": 1,
+  "bloom_px": 0.4,
+  "photo_px_per_band_px": [
+   3.68,
+   3.673
+  ],
+  "edges": {
+   "left_first_visible_x": 0.9658991760175406,
+   "right_last_visible_x": 210.89933469701654,
+   "ticks_seen_left": 36,
+   "ticks_seen_right": 37,
+   "first_tick_y_left": 80,
+   "last_tick_y_left": 430
+  },
+  "ok": true,
+  "notes": [],
+  "rotation": "ccw90 (screen isolated)"
+ },
+ "ruler_edges": {
+  "left": 0.9,
+  "right": 1.02,
+  "rows": 31
+ },
+ "samples": [
+  {
+   "id": "lua.0",
+   "type": "overlay",
+   "spec": {
+    "type": "overlay",
+    "region": [
+     24,
+     0,
+     188,
+     42
+    ],
+    "id": "lua.0"
+   },
+   "result": {
+    "found": true,
+    "bbox": [
+     96.4,
+     4.6,
+     115.1,
+     24.5
+    ],
+    "blobs": [
+     [
+      96.4,
+      4.6,
+      115.1,
+      24.5,
+      287.1
+     ]
+    ],
+    "colour": "red",
+    "centre": [
+     105.8,
+     14.6
+    ],
+    "size": [
+     18.8,
+     19.9
+    ]
+   }
+  },
+  {
+   "id": "lua.1",
+   "type": "status",
+   "spec": {
+    "type": "status",
+    "test": "alive",
+    "box": {
+     "x": 180,
+     "y": 56,
+     "w": 6,
+     "h": 6
+    },
+    "id": "lua.1"
+   },
+   "result": {
+    "status": "ok",
+    "rgb": [
+     18,
+     173,
+     93
+    ]
+   }
+  },
+  {
+   "id": "lua.2",
+   "type": "target",
+   "spec": {
+    "type": "target",
+    "layer": "widget",
+    "box": {
+     "x": 30,
+     "y": 68,
+     "w": 32,
+     "h": 32
+    },
+    "id": "lua.2"
+   },
+   "result": {
+    "left": 30.3,
+    "top": 67.58,
+    "w": 31.89,
+    "h": 32.13,
+    "dx": 0.3,
+    "dy": -0.42
+   }
+  },
+  {
+   "id": "lua.3",
+   "type": "target",
+   "spec": {
+    "type": "target",
+    "layer": "lua",
+    "box": {
+     "x": 110,
+     "y": 68,
+     "w": 32,
+     "h": 32
+    },
+    "id": "lua.3"
+   },
+   "result": {
+    "left": 109.77,
+    "top": 67.66,
+    "w": 31.9,
+    "h": 32.28,
+    "dx": -0.23,
+    "dy": -0.34
+   }
+  },
+  {
+   "id": "lua.4",
+   "type": "status",
+   "spec": {
+    "type": "status",
+    "test": "place_0",
+    "box": {
+     "x": 180,
+     "y": 81,
+     "w": 6,
+     "h": 6
+    },
+    "id": "lua.4"
+   },
+   "result": {
+    "status": "ok",
+    "rgb": [
+     17,
+     157,
+     91
+    ]
+   }
+  },
+  {
+   "id": "lua.5",
+   "type": "target",
+   "spec": {
+    "type": "target",
+    "layer": "widget",
+    "box": {
+     "x": 110,
+     "y": 112,
+     "w": 32,
+     "h": 32
+    },
+    "id": "lua.5"
+   },
+   "result": {
+    "left": 109.62,
+    "top": 112.0,
+    "w": 31.92,
+    "h": 31.93,
+    "dx": -0.38,
+    "dy": 0.0
+   }
+  },
+  {
+   "id": "lua.6",
+   "type": "target",
+   "spec": {
+    "type": "target",
+    "layer": "lua",
+    "box": {
+     "x": 30,
+     "y": 112,
+     "w": 32,
+     "h": 32
+    },
+    "id": "lua.6"
+   },
+   "result": {
+    "left": 30.5,
+    "top": 111.86,
+    "w": 31.75,
+    "h": 32.08,
+    "dx": 0.5,
+    "dy": -0.14
+   }
+  },
+  {
+   "id": "lua.7",
+   "type": "status",
+   "spec": {
+    "type": "status",
+    "test": "place_1",
+    "box": {
+     "x": 180,
+     "y": 125,
+     "w": 6,
+     "h": 6
+    },
+    "id": "lua.7"
+   },
+   "result": {
+    "status": "ok",
+    "rgb": [
+     16,
+     160,
+     105
+    ]
+   }
+  },
+  {
+   "id": "lua.8",
+   "type": "digits",
+   "spec": {
+    "type": "digits",
+    "what": "hor_res",
+    "n": 3,
+    "x": 30,
+    "y": 156,
+    "id": "lua.8"
+   },
+   "result": {
+    "value": 212
+   }
+  },
+  {
+   "id": "lua.9",
+   "type": "status",
+   "spec": {
+    "type": "status",
+    "test": "hor_res",
+    "box": {
+     "x": 180,
+     "y": 160,
+     "w": 6,
+     "h": 6
+    },
+    "id": "lua.9"
+   },
+   "result": {
+    "status": "ok",
+    "rgb": [
+     18,
+     157,
+     115
+    ]
+   }
+  },
+  {
+   "id": "lua.10",
+   "type": "digits",
+   "spec": {
+    "type": "digits",
+    "what": "ver_res",
+    "n": 3,
+    "x": 110,
+    "y": 156,
+    "id": "lua.10"
+   },
+   "result": {
+    "value": 520
+   }
+  },
+  {
+   "id": "lua.11",
+   "type": "status",
+   "spec": {
+    "type": "status",
+    "test": "ver_res",
+    "box": {
+     "x": 180,
+     "y": 176,
+     "w": 6,
+     "h": 6
+    },
+    "id": "lua.11"
+   },
+   "result": {
+    "status": "ok",
+    "rgb": [
+     20,
+     157,
+     112
+    ]
+   }
+  },
+  {
+   "id": "lua.12",
+   "type": "digits",
+   "spec": {
+    "type": "digits",
+    "what": "hour",
+    "n": 2,
+    "x": 30,
+    "y": 200,
+    "id": "lua.12"
+   },
+   "result": {
+    "value": 4
+   }
+  },
+  {
+   "id": "lua.13",
+   "type": "status",
+   "spec": {
+    "type": "status",
+    "test": "lua_hour",
+    "box": {
+     "x": 180,
+     "y": 204,
+     "w": 6,
+     "h": 6
+    },
+    "id": "lua.13"
+   },
+   "result": {
+    "status": "ok",
+    "rgb": [
+     19,
+     161,
+     117
+    ]
+   }
+  },
+  {
+   "id": "lua.14",
+   "type": "digits",
+   "spec": {
+    "type": "digits",
+    "what": "minute",
+    "n": 2,
+    "x": 66,
+    "y": 200,
+    "id": "lua.14"
+   },
+   "result": {
+    "value": 50
+   }
+  },
+  {
+   "id": "lua.15",
+   "type": "status",
+   "spec": {
+    "type": "status",
+    "test": "lua_minute",
+    "box": {
+     "x": 180,
+     "y": 220,
+     "w": 6,
+     "h": 6
+    },
+    "id": "lua.15"
+   },
+   "result": {
+    "status": "ok",
+    "rgb": [
+     20,
+     157,
+     95
+    ]
+   }
+  },
+  {
+   "id": "lua.16",
+   "type": "number",
+   "spec": {
+    "type": "number",
+    "source": "hour",
+    "x": 110,
+    "y": 200,
+    "align": "left",
+    "count": 2,
+    "spacing": 0,
+    "lz": true,
+    "region": [
+     108,
+     144
+    ],
+    "row": 3,
+    "id": "lua.16"
+   },
+   "result": {
+    "left": 109.62,
+    "right": 141.58,
+    "width": 31.96,
+    "cells": 2,
+    "digits": "04",
+    "value": 4,
+    "verdict": "anchor_left|box_centre|box_right",
+    "distances": {
+     "anchor_left": 0.38,
+     "anchor_centre": 15.62,
+     "anchor_right": 31.62,
+     "box_centre": 0.38,
+     "box_right": 0.38
+    }
+   }
+  },
+  {
+   "id": "lua.17",
+   "type": "number",
+   "spec": {
+    "type": "number",
+    "source": "minute",
+    "x": 146,
+    "y": 200,
+    "align": "left",
+    "count": 2,
+    "spacing": 0,
+    "lz": true,
+    "region": [
+     144,
+     180
+    ],
+    "row": 3,
+    "id": "lua.17"
+   },
+   "result": {
+    "left": 145.6,
+    "right": 177.32,
+    "width": 31.72,
+    "cells": 2,
+    "digits": "50",
+    "value": 50,
+    "verdict": "anchor_left|box_centre|box_right",
+    "distances": {
+     "anchor_left": 0.4,
+     "anchor_centre": 15.6,
+     "anchor_right": 31.6,
+     "box_centre": 0.4,
+     "box_right": 0.4
+    }
+   }
+  },
+  {
+   "id": "lua.18",
+   "type": "digits",
+   "spec": {
+    "type": "digits",
+    "what": "raw_minute_low",
+    "n": 6,
+    "x": 30,
+    "y": 244,
+    "id": "lua.18"
+   },
+   "result": {
+    "value": 0
+   }
+  },
+  {
+   "id": "lua.19",
+   "type": "status",
+   "spec": {
+    "type": "status",
+    "test": "raw_minute_low",
+    "box": {
+     "x": 180,
+     "y": 257,
+     "w": 6,
+     "h": 6
+    },
+    "id": "lua.19"
+   },
+   "result": {
+    "status": "ok",
+    "rgb": [
+     14,
+     156,
+     89
+    ]
+   }
+  },
+  {
+   "id": "lua.20",
+   "type": "status",
+   "spec": {
+    "type": "status",
+    "test": "label",
+    "box": {
+     "x": 180,
+     "y": 292,
+     "w": 6,
+     "h": 6
+    },
+    "id": "lua.20"
+   },
+   "result": {
+    "status": "ok",
+    "rgb": [
+     16,
+     157,
+     76
+    ]
+   }
+  },
+  {
+   "id": "lua.21",
+   "type": "presence",
+   "spec": {
+    "type": "presence",
+    "what": "lua_label",
+    "box": {
+     "x": 30,
+     "y": 288,
+     "w": 100,
+     "h": 22
+    },
+    "id": "lua.21"
+   },
+   "result": {
+    "present": true,
+    "peak_luma": 204.3
+   }
+  },
+  {
+   "id": "lua.22",
+   "type": "status",
+   "spec": {
+    "type": "status",
+    "test": "object_fill",
+    "box": {
+     "x": 180,
+     "y": 318,
+     "w": 6,
+     "h": 6
+    },
+    "id": "lua.22"
+   },
+   "result": {
+    "status": "ok",
+    "rgb": [
+     17,
+     157,
+     75
+    ]
+   }
+  },
+  {
+   "id": "lua.23",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "lua_fill",
+    "hex": "#ffffff",
+    "value": 255,
+    "box": {
+     "x": 30,
+     "y": 318,
+     "w": 24,
+     "h": 16
+    },
+    "id": "lua.23"
+   },
+   "result": {
+    "rgb": [
+     101.7,
+     145.7,
+     212.9
+    ],
+    "luma": 140.2,
+    "sd": 25.43
+   }
+  },
+  {
+   "id": "lua.24",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "lua_fill",
+    "hex": "#808080",
+    "value": 128,
+    "box": {
+     "x": 58,
+     "y": 318,
+     "w": 24,
+     "h": 16
+    },
+    "id": "lua.24"
+   },
+   "result": {
+    "rgb": [
+     92.7,
+     125.2,
+     193.0
+    ],
+    "luma": 123.2,
+    "sd": 24.43
+   }
+  },
+  {
+   "id": "lua.25",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "lua_fill",
+    "hex": "#404040",
+    "value": 64,
+    "box": {
+     "x": 86,
+     "y": 318,
+     "w": 24,
+     "h": 16
+    },
+    "id": "lua.25"
+   },
+   "result": {
+    "rgb": [
+     34.4,
+     41.9,
+     78.1
+    ],
+    "luma": 43.8,
+    "sd": 3.83
+   }
+  },
+  {
+   "id": "lua.26",
+   "type": "status",
+   "spec": {
+    "type": "status",
+    "test": "timer",
+    "box": {
+     "x": 180,
+     "y": 328,
+     "w": 6,
+     "h": 6
+    },
+    "id": "lua.26"
+   },
+   "result": {
+    "status": "ok",
+    "rgb": [
+     16,
+     161,
+     89
+    ]
+   }
+  }
+ ],
+ "layout": "face-calib/band11 b1",
+ "measured_at": "2026-09-29T17:22:24"
+}

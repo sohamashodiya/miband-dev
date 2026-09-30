@@ -1,0 +1,241 @@
+{
+ "photo": "PXL_20260929_025959482.MACRO_FOCUS.jpg",
+ "page": 10,
+ "page_key": "tw1",
+ "kit": "2.0.0",
+ "fit": {
+  "rms_band_px": [
+   0.231,
+   0.14
+  ],
+  "ticks": 70,
+  "dropped": 5,
+  "bloom_px": 0.75,
+  "photo_px_per_band_px": [
+   4.327,
+   4.31
+  ],
+  "edges": {
+   "left_first_visible_x": 0.22052569301416491,
+   "right_last_visible_x": 210.7254681754374,
+   "ticks_seen_left": 31,
+   "ticks_seen_right": 31,
+   "first_tick_y_left": 110,
+   "last_tick_y_left": 410
+  },
+  "ok": true,
+  "notes": []
+ },
+ "samples": [
+  {
+   "id": "tw1.0",
+   "type": "wrap",
+   "spec": {
+    "type": "wrap",
+    "key": "lineheight32",
+    "str": "The quick brown fox jumps over the dog",
+    "px": 20,
+    "css": {
+     "line-height": "32px"
+    },
+    "outline": "pink",
+    "box": {
+     "x": 24,
+     "y": 52,
+     "w": 136,
+     "h": null
+    },
+    "slot": {
+     "x": 24,
+     "y": 52,
+     "w": 136,
+     "h": 164
+    },
+    "border": 1,
+    "id": "tw1.0"
+   },
+   "result": {
+    "box": {
+     "top": 50.90872831474597,
+     "bottom": 180.86070369149638,
+     "left": 23.467446613279947,
+     "right": 159.63541464379853
+    },
+    "content_h": 127.95197537675041,
+    "lines": 4,
+    "line_boxes": [
+     {
+      "top": 6.9662716852540285,
+      "bottom": 29.46627168525403,
+      "left": 1.2825533867200534,
+      "right": 36.385414643798526
+     },
+     {
+      "top": 39.71627168525403,
+      "bottom": 57.46627168525403,
+      "left": 1.2825533867200534,
+      "right": 33.385414643798526
+     },
+     {
+      "top": 72.09127168525403,
+      "bottom": 93.59127168525403,
+      "left": 1.2825533867200534,
+      "right": 23.635414643798526
+     },
+     {
+      "top": 104.84127168525403,
+      "bottom": 126.09127168525403,
+      "left": 1.2825533867200534,
+      "right": 57.885414643798526
+     }
+    ],
+    "line_pitch": 32.5,
+    "align": "left",
+    "align_spread": {
+     "left": 0.0,
+     "right": 34.25,
+     "center": 34.25
+    },
+    "ellipsis": false,
+    "ink_outside_box": false
+   }
+  },
+  {
+   "id": "tw1.1",
+   "type": "wrap",
+   "spec": {
+    "type": "wrap",
+    "key": "left",
+    "str": "The quick brown fox jumps over the dog",
+    "px": 20,
+    "css": {
+     "text-align": "left"
+    },
+    "outline": "pink",
+    "box": {
+     "x": 24,
+     "y": 224,
+     "w": 136,
+     "h": null
+    },
+    "slot": {
+     "x": 24,
+     "y": 224,
+     "w": 136,
+     "h": 154
+    },
+    "border": 1,
+    "id": "tw1.1"
+   },
+   "result": {
+    "box": {
+     "top": 223.7508885966658,
+     "bottom": 333.4994114056505,
+     "left": 24.60803494391717,
+     "right": 159.56236235525307
+    },
+    "content_h": 107.74852280898472,
+    "lines": 4,
+    "line_boxes": [
+     {
+      "top": 5.3741114033342114,
+      "bottom": 26.62411140333421,
+      "left": 1.2669650560828316,
+      "right": 36.31236235525307
+     },
+     {
+      "top": 31.74911140333421,
+      "bottom": 49.37411140333421,
+      "left": 1.2669650560828316,
+      "right": 32.43736235525307
+     },
+     {
+      "top": 58.62411140333421,
+      "bottom": 80.99911140333421,
+      "left": 1.2669650560828316,
+      "right": 23.18736235525307
+     },
+     {
+      "top": 86.49911140333421,
+      "bottom": 106.49911140333421,
+      "left": 1.2669650560828316,
+      "right": 58.06236235525307
+     }
+    ],
+    "line_pitch": 25.5,
+    "align": "left",
+    "align_spread": {
+     "left": 0.0,
+     "right": 34.875,
+     "center": 34.875
+    },
+    "ellipsis": false,
+    "ink_outside_box": false
+   }
+  },
+  {
+   "id": "tw1.2",
+   "type": "wrap",
+   "spec": {
+    "type": "wrap",
+    "key": "lines2-ellipsis",
+    "str": "The quick brown fox jumps over the dog",
+    "px": 20,
+    "css": {
+     "lines": 2,
+     "text-overflow": "ellipsis"
+    },
+    "outline": "pink",
+    "box": {
+     "x": 24,
+     "y": 386,
+     "w": 136,
+     "h": null
+    },
+    "slot": {
+     "x": 24,
+     "y": 386,
+     "w": 136,
+     "h": 64
+    },
+    "border": 1,
+    "id": "tw1.2"
+   },
+   "result": {
+    "box": {
+     "top": 385.4028669635609,
+     "bottom": 441.4064371257485,
+     "left": 24.71085616438356,
+     "right": 159.68519655514132
+    },
+    "content_h": 54.0035701621876,
+    "lines": 2,
+    "line_boxes": [
+     {
+      "top": 3.097133036439118,
+      "bottom": 27.472133036439118,
+      "left": 1.2891438356164393,
+      "right": 36.31019655514132
+     },
+     {
+      "top": 29.972133036439118,
+      "bottom": 52.72213303643912,
+      "left": 1.2891438356164393,
+      "right": 3.3101965551413173
+     }
+    ],
+    "line_pitch": 25.25,
+    "align": "left",
+    "align_spread": {
+     "left": 0.0,
+     "right": 33.0,
+     "center": 33.0
+    },
+    "ellipsis": true,
+    "ink_outside_box": false
+   }
+  }
+ ],
+ "layout": "band11.json",
+ "measured_at": "2026-09-29T06:26:28"
+}

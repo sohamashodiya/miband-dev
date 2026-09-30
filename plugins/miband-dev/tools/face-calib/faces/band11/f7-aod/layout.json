@@ -1,0 +1,169 @@
+{
+  "$schema": "../../../../../vendor/band10-toolkit/schemas/layout.schema.json",
+  "formatVersion": 1,
+  "canvas": {
+    "width": 212,
+    "height": 520,
+    "clip": "pill"
+  },
+  "assets": {
+    "digitSets": {
+      "cell": {
+        "digits": [
+          "assets/digits/0.png",
+          "assets/digits/1.png",
+          "assets/digits/2.png",
+          "assets/digits/3.png",
+          "assets/digits/4.png",
+          "assets/digits/5.png",
+          "assets/digits/6.png",
+          "assets/digits/7.png",
+          "assets/digits/8.png",
+          "assets/digits/9.png"
+        ],
+        "minus": "assets/digits/minus.png"
+      }
+    }
+  },
+  "normal": {
+    "background": "#000000",
+    "widgets": [
+      {
+        "id": "bg-normal",
+        "type": "image",
+        "asset": "assets/bg_normal.png",
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "allowOverlap": true
+      },
+      {
+        "id": "normal-hour",
+        "type": "number",
+        "source": "hour",
+        "digitSet": "cell",
+        "digits": 2,
+        "align": "left",
+        "spacing": 0,
+        "leadingZero": true,
+        "x": 30,
+        "y": 160,
+        "z": 1,
+        "allowOverlap": true
+      },
+      {
+        "id": "normal-minute",
+        "type": "number",
+        "source": "minute",
+        "digitSet": "cell",
+        "digits": 2,
+        "align": "left",
+        "spacing": 0,
+        "leadingZero": true,
+        "x": 70,
+        "y": 160,
+        "z": 2,
+        "allowOverlap": true
+      },
+      {
+        "id": "normal-second",
+        "type": "number",
+        "source": "second",
+        "digitSet": "cell",
+        "digits": 2,
+        "align": "left",
+        "spacing": 0,
+        "leadingZero": true,
+        "x": 110,
+        "y": 160,
+        "z": 3,
+        "allowOverlap": true
+      },
+      {
+        "id": "normal-battery",
+        "type": "number",
+        "source": "battery",
+        "digitSet": "cell",
+        "digits": 3,
+        "align": "left",
+        "spacing": 0,
+        "leadingZero": false,
+        "x": 30,
+        "y": 204,
+        "z": 4,
+        "allowOverlap": true
+      }
+    ]
+  },
+  "aod": {
+    "enabled": true,
+    "background": "#000000",
+    "widgets": [
+      {
+        "id": "bg-aod",
+        "type": "image",
+        "asset": "assets/bg_aod.png",
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "allowOverlap": true
+      },
+      {
+        "id": "aod-hour",
+        "type": "number",
+        "source": "hour",
+        "digitSet": "cell",
+        "digits": 2,
+        "align": "left",
+        "spacing": 0,
+        "leadingZero": true,
+        "x": 30,
+        "y": 160,
+        "z": 1,
+        "allowOverlap": true
+      },
+      {
+        "id": "aod-minute",
+        "type": "number",
+        "source": "minute",
+        "digitSet": "cell",
+        "digits": 2,
+        "align": "left",
+        "spacing": 0,
+        "leadingZero": true,
+        "x": 70,
+        "y": 160,
+        "z": 2,
+        "allowOverlap": true
+      },
+      {
+        "id": "aod-second",
+        "type": "number",
+        "source": "second",
+        "digitSet": "cell",
+        "digits": 2,
+        "align": "left",
+        "spacing": 0,
+        "leadingZero": true,
+        "x": 110,
+        "y": 160,
+        "z": 3,
+        "allowOverlap": true
+      },
+      {
+        "id": "aod-battery",
+        "type": "number",
+        "source": "battery",
+        "digitSet": "cell",
+        "digits": 3,
+        "align": "left",
+        "spacing": 0,
+        "leadingZero": false,
+        "x": 30,
+        "y": 204,
+        "z": 4,
+        "allowOverlap": true
+      }
+    ]
+  }
+}

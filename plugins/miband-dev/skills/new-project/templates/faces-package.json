@@ -1,0 +1,15 @@
+{
+  "name": "band-faces",
+  "private": true,
+  "type": "module",
+  "description": "Watch faces. Each folder is a band10-toolkit project; the toolkit lives in ../vendor/band10-toolkit (patched, see ../vendor/README.md). node_modules is a symlink to the toolkit's.",
+  "scripts": {
+    "setup": "ln -sfn ../vendor/band10-toolkit/node_modules node_modules",
+    "gen": "tsx",
+    "validate": "tsx ../vendor/band10-toolkit/cli/index.ts validate",
+    "build": "tsx ../vendor/band10-toolkit/cli/index.ts build",
+    "package": "tsx ../vendor/band10-toolkit/cli/index.ts package",
+    "preview": "tsx ../vendor/band10-toolkit/cli/index.ts preview",
+    "inspect": "tsx ../vendor/band10-toolkit/cli/index.ts inspect"
+  }
+}

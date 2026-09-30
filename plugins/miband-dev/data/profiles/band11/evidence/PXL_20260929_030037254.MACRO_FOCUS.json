@@ -1,0 +1,257 @@
+{
+ "photo": "PXL_20260929_030037254.MACRO_FOCUS.jpg",
+ "page": 13,
+ "page_key": "tw4",
+ "kit": "2.0.0",
+ "fit": {
+  "rms_band_px": [
+   0.256,
+   0.159
+  ],
+  "ticks": 70,
+  "dropped": 5,
+  "bloom_px": 0.61,
+  "photo_px_per_band_px": [
+   4.725,
+   4.708
+  ],
+  "edges": {
+   "left_first_visible_x": 0.40158902082288395,
+   "right_last_visible_x": 210.77815909728437,
+   "ticks_seen_left": 31,
+   "ticks_seen_right": 31,
+   "first_tick_y_left": 110,
+   "last_tick_y_left": 410
+  },
+  "ok": true,
+  "notes": []
+ },
+ "samples": [
+  {
+   "id": "tw4.0",
+   "type": "row",
+   "spec": {
+    "type": "row",
+    "key": "row-baseline",
+    "align": "baseline",
+    "region": [
+     22,
+     50,
+     174,
+     198
+    ],
+    "slot": {
+     "x": 24,
+     "y": 52,
+     "w": 150,
+     "h": 146
+    },
+    "big": {
+     "str": "5",
+     "px": 96,
+     "outline": "cyan"
+    },
+    "small": {
+     "str": "min",
+     "px": 32,
+     "outline": "pink"
+    },
+    "id": "tw4.0"
+   },
+   "result": {
+    "big": {
+     "box": [
+      22.0,
+      50.0,
+      64.75,
+      131.375
+     ],
+     "ink_bottom": 154.5625,
+     "ink_top": 77.85416666418314
+    },
+    "small": {
+     "box": [
+      86.875,
+      136.625,
+      58.5,
+      44.75
+     ],
+     "ink_bottom": 171.0625,
+     "ink_top": 144.3835227265954
+    },
+    "box_bottom_diff": 0.0,
+    "ink_bottom_diff": 16.5
+   }
+  },
+  {
+   "id": "tw4.1",
+   "type": "wrap",
+   "spec": {
+    "type": "wrap",
+    "key": "longword",
+    "str": "Embarcaderoembarcadero",
+    "px": 20,
+    "css": {},
+    "outline": "pink",
+    "box": {
+     "x": 24,
+     "y": 206,
+     "w": 136,
+     "h": null
+    },
+    "slot": {
+     "x": 24,
+     "y": 206,
+     "w": 136,
+     "h": 94
+    },
+    "border": 1,
+    "id": "tw4.1"
+   },
+   "result": {
+    "box": {
+     "top": 205.78820390554043,
+     "bottom": 261.49193714050944,
+     "left": 24.48122179831946,
+     "right": 159.36003655312314
+    },
+    "content_h": 53.70373323496901,
+    "lines": 2,
+    "line_boxes": [
+     {
+      "top": 6.211796094459572,
+      "bottom": 22.211796094459572,
+      "left": 1.64377820168054,
+      "right": 2.8600365531231375
+     },
+     {
+      "top": 32.96179609445957,
+      "bottom": 49.08679609445957,
+      "left": 1.26877820168054,
+      "right": 2.8600365531231375
+     }
+    ],
+    "line_pitch": 26.875,
+    "align": "right",
+    "align_spread": {
+     "left": 0.375,
+     "right": 0.0,
+     "center": 0.375
+    },
+    "ellipsis": false,
+    "ink_outside_box": false
+   }
+  },
+  {
+   "id": "tw4.2",
+   "type": "wrap",
+   "spec": {
+    "type": "wrap",
+    "key": "lh40-at48-h48",
+    "str": "Hg8",
+    "px": 48,
+    "css": {
+     "line-height": "40px"
+    },
+    "outline": "pink",
+    "box": {
+     "x": 24,
+     "y": 308,
+     "w": 136,
+     "h": 48
+    },
+    "slot": {
+     "x": 24,
+     "y": 308,
+     "w": 136,
+     "h": 76
+    },
+    "border": 1,
+    "id": "tw4.2"
+   },
+   "result": {
+    "box": {
+     "top": 307.33030863265924,
+     "bottom": 355.50356952820147,
+     "left": 24.576844262295083,
+     "right": 159.57878490101263
+    },
+    "content_h": 46.17326089554223,
+    "lines": 1,
+    "line_boxes": [
+     {
+      "top": 3.7946913673407607,
+      "bottom": 44.16969136734076,
+      "left": 2.798155737704917,
+      "right": 37.578784901012625
+     }
+    ],
+    "ellipsis": false,
+    "ink_outside_box": false
+   }
+  },
+  {
+   "id": "tw4.3",
+   "type": "wrap",
+   "spec": {
+    "type": "wrap",
+    "key": "lines2-clip",
+    "str": "The quick brown fox jumps over the dog",
+    "px": 20,
+    "css": {
+     "lines": 2
+    },
+    "outline": "pink",
+    "box": {
+     "x": 24,
+     "y": 392,
+     "w": 136,
+     "h": null
+    },
+    "slot": {
+     "x": 24,
+     "y": 392,
+     "w": 136,
+     "h": 64
+    },
+    "border": 1,
+    "id": "tw4.3"
+   },
+   "result": {
+    "box": {
+     "top": 391.46578075415346,
+     "bottom": 447.23881024656174,
+     "left": 24.63764097744361,
+     "right": 159.67480825420014
+    },
+    "content_h": 53.773029492408284,
+    "lines": 2,
+    "line_boxes": [
+     {
+      "top": 3.2842192458465433,
+      "bottom": 27.409219245846543,
+      "left": 1.3623590225563902,
+      "right": 36.674808254200144
+     },
+     {
+      "top": 29.909219245846543,
+      "bottom": 52.53421924584654,
+      "left": 1.3623590225563902,
+      "right": 1.2998082542001441
+     }
+    ],
+    "line_pitch": 25.125,
+    "align": "left",
+    "align_spread": {
+     "left": 0.0,
+     "right": 35.375,
+     "center": 35.375
+    },
+    "ellipsis": false,
+    "ink_outside_box": false
+   }
+  }
+ ],
+ "layout": "band11.json",
+ "measured_at": "2026-09-29T06:26:30"
+}

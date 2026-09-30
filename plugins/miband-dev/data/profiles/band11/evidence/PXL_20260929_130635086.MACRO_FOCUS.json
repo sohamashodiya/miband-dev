@@ -1,0 +1,93 @@
+{
+ "photo": "PXL_20260929_130635086.MACRO_FOCUS.jpg",
+ "page": 19,
+ "page_key": "geo",
+ "kit": "2.0.0",
+ "fit": {
+  "rms_band_px": [
+   0.214,
+   0.05
+  ],
+  "ticks": 58,
+  "dropped": 1,
+  "bloom_px": 0.27,
+  "photo_px_per_band_px": [
+   4.164,
+   4.144
+  ],
+  "edges": {
+   "left_first_visible_x": 0.6198895077660354,
+   "right_last_visible_x": 210.90742004607284,
+   "ticks_seen_left": 29,
+   "ticks_seen_right": 29,
+   "first_tick_y_left": 120,
+   "last_tick_y_left": 400
+  },
+  "ok": true,
+  "notes": []
+ },
+ "samples": [
+  {
+   "id": "geo.0",
+   "type": "cap",
+   "spec": {
+    "type": "cap",
+    "end": "top",
+    "box": {
+     "x": 0,
+     "y": 0,
+     "w": 212,
+     "h": 115
+    },
+    "id": "geo.0"
+   },
+   "result": {
+    "radius_raw_px": 103.59,
+    "radius_px": 103.32,
+    "bloom_px": 0.27,
+    "centre_x": 105.67,
+    "centre_from_end_px": 105.16,
+    "hidden_end_px": 1.84,
+    "arc_points": 2177,
+    "fit_rms_px": 0.22,
+    "centre_offset_x": -0.33,
+    "design_scale": 1.0259,
+    "hidden_left_px": 1.02,
+    "hidden_right_px": 2.02,
+    "straight_rows": 55
+   }
+  },
+  {
+   "id": "geo.1",
+   "type": "cap",
+   "spec": {
+    "type": "cap",
+    "end": "bottom",
+    "box": {
+     "x": 0,
+     "y": 405,
+     "w": 212,
+     "h": 115
+    },
+    "id": "geo.1"
+   },
+   "result": {
+    "radius_raw_px": 103.7,
+    "radius_px": 103.44,
+    "bloom_px": 0.27,
+    "centre_x": 105.92,
+    "centre_from_end_px": 103.68,
+    "hidden_end_px": 0.25,
+    "arc_points": 2207,
+    "fit_rms_px": 0.25,
+    "centre_offset_x": -0.08,
+    "design_scale": 1.0248,
+    "hidden_left_px": 0.77,
+    "hidden_right_px": 1.77,
+    "straight_rows": 67
+   }
+  }
+ ],
+ "layout": "band11.json",
+ "measured_at": "2026-09-29T06:26:40"
+}

@@ -1,0 +1,238 @@
+{
+ "photo": "PXL_20260929_025954175.MACRO_FOCUS.jpg",
+ "page": 9,
+ "page_key": "th5",
+ "kit": "2.0.0",
+ "fit": {
+  "rms_band_px": [
+   0.247,
+   0.143
+  ],
+  "ticks": 70,
+  "dropped": 2,
+  "bloom_px": 0.58,
+  "photo_px_per_band_px": [
+   4.384,
+   4.358
+  ],
+  "edges": {
+   "left_first_visible_x": 0.7155140705608813,
+   "right_last_visible_x": 210.50032012656408,
+   "ticks_seen_left": 31,
+   "ticks_seen_right": 31,
+   "first_tick_y_left": 110,
+   "last_tick_y_left": 410
+  },
+  "ok": true,
+  "notes": []
+ },
+ "samples": [
+  {
+   "id": "th5.0",
+   "type": "text_w",
+   "spec": {
+    "type": "text_w",
+    "str": "ABCDEFG",
+    "px": 24,
+    "weight": "bold",
+    "outline": "pink",
+    "box": {
+     "x": 24,
+     "y": 52,
+     "w": null,
+     "h": null
+    },
+    "est_w": 115,
+    "slot": {
+     "x": 24,
+     "y": 52,
+     "w": 153,
+     "h": 38
+    },
+    "border": 1,
+    "id": "th5.0"
+   },
+   "result": {
+    "box": {
+     "top": 50.95527267838343,
+     "bottom": 85.38703673064197,
+     "left": 23.73654204033174,
+     "right": 143.56710368294637,
+     "wrapped": false,
+     "inferred": []
+    },
+    "outer_w": 119.83056164261463,
+    "content_w": 117.83056164261463,
+    "content_h": 32.431764052258536,
+    "ink_left": 1.3259579596682585,
+    "ink_right": 1.2546036829463674
+   }
+  },
+  {
+   "id": "th5.1",
+   "type": "text_w",
+   "spec": {
+    "type": "text_w",
+    "str": "HIJKLM",
+    "px": 24,
+    "weight": "bold",
+    "outline": "pink",
+    "box": {
+     "x": 24,
+     "y": 98,
+     "w": null,
+     "h": null
+    },
+    "est_w": 95,
+    "slot": {
+     "x": 24,
+     "y": 98,
+     "w": 127,
+     "h": 38
+    },
+    "border": 1,
+    "id": "th5.1"
+   },
+   "result": {
+    "box": {
+     "top": 97.23030795282378,
+     "bottom": 131.65678959052786,
+     "left": 24.05158819808422,
+     "right": 116.78521517302573,
+     "wrapped": false,
+     "inferred": []
+    },
+    "outer_w": 92.73362697494152,
+    "content_w": 90.73362697494152,
+    "content_h": 32.426481637704086,
+    "ink_left": 1.5109118019157783,
+    "ink_right": 1.4727151730257333
+   }
+  },
+  {
+   "id": "th5.2",
+   "type": "text_w",
+   "spec": {
+    "type": "text_w",
+    "str": "NOPQRST",
+    "px": 24,
+    "weight": "bold",
+    "outline": "pink",
+    "box": {
+     "x": 24,
+     "y": 144,
+     "w": null,
+     "h": null
+    },
+    "est_w": 120,
+    "slot": {
+     "x": 24,
+     "y": 144,
+     "w": 159,
+     "h": 38
+    },
+    "border": 1,
+    "id": "th5.2"
+   },
+   "result": {
+    "box": {
+     "top": 143.76059648581997,
+     "bottom": 177.90781835205993,
+     "left": 24.253328261696463,
+     "right": 143.4314528023599,
+     "wrapped": false,
+     "inferred": []
+    },
+    "outer_w": 119.17812454066343,
+    "content_w": 117.17812454066343,
+    "content_h": 32.14722186623996,
+    "ink_left": 1.7237550711401646,
+    "ink_right": 1.2439528023598996
+   }
+  },
+  {
+   "id": "th5.3",
+   "type": "text_w",
+   "spec": {
+    "type": "text_w",
+    "str": "UVWXYZ",
+    "px": 24,
+    "weight": "bold",
+    "outline": "pink",
+    "box": {
+     "x": 24,
+     "y": 190,
+     "w": null,
+     "h": null
+    },
+    "est_w": 112,
+    "slot": {
+     "x": 24,
+     "y": 190,
+     "w": 148,
+     "h": 38
+    },
+    "border": 1,
+    "id": "th5.3"
+   },
+   "result": {
+    "box": {
+     "top": 189.7503803245436,
+     "bottom": 223.85662097870411,
+     "left": 24.55391876430206,
+     "right": 135.55580954504904,
+     "wrapped": false,
+     "inferred": []
+    },
+    "outer_w": 111.00189078074698,
+    "content_w": 109.00189078074698,
+    "content_h": 32.1062406541605,
+    "ink_left": 1.7178203646749992,
+    "ink_right": 1.2433095450490441
+   }
+  },
+  {
+   "id": "th5.4",
+   "type": "text_w",
+   "spec": {
+    "type": "text_w",
+    "str": "Checking…",
+    "px": 20,
+    "weight": "bold",
+    "outline": "pink",
+    "box": {
+     "x": 24,
+     "y": 236,
+     "w": null,
+     "h": null
+    },
+    "est_w": 114,
+    "slot": {
+     "x": 24,
+     "y": 236,
+     "w": 154,
+     "h": 32
+    },
+    "border": 1,
+    "id": "th5.4"
+   },
+   "result": {
+    "box": {
+     "top": 235.85178257042253,
+     "bottom": 264.71483344327174,
+     "left": 24.61083108238472,
+     "right": 138.57753759398497,
+     "wrapped": false,
+     "inferred": []
+    },
+    "outer_w": 113.96670651160025,
+    "content_w": 111.96670651160025,
+    "content_h": 26.863050872849215,
+    "ink_left": 1.3266689176152795,
+    "ink_right": 1.7993117846492623
+   }
+  }
+ ],
+ "layout": "band11.json",
+ "measured_at": "2026-09-29T06:26:27"
+}

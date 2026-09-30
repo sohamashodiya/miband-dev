@@ -1,0 +1,8 @@
+# Signing keys (a copy of the workspace's shared key): never commit them
+sign/
+node_modules
+build/
+dist/
+# Measurement output stays local (photos live in devices/<model>/photos/, also ignored)
+results/
+build-stage-*/

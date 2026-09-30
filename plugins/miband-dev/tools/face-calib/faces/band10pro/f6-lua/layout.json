@@ -1,0 +1,88 @@
+{
+  "$schema": "../../../../../vendor/band10-toolkit/schemas/layout.schema.json",
+  "formatVersion": 1,
+  "canvas": {
+    "width": 336,
+    "height": 480,
+    "clip": "rectangle"
+  },
+  "assets": {
+    "digitSets": {
+      "cell": {
+        "digits": [
+          "assets/digits/0.png",
+          "assets/digits/1.png",
+          "assets/digits/2.png",
+          "assets/digits/3.png",
+          "assets/digits/4.png",
+          "assets/digits/5.png",
+          "assets/digits/6.png",
+          "assets/digits/7.png",
+          "assets/digits/8.png",
+          "assets/digits/9.png"
+        ],
+        "minus": "assets/digits/minus.png"
+      }
+    }
+  },
+  "normal": {
+    "background": "#000000",
+    "widgets": [
+      {
+        "id": "bg",
+        "type": "image",
+        "asset": "assets/bg.png",
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "allowOverlap": true
+      },
+      {
+        "id": "target-0",
+        "type": "image",
+        "asset": "assets/target.png",
+        "x": 92,
+        "y": 70,
+        "z": 1,
+        "allowOverlap": true
+      },
+      {
+        "id": "target-1",
+        "type": "image",
+        "asset": "assets/target.png",
+        "x": 172,
+        "y": 114,
+        "z": 2,
+        "allowOverlap": true
+      },
+      {
+        "id": "w-hour",
+        "type": "number",
+        "source": "hour",
+        "digitSet": "cell",
+        "digits": 2,
+        "align": "left",
+        "spacing": 0,
+        "leadingZero": true,
+        "x": 172,
+        "y": 202,
+        "z": 3,
+        "allowOverlap": true
+      },
+      {
+        "id": "w-minute",
+        "type": "number",
+        "source": "minute",
+        "digitSet": "cell",
+        "digits": 2,
+        "align": "left",
+        "spacing": 0,
+        "leadingZero": true,
+        "x": 208,
+        "y": 202,
+        "z": 4,
+        "allowOverlap": true
+      }
+    ]
+  }
+}

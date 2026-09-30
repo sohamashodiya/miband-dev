@@ -1,0 +1,17 @@
+{
+  "$schema": "../../../../../vendor/band10-toolkit/schemas/manifest.schema.json",
+  "formatVersion": 1,
+  "id": "810000107",
+  "name": "Calib F7 AOD b1",
+  "author": "miband-dev",
+  "version": "1.0.1",
+  "description": "Face calibration kit (tools/face-calib), Xiaomi Smart Band 10 / 11, page(s) 7, 8. Test patterns only; delete after photographing.",
+  "license": "Personal use.",
+  "device": "xiaomi-smart-band-10",
+  "preview": "generated",
+  "output": "calib-band11-f7-aod",
+  "compiler": {
+    "target": "native",
+    "imageCompression": true
+  }
+}

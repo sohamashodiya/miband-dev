@@ -1,0 +1,456 @@
+{
+ "photo": "PXL_20260929_030048738.MACRO_FOCUS.jpg",
+ "page": 15,
+ "page_key": "bx1",
+ "kit": "2.0.0",
+ "fit": {
+  "rms_band_px": [
+   0.352,
+   0.243
+  ],
+  "ticks": 75,
+  "dropped": 0,
+  "bloom_px": 0.61,
+  "photo_px_per_band_px": [
+   4.134,
+   4.124
+  ],
+  "edges": {
+   "left_first_visible_x": 0.42355856998475433,
+   "right_last_visible_x": 210.89957172698024,
+   "ticks_seen_left": 31,
+   "ticks_seen_right": 31,
+   "first_tick_y_left": 110,
+   "last_tick_y_left": 410
+  },
+  "ok": true,
+  "notes": []
+ },
+ "samples": [
+  {
+   "id": "bx1.0",
+   "type": "rect",
+   "spec": {
+    "type": "rect",
+    "key": "padding",
+    "what": "padding 10 inside a 1 px pink box: where the white child lands",
+    "fact": "css.padding",
+    "slot": {
+     "x": 24,
+     "y": 52,
+     "w": 80,
+     "h": 96
+    },
+    "metric": "bbox",
+    "colour": "white",
+    "region": [
+     24,
+     52,
+     104,
+     148
+    ],
+    "hyp": {
+     "honoured": [
+      39,
+      67,
+      20,
+      20
+     ],
+     "ignored": [
+      29,
+      57,
+      20,
+      20
+     ]
+    },
+    "id": "bx1.0"
+   },
+   "result": {
+    "bbox": [
+     38.88,
+     84.12,
+     13.25,
+     3.62
+    ],
+    "verdict": "honoured",
+    "distances": {
+     "honoured": 40.38,
+     "ignored": 60.12
+    },
+    "margin": 19.739999999999995,
+    "missing": false
+   }
+  },
+  {
+   "id": "bx1.1",
+   "type": "rect",
+   "spec": {
+    "type": "rect",
+    "key": "box-sizing",
+    "what": "width 50 + padding 10 + border 1: outer width of the pink box",
+    "fact": "css.box_sizing",
+    "slot": {
+     "x": 108,
+     "y": 52,
+     "w": 80,
+     "h": 96
+    },
+    "metric": "bbox",
+    "colour": "pink",
+    "region": [
+     108,
+     52,
+     188,
+     148
+    ],
+    "hyp": {
+     "border_box": [
+      112,
+      56,
+      50,
+      40
+     ],
+     "content_box": [
+      112,
+      56,
+      72,
+      62
+     ]
+    },
+    "id": "bx1.1"
+   },
+   "result": {
+    "bbox": [
+     111.0,
+     53.75,
+     51.5,
+     42.88
+    ],
+    "verdict": "border_box",
+    "distances": {
+     "border_box": 7.62,
+     "content_box": 42.88
+    },
+    "margin": 35.260000000000005,
+    "missing": false
+   }
+  },
+  {
+   "id": "bx1.2",
+   "type": "rect",
+   "spec": {
+    "type": "rect",
+    "key": "margin",
+    "what": "column: cyan has margin-top 12 under a 40 x 10 white bar",
+    "fact": "css.margin",
+    "slot": {
+     "x": 24,
+     "y": 154,
+     "w": 80,
+     "h": 96
+    },
+    "metric": "bbox",
+    "colour": "cyan",
+    "region": [
+     24,
+     154,
+     104,
+     250
+    ],
+    "hyp": {
+     "honoured": [
+      28,
+      180,
+      40,
+      10
+     ],
+     "ignored": [
+      28,
+      168,
+      40,
+      10
+     ]
+    },
+    "id": "bx1.2"
+   },
+   "result": {
+    "bbox": [
+     27.75,
+     180.12,
+     41.5,
+     10.75
+    ],
+    "verdict": "honoured",
+    "distances": {
+     "honoured": 2.62,
+     "ignored": 14.62
+    },
+    "margin": 12.0,
+    "missing": false
+   }
+  },
+  {
+   "id": "bx1.3",
+   "type": "rect",
+   "spec": {
+    "type": "rect",
+    "key": "neg-margin-top",
+    "what": "column: cyan has margin-top -8 under a 40 x 20 white bar",
+    "fact": "css.negative_margin",
+    "slot": {
+     "x": 108,
+     "y": 154,
+     "w": 80,
+     "h": 96
+    },
+    "metric": "bbox",
+    "colour": "cyan",
+    "region": [
+     108,
+     154,
+     188,
+     250
+    ],
+    "hyp": {
+     "honoured": [
+      112,
+      186,
+      40,
+      10
+     ],
+     "ignored": [
+      112,
+      194,
+      40,
+      10
+     ]
+    },
+    "id": "bx1.3"
+   },
+   "result": {
+    "bbox": [
+     111.25,
+     174.62,
+     41.0,
+     22.38
+    ],
+    "verdict": "honoured",
+    "distances": {
+     "honoured": 25.5,
+     "ignored": 33.5
+    },
+    "margin": 8.0,
+    "missing": false
+   }
+  },
+  {
+   "id": "bx1.4",
+   "type": "rect",
+   "spec": {
+    "type": "rect",
+    "key": "neg-margin-left",
+    "what": "row: cyan has margin-left -10 after a 30 x 20 white box",
+    "fact": "css.negative_margin_left",
+    "slot": {
+     "x": 24,
+     "y": 256,
+     "w": 80,
+     "h": 96
+    },
+    "metric": "bbox",
+    "colour": "cyan",
+    "region": [
+     24,
+     256,
+     104,
+     352
+    ],
+    "hyp": {
+     "honoured": [
+      48,
+      276,
+      30,
+      20
+     ],
+     "ignored": [
+      58,
+      276,
+      30,
+      20
+     ]
+    },
+    "id": "bx1.4"
+   },
+   "result": {
+    "bbox": [
+     47.75,
+     275.38,
+     31.5,
+     21.5
+    ],
+    "verdict": "honoured",
+    "distances": {
+     "honoured": 3.88,
+     "ignored": 13.88
+    },
+    "margin": 10.0,
+    "missing": false
+   }
+  },
+  {
+   "id": "bx1.5",
+   "type": "rect",
+   "spec": {
+    "type": "rect",
+    "key": "abs-in-parent",
+    "what": "green 10 x 10, absolute left/top 20 inside a pink box at +10: parent- or page-relative",
+    "fact": "css.absolute_origin",
+    "slot": {
+     "x": 108,
+     "y": 256,
+     "w": 80,
+     "h": 96
+    },
+    "metric": "bbox",
+    "colour": "green",
+    "region": [
+     0,
+     0,
+     212,
+     520
+    ],
+    "hyp": {
+     "parent_border_box": [
+      138,
+      286,
+      10,
+      10
+     ],
+     "parent_content_box": [
+      139,
+      287,
+      10,
+      10
+     ],
+     "page": [
+      20,
+      20,
+      10,
+      10
+     ]
+    },
+    "id": "bx1.5"
+   },
+   "result": {
+    "bbox": [
+     137.5,
+     287.0,
+     11.38,
+     10.75
+    ],
+    "verdict": "parent_border_box",
+    "distances": {
+     "parent_border_box": 3.62,
+     "parent_content_box": 3.62,
+     "page": 386.62
+    },
+    "margin": 0.0,
+    "missing": false
+   }
+  },
+  {
+   "id": "bx1.6",
+   "type": "rect",
+   "spec": {
+    "type": "rect",
+    "key": "border1",
+    "what": "border-width 1, white, 60 x 50 box: drawn thickness",
+    "fact": "css.border_width",
+    "slot": {
+     "x": 24,
+     "y": 358,
+     "w": 80,
+     "h": 96
+    },
+    "metric": "ring",
+    "colour": "white",
+    "region": [
+     28,
+     372,
+     100,
+     434
+    ],
+    "hyp": {
+     "honoured": {
+      "l": 1,
+      "t": 1,
+      "r": 1,
+      "b": 1
+     }
+    },
+    "id": "bx1.6"
+   },
+   "result": {
+    "thickness": {
+     "l": 2.5,
+     "r": 2.5,
+     "t": 3.75,
+     "b": 4.38
+    },
+    "verdict": "honoured",
+    "distances": {
+     "honoured": 9.12
+    },
+    "margin": null
+   }
+  },
+  {
+   "id": "bx1.7",
+   "type": "rect",
+   "spec": {
+    "type": "rect",
+    "key": "border2",
+    "what": "border-width 2, white, 60 x 50 box: drawn thickness",
+    "fact": "css.border_width",
+    "slot": {
+     "x": 108,
+     "y": 358,
+     "w": 80,
+     "h": 96
+    },
+    "metric": "ring",
+    "colour": "white",
+    "region": [
+     112,
+     372,
+     184,
+     434
+    ],
+    "hyp": {
+     "honoured": {
+      "l": 2,
+      "t": 2,
+      "r": 2,
+      "b": 2
+     }
+    },
+    "id": "bx1.7"
+   },
+   "result": {
+    "thickness": {
+     "l": 2.88,
+     "r": 3.12,
+     "t": 4.5,
+     "b": 5.5
+    },
+    "verdict": "honoured",
+    "distances": {
+     "honoured": 8.0
+    },
+    "margin": null
+   }
+  }
+ ],
+ "layout": "band11.json",
+ "measured_at": "2026-09-29T06:26:32"
+}

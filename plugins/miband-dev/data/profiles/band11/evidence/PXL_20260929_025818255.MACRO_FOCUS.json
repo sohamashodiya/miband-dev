@@ -1,0 +1,198 @@
+{
+ "photo": "PXL_20260929_025818255.MACRO_FOCUS.jpg",
+ "page": 2,
+ "page_key": "tv2",
+ "kit": "2.0.0",
+ "fit": {
+  "rms_band_px": [
+   0.221,
+   0.227
+  ],
+  "ticks": 72,
+  "dropped": 1,
+  "bloom_px": 0.94,
+  "photo_px_per_band_px": [
+   4.12,
+   4.093
+  ],
+  "edges": {
+   "left_first_visible_x": 0.4475851406403561,
+   "right_last_visible_x": 210.308357697111,
+   "ticks_seen_left": 31,
+   "ticks_seen_right": 31,
+   "first_tick_y_left": 110,
+   "last_tick_y_left": 410
+  },
+  "ok": true,
+  "notes": []
+ },
+ "samples": [
+  {
+   "id": "tv2.0",
+   "type": "text_v",
+   "spec": {
+    "type": "text_v",
+    "str": "8",
+    "px": 140,
+    "regime": "tall",
+    "weight": "bold",
+    "outline": "pink",
+    "box": {
+     "x": 24,
+     "y": 52,
+     "w": 118,
+     "h": 210
+    },
+    "slot": {
+     "x": 24,
+     "y": 52,
+     "w": 118,
+     "h": 210
+    },
+    "height_css": 210,
+    "border": 1,
+    "id": "tv2.0"
+   },
+   "result": {
+    "box": {
+     "top": 51.02704000602329,
+     "bottom": 261.61815591995554,
+     "left": 24.329018062411357,
+     "right": 141.61591648590021,
+     "wrapped": false,
+     "inferred": []
+    },
+    "box_h": 210.59111591393224,
+    "content_h": 208.59111591393224,
+    "ink_top": 48.330102852183934,
+    "ink_bottom": 161.55420999472176,
+    "clipped_bottom": false,
+    "clipped_top": false,
+    "clipped_right": false,
+    "lines": 1,
+    "line_h": 208.59111591393224,
+    "glyphs": {
+     "8": {
+      "top": 48.34795999397671,
+      "bottom": 161.5979599939767,
+      "left": 6.6709819375886426,
+      "right": 84.17098193758864
+     }
+    },
+    "ink_mid_minus_box_mid": 0.6465984664867221
+   }
+  },
+  {
+   "id": "tv2.1",
+   "type": "text_v",
+   "spec": {
+    "type": "text_v",
+    "str": "8",
+    "px": 96,
+    "regime": "tall",
+    "weight": "bold",
+    "outline": "pink",
+    "box": {
+     "x": 24,
+     "y": 268,
+     "w": 83,
+     "h": 144
+    },
+    "slot": {
+     "x": 24,
+     "y": 268,
+     "w": 83,
+     "h": 144
+    },
+    "height_css": 144,
+    "border": 1,
+    "id": "tv2.1"
+   },
+   "result": {
+    "box": {
+     "top": 267.5006983551485,
+     "bottom": 411.28238736527175,
+     "left": 24.669053321554753,
+     "right": 106.98671204436212,
+     "wrapped": false,
+     "inferred": []
+    },
+    "box_h": 143.78168901012327,
+    "content_h": 141.78168901012327,
+    "ink_top": 31.70416275679048,
+    "ink_bottom": 111.51492664485153,
+    "clipped_bottom": false,
+    "clipped_top": false,
+    "clipped_right": false,
+    "lines": 1,
+    "line_h": 141.78168901012327,
+    "glyphs": {
+     "8": {
+      "top": 31.749301644851528,
+      "bottom": 111.49930164485153,
+      "left": 3.9559466784452475,
+      "right": 58.455946678445244
+     }
+    },
+    "ink_mid_minus_box_mid": 0.7187001957593679
+   }
+  },
+  {
+   "id": "tv2.2",
+   "type": "text_v",
+   "spec": {
+    "type": "text_v",
+    "str": "8",
+    "px": 72,
+    "regime": "tall",
+    "weight": "bold",
+    "outline": "pink",
+    "box": {
+     "x": 113,
+     "y": 268,
+     "w": 64,
+     "h": 108
+    },
+    "slot": {
+     "x": 113,
+     "y": 268,
+     "w": 64,
+     "h": 108
+    },
+    "height_css": 108,
+    "border": 1,
+    "id": "tv2.2"
+   },
+   "result": {
+    "box": {
+     "top": 267.5042247214815,
+     "bottom": 375.08149097417663,
+     "left": 112.8851109215017,
+     "right": 176.29994096178618,
+     "wrapped": false,
+     "inferred": []
+    },
+    "box_h": 107.57726625269515,
+    "content_h": 105.57726625269515,
+    "ink_top": 23.308275278518522,
+    "ink_bottom": 82.98796277851852,
+    "clipped_bottom": false,
+    "clipped_top": false,
+    "clipped_right": false,
+    "lines": 1,
+    "line_h": 105.57726625269515,
+    "glyphs": {
+     "8": {
+      "top": 23.370775278518522,
+      "bottom": 82.99577527851852,
+      "left": 3.364889078498294,
+      "right": 43.489889078498294
+     }
+    },
+    "ink_mid_minus_box_mid": 0.35948590217094534
+   }
+  }
+ ],
+ "layout": "band11.json",
+ "measured_at": "2026-09-29T06:26:21"
+}

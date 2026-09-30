@@ -1,0 +1,82 @@
+{
+ "photo": "PXL_20260929_030044619.MACRO_FOCUS.jpg",
+ "page": 14,
+ "page_key": "tw5",
+ "kit": "2.0.0",
+ "fit": {
+  "rms_band_px": [
+   0.257,
+   0.174
+  ],
+  "ticks": 71,
+  "dropped": 4,
+  "bloom_px": 0.85,
+  "photo_px_per_band_px": [
+   4.552,
+   4.523
+  ],
+  "edges": {
+   "left_first_visible_x": 0.28457008391647254,
+   "right_last_visible_x": 210.47756546019298,
+   "ticks_seen_left": 31,
+   "ticks_seen_right": 31,
+   "first_tick_y_left": 110,
+   "last_tick_y_left": 410
+  },
+  "ok": true,
+  "notes": []
+ },
+ "samples": [
+  {
+   "id": "tw5.0",
+   "type": "wrap",
+   "spec": {
+    "type": "wrap",
+    "key": "lines1-ellipsis",
+    "str": "Embarcadero to Union City",
+    "px": 20,
+    "css": {
+     "lines": 1,
+     "text-overflow": "ellipsis"
+    },
+    "outline": "pink",
+    "box": {
+     "x": 24,
+     "y": 52,
+     "w": 136,
+     "h": null
+    },
+    "slot": {
+     "x": 24,
+     "y": 52,
+     "w": 136,
+     "h": 34
+    },
+    "border": 1,
+    "id": "tw5.0"
+   },
+   "result": {
+    "box": {
+     "top": 50.992301600754715,
+     "bottom": 80.21392543859649,
+     "left": 23.368066463773808,
+     "right": 159.71900075905444
+    },
+    "content_h": 27.221623837841776,
+    "lines": 1,
+    "line_boxes": [
+     {
+      "top": 4.132698399245285,
+      "bottom": 22.382698399245285,
+      "left": 1.2569335362261924,
+      "right": 7.469000759054438
+     }
+    ],
+    "ellipsis": true,
+    "ink_outside_box": false
+   }
+  }
+ ],
+ "layout": "band11.json",
+ "measured_at": "2026-09-29T06:26:31"
+}

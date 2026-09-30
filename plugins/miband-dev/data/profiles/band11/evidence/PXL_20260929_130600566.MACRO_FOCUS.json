@@ -1,0 +1,227 @@
+{
+ "photo": "PXL_20260929_130600566.MACRO_FOCUS.jpg",
+ "page": 11,
+ "page_key": "tw2",
+ "kit": "2.0.0",
+ "fit": {
+  "rms_band_px": [
+   0.231,
+   0.127
+  ],
+  "ticks": 72,
+  "dropped": 4,
+  "bloom_px": 0.28,
+  "photo_px_per_band_px": [
+   4.319,
+   4.298
+  ],
+  "edges": {
+   "left_first_visible_x": 0.6478509524333209,
+   "right_last_visible_x": 210.88833566665798,
+   "ticks_seen_left": 31,
+   "ticks_seen_right": 31,
+   "first_tick_y_left": 110,
+   "last_tick_y_left": 410
+  },
+  "ok": true,
+  "notes": []
+ },
+ "samples": [
+  {
+   "id": "tw2.0",
+   "type": "wrap",
+   "spec": {
+    "type": "wrap",
+    "key": "center",
+    "str": "The quick brown fox jumps over the dog",
+    "px": 20,
+    "css": {
+     "text-align": "center"
+    },
+    "outline": "pink",
+    "box": {
+     "x": 24,
+     "y": 52,
+     "w": 136,
+     "h": null
+    },
+    "slot": {
+     "x": 24,
+     "y": 52,
+     "w": 136,
+     "h": 154
+    },
+    "border": 1,
+    "id": "tw2.0"
+   },
+   "result": {
+    "box": {
+     "top": 51.22216260548651,
+     "bottom": 161.8645428015564,
+     "left": 23.99193213296399,
+     "right": 159.64858640406607
+    },
+    "content_h": 108.6423801960699,
+    "lines": 4,
+    "line_boxes": [
+     {
+      "top": 5.77783739451349,
+      "bottom": 26.90283739451349,
+      "left": 14.508067867036011,
+      "right": 22.648586404066066
+     },
+     {
+      "top": 32.90283739451349,
+      "bottom": 49.15283739451349,
+      "left": 14.133067867036011,
+      "right": 20.523586404066066
+     },
+     {
+      "top": 59.65283739451349,
+      "bottom": 81.02783739451348,
+      "left": 6.7580678670360115,
+      "right": 15.648586404066066
+     },
+     {
+      "top": 87.40283739451348,
+      "bottom": 107.40283739451348,
+      "left": 28.13306786703601,
+      "right": 30.773586404066066
+     }
+    ],
+    "line_pitch": 26.375,
+    "align": "center",
+    "align_spread": {
+     "left": 21.375,
+     "right": 15.125,
+     "center": 6.25
+    },
+    "ellipsis": false,
+    "ink_outside_box": false
+   }
+  },
+  {
+   "id": "tw2.1",
+   "type": "wrap",
+   "spec": {
+    "type": "wrap",
+    "key": "right",
+    "str": "The quick brown fox jumps over the dog",
+    "px": 20,
+    "css": {
+     "text-align": "right"
+    },
+    "outline": "pink",
+    "box": {
+     "x": 24,
+     "y": 214,
+     "w": 136,
+     "h": null
+    },
+    "slot": {
+     "x": 24,
+     "y": 214,
+     "w": 136,
+     "h": 154
+    },
+    "border": 1,
+    "id": "tw2.1"
+   },
+   "result": {
+    "box": {
+     "top": 213.87078908900676,
+     "bottom": 323.5410326086957,
+     "left": 24.447009202453987,
+     "right": 159.45031123335264
+    },
+    "content_h": 107.67024351968891,
+    "lines": 4,
+    "line_boxes": [
+     {
+      "top": 5.254210910993237,
+      "bottom": 26.379210910993237,
+      "left": 29.177990797546013,
+      "right": 7.700311233352636
+     },
+     {
+      "top": 32.25421091099324,
+      "bottom": 49.12921091099324,
+      "left": 26.927990797546013,
+      "right": 6.825311233352636
+     },
+     {
+      "top": 58.87921091099324,
+      "bottom": 80.37921091099324,
+      "left": 14.677990797546013,
+      "right": 7.575311233352636
+     },
+     {
+      "top": 86.75421091099324,
+      "bottom": 106.37921091099324,
+      "left": 56.802990797546016,
+      "right": 1.575311233352636
+     }
+    ],
+    "line_pitch": 26.0,
+    "align": "right",
+    "align_spread": {
+     "left": 42.125,
+     "right": 6.125,
+     "center": 48.125
+    },
+    "ellipsis": false,
+    "ink_outside_box": false
+   }
+  },
+  {
+   "id": "tw2.2",
+   "type": "wrap",
+   "spec": {
+    "type": "wrap",
+    "key": "lh48-at48",
+    "str": "Hg8",
+    "px": 48,
+    "css": {
+     "line-height": "48px"
+    },
+    "outline": "pink",
+    "box": {
+     "x": 24,
+     "y": 376,
+     "w": 136,
+     "h": null
+    },
+    "slot": {
+     "x": 24,
+     "y": 376,
+     "w": 136,
+     "h": 76
+    },
+    "border": 1,
+    "id": "tw2.2"
+   },
+   "result": {
+    "box": {
+     "top": 375.49652777777777,
+     "bottom": 425.54591375150784,
+     "left": 24.330263157894738,
+     "right": 159.49877871100446
+    },
+    "content_h": 48.04938597373007,
+    "lines": 1,
+    "line_boxes": [
+     {
+      "top": 4.6284722222222285,
+      "bottom": 46.75347222222223,
+      "left": 3.2947368421052623,
+      "right": 37.62377871100446
+     }
+    ],
+    "ellipsis": false,
+    "ink_outside_box": false
+   }
+  }
+ ],
+ "layout": "band11.json",
+ "measured_at": "2026-09-29T06:26:39"
+}

@@ -1,0 +1,29 @@
+# ---- Signing material: never commit. Back it up somewhere private instead.
+signing/*.p12
+signing/keystore.properties
+# Every band app keeps a copy of the PEMs in its own sign/ (made by make-keys.sh)
+**/sign/
+
+# ---- Build output and dependencies (any project)
+node_modules
+.temp_*/
+**/build/
+**/dist/
+**/.gradle/
+**/.kotlin/
+**/local.properties
+build-stage-*/
+.DS_Store
+
+# ---- Third-party code: the band10-toolkit clone is its own git repo.
+vendor/band10-toolkit/
+
+# ---- Third-party binaries: AstroBox and other APKs
+*.apk
+tools/apk/
+
+# ---- Device photos and measurement output stay local (large, personal)
+devices/*/photos/
+devices/*/results/
+devices/*/results-face/
+tools/*/results/

@@ -1,0 +1,15 @@
+{
+  "name": "miband-dev",
+  "description": "Claude Code tools for building Xiaomi Smart Band watch faces and Vela JS apps and sideloading them over adb through AstroBox.",
+  "owner": {
+    "name": "sohamashodiya",
+    "url": "https://github.com/sohamashodiya"
+  },
+  "plugins": [
+    {
+      "name": "miband-dev",
+      "source": "./plugins/miband-dev",
+      "description": "Agent, skills and measured device profiles for Xiaomi Smart Band 10 / 10 Pro / 11 watch faces and Vela JS apps, installed from an Android phone over adb through AstroBox."
+    }
+  ]
+}

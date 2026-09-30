@@ -1,0 +1,62 @@
+{
+  "$schema": "../../../../../vendor/band10-toolkit/schemas/layout.schema.json",
+  "formatVersion": 1,
+  "canvas": {
+    "width": 336,
+    "height": 480,
+    "clip": "rectangle"
+  },
+  "assets": {
+    "digitSets": {}
+  },
+  "normal": {
+    "background": "#000000",
+    "widgets": [
+      {
+        "id": "bg",
+        "type": "image",
+        "asset": "assets/bg.png",
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "allowOverlap": true
+      },
+      {
+        "id": "tile-idx",
+        "type": "image",
+        "asset": "assets/tile_idx.png",
+        "x": 92,
+        "y": 70,
+        "z": 1,
+        "allowOverlap": true
+      },
+      {
+        "id": "tile-rgba32",
+        "type": "image",
+        "asset": "assets/tile_rgba32.png",
+        "x": 132,
+        "y": 70,
+        "z": 2,
+        "allowOverlap": true
+      },
+      {
+        "id": "blend",
+        "type": "image",
+        "asset": "assets/blend.png",
+        "x": 172,
+        "y": 70,
+        "z": 3,
+        "allowOverlap": true
+      },
+      {
+        "id": "alpha-ramp",
+        "type": "image",
+        "asset": "assets/alpha_ramp.png",
+        "x": 93,
+        "y": 110,
+        "z": 4,
+        "allowOverlap": true
+      }
+    ]
+  }
+}

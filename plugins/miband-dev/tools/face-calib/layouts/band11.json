@@ -1,0 +1,3525 @@
+{
+  "generated_by": "tools/face-calib/gen.py",
+  "kit_build": 1,
+  "model": "band11",
+  "device": "Xiaomi Smart Band 10 / 11",
+  "screen": {
+    "w": 212,
+    "h": 520,
+    "shape": "capsule",
+    "r": 106,
+    "straight_rows": [
+      110,
+      410
+    ]
+  },
+  "frame": {
+    "tick_every": 10,
+    "tick_len": [
+      8,
+      14,
+      22
+    ],
+    "yellow_every": 100,
+    "ticks": [
+      2,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0
+    ],
+    "bar": {
+      "x": 31,
+      "y": 404,
+      "len": 150,
+      "h": 4
+    },
+    "code": {
+      "x": 31,
+      "y": 388,
+      "cell": 6,
+      "pitch": 8,
+      "h": 10
+    },
+    "colours": {
+      "white": "#ffffff",
+      "yellow": "#ffd60a",
+      "pink": "#ff2d95",
+      "cyan": "#00e5ff",
+      "green": "#3cff3c",
+      "grey": "#9a9a9a",
+      "bits": "#c8c8c8",
+      "black": "#000000",
+      "red": "#ff0000",
+      "blue": "#0000ff",
+      "pure_green": "#00ff00",
+      "fill": "#c0c0c0"
+    }
+  },
+  "cells": {
+    "digit": {
+      "w": 16,
+      "h": 32,
+      "bits_at": [
+        3,
+        19
+      ]
+    },
+    "frame": {
+      "w": 64,
+      "h": 32,
+      "bits_at": [
+        46,
+        13
+      ]
+    },
+    "bit_sq": 4,
+    "bit_gap": 2,
+    "minus_code": 15,
+    "tile": 32
+  },
+  "faces": [
+    {
+      "n": 1,
+      "slug": "geometry",
+      "id": "810000101",
+      "name": "Calib F1 Geometry b1",
+      "project": "faces/band11/f1-geometry",
+      "bin": "faces/band11/f1-geometry/dist/calib-band11-f1-geometry.bin",
+      "pages": {
+        "normal": 1
+      },
+      "lua_ops": [],
+      "aod_script": false
+    },
+    {
+      "n": 2,
+      "slug": "colour",
+      "id": "810000102",
+      "name": "Calib F2 Colour b1",
+      "project": "faces/band11/f2-colour",
+      "bin": "faces/band11/f2-colour/dist/calib-band11-f2-colour.bin",
+      "pages": {
+        "normal": 2
+      },
+      "lua_ops": [
+        {
+          "kind": "alive",
+          "test": "alive",
+          "x": 29,
+          "y": 318
+        },
+        {
+          "kind": "fills",
+          "test": "object_fill",
+          "fills": [
+            {
+              "x": 29,
+              "y": 158,
+              "w": 10,
+              "h": 34,
+              "hex": "#000000"
+            },
+            {
+              "x": 41,
+              "y": 158,
+              "w": 10,
+              "h": 34,
+              "hex": "#080808"
+            },
+            {
+              "x": 53,
+              "y": 158,
+              "w": 10,
+              "h": 34,
+              "hex": "#101010"
+            },
+            {
+              "x": 65,
+              "y": 158,
+              "w": 10,
+              "h": 34,
+              "hex": "#181818"
+            },
+            {
+              "x": 77,
+              "y": 158,
+              "w": 10,
+              "h": 34,
+              "hex": "#202020"
+            },
+            {
+              "x": 89,
+              "y": 158,
+              "w": 10,
+              "h": 34,
+              "hex": "#282828"
+            },
+            {
+              "x": 101,
+              "y": 158,
+              "w": 10,
+              "h": 34,
+              "hex": "#303030"
+            },
+            {
+              "x": 113,
+              "y": 158,
+              "w": 10,
+              "h": 34,
+              "hex": "#383838"
+            },
+            {
+              "x": 125,
+              "y": 158,
+              "w": 10,
+              "h": 34,
+              "hex": "#404040"
+            },
+            {
+              "x": 137,
+              "y": 158,
+              "w": 10,
+              "h": 34,
+              "hex": "#484848"
+            },
+            {
+              "x": 149,
+              "y": 158,
+              "w": 10,
+              "h": 34,
+              "hex": "#505050"
+            },
+            {
+              "x": 161,
+              "y": 158,
+              "w": 10,
+              "h": 34,
+              "hex": "#585858"
+            },
+            {
+              "x": 173,
+              "y": 158,
+              "w": 10,
+              "h": 34,
+              "hex": "#606060"
+            }
+          ],
+          "status": [
+            176,
+            318
+          ]
+        }
+      ],
+      "aod_script": false
+    },
+    {
+      "n": 3,
+      "slug": "images",
+      "id": "810000103",
+      "name": "Calib F3 Images b1",
+      "project": "faces/band11/f3-images",
+      "bin": "faces/band11/f3-images/dist/calib-band11-f3-images.bin",
+      "pages": {
+        "normal": 3
+      },
+      "lua_ops": [
+        {
+          "kind": "alive",
+          "test": "alive",
+          "x": 176,
+          "y": 310
+        },
+        {
+          "kind": "image",
+          "test": "image_png_rgba",
+          "file": "t_png_rgba.png",
+          "x": 30,
+          "y": 140,
+          "status": [
+            43,
+            176
+          ],
+          "format": "png_rgba"
+        },
+        {
+          "kind": "image",
+          "test": "image_png8",
+          "file": "t_png8.png",
+          "x": 70,
+          "y": 140,
+          "status": [
+            83,
+            176
+          ],
+          "format": "png8"
+        },
+        {
+          "kind": "image",
+          "test": "image_png_grey",
+          "file": "t_png_grey.png",
+          "x": 110,
+          "y": 140,
+          "status": [
+            123,
+            176
+          ],
+          "format": "png_grey"
+        },
+        {
+          "kind": "image",
+          "test": "image_png_rgb",
+          "file": "t_png_rgb.png",
+          "x": 150,
+          "y": 140,
+          "status": [
+            163,
+            176
+          ],
+          "format": "png_rgb"
+        },
+        {
+          "kind": "image",
+          "test": "image_v8_tca32",
+          "file": "t_v8_tca32.bin",
+          "x": 30,
+          "y": 190,
+          "status": [
+            43,
+            226
+          ],
+          "format": "v8_tca32"
+        },
+        {
+          "kind": "image",
+          "test": "image_v8_tca16",
+          "file": "t_v8_tca16.bin",
+          "x": 70,
+          "y": 190,
+          "status": [
+            83,
+            226
+          ],
+          "format": "v8_tca16"
+        },
+        {
+          "kind": "image",
+          "test": "image_v9_argb8888",
+          "file": "t_v9_argb8888.bin",
+          "x": 110,
+          "y": 190,
+          "status": [
+            123,
+            226
+          ],
+          "format": "v9_argb8888"
+        },
+        {
+          "kind": "image",
+          "test": "image_v9_rgb565",
+          "file": "t_v9_rgb565.bin",
+          "x": 150,
+          "y": 190,
+          "status": [
+            163,
+            226
+          ],
+          "format": "v9_rgb565"
+        },
+        {
+          "kind": "image",
+          "test": "image_zoom",
+          "file": "t_png_rgba.png",
+          "x": 46,
+          "y": 256,
+          "zoom": "zoom",
+          "status": [
+            59,
+            310
+          ],
+          "format": "png_rgba"
+        },
+        {
+          "kind": "image",
+          "test": "image_scale",
+          "file": "t_png_rgba.png",
+          "x": 126,
+          "y": 256,
+          "zoom": "scale",
+          "status": [
+            139,
+            310
+          ],
+          "format": "png_rgba"
+        }
+      ],
+      "aod_script": false
+    },
+    {
+      "n": 4,
+      "slug": "numbers",
+      "id": "810000104",
+      "name": "Calib F4 Numbers b1",
+      "project": "faces/band11/f4-numbers",
+      "bin": "faces/band11/f4-numbers/dist/calib-band11-f4-numbers.bin",
+      "pages": {
+        "normal": 4
+      },
+      "lua_ops": [],
+      "aod_script": false
+    },
+    {
+      "n": 5,
+      "slug": "lists",
+      "id": "810000105",
+      "name": "Calib F5 Lists b1",
+      "project": "faces/band11/f5-lists",
+      "bin": "faces/band11/f5-lists/dist/calib-band11-f5-lists.bin",
+      "pages": {
+        "normal": 5
+      },
+      "lua_ops": [],
+      "aod_script": false
+    },
+    {
+      "n": 6,
+      "slug": "lua",
+      "id": "810000106",
+      "name": "Calib F6 Lua b1",
+      "project": "faces/band11/f6-lua",
+      "bin": "faces/band11/f6-lua/dist/calib-band11-f6-lua.bin",
+      "pages": {
+        "normal": 6
+      },
+      "lua_ops": [
+        {
+          "kind": "alive",
+          "test": "alive",
+          "x": 180,
+          "y": 56
+        },
+        {
+          "kind": "image",
+          "test": "place_0",
+          "file": "target.png",
+          "x": 110,
+          "y": 68,
+          "status": [
+            180,
+            81
+          ],
+          "format": "png_rgba"
+        },
+        {
+          "kind": "image",
+          "test": "place_1",
+          "file": "target.png",
+          "x": 30,
+          "y": 112,
+          "status": [
+            180,
+            125
+          ],
+          "format": "png_rgba"
+        },
+        {
+          "kind": "digits",
+          "test": "hor_res",
+          "what": "hor_res",
+          "n": 3,
+          "x": 30,
+          "y": 156,
+          "status": [
+            180,
+            160
+          ]
+        },
+        {
+          "kind": "digits",
+          "test": "ver_res",
+          "what": "ver_res",
+          "n": 3,
+          "x": 110,
+          "y": 156,
+          "status": [
+            180,
+            176
+          ]
+        },
+        {
+          "kind": "digits",
+          "test": "lua_hour",
+          "what": "hour",
+          "n": 2,
+          "x": 30,
+          "y": 200,
+          "status": [
+            180,
+            204
+          ]
+        },
+        {
+          "kind": "digits",
+          "test": "lua_minute",
+          "what": "minute",
+          "n": 2,
+          "x": 66,
+          "y": 200,
+          "status": [
+            180,
+            220
+          ]
+        },
+        {
+          "kind": "digits",
+          "test": "raw_minute_low",
+          "what": "raw_minute_low",
+          "n": 6,
+          "x": 30,
+          "y": 244,
+          "status": [
+            180,
+            257
+          ]
+        },
+        {
+          "kind": "label",
+          "test": "label",
+          "text": "LUA 0123",
+          "x": 30,
+          "y": 288,
+          "status": [
+            180,
+            292
+          ]
+        },
+        {
+          "kind": "fills",
+          "test": "object_fill",
+          "fills": [
+            {
+              "x": 30,
+              "y": 318,
+              "w": 24,
+              "h": 16,
+              "hex": "#ffffff"
+            },
+            {
+              "x": 58,
+              "y": 318,
+              "w": 24,
+              "h": 16,
+              "hex": "#808080"
+            },
+            {
+              "x": 86,
+              "y": 318,
+              "w": 24,
+              "h": 16,
+              "hex": "#404040"
+            }
+          ],
+          "status": [
+            180,
+            318
+          ]
+        },
+        {
+          "kind": "timer",
+          "test": "timer",
+          "x": 126,
+          "y": 323,
+          "status": [
+            180,
+            328
+          ]
+        }
+      ],
+      "aod_script": false
+    },
+    {
+      "n": 7,
+      "slug": "aod",
+      "id": "810000107",
+      "name": "Calib F7 AOD b1",
+      "project": "faces/band11/f7-aod",
+      "bin": "faces/band11/f7-aod/dist/calib-band11-f7-aod.bin",
+      "pages": {
+        "normal": 7,
+        "aod": 8
+      },
+      "lua_ops": [],
+      "aod_script": false
+    },
+    {
+      "n": 8,
+      "slug": "aodlua",
+      "id": "810000108",
+      "name": "Calib F8 AOD Lua b1",
+      "project": "faces/band11/f8-aodlua",
+      "bin": "faces/band11/f8-aodlua/dist/calib-band11-f8-aodlua.bin",
+      "pages": {
+        "normal": 9,
+        "aod": 10
+      },
+      "lua_ops": [
+        {
+          "kind": "image",
+          "test": "lua_square",
+          "file": "sq_big.png",
+          "x": 110,
+          "y": 68,
+          "status": [
+            176,
+            68
+          ],
+          "format": "png_rgba"
+        }
+      ],
+      "aod_script": true
+    }
+  ],
+  "pages": [
+    {
+      "id": 1,
+      "face": 1,
+      "key": "geo",
+      "title": "Geometry",
+      "theme": "normal",
+      "bar": {
+        "x": 31,
+        "y": 404,
+        "len": 150,
+        "h": 4
+      },
+      "code": {
+        "x": 31,
+        "y": 388,
+        "cell": 6,
+        "pitch": 8,
+        "h": 10
+      },
+      "samples": [
+        {
+          "type": "comb",
+          "edge": "top",
+          "xs": [
+            90,
+            98,
+            106,
+            114,
+            122
+          ],
+          "y0": 0,
+          "y1": 24,
+          "centre_x": 106,
+          "id": "geo.0"
+        },
+        {
+          "type": "comb",
+          "edge": "bottom",
+          "xs": [
+            90,
+            98,
+            106,
+            114,
+            122
+          ],
+          "y0": 496,
+          "y1": 520,
+          "centre_x": 106,
+          "id": "geo.1"
+        },
+        {
+          "type": "capsule_end",
+          "end": "top",
+          "rows": [
+            32,
+            90
+          ],
+          "expect": {
+            "cx": 106,
+            "cy": 106,
+            "r": 106
+          },
+          "id": "geo.2"
+        },
+        {
+          "type": "capsule_end",
+          "end": "bottom",
+          "rows": [
+            430,
+            488
+          ],
+          "expect": {
+            "cx": 106,
+            "cy": 414,
+            "r": 106
+          },
+          "id": "geo.3"
+        },
+        {
+          "type": "ruler_edges",
+          "rows": [
+            110,
+            410
+          ],
+          "id": "geo.4"
+        }
+      ],
+      "lua_ops": [],
+      "observe": [
+        {
+          "fact": "screen.system_overlay",
+          "ask": "Does the band draw anything over the face (status dot, icons)? Where, what colour, and when (unread notification, disconnected, charging)?"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": 2,
+      "face": 2,
+      "key": "colour",
+      "title": "Colour",
+      "theme": "normal",
+      "bar": {
+        "x": 31,
+        "y": 404,
+        "len": 150,
+        "h": 4
+      },
+      "code": {
+        "x": 31,
+        "y": 388,
+        "cell": 6,
+        "pitch": 8,
+        "h": 10
+      },
+      "samples": [
+        {
+          "type": "overlay",
+          "region": [
+            24,
+            0,
+            188,
+            42
+          ],
+          "id": "colour.0"
+        },
+        {
+          "type": "swatch",
+          "group": "grey",
+          "hex": "#000000",
+          "value": 0,
+          "box": {
+            "x": 29,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.1"
+        },
+        {
+          "type": "swatch",
+          "group": "grey",
+          "hex": "#080808",
+          "value": 8,
+          "box": {
+            "x": 41,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.2"
+        },
+        {
+          "type": "swatch",
+          "group": "grey",
+          "hex": "#101010",
+          "value": 16,
+          "box": {
+            "x": 53,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.3"
+        },
+        {
+          "type": "swatch",
+          "group": "grey",
+          "hex": "#181818",
+          "value": 24,
+          "box": {
+            "x": 65,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.4"
+        },
+        {
+          "type": "swatch",
+          "group": "grey",
+          "hex": "#202020",
+          "value": 32,
+          "box": {
+            "x": 77,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.5"
+        },
+        {
+          "type": "swatch",
+          "group": "grey",
+          "hex": "#282828",
+          "value": 40,
+          "box": {
+            "x": 89,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.6"
+        },
+        {
+          "type": "swatch",
+          "group": "grey",
+          "hex": "#303030",
+          "value": 48,
+          "box": {
+            "x": 101,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.7"
+        },
+        {
+          "type": "swatch",
+          "group": "grey",
+          "hex": "#383838",
+          "value": 56,
+          "box": {
+            "x": 113,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.8"
+        },
+        {
+          "type": "swatch",
+          "group": "grey",
+          "hex": "#404040",
+          "value": 64,
+          "box": {
+            "x": 125,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.9"
+        },
+        {
+          "type": "swatch",
+          "group": "grey",
+          "hex": "#484848",
+          "value": 72,
+          "box": {
+            "x": 137,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.10"
+        },
+        {
+          "type": "swatch",
+          "group": "grey",
+          "hex": "#505050",
+          "value": 80,
+          "box": {
+            "x": 149,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.11"
+        },
+        {
+          "type": "swatch",
+          "group": "grey",
+          "hex": "#585858",
+          "value": 88,
+          "box": {
+            "x": 161,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.12"
+        },
+        {
+          "type": "swatch",
+          "group": "grey",
+          "hex": "#606060",
+          "value": 96,
+          "box": {
+            "x": 173,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.13"
+        },
+        {
+          "type": "swatch",
+          "group": "grey_rgba32",
+          "hex": "#000000",
+          "value": 0,
+          "box": {
+            "x": 29,
+            "y": 112,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.14"
+        },
+        {
+          "type": "swatch",
+          "group": "grey_rgba32",
+          "hex": "#080808",
+          "value": 8,
+          "box": {
+            "x": 41,
+            "y": 112,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.15"
+        },
+        {
+          "type": "swatch",
+          "group": "grey_rgba32",
+          "hex": "#101010",
+          "value": 16,
+          "box": {
+            "x": 53,
+            "y": 112,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.16"
+        },
+        {
+          "type": "swatch",
+          "group": "grey_rgba32",
+          "hex": "#181818",
+          "value": 24,
+          "box": {
+            "x": 65,
+            "y": 112,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.17"
+        },
+        {
+          "type": "swatch",
+          "group": "grey_rgba32",
+          "hex": "#202020",
+          "value": 32,
+          "box": {
+            "x": 77,
+            "y": 112,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.18"
+        },
+        {
+          "type": "swatch",
+          "group": "grey_rgba32",
+          "hex": "#282828",
+          "value": 40,
+          "box": {
+            "x": 89,
+            "y": 112,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.19"
+        },
+        {
+          "type": "swatch",
+          "group": "grey_rgba32",
+          "hex": "#303030",
+          "value": 48,
+          "box": {
+            "x": 101,
+            "y": 112,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.20"
+        },
+        {
+          "type": "swatch",
+          "group": "grey_rgba32",
+          "hex": "#383838",
+          "value": 56,
+          "box": {
+            "x": 113,
+            "y": 112,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.21"
+        },
+        {
+          "type": "swatch",
+          "group": "grey_rgba32",
+          "hex": "#404040",
+          "value": 64,
+          "box": {
+            "x": 125,
+            "y": 112,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.22"
+        },
+        {
+          "type": "swatch",
+          "group": "grey_rgba32",
+          "hex": "#484848",
+          "value": 72,
+          "box": {
+            "x": 137,
+            "y": 112,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.23"
+        },
+        {
+          "type": "swatch",
+          "group": "grey_rgba32",
+          "hex": "#505050",
+          "value": 80,
+          "box": {
+            "x": 149,
+            "y": 112,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.24"
+        },
+        {
+          "type": "swatch",
+          "group": "grey_rgba32",
+          "hex": "#585858",
+          "value": 88,
+          "box": {
+            "x": 161,
+            "y": 112,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.25"
+        },
+        {
+          "type": "swatch",
+          "group": "grey_rgba32",
+          "hex": "#606060",
+          "value": 96,
+          "box": {
+            "x": 173,
+            "y": 112,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.26"
+        },
+        {
+          "type": "swatch",
+          "group": "grey_lua",
+          "hex": "#000000",
+          "value": 0,
+          "box": {
+            "x": 29,
+            "y": 158,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.27"
+        },
+        {
+          "type": "swatch",
+          "group": "grey_lua",
+          "hex": "#080808",
+          "value": 8,
+          "box": {
+            "x": 41,
+            "y": 158,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.28"
+        },
+        {
+          "type": "swatch",
+          "group": "grey_lua",
+          "hex": "#101010",
+          "value": 16,
+          "box": {
+            "x": 53,
+            "y": 158,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.29"
+        },
+        {
+          "type": "swatch",
+          "group": "grey_lua",
+          "hex": "#181818",
+          "value": 24,
+          "box": {
+            "x": 65,
+            "y": 158,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.30"
+        },
+        {
+          "type": "swatch",
+          "group": "grey_lua",
+          "hex": "#202020",
+          "value": 32,
+          "box": {
+            "x": 77,
+            "y": 158,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.31"
+        },
+        {
+          "type": "swatch",
+          "group": "grey_lua",
+          "hex": "#282828",
+          "value": 40,
+          "box": {
+            "x": 89,
+            "y": 158,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.32"
+        },
+        {
+          "type": "swatch",
+          "group": "grey_lua",
+          "hex": "#303030",
+          "value": 48,
+          "box": {
+            "x": 101,
+            "y": 158,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.33"
+        },
+        {
+          "type": "swatch",
+          "group": "grey_lua",
+          "hex": "#383838",
+          "value": 56,
+          "box": {
+            "x": 113,
+            "y": 158,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.34"
+        },
+        {
+          "type": "swatch",
+          "group": "grey_lua",
+          "hex": "#404040",
+          "value": 64,
+          "box": {
+            "x": 125,
+            "y": 158,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.35"
+        },
+        {
+          "type": "swatch",
+          "group": "grey_lua",
+          "hex": "#484848",
+          "value": 72,
+          "box": {
+            "x": 137,
+            "y": 158,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.36"
+        },
+        {
+          "type": "swatch",
+          "group": "grey_lua",
+          "hex": "#505050",
+          "value": 80,
+          "box": {
+            "x": 149,
+            "y": 158,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.37"
+        },
+        {
+          "type": "swatch",
+          "group": "grey_lua",
+          "hex": "#585858",
+          "value": 88,
+          "box": {
+            "x": 161,
+            "y": 158,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.38"
+        },
+        {
+          "type": "swatch",
+          "group": "grey_lua",
+          "hex": "#606060",
+          "value": 96,
+          "box": {
+            "x": 173,
+            "y": 158,
+            "w": 10,
+            "h": 34
+          },
+          "id": "colour.39"
+        },
+        {
+          "type": "swatch",
+          "group": "red",
+          "hex": "#100000",
+          "value": 16,
+          "box": {
+            "x": 31,
+            "y": 202,
+            "w": 17,
+            "h": 22
+          },
+          "id": "colour.40"
+        },
+        {
+          "type": "swatch",
+          "group": "red",
+          "hex": "#200000",
+          "value": 32,
+          "box": {
+            "x": 50,
+            "y": 202,
+            "w": 17,
+            "h": 22
+          },
+          "id": "colour.41"
+        },
+        {
+          "type": "swatch",
+          "group": "red",
+          "hex": "#300000",
+          "value": 48,
+          "box": {
+            "x": 69,
+            "y": 202,
+            "w": 17,
+            "h": 22
+          },
+          "id": "colour.42"
+        },
+        {
+          "type": "swatch",
+          "group": "red",
+          "hex": "#400000",
+          "value": 64,
+          "box": {
+            "x": 88,
+            "y": 202,
+            "w": 17,
+            "h": 22
+          },
+          "id": "colour.43"
+        },
+        {
+          "type": "swatch",
+          "group": "red",
+          "hex": "#500000",
+          "value": 80,
+          "box": {
+            "x": 107,
+            "y": 202,
+            "w": 17,
+            "h": 22
+          },
+          "id": "colour.44"
+        },
+        {
+          "type": "swatch",
+          "group": "red",
+          "hex": "#600000",
+          "value": 96,
+          "box": {
+            "x": 126,
+            "y": 202,
+            "w": 17,
+            "h": 22
+          },
+          "id": "colour.45"
+        },
+        {
+          "type": "swatch",
+          "group": "red",
+          "hex": "#700000",
+          "value": 112,
+          "box": {
+            "x": 145,
+            "y": 202,
+            "w": 17,
+            "h": 22
+          },
+          "id": "colour.46"
+        },
+        {
+          "type": "swatch",
+          "group": "red",
+          "hex": "#800000",
+          "value": 128,
+          "box": {
+            "x": 164,
+            "y": 202,
+            "w": 17,
+            "h": 22
+          },
+          "id": "colour.47"
+        },
+        {
+          "type": "swatch",
+          "group": "green",
+          "hex": "#001000",
+          "value": 16,
+          "box": {
+            "x": 31,
+            "y": 228,
+            "w": 17,
+            "h": 22
+          },
+          "id": "colour.48"
+        },
+        {
+          "type": "swatch",
+          "group": "green",
+          "hex": "#002000",
+          "value": 32,
+          "box": {
+            "x": 50,
+            "y": 228,
+            "w": 17,
+            "h": 22
+          },
+          "id": "colour.49"
+        },
+        {
+          "type": "swatch",
+          "group": "green",
+          "hex": "#003000",
+          "value": 48,
+          "box": {
+            "x": 69,
+            "y": 228,
+            "w": 17,
+            "h": 22
+          },
+          "id": "colour.50"
+        },
+        {
+          "type": "swatch",
+          "group": "green",
+          "hex": "#004000",
+          "value": 64,
+          "box": {
+            "x": 88,
+            "y": 228,
+            "w": 17,
+            "h": 22
+          },
+          "id": "colour.51"
+        },
+        {
+          "type": "swatch",
+          "group": "green",
+          "hex": "#005000",
+          "value": 80,
+          "box": {
+            "x": 107,
+            "y": 228,
+            "w": 17,
+            "h": 22
+          },
+          "id": "colour.52"
+        },
+        {
+          "type": "swatch",
+          "group": "green",
+          "hex": "#006000",
+          "value": 96,
+          "box": {
+            "x": 126,
+            "y": 228,
+            "w": 17,
+            "h": 22
+          },
+          "id": "colour.53"
+        },
+        {
+          "type": "swatch",
+          "group": "green",
+          "hex": "#007000",
+          "value": 112,
+          "box": {
+            "x": 145,
+            "y": 228,
+            "w": 17,
+            "h": 22
+          },
+          "id": "colour.54"
+        },
+        {
+          "type": "swatch",
+          "group": "green",
+          "hex": "#008000",
+          "value": 128,
+          "box": {
+            "x": 164,
+            "y": 228,
+            "w": 17,
+            "h": 22
+          },
+          "id": "colour.55"
+        },
+        {
+          "type": "swatch",
+          "group": "blue",
+          "hex": "#000010",
+          "value": 16,
+          "box": {
+            "x": 31,
+            "y": 254,
+            "w": 17,
+            "h": 22
+          },
+          "id": "colour.56"
+        },
+        {
+          "type": "swatch",
+          "group": "blue",
+          "hex": "#000020",
+          "value": 32,
+          "box": {
+            "x": 50,
+            "y": 254,
+            "w": 17,
+            "h": 22
+          },
+          "id": "colour.57"
+        },
+        {
+          "type": "swatch",
+          "group": "blue",
+          "hex": "#000030",
+          "value": 48,
+          "box": {
+            "x": 69,
+            "y": 254,
+            "w": 17,
+            "h": 22
+          },
+          "id": "colour.58"
+        },
+        {
+          "type": "swatch",
+          "group": "blue",
+          "hex": "#000040",
+          "value": 64,
+          "box": {
+            "x": 88,
+            "y": 254,
+            "w": 17,
+            "h": 22
+          },
+          "id": "colour.59"
+        },
+        {
+          "type": "swatch",
+          "group": "blue",
+          "hex": "#000050",
+          "value": 80,
+          "box": {
+            "x": 107,
+            "y": 254,
+            "w": 17,
+            "h": 22
+          },
+          "id": "colour.60"
+        },
+        {
+          "type": "swatch",
+          "group": "blue",
+          "hex": "#000060",
+          "value": 96,
+          "box": {
+            "x": 126,
+            "y": 254,
+            "w": 17,
+            "h": 22
+          },
+          "id": "colour.61"
+        },
+        {
+          "type": "swatch",
+          "group": "blue",
+          "hex": "#000070",
+          "value": 112,
+          "box": {
+            "x": 145,
+            "y": 254,
+            "w": 17,
+            "h": 22
+          },
+          "id": "colour.62"
+        },
+        {
+          "type": "swatch",
+          "group": "blue",
+          "hex": "#000080",
+          "value": 128,
+          "box": {
+            "x": 164,
+            "y": 254,
+            "w": 17,
+            "h": 22
+          },
+          "id": "colour.63"
+        },
+        {
+          "type": "swatch",
+          "group": "surface",
+          "hex": "#202020",
+          "value": 32,
+          "box": {
+            "x": 29,
+            "y": 282,
+            "w": 24,
+            "h": 28
+          },
+          "id": "colour.64"
+        },
+        {
+          "type": "swatch",
+          "group": "surface",
+          "hex": "#282828",
+          "value": 40,
+          "box": {
+            "x": 55,
+            "y": 282,
+            "w": 24,
+            "h": 28
+          },
+          "id": "colour.65"
+        },
+        {
+          "type": "swatch",
+          "group": "surface",
+          "hex": "#303030",
+          "value": 48,
+          "box": {
+            "x": 81,
+            "y": 282,
+            "w": 24,
+            "h": 28
+          },
+          "id": "colour.66"
+        },
+        {
+          "type": "swatch",
+          "group": "surface",
+          "hex": "#383838",
+          "value": 56,
+          "box": {
+            "x": 107,
+            "y": 282,
+            "w": 24,
+            "h": 28
+          },
+          "id": "colour.67"
+        },
+        {
+          "type": "swatch",
+          "group": "surface",
+          "hex": "#404040",
+          "value": 64,
+          "box": {
+            "x": 133,
+            "y": 282,
+            "w": 24,
+            "h": 28
+          },
+          "id": "colour.68"
+        },
+        {
+          "type": "swatch",
+          "group": "surface",
+          "hex": "#484848",
+          "value": 72,
+          "box": {
+            "x": 159,
+            "y": 282,
+            "w": 24,
+            "h": 28
+          },
+          "id": "colour.69"
+        },
+        {
+          "type": "status",
+          "test": "alive",
+          "box": {
+            "x": 29,
+            "y": 318,
+            "w": 6,
+            "h": 6
+          },
+          "id": "colour.70"
+        },
+        {
+          "type": "status",
+          "test": "object_fill",
+          "box": {
+            "x": 176,
+            "y": 318,
+            "w": 6,
+            "h": 6
+          },
+          "id": "colour.71"
+        }
+      ],
+      "lua_ops": [],
+      "observe": [],
+      "notes": [
+        "Rows: A grey in the background image (palette), B grey in a >256-colour image (BGRA32), C grey as Lua object fills, then red, green, blue ramps #10-#80 and surfaces #20-#48."
+      ]
+    },
+    {
+      "id": 3,
+      "face": 3,
+      "key": "images",
+      "title": "Images",
+      "theme": "normal",
+      "bar": {
+        "x": 31,
+        "y": 404,
+        "len": 150,
+        "h": 4
+      },
+      "code": {
+        "x": 31,
+        "y": 388,
+        "cell": 6,
+        "pitch": 8,
+        "h": 10
+      },
+      "samples": [
+        {
+          "type": "overlay",
+          "region": [
+            24,
+            0,
+            188,
+            42
+          ],
+          "id": "images.0"
+        },
+        {
+          "type": "tile",
+          "layer": "widget",
+          "variant": "png_indexed",
+          "box": {
+            "x": 30,
+            "y": 68,
+            "w": 32,
+            "h": 32
+          },
+          "expect": "rgba",
+          "id": "images.1"
+        },
+        {
+          "type": "tile",
+          "layer": "widget",
+          "variant": "png_rgba32",
+          "box": {
+            "x": 70,
+            "y": 68,
+            "w": 32,
+            "h": 32
+          },
+          "expect": "rgba",
+          "id": "images.2"
+        },
+        {
+          "type": "blend",
+          "box": {
+            "x": 110,
+            "y": 68,
+            "w": 32,
+            "h": 32
+          },
+          "over": [
+            255,
+            255,
+            255
+          ],
+          "top": [
+            255,
+            45,
+            149
+          ],
+          "alpha": 128,
+          "white_ref": {
+            "x": 30,
+            "y": 68,
+            "w": 16,
+            "h": 12
+          },
+          "id": "images.3"
+        },
+        {
+          "type": "ramp",
+          "fact": "image.alpha_over_black",
+          "a": {
+            "x": 31,
+            "y": 108,
+            "w": 150,
+            "h": 10
+          },
+          "b": {
+            "x": 31,
+            "y": 122,
+            "w": 150,
+            "h": 10
+          },
+          "id": "images.4"
+        },
+        {
+          "type": "tile",
+          "layer": "lua",
+          "variant": "png_rgba",
+          "box": {
+            "x": 30,
+            "y": 140,
+            "w": 32,
+            "h": 32
+          },
+          "expect": "rgba",
+          "id": "images.5"
+        },
+        {
+          "type": "status",
+          "test": "image_png_rgba",
+          "box": {
+            "x": 43,
+            "y": 176,
+            "w": 6,
+            "h": 6
+          },
+          "id": "images.6"
+        },
+        {
+          "type": "tile",
+          "layer": "lua",
+          "variant": "png8",
+          "box": {
+            "x": 70,
+            "y": 140,
+            "w": 32,
+            "h": 32
+          },
+          "expect": "rgba",
+          "id": "images.7"
+        },
+        {
+          "type": "status",
+          "test": "image_png8",
+          "box": {
+            "x": 83,
+            "y": 176,
+            "w": 6,
+            "h": 6
+          },
+          "id": "images.8"
+        },
+        {
+          "type": "tile",
+          "layer": "lua",
+          "variant": "png_grey",
+          "box": {
+            "x": 110,
+            "y": 140,
+            "w": 32,
+            "h": 32
+          },
+          "expect": "grey",
+          "id": "images.9"
+        },
+        {
+          "type": "status",
+          "test": "image_png_grey",
+          "box": {
+            "x": 123,
+            "y": 176,
+            "w": 6,
+            "h": 6
+          },
+          "id": "images.10"
+        },
+        {
+          "type": "tile",
+          "layer": "lua",
+          "variant": "png_rgb",
+          "box": {
+            "x": 150,
+            "y": 140,
+            "w": 32,
+            "h": 32
+          },
+          "expect": "rgb",
+          "id": "images.11"
+        },
+        {
+          "type": "status",
+          "test": "image_png_rgb",
+          "box": {
+            "x": 163,
+            "y": 176,
+            "w": 6,
+            "h": 6
+          },
+          "id": "images.12"
+        },
+        {
+          "type": "tile",
+          "layer": "lua",
+          "variant": "v8_tca32",
+          "box": {
+            "x": 30,
+            "y": 190,
+            "w": 32,
+            "h": 32
+          },
+          "expect": "rgba",
+          "id": "images.13"
+        },
+        {
+          "type": "status",
+          "test": "image_v8_tca32",
+          "box": {
+            "x": 43,
+            "y": 226,
+            "w": 6,
+            "h": 6
+          },
+          "id": "images.14"
+        },
+        {
+          "type": "tile",
+          "layer": "lua",
+          "variant": "v8_tca16",
+          "box": {
+            "x": 70,
+            "y": 190,
+            "w": 32,
+            "h": 32
+          },
+          "expect": "rgba",
+          "id": "images.15"
+        },
+        {
+          "type": "status",
+          "test": "image_v8_tca16",
+          "box": {
+            "x": 83,
+            "y": 226,
+            "w": 6,
+            "h": 6
+          },
+          "id": "images.16"
+        },
+        {
+          "type": "tile",
+          "layer": "lua",
+          "variant": "v9_argb8888",
+          "box": {
+            "x": 110,
+            "y": 190,
+            "w": 32,
+            "h": 32
+          },
+          "expect": "rgba",
+          "id": "images.17"
+        },
+        {
+          "type": "status",
+          "test": "image_v9_argb8888",
+          "box": {
+            "x": 123,
+            "y": 226,
+            "w": 6,
+            "h": 6
+          },
+          "id": "images.18"
+        },
+        {
+          "type": "tile",
+          "layer": "lua",
+          "variant": "v9_rgb565",
+          "box": {
+            "x": 150,
+            "y": 190,
+            "w": 32,
+            "h": 32
+          },
+          "expect": "rgb",
+          "id": "images.19"
+        },
+        {
+          "type": "status",
+          "test": "image_v9_rgb565",
+          "box": {
+            "x": 163,
+            "y": 226,
+            "w": 6,
+            "h": 6
+          },
+          "id": "images.20"
+        },
+        {
+          "type": "tile",
+          "layer": "lua",
+          "variant": "png_rgba_zoom_x2",
+          "box": {
+            "x": 46,
+            "y": 256,
+            "w": 32,
+            "h": 32
+          },
+          "expect": "rgba",
+          "zoom_test": true,
+          "id": "images.21"
+        },
+        {
+          "type": "status",
+          "test": "image_zoom",
+          "box": {
+            "x": 59,
+            "y": 310,
+            "w": 6,
+            "h": 6
+          },
+          "id": "images.22"
+        },
+        {
+          "type": "tile",
+          "layer": "lua",
+          "variant": "png_rgba_scale_x2",
+          "box": {
+            "x": 126,
+            "y": 256,
+            "w": 32,
+            "h": 32
+          },
+          "expect": "rgba",
+          "zoom_test": true,
+          "id": "images.23"
+        },
+        {
+          "type": "status",
+          "test": "image_scale",
+          "box": {
+            "x": 139,
+            "y": 310,
+            "w": 6,
+            "h": 6
+          },
+          "id": "images.24"
+        },
+        {
+          "type": "status",
+          "test": "alive",
+          "box": {
+            "x": 176,
+            "y": 310,
+            "w": 6,
+            "h": 6
+          },
+          "id": "images.25"
+        }
+      ],
+      "lua_ops": [],
+      "observe": [],
+      "notes": [
+        "Top row (widget layer): 256-colour PNG tile, >256-colour tile, 50 % pink over white, alpha ramp over black above the opaque grey ramp it should match. Lua rows: PNG RGBA, PNG8+tRNS, grey+alpha PNG, RGB PNG; LVGL v8 true-colour-alpha (32 and 16 bit), v9 ARGB8888, v9 RGB565; then a PNG with zoom=512 and with scale=512."
+      ]
+    },
+    {
+      "id": 4,
+      "face": 4,
+      "key": "numbers",
+      "title": "Numbers",
+      "theme": "normal",
+      "bar": {
+        "x": 31,
+        "y": 404,
+        "len": 150,
+        "h": 4
+      },
+      "code": {
+        "x": 31,
+        "y": 388,
+        "cell": 6,
+        "pitch": 8,
+        "h": 10
+      },
+      "samples": [
+        {
+          "type": "overlay",
+          "region": [
+            24,
+            0,
+            188,
+            42
+          ],
+          "id": "numbers.0"
+        },
+        {
+          "type": "number",
+          "source": "steps",
+          "x": 30,
+          "y": 76,
+          "align": "left",
+          "count": 5,
+          "spacing": 0,
+          "lz": false,
+          "unit": 0,
+          "region": [
+            0,
+            212
+          ],
+          "row": 0,
+          "id": "numbers.1"
+        },
+        {
+          "type": "number",
+          "source": "steps",
+          "x": 106,
+          "y": 120,
+          "align": "center",
+          "count": 5,
+          "spacing": 0,
+          "lz": false,
+          "unit": 0,
+          "region": [
+            0,
+            212
+          ],
+          "row": 1,
+          "id": "numbers.2"
+        },
+        {
+          "type": "number",
+          "source": "steps",
+          "x": 110,
+          "y": 164,
+          "align": "right",
+          "count": 5,
+          "spacing": 0,
+          "lz": false,
+          "unit": 0,
+          "region": [
+            0,
+            212
+          ],
+          "row": 2,
+          "id": "numbers.3"
+        },
+        {
+          "type": "number",
+          "source": "battery",
+          "x": 106,
+          "y": 208,
+          "align": "center",
+          "count": 3,
+          "spacing": 0,
+          "lz": false,
+          "unit": 12,
+          "region": [
+            0,
+            212
+          ],
+          "row": 3,
+          "id": "numbers.4"
+        },
+        {
+          "type": "number",
+          "source": "minute",
+          "x": 30,
+          "y": 252,
+          "align": "left",
+          "count": 2,
+          "spacing": 0,
+          "lz": true,
+          "region": [
+            0,
+            86
+          ],
+          "row": 4,
+          "id": "numbers.5"
+        },
+        {
+          "type": "number",
+          "source": "hour",
+          "x": 110,
+          "y": 252,
+          "align": "left",
+          "count": 2,
+          "spacing": 0,
+          "lz": false,
+          "region": [
+            86,
+            146
+          ],
+          "row": 4,
+          "id": "numbers.6"
+        },
+        {
+          "type": "number",
+          "source": "second",
+          "x": 150,
+          "y": 252,
+          "align": "left",
+          "count": 2,
+          "spacing": 0,
+          "lz": true,
+          "region": [
+            146,
+            212
+          ],
+          "row": 4,
+          "id": "numbers.7"
+        },
+        {
+          "type": "number",
+          "source": "steps",
+          "x": 30,
+          "y": 296,
+          "align": "left",
+          "count": 5,
+          "spacing": 6,
+          "lz": false,
+          "unit": 0,
+          "region": [
+            0,
+            212
+          ],
+          "row": 5,
+          "id": "numbers.8"
+        },
+        {
+          "type": "number",
+          "source": "steps",
+          "x": 30,
+          "y": 340,
+          "align": "left",
+          "count": 5,
+          "spacing": -3,
+          "lz": false,
+          "unit": 0,
+          "region": [
+            0,
+            212
+          ],
+          "row": 6,
+          "id": "numbers.9"
+        }
+      ],
+      "lua_ops": [],
+      "observe": [
+        {
+          "fact": "widgets.number.second_updates",
+          "ask": "Row 5, right: does the seconds number change every second while the face is awake?"
+        }
+      ],
+      "notes": [
+        "Cyan marks show each widget's x. Rows: steps left / centre / right (5 digits), battery centre (3 digits + % unit), minute (leading zero) + hour + second, steps with spacing +6 and -3."
+      ]
+    },
+    {
+      "id": 5,
+      "face": 5,
+      "key": "lists",
+      "title": "Lists",
+      "theme": "normal",
+      "bar": {
+        "x": 31,
+        "y": 404,
+        "len": 150,
+        "h": 4
+      },
+      "code": {
+        "x": 31,
+        "y": 388,
+        "cell": 6,
+        "pitch": 8,
+        "h": 10
+      },
+      "samples": [
+        {
+          "type": "overlay",
+          "region": [
+            24,
+            0,
+            188,
+            42
+          ],
+          "id": "lists.0"
+        },
+        {
+          "type": "number",
+          "source": "battery",
+          "x": 30,
+          "y": 76,
+          "align": "left",
+          "count": 3,
+          "spacing": 0,
+          "lz": false,
+          "region": [
+            28,
+            80
+          ],
+          "row": 0,
+          "id": "lists.1"
+        },
+        {
+          "type": "number",
+          "source": "day",
+          "x": 110,
+          "y": 76,
+          "align": "left",
+          "count": 2,
+          "spacing": 0,
+          "lz": false,
+          "region": [
+            108,
+            144
+          ],
+          "row": 0,
+          "id": "lists.2"
+        },
+        {
+          "type": "imagelist",
+          "source": "battery",
+          "list": "batt-steps",
+          "x": 30,
+          "y": 124,
+          "values": [
+            0,
+            20,
+            40,
+            60,
+            80,
+            100
+          ],
+          "labels": [
+            "0",
+            "20",
+            "40",
+            "60",
+            "80",
+            "100"
+          ],
+          "id": "lists.3"
+        },
+        {
+          "type": "imagelist",
+          "source": "battery",
+          "list": "batt-below",
+          "x": 30,
+          "y": 172,
+          "values": [
+            101,
+            102
+          ],
+          "labels": [
+            "101",
+            "102"
+          ],
+          "id": "lists.4"
+        },
+        {
+          "type": "imagelist",
+          "source": "battery",
+          "list": "batt-above",
+          "x": 110,
+          "y": 172,
+          "values": [
+            0,
+            1
+          ],
+          "labels": [
+            "0",
+            "1"
+          ],
+          "id": "lists.5"
+        },
+        {
+          "type": "imagelist",
+          "source": "weekday",
+          "list": "weekday",
+          "x": 30,
+          "y": 220,
+          "values": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "labels": [
+            "SUN",
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT"
+          ],
+          "id": "lists.6"
+        },
+        {
+          "type": "imagelist",
+          "source": "month",
+          "list": "month",
+          "x": 110,
+          "y": 220,
+          "values": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "labels": [
+            "JAN",
+            "FEB",
+            "MAR",
+            "APR",
+            "MAY",
+            "JUN",
+            "JUL",
+            "AUG",
+            "SEP",
+            "OCT",
+            "NOV",
+            "DEC"
+          ],
+          "id": "lists.7"
+        },
+        {
+          "type": "imagelist",
+          "source": "steps",
+          "list": "steps-steps",
+          "x": 30,
+          "y": 268,
+          "values": [
+            0,
+            1000,
+            5000,
+            10000
+          ],
+          "labels": [
+            "0",
+            "1k",
+            "5k",
+            "10k"
+          ],
+          "id": "lists.8"
+        },
+        {
+          "type": "number",
+          "source": "hour",
+          "x": 110,
+          "y": 268,
+          "align": "left",
+          "count": 2,
+          "spacing": 0,
+          "lz": true,
+          "region": [
+            108,
+            144
+          ],
+          "row": 4,
+          "id": "lists.9"
+        },
+        {
+          "type": "number",
+          "source": "minute",
+          "x": 146,
+          "y": 268,
+          "align": "left",
+          "count": 2,
+          "spacing": 0,
+          "lz": true,
+          "region": [
+            144,
+            180
+          ],
+          "row": 4,
+          "id": "lists.10"
+        }
+      ],
+      "lua_ops": [],
+      "observe": [],
+      "notes": [
+        "Each list frame carries its index in the bit squares. Battery frames at 0/20/.../100 (which frame for e.g. 57 %?), frames only above 100 (value below the first frame) and only 0/1 (value above the last), weekday, month, steps frames 0/1000/5000/10000; battery, day, hour and minute numbers give the true values."
+      ]
+    },
+    {
+      "id": 6,
+      "face": 6,
+      "key": "lua",
+      "title": "Lua",
+      "theme": "normal",
+      "bar": {
+        "x": 31,
+        "y": 404,
+        "len": 150,
+        "h": 4
+      },
+      "code": {
+        "x": 31,
+        "y": 388,
+        "cell": 6,
+        "pitch": 8,
+        "h": 10
+      },
+      "samples": [
+        {
+          "type": "overlay",
+          "region": [
+            24,
+            0,
+            188,
+            42
+          ],
+          "id": "lua.0"
+        },
+        {
+          "type": "status",
+          "test": "alive",
+          "box": {
+            "x": 180,
+            "y": 56,
+            "w": 6,
+            "h": 6
+          },
+          "id": "lua.1"
+        },
+        {
+          "type": "target",
+          "layer": "widget",
+          "box": {
+            "x": 30,
+            "y": 68,
+            "w": 32,
+            "h": 32
+          },
+          "id": "lua.2"
+        },
+        {
+          "type": "target",
+          "layer": "lua",
+          "box": {
+            "x": 110,
+            "y": 68,
+            "w": 32,
+            "h": 32
+          },
+          "id": "lua.3"
+        },
+        {
+          "type": "status",
+          "test": "place_0",
+          "box": {
+            "x": 180,
+            "y": 81,
+            "w": 6,
+            "h": 6
+          },
+          "id": "lua.4"
+        },
+        {
+          "type": "target",
+          "layer": "widget",
+          "box": {
+            "x": 110,
+            "y": 112,
+            "w": 32,
+            "h": 32
+          },
+          "id": "lua.5"
+        },
+        {
+          "type": "target",
+          "layer": "lua",
+          "box": {
+            "x": 30,
+            "y": 112,
+            "w": 32,
+            "h": 32
+          },
+          "id": "lua.6"
+        },
+        {
+          "type": "status",
+          "test": "place_1",
+          "box": {
+            "x": 180,
+            "y": 125,
+            "w": 6,
+            "h": 6
+          },
+          "id": "lua.7"
+        },
+        {
+          "type": "digits",
+          "what": "hor_res",
+          "n": 3,
+          "x": 30,
+          "y": 156,
+          "id": "lua.8"
+        },
+        {
+          "type": "status",
+          "test": "hor_res",
+          "box": {
+            "x": 180,
+            "y": 160,
+            "w": 6,
+            "h": 6
+          },
+          "id": "lua.9"
+        },
+        {
+          "type": "digits",
+          "what": "ver_res",
+          "n": 3,
+          "x": 110,
+          "y": 156,
+          "id": "lua.10"
+        },
+        {
+          "type": "status",
+          "test": "ver_res",
+          "box": {
+            "x": 180,
+            "y": 176,
+            "w": 6,
+            "h": 6
+          },
+          "id": "lua.11"
+        },
+        {
+          "type": "digits",
+          "what": "hour",
+          "n": 2,
+          "x": 30,
+          "y": 200,
+          "id": "lua.12"
+        },
+        {
+          "type": "status",
+          "test": "lua_hour",
+          "box": {
+            "x": 180,
+            "y": 204,
+            "w": 6,
+            "h": 6
+          },
+          "id": "lua.13"
+        },
+        {
+          "type": "digits",
+          "what": "minute",
+          "n": 2,
+          "x": 66,
+          "y": 200,
+          "id": "lua.14"
+        },
+        {
+          "type": "status",
+          "test": "lua_minute",
+          "box": {
+            "x": 180,
+            "y": 220,
+            "w": 6,
+            "h": 6
+          },
+          "id": "lua.15"
+        },
+        {
+          "type": "number",
+          "source": "hour",
+          "x": 110,
+          "y": 200,
+          "align": "left",
+          "count": 2,
+          "spacing": 0,
+          "lz": true,
+          "region": [
+            108,
+            144
+          ],
+          "row": 3,
+          "id": "lua.16"
+        },
+        {
+          "type": "number",
+          "source": "minute",
+          "x": 146,
+          "y": 200,
+          "align": "left",
+          "count": 2,
+          "spacing": 0,
+          "lz": true,
+          "region": [
+            144,
+            180
+          ],
+          "row": 3,
+          "id": "lua.17"
+        },
+        {
+          "type": "digits",
+          "what": "raw_minute_low",
+          "n": 6,
+          "x": 30,
+          "y": 244,
+          "id": "lua.18"
+        },
+        {
+          "type": "status",
+          "test": "raw_minute_low",
+          "box": {
+            "x": 180,
+            "y": 257,
+            "w": 6,
+            "h": 6
+          },
+          "id": "lua.19"
+        },
+        {
+          "type": "status",
+          "test": "label",
+          "box": {
+            "x": 180,
+            "y": 292,
+            "w": 6,
+            "h": 6
+          },
+          "id": "lua.20"
+        },
+        {
+          "type": "presence",
+          "what": "lua_label",
+          "box": {
+            "x": 30,
+            "y": 288,
+            "w": 100,
+            "h": 22
+          },
+          "id": "lua.21"
+        },
+        {
+          "type": "status",
+          "test": "object_fill",
+          "box": {
+            "x": 180,
+            "y": 318,
+            "w": 6,
+            "h": 6
+          },
+          "id": "lua.22"
+        },
+        {
+          "type": "swatch",
+          "group": "lua_fill",
+          "hex": "#ffffff",
+          "value": 255,
+          "box": {
+            "x": 30,
+            "y": 318,
+            "w": 24,
+            "h": 16
+          },
+          "id": "lua.23"
+        },
+        {
+          "type": "swatch",
+          "group": "lua_fill",
+          "hex": "#808080",
+          "value": 128,
+          "box": {
+            "x": 58,
+            "y": 318,
+            "w": 24,
+            "h": 16
+          },
+          "id": "lua.24"
+        },
+        {
+          "type": "swatch",
+          "group": "lua_fill",
+          "hex": "#404040",
+          "value": 64,
+          "box": {
+            "x": 86,
+            "y": 318,
+            "w": 24,
+            "h": 16
+          },
+          "id": "lua.25"
+        },
+        {
+          "type": "status",
+          "test": "timer",
+          "box": {
+            "x": 180,
+            "y": 328,
+            "w": 6,
+            "h": 6
+          },
+          "id": "lua.26"
+        }
+      ],
+      "lua_ops": [],
+      "observe": [
+        {
+          "fact": "lua.timer_runs",
+          "ask": "Bottom row: does the small green square right of the grey fills blink once a second?"
+        },
+        {
+          "fact": "lua.label_draws",
+          "ask": "Is the text \"LUA 0123\" visible (row 6)? In what font/size?"
+        }
+      ],
+      "notes": [
+        "Rows: placement targets (widget | Lua, then Lua | widget), Lua lvgl.HOR_RES() and VER_RES(), Lua hour/minute from dataman beside the widget hour/minute, the raw timeMinuteLow value, a Lua Label, Lua object fills and a timer. Status squares in the right column."
+      ]
+    },
+    {
+      "id": 7,
+      "face": 7,
+      "key": "aod_normal",
+      "title": "AOD test",
+      "theme": "normal",
+      "bar": {
+        "x": 31,
+        "y": 404,
+        "len": 150,
+        "h": 4
+      },
+      "code": {
+        "x": 31,
+        "y": 388,
+        "cell": 6,
+        "pitch": 8,
+        "h": 10
+      },
+      "samples": [
+        {
+          "type": "overlay",
+          "region": [
+            24,
+            0,
+            188,
+            42
+          ],
+          "id": "aod_normal.0"
+        },
+        {
+          "type": "swatch",
+          "group": "aod_grey",
+          "hex": "#000000",
+          "value": 0,
+          "box": {
+            "x": 29,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "aod_normal.1"
+        },
+        {
+          "type": "swatch",
+          "group": "aod_grey",
+          "hex": "#080808",
+          "value": 8,
+          "box": {
+            "x": 41,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "aod_normal.2"
+        },
+        {
+          "type": "swatch",
+          "group": "aod_grey",
+          "hex": "#101010",
+          "value": 16,
+          "box": {
+            "x": 53,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "aod_normal.3"
+        },
+        {
+          "type": "swatch",
+          "group": "aod_grey",
+          "hex": "#181818",
+          "value": 24,
+          "box": {
+            "x": 65,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "aod_normal.4"
+        },
+        {
+          "type": "swatch",
+          "group": "aod_grey",
+          "hex": "#202020",
+          "value": 32,
+          "box": {
+            "x": 77,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "aod_normal.5"
+        },
+        {
+          "type": "swatch",
+          "group": "aod_grey",
+          "hex": "#282828",
+          "value": 40,
+          "box": {
+            "x": 89,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "aod_normal.6"
+        },
+        {
+          "type": "swatch",
+          "group": "aod_grey",
+          "hex": "#303030",
+          "value": 48,
+          "box": {
+            "x": 101,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "aod_normal.7"
+        },
+        {
+          "type": "swatch",
+          "group": "aod_grey",
+          "hex": "#383838",
+          "value": 56,
+          "box": {
+            "x": 113,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "aod_normal.8"
+        },
+        {
+          "type": "swatch",
+          "group": "aod_grey",
+          "hex": "#404040",
+          "value": 64,
+          "box": {
+            "x": 125,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "aod_normal.9"
+        },
+        {
+          "type": "swatch",
+          "group": "aod_grey",
+          "hex": "#484848",
+          "value": 72,
+          "box": {
+            "x": 137,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "aod_normal.10"
+        },
+        {
+          "type": "swatch",
+          "group": "aod_grey",
+          "hex": "#505050",
+          "value": 80,
+          "box": {
+            "x": 149,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "aod_normal.11"
+        },
+        {
+          "type": "swatch",
+          "group": "aod_grey",
+          "hex": "#585858",
+          "value": 88,
+          "box": {
+            "x": 161,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "aod_normal.12"
+        },
+        {
+          "type": "swatch",
+          "group": "aod_grey",
+          "hex": "#606060",
+          "value": 96,
+          "box": {
+            "x": 173,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "aod_normal.13"
+        },
+        {
+          "type": "swatch",
+          "group": "aod_level",
+          "hex": "#808080",
+          "value": 128,
+          "box": {
+            "x": 30,
+            "y": 112,
+            "w": 48,
+            "h": 28
+          },
+          "id": "aod_normal.14"
+        },
+        {
+          "type": "swatch",
+          "group": "aod_level",
+          "hex": "#c0c0c0",
+          "value": 192,
+          "box": {
+            "x": 82,
+            "y": 112,
+            "w": 48,
+            "h": 28
+          },
+          "id": "aod_normal.15"
+        },
+        {
+          "type": "swatch",
+          "group": "aod_level",
+          "hex": "#ffffff",
+          "value": 255,
+          "box": {
+            "x": 134,
+            "y": 112,
+            "w": 48,
+            "h": 28
+          },
+          "id": "aod_normal.16"
+        },
+        {
+          "type": "number",
+          "source": "hour",
+          "x": 30,
+          "y": 160,
+          "align": "left",
+          "count": 2,
+          "spacing": 0,
+          "lz": true,
+          "region": [
+            28,
+            64
+          ],
+          "row": 2,
+          "id": "aod_normal.17"
+        },
+        {
+          "type": "number",
+          "source": "minute",
+          "x": 70,
+          "y": 160,
+          "align": "left",
+          "count": 2,
+          "spacing": 0,
+          "lz": true,
+          "region": [
+            68,
+            104
+          ],
+          "row": 2,
+          "id": "aod_normal.18"
+        },
+        {
+          "type": "number",
+          "source": "second",
+          "x": 110,
+          "y": 160,
+          "align": "left",
+          "count": 2,
+          "spacing": 0,
+          "lz": true,
+          "region": [
+            108,
+            144
+          ],
+          "row": 2,
+          "id": "aod_normal.19"
+        },
+        {
+          "type": "number",
+          "source": "battery",
+          "x": 30,
+          "y": 204,
+          "align": "left",
+          "count": 3,
+          "spacing": 0,
+          "lz": false,
+          "region": [
+            26,
+            78
+          ],
+          "row": 3,
+          "id": "aod_normal.20"
+        }
+      ],
+      "lua_ops": [],
+      "observe": [],
+      "notes": [
+        "Photograph the normal view (p7), then without moving the phone or changing exposure (lock AE/AF), let it dim and photograph the always-on view (p8): same swatches, so the ratio is the AOD dimming."
+      ]
+    },
+    {
+      "id": 8,
+      "face": 7,
+      "key": "aod_aod",
+      "title": "AOD",
+      "theme": "aod",
+      "bar": {
+        "x": 31,
+        "y": 404,
+        "len": 150,
+        "h": 4
+      },
+      "code": {
+        "x": 31,
+        "y": 388,
+        "cell": 6,
+        "pitch": 8,
+        "h": 10
+      },
+      "samples": [
+        {
+          "type": "swatch",
+          "group": "aod_grey",
+          "hex": "#000000",
+          "value": 0,
+          "box": {
+            "x": 29,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "aod_aod.0"
+        },
+        {
+          "type": "swatch",
+          "group": "aod_grey",
+          "hex": "#080808",
+          "value": 8,
+          "box": {
+            "x": 41,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "aod_aod.1"
+        },
+        {
+          "type": "swatch",
+          "group": "aod_grey",
+          "hex": "#101010",
+          "value": 16,
+          "box": {
+            "x": 53,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "aod_aod.2"
+        },
+        {
+          "type": "swatch",
+          "group": "aod_grey",
+          "hex": "#181818",
+          "value": 24,
+          "box": {
+            "x": 65,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "aod_aod.3"
+        },
+        {
+          "type": "swatch",
+          "group": "aod_grey",
+          "hex": "#202020",
+          "value": 32,
+          "box": {
+            "x": 77,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "aod_aod.4"
+        },
+        {
+          "type": "swatch",
+          "group": "aod_grey",
+          "hex": "#282828",
+          "value": 40,
+          "box": {
+            "x": 89,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "aod_aod.5"
+        },
+        {
+          "type": "swatch",
+          "group": "aod_grey",
+          "hex": "#303030",
+          "value": 48,
+          "box": {
+            "x": 101,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "aod_aod.6"
+        },
+        {
+          "type": "swatch",
+          "group": "aod_grey",
+          "hex": "#383838",
+          "value": 56,
+          "box": {
+            "x": 113,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "aod_aod.7"
+        },
+        {
+          "type": "swatch",
+          "group": "aod_grey",
+          "hex": "#404040",
+          "value": 64,
+          "box": {
+            "x": 125,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "aod_aod.8"
+        },
+        {
+          "type": "swatch",
+          "group": "aod_grey",
+          "hex": "#484848",
+          "value": 72,
+          "box": {
+            "x": 137,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "aod_aod.9"
+        },
+        {
+          "type": "swatch",
+          "group": "aod_grey",
+          "hex": "#505050",
+          "value": 80,
+          "box": {
+            "x": 149,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "aod_aod.10"
+        },
+        {
+          "type": "swatch",
+          "group": "aod_grey",
+          "hex": "#585858",
+          "value": 88,
+          "box": {
+            "x": 161,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "aod_aod.11"
+        },
+        {
+          "type": "swatch",
+          "group": "aod_grey",
+          "hex": "#606060",
+          "value": 96,
+          "box": {
+            "x": 173,
+            "y": 68,
+            "w": 10,
+            "h": 34
+          },
+          "id": "aod_aod.12"
+        },
+        {
+          "type": "swatch",
+          "group": "aod_level",
+          "hex": "#808080",
+          "value": 128,
+          "box": {
+            "x": 30,
+            "y": 112,
+            "w": 48,
+            "h": 28
+          },
+          "id": "aod_aod.13"
+        },
+        {
+          "type": "swatch",
+          "group": "aod_level",
+          "hex": "#c0c0c0",
+          "value": 192,
+          "box": {
+            "x": 82,
+            "y": 112,
+            "w": 48,
+            "h": 28
+          },
+          "id": "aod_aod.14"
+        },
+        {
+          "type": "swatch",
+          "group": "aod_level",
+          "hex": "#ffffff",
+          "value": 255,
+          "box": {
+            "x": 134,
+            "y": 112,
+            "w": 48,
+            "h": 28
+          },
+          "id": "aod_aod.15"
+        },
+        {
+          "type": "number",
+          "source": "hour",
+          "x": 30,
+          "y": 160,
+          "align": "left",
+          "count": 2,
+          "spacing": 0,
+          "lz": true,
+          "region": [
+            28,
+            64
+          ],
+          "row": 2,
+          "id": "aod_aod.16"
+        },
+        {
+          "type": "number",
+          "source": "minute",
+          "x": 70,
+          "y": 160,
+          "align": "left",
+          "count": 2,
+          "spacing": 0,
+          "lz": true,
+          "region": [
+            68,
+            104
+          ],
+          "row": 2,
+          "id": "aod_aod.17"
+        },
+        {
+          "type": "number",
+          "source": "second",
+          "x": 110,
+          "y": 160,
+          "align": "left",
+          "count": 2,
+          "spacing": 0,
+          "lz": true,
+          "region": [
+            108,
+            144
+          ],
+          "row": 2,
+          "id": "aod_aod.18"
+        },
+        {
+          "type": "number",
+          "source": "battery",
+          "x": 30,
+          "y": 204,
+          "align": "left",
+          "count": 3,
+          "spacing": 0,
+          "lz": false,
+          "region": [
+            26,
+            78
+          ],
+          "row": 3,
+          "id": "aod_aod.19"
+        }
+      ],
+      "lua_ops": [],
+      "observe": [
+        {
+          "fact": "aod.shows",
+          "ask": "With always-on enabled on the band: after the screen dims, is this AOD page shown (barcode p8, \"ALWAYS-ON\")? How long until it dims?"
+        },
+        {
+          "fact": "aod.second_updates",
+          "ask": "In always-on: does the seconds number change? Do hour/minute update at the minute?"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": 9,
+      "face": 8,
+      "key": "aodlua_normal",
+      "title": "AOD Lua test",
+      "theme": "normal",
+      "bar": {
+        "x": 31,
+        "y": 404,
+        "len": 150,
+        "h": 4
+      },
+      "code": {
+        "x": 31,
+        "y": 388,
+        "cell": 6,
+        "pitch": 8,
+        "h": 10
+      },
+      "samples": [
+        {
+          "type": "presence",
+          "what": "widget_square",
+          "box": {
+            "x": 30,
+            "y": 68,
+            "w": 24,
+            "h": 24
+          },
+          "colour": "green",
+          "id": "aodlua_normal.0"
+        },
+        {
+          "type": "presence",
+          "what": "lua_square",
+          "box": {
+            "x": 110,
+            "y": 68,
+            "w": 24,
+            "h": 24
+          },
+          "colour": "green",
+          "id": "aodlua_normal.1"
+        }
+      ],
+      "lua_ops": [],
+      "observe": [],
+      "notes": []
+    },
+    {
+      "id": 10,
+      "face": 8,
+      "key": "aodlua_aod",
+      "title": "AOD Lua",
+      "theme": "aod",
+      "bar": {
+        "x": 31,
+        "y": 404,
+        "len": 150,
+        "h": 4
+      },
+      "code": {
+        "x": 31,
+        "y": 388,
+        "cell": 6,
+        "pitch": 8,
+        "h": 10
+      },
+      "samples": [
+        {
+          "type": "presence",
+          "what": "widget_square",
+          "box": {
+            "x": 30,
+            "y": 68,
+            "w": 24,
+            "h": 24
+          },
+          "colour": "green",
+          "id": "aodlua_aod.0"
+        },
+        {
+          "type": "presence",
+          "what": "lua_square",
+          "box": {
+            "x": 110,
+            "y": 68,
+            "w": 24,
+            "h": 24
+          },
+          "colour": "green",
+          "id": "aodlua_aod.1"
+        }
+      ],
+      "lua_ops": [],
+      "observe": [
+        {
+          "fact": "lua.runs_on_aod",
+          "ask": "In always-on: is the right-hand green square (drawn by Lua) there, or only the left one (an image)?"
+        }
+      ],
+      "notes": []
+    }
+  ]
+}

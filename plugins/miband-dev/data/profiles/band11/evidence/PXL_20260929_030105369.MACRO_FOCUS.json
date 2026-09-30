@@ -1,0 +1,303 @@
+{
+ "photo": "PXL_20260929_030105369.MACRO_FOCUS.jpg",
+ "page": 18,
+ "page_key": "bx4",
+ "kit": "2.0.0",
+ "fit": {
+  "rms_band_px": [
+   0.263,
+   0.271
+  ],
+  "ticks": 74,
+  "dropped": 0,
+  "bloom_px": 0.48,
+  "photo_px_per_band_px": [
+   4.565,
+   4.536
+  ],
+  "edges": {
+   "left_first_visible_x": 0.3871273299836596,
+   "right_last_visible_x": 210.77590476226516,
+   "ticks_seen_left": 31,
+   "ticks_seen_right": 31,
+   "first_tick_y_left": 110,
+   "last_tick_y_left": 410
+  },
+  "ok": true,
+  "notes": []
+ },
+ "samples": [
+  {
+   "id": "bx4.0",
+   "type": "rect",
+   "spec": {
+    "type": "rect",
+    "key": "rotate",
+    "what": "static rotate(45deg) on a 56 x 4 bar",
+    "fact": "css.transform_rotate",
+    "slot": {
+     "x": 24,
+     "y": 52,
+     "w": 80,
+     "h": 96
+    },
+    "metric": "bbox",
+    "colour": "white",
+    "region": [
+     24,
+     52,
+     104,
+     148
+    ],
+    "hyp": {
+     "honoured": [
+      43,
+      79,
+      42,
+      42
+     ],
+     "ignored": [
+      36,
+      98,
+      56,
+      4
+     ]
+    },
+    "id": "bx4.0"
+   },
+   "result": {
+    "bbox": [
+     33.75,
+     99.25,
+     41.5,
+     41.38
+    ],
+    "verdict": "honoured",
+    "distances": {
+     "honoured": 30.62,
+     "ignored": 55.38
+    },
+    "margin": 24.76,
+    "missing": false
+   }
+  },
+  {
+   "id": "bx4.1",
+   "type": "rect",
+   "spec": {
+    "type": "rect",
+    "key": "percent-width",
+    "what": "child width 50% of a 72 px parent",
+    "fact": "css.percent_width",
+    "slot": {
+     "x": 108,
+     "y": 52,
+     "w": 80,
+     "h": 96
+    },
+    "metric": "bbox",
+    "colour": "white",
+    "region": [
+     108,
+     52,
+     188,
+     148
+    ],
+    "hyp": {
+     "honoured": [
+      112,
+      82,
+      36,
+      20
+     ],
+     "ignored_full": [
+      112,
+      82,
+      72,
+      20
+     ]
+    },
+    "id": "bx4.1"
+   },
+   "result": {
+    "bbox": [
+     111.5,
+     82.0,
+     35.88,
+     20.62
+    ],
+    "verdict": "honoured",
+    "distances": {
+     "honoured": 1.25,
+     "ignored_full": 37.25
+    },
+    "margin": 36.0,
+    "missing": false
+   }
+  },
+  {
+   "id": "bx4.2",
+   "type": "rect",
+   "spec": {
+    "type": "rect",
+    "key": "justify-center",
+    "what": "row, justify-content center, 20 px child in 72",
+    "fact": "css.justify_content",
+    "slot": {
+     "x": 24,
+     "y": 154,
+     "w": 80,
+     "h": 96
+    },
+    "metric": "bbox",
+    "colour": "white",
+    "region": [
+     24,
+     154,
+     104,
+     250
+    ],
+    "hyp": {
+     "honoured": [
+      54,
+      184,
+      20,
+      20
+     ],
+     "ignored": [
+      28,
+      184,
+      20,
+      20
+     ]
+    },
+    "id": "bx4.2"
+   },
+   "result": {
+    "bbox": [
+     54.12,
+     184.25,
+     20.12,
+     20.25
+    ],
+    "verdict": "honoured",
+    "distances": {
+     "honoured": 0.75,
+     "ignored": 26.75
+    },
+    "margin": 26.0,
+    "missing": false
+   }
+  },
+  {
+   "id": "bx4.3",
+   "type": "rect",
+   "spec": {
+    "type": "rect",
+    "key": "box-shadow",
+    "what": "box-shadow 0 0 12px white on a 40 x 40 fill",
+    "fact": "css.box_shadow",
+    "slot": {
+     "x": 108,
+     "y": 154,
+     "w": 80,
+     "h": 96
+    },
+    "metric": "luma_pair",
+    "a": [
+     118,
+     194,
+     124,
+     210
+    ],
+    "b": [
+     134,
+     194,
+     162,
+     210
+    ],
+    "hyp": {
+     "honoured": {
+      "ratio": 0.3
+     },
+     "ignored": {
+      "ratio": 0
+     }
+    },
+    "id": "bx4.3"
+   },
+   "result": {
+    "luma_a": 34.8,
+    "luma_b": 232.6,
+    "ratio": 0.15,
+    "verdict": "ignored",
+    "distances": {
+     "honoured": 0.15,
+     "ignored": 0.15
+    },
+    "margin": 0.0
+   }
+  },
+  {
+   "id": "bx4.4",
+   "type": "rect",
+   "spec": {
+    "type": "rect",
+    "key": "text-bg",
+    "what": "text with background-color #505050 and radius 12 (a pill label)",
+    "fact": "css.text_background",
+    "slot": {
+     "x": 24,
+     "y": 256,
+     "w": 80,
+     "h": 96
+    },
+    "metric": "corners",
+    "colour": "any",
+    "region": [
+     24,
+     280,
+     104,
+     328
+    ],
+    "hyp": {
+     "honoured": {
+      "tl": 12,
+      "tr": 12,
+      "br": 12,
+      "bl": 12
+     },
+     "square": {
+      "tl": 0,
+      "tr": 0,
+      "br": 0,
+      "bl": 0
+     }
+    },
+    "id": "bx4.4"
+   },
+   "result": {
+    "radius": {
+     "tl": 12.8,
+     "tr": 12.8,
+     "bl": 12.38,
+     "br": 12.38
+    },
+    "bbox": [
+     28.75,
+     285.5,
+     71.25,
+     36.0
+    ],
+    "verdict": "honoured",
+    "distances": {
+     "honoured": 2.36,
+     "square": 50.36
+    },
+    "margin": 48.0
+   }
+  }
+ ],
+ "layout": "band11.json",
+ "measured_at": "2026-09-29T06:26:34"
+}

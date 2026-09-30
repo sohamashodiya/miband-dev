@@ -1,0 +1,11 @@
+{
+  "generated_by": "tools/face-calib/gen.py",
+  "model": "band11",
+  "kit_build": 1,
+  "pages": {
+    "normal": 7,
+    "aod": 8
+  },
+  "aodScript": false,
+  "packer": "toolkit-cli"
+}

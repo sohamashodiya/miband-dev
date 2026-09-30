@@ -1,0 +1,2725 @@
+{
+ "schema": "vela-device-profile/2",
+ "about": "Measured facts about how this band model renders UI, tied to one firmware version (`firmware`). Every leaf is {value, status, source, date}: status \"measured\" (from a device photo or observation), \"assumed\" (from a spec, a font file or another model) or \"unknown\" (value null). Top level: `device` and `screen` (the panel itself, true for everything drawn on it). `quickapp`: how the Vela quick-app (JS app) renderer draws text, boxes, CSS, colour, images and animation. `face`: how the watch-face engine (band10-toolkit .bin faces: widgets, image lists, the Lua layer, always-on) draws; a different renderer, so quick-app facts never stand in for face facts. Layout code reads it through tools/vela-calib/profile.js (quick-app paths like 'font.line_box_em' resolve inside `quickapp`); tools/vela-calib/measure.py writes it from photos of the calibration app. Units: band px (= design px, designWidth = screen width) and em (x font-size).",
+ "updated": "2026-09-28",
+ "firmware": {
+  "version": "3.101.043",
+  "note": "Every measured fact here was measured on this firmware. After a firmware update, re-run the calibration kit (tools/vela-calib) and compare before trusting the profile; then bump this."
+ },
+ "device": {
+  "id": "band10pro",
+  "name": "Xiaomi Smart Band 10 Pro",
+  "firmware": {
+   "value": "3.101.043",
+   "status": "measured",
+   "source": "Mi Fitness device page",
+   "date": "2026-09-27"
+  },
+  "screen": {
+   "w": 336,
+   "h": 480,
+   "diag_in": {
+    "value": 1.74,
+    "status": "assumed",
+    "source": "Xiaomi spec",
+    "date": "2026-09-27"
+   },
+   "ppi": {
+    "value": 336.7,
+    "status": "assumed",
+    "source": "computed from 336x480 at 1.74 in",
+    "date": "2026-09-27"
+   },
+   "mm_per_px": {
+    "value": 0.0754,
+    "status": "assumed",
+    "source": "25.4 / 336.7",
+    "date": "2026-09-27"
+   },
+   "size_mm": {
+    "value": [
+     25.4,
+     36.2
+    ],
+    "status": "assumed",
+    "source": "336 x 480 px at 0.0754 mm",
+    "date": "2026-09-27"
+   }
+  },
+  "design_width": {
+   "value": 336,
+   "status": "measured",
+   "source": "manifest config.designWidth 336 draws 1 design px per screen px (BART Watch on this band)",
+   "date": "2026-09-27"
+  }
+ },
+ "screen": {
+  "corner_radius_px": {
+   "value": {
+    "tl": 47.6,
+    "tr": 46.4,
+    "bl": 48.5,
+    "br": 46.9
+   },
+   "status": "measured",
+   "source": "photos IMG20260927202625.jpg",
+   "date": "2026-09-27"
+  },
+  "hidden_px": {
+   "top": {
+    "value": 0.0,
+    "status": "measured",
+    "source": "photos IMG20260927202625.jpg",
+    "date": "2026-09-27"
+   },
+   "bottom": {
+    "value": 0.0,
+    "status": "measured",
+    "source": "photos IMG20260927202625.jpg",
+    "date": "2026-09-27"
+   },
+   "left": {
+    "value": 2.03,
+    "status": "measured",
+    "source": "rulers in photos IMG20260927202514.jpg, IMG20260927202520.jpg, IMG20260927202527.jpg, IMG20260927202533.jpg, IMG20260927202540.jpg, IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202613.jpg, IMG20260927202616.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202625.jpg, IMG20260927202627.jpg, IMG20260927202630.jpg, IMG20260927202836.jpg, calib.jpg, calib2.jpg",
+    "date": "2026-09-27",
+    "note": "from the outer ends of the ruler ticks (bloom-corrected), +-1 px; the Screen geometry page measures it directly"
+   },
+   "right": {
+    "value": 1.73,
+    "status": "measured",
+    "source": "rulers in photos IMG20260927202514.jpg, IMG20260927202520.jpg, IMG20260927202527.jpg, IMG20260927202533.jpg, IMG20260927202540.jpg, IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202613.jpg, IMG20260927202616.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202625.jpg, IMG20260927202627.jpg, IMG20260927202630.jpg, IMG20260927202836.jpg, calib.jpg, calib2.jpg",
+    "date": "2026-09-27",
+    "note": "from the outer ends of the ruler ticks (bloom-corrected), +-1 px; the Screen geometry page measures it directly"
+   }
+  },
+  "system_overlay": {
+   "value": "none",
+   "status": "measured",
+   "source": "Screen geometry photo IMG20260927202625.jpg (2026-09-27): nothing drawn over the app; all four corner squares and both edge combs visible",
+   "date": "2026-09-27",
+   "note": "Band 11 watch faces keep the top ~40 px clear for a status dot; not known for Band 10 Pro quick apps"
+  },
+  "corner_detail": {
+   "value": {
+    "tl": {
+     "diag_inset_px": 13.88,
+     "radius_px": 47.6,
+     "edge_hidden_x_px": 0.67,
+     "edge_hidden_y_px": -1.16,
+     "arc_points": 653,
+     "fit_rms_px": 0.14
+    },
+    "tr": {
+     "diag_inset_px": 13.25,
+     "radius_px": 46.4,
+     "edge_hidden_x_px": -0.04,
+     "edge_hidden_y_px": -0.86,
+     "arc_points": 629,
+     "fit_rms_px": 0.12
+    },
+    "bl": {
+     "diag_inset_px": 15.25,
+     "radius_px": 48.5,
+     "edge_hidden_x_px": 1.02,
+     "edge_hidden_y_px": 0.87,
+     "arc_points": 712,
+     "fit_rms_px": 0.19
+    },
+    "br": {
+     "diag_inset_px": 14.75,
+     "radius_px": 46.9,
+     "edge_hidden_x_px": 0.71,
+     "edge_hidden_y_px": 1.02,
+     "arc_points": 714,
+     "fit_rms_px": 0.14
+    }
+   },
+   "status": "measured",
+   "source": "photos IMG20260927202625.jpg",
+   "date": "2026-09-27"
+  }
+ },
+ "quickapp": {
+  "font": {
+   "family": {
+    "value": "MiSans Latin Bold",
+    "status": "measured",
+    "source": "BART 2.0.0 photo: string widths matched MiSans Latin Bold within 1% (bart-band fit.js notes)",
+    "date": "2026-09-27"
+   },
+   "line_box_em": {
+    "value": 1.3273,
+    "status": "measured",
+    "source": "photos IMG20260927202514.jpg, IMG20260927202520.jpg, IMG20260927202527.jpg, IMG20260927202533.jpg, IMG20260927202540.jpg, calib.jpg, calib2.jpg",
+    "date": "2026-09-27",
+    "by_size_px": {
+     "24": 31.89,
+     "48": 63.91,
+     "96": 126.97,
+     "140": 186.77,
+     "180": 238.92,
+     "240": 318.28
+    },
+    "note": "natural height of one line of a <text> with no explicit height"
+   },
+   "ascent_em": {
+    "value": 1.044,
+    "status": "assumed",
+    "source": "MiSans Latin Bold hhea ascender; matches the measured baseline",
+    "date": "2026-09-27"
+   },
+   "descent_em": {
+    "value": 0.282,
+    "status": "assumed",
+    "source": "MiSans Latin Bold hhea descender; ascent + descent = 1.326 = the measured line box",
+    "date": "2026-09-27"
+   },
+   "baseline_em": {
+    "value": 1.044,
+    "status": "measured",
+    "source": "BART 2.0.11 photo: baseline 0.381 em below the line-box middle (0.6625 + 0.381)",
+    "date": "2026-09-27",
+    "note": "from the line-box top"
+   },
+   "ink": {
+    "digit": {
+     "top_em": {
+      "value": 0.2526,
+      "status": "measured",
+      "source": "photos IMG20260927202514.jpg, IMG20260927202520.jpg, IMG20260927202527.jpg, IMG20260927202533.jpg, IMG20260927202540.jpg, calib.jpg, calib2.jpg",
+      "date": "2026-09-27"
+     },
+     "bottom_em": {
+      "value": 1.067,
+      "status": "measured",
+      "source": "photos IMG20260927202514.jpg, IMG20260927202520.jpg, IMG20260927202527.jpg, IMG20260927202533.jpg, IMG20260927202540.jpg, calib.jpg, calib2.jpg",
+      "date": "2026-09-27"
+     },
+     "note": "round digits, from the line-box top, half-brightness edges (includes ~1 px camera bloom per side, so slightly large = conservative)"
+    },
+    "cap": {
+     "top_em": {
+      "value": 0.2633,
+      "status": "measured",
+      "source": "photos IMG20260927202514.jpg, IMG20260927202520.jpg, IMG20260927202527.jpg, IMG20260927202533.jpg, IMG20260927202540.jpg, calib.jpg, calib2.jpg",
+      "date": "2026-09-27"
+     },
+     "bottom_em": {
+      "value": 1.0654,
+      "status": "measured",
+      "source": "photos IMG20260927202514.jpg, IMG20260927202520.jpg, IMG20260927202527.jpg, IMG20260927202533.jpg, IMG20260927202540.jpg, calib.jpg, calib2.jpg",
+      "date": "2026-09-27"
+     }
+    },
+    "descender": {
+     "top_em": {
+      "value": 0.4769,
+      "status": "measured",
+      "source": "photos IMG20260927202514.jpg, IMG20260927202520.jpg, IMG20260927202527.jpg, IMG20260927202533.jpg, IMG20260927202540.jpg, calib.jpg, calib2.jpg",
+      "date": "2026-09-27"
+     },
+     "bottom_em": {
+      "value": 1.318,
+      "status": "measured",
+      "source": "photos IMG20260927202514.jpg, IMG20260927202520.jpg, IMG20260927202527.jpg, IMG20260927202533.jpg, IMG20260927202540.jpg, calib.jpg, calib2.jpg",
+      "date": "2026-09-27"
+     }
+    }
+   },
+   "regime": {
+    "taller_box": {
+     "rule": {
+      "value": "centre",
+      "status": "measured",
+      "source": "photos IMG20260927202514.jpg, IMG20260927202520.jpg, IMG20260927202527.jpg, IMG20260927202533.jpg, IMG20260927202540.jpg, calib.jpg, calib2.jpg",
+      "date": "2026-09-27",
+      "fit_error_em": {
+       "centre": 0.0102,
+       "top": 0.1655,
+       "bottom": 0.1564
+      },
+      "samples": 6
+     },
+     "clipped": {
+      "value": false,
+      "status": "measured",
+      "source": "photos IMG20260927202514.jpg, IMG20260927202520.jpg, IMG20260927202527.jpg, IMG20260927202533.jpg, IMG20260927202540.jpg, calib.jpg, calib2.jpg",
+      "date": "2026-09-27"
+     }
+    },
+    "shorter_box": {
+     "rule": {
+      "value": "top",
+      "status": "measured",
+      "source": "photos IMG20260927202514.jpg, IMG20260927202520.jpg, IMG20260927202527.jpg, IMG20260927202533.jpg, IMG20260927202540.jpg, calib.jpg, calib2.jpg",
+      "date": "2026-09-27",
+      "fit_error_em": {
+       "centre": 0.2459,
+       "top": 0.016,
+       "bottom": 0.4985
+      },
+      "samples": 7
+     },
+     "clipped": {
+      "value": true,
+      "status": "measured",
+      "source": "photos IMG20260927202514.jpg, IMG20260927202520.jpg, IMG20260927202527.jpg, IMG20260927202533.jpg, IMG20260927202540.jpg, calib.jpg, calib2.jpg",
+      "date": "2026-09-27"
+     }
+    },
+    "taller_box_text_too_wide": {
+     "rule": {
+      "value": "top",
+      "status": "measured",
+      "source": "photos IMG20260927202514.jpg, IMG20260927202520.jpg, IMG20260927202527.jpg, IMG20260927202533.jpg, IMG20260927202540.jpg, calib.jpg, calib2.jpg",
+      "date": "2026-09-27",
+      "fit_error_em": {
+       "centre": 0.206,
+       "top": 0.0703,
+       "bottom": 0.3417
+      },
+      "samples": 4
+     },
+     "clipped": {
+      "value": false,
+      "status": "measured",
+      "source": "photos IMG20260927202514.jpg, IMG20260927202520.jpg, IMG20260927202527.jpg, IMG20260927202533.jpg, IMG20260927202540.jpg, calib.jpg, calib2.jpg",
+      "date": "2026-09-27"
+     }
+    }
+   },
+   "ink_clipped_to_own_box": {
+    "value": true,
+    "status": "measured",
+    "source": "calib2.jpg: a <text> never draws ink outside its own box, whatever overflow says",
+    "date": "2026-09-27"
+   },
+   "explicit_height_honoured": {
+    "value": true,
+    "status": "measured",
+    "source": "calib.jpg: heights 360 / 210 / 144 came out 360.4 / 210.0 / 144.3",
+    "date": "2026-09-27"
+   },
+   "advance_em": {
+    " ": {
+     "value": 0.3387,
+     "status": "measured",
+     "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+     "date": "2026-09-27"
+    },
+    "!": {
+     "value": 0.32,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "\"": {
+     "value": 0.479,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "#": {
+     "value": 0.717,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "$": {
+     "value": 0.595,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "%": {
+     "value": 0.902,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "&": {
+     "value": 0.784,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "'": {
+     "value": 0.266,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "(": {
+     "value": 0.358,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    ")": {
+     "value": 0.358,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "*": {
+     "value": 0.542,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "+": {
+     "value": 0.617,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    ",": {
+     "value": 0.32,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "-": {
+     "value": 0.462,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    ".": {
+     "value": 0.3,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "/": {
+     "value": 0.438,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "0": {
+     "value": 0.6591,
+     "status": "measured",
+     "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+     "date": "2026-09-27"
+    },
+    "1": {
+     "value": 0.4527,
+     "status": "measured",
+     "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+     "date": "2026-09-27"
+    },
+    "2": {
+     "value": 0.6032,
+     "status": "measured",
+     "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+     "date": "2026-09-27"
+    },
+    "3": {
+     "value": 0.6191,
+     "status": "measured",
+     "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+     "date": "2026-09-27"
+    },
+    "4": {
+     "value": 0.6228,
+     "status": "measured",
+     "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+     "date": "2026-09-27"
+    },
+    "5": {
+     "value": 0.621,
+     "status": "measured",
+     "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+     "date": "2026-09-27"
+    },
+    "6": {
+     "value": 0.6421,
+     "status": "measured",
+     "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+     "date": "2026-09-27"
+    },
+    "7": {
+     "value": 0.5572,
+     "status": "measured",
+     "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+     "date": "2026-09-27"
+    },
+    "8": {
+     "value": 0.6577,
+     "status": "measured",
+     "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+     "date": "2026-09-27"
+    },
+    "9": {
+     "value": 0.6191,
+     "status": "measured",
+     "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+     "date": "2026-09-27"
+    },
+    ":": {
+     "value": 0.3,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    ";": {
+     "value": 0.322,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "<": {
+     "value": 0.617,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "=": {
+     "value": 0.617,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    ">": {
+     "value": 0.617,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "?": {
+     "value": 0.529,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "@": {
+     "value": 0.898,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "A": {
+     "value": 0.723,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "B": {
+     "value": 0.683,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "C": {
+     "value": 0.704,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "D": {
+     "value": 0.75,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "E": {
+     "value": 0.603,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "F": {
+     "value": 0.583,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "G": {
+     "value": 0.735,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "H": {
+     "value": 0.765,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "I": {
+     "value": 0.389,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "J": {
+     "value": 0.53,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "K": {
+     "value": 0.708,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "L": {
+     "value": 0.583,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "M": {
+     "value": 0.943,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "N": {
+     "value": 0.813,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "O": {
+     "value": 0.791,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "P": {
+     "value": 0.65,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "Q": {
+     "value": 0.815,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "R": {
+     "value": 0.666,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "S": {
+     "value": 0.622,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "T": {
+     "value": 0.623,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "U": {
+     "value": 0.756,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "V": {
+     "value": 0.728,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "W": {
+     "value": 1.071,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "X": {
+     "value": 0.741,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "Y": {
+     "value": 0.703,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "Z": {
+     "value": 0.643,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "[": {
+     "value": 0.357,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "\\": {
+     "value": 0.415,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "]": {
+     "value": 0.357,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "^": {
+     "value": 0.572,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "_": {
+     "value": 0.451,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "`": {
+     "value": 0.365,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "a": {
+     "value": 0.599,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "b": {
+     "value": 0.632,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "c": {
+     "value": 0.555,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "d": {
+     "value": 0.632,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "e": {
+     "value": 0.597,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "f": {
+     "value": 0.39,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "g": {
+     "value": 0.632,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "h": {
+     "value": 0.65,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "i": {
+     "value": 0.299,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "j": {
+     "value": 0.298,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "k": {
+     "value": 0.62,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "l": {
+     "value": 0.298,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "m": {
+     "value": 0.975,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "n": {
+     "value": 0.65,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "o": {
+     "value": 0.625,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "p": {
+     "value": 0.632,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "q": {
+     "value": 0.632,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "r": {
+     "value": 0.447,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "s": {
+     "value": 0.509,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "t": {
+     "value": 0.434,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "u": {
+     "value": 0.65,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "v": {
+     "value": 0.571,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "w": {
+     "value": 0.856,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "x": {
+     "value": 0.578,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "y": {
+     "value": 0.571,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "z": {
+     "value": 0.502,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "{": {
+     "value": 0.394,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "|": {
+     "value": 0.551,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "}": {
+     "value": 0.394,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "~": {
+     "value": 0.6,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "–": {
+     "value": 0.5,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "…": {
+     "value": 0.963,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "·": {
+     "value": 0.489,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "’": {
+     "value": 0.295,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    " ": {
+     "value": 0.283,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    },
+    "—": {
+     "value": 1.0,
+     "status": "assumed",
+     "source": "bart-band fit.js table: per glyph the wider of Noto Sans Bold and MiSans Latin Bold (font files, not the band)",
+     "date": "2026-09-27"
+    }
+   },
+   "advance_safety": {
+    "assumed": {
+     "value": 1.1,
+     "status": "assumed",
+     "source": "fit.js SAFETY for table widths",
+     "date": "2026-09-27",
+     "note": "2026-09-27 photos: every measured bold string is 0.79-1.07x the assumed table (letters 0.92-1.00, digits 0.79 ('1') to 1.03, '0 0 0 0' 1.07 because the space is 0.339 em, not 0.283). 1.1 still covers all of them. Digit strings run about 1 px per glyph wider than the table's em widths (0000: 65.0/127.7/250.2 px at 24/48/96 = 0.64 em + 1 px per glyph), so at small sizes the fixed px matters: at 16 px a digit string reaches ~1.10x."
+    },
+    "measured": {
+     "value": 1.02,
+     "status": "assumed",
+     "source": "margin for camera-measured widths",
+     "date": "2026-09-27",
+     "note": "Widths measured at one size carry ~1 px per glyph of fixed tracking: a digit advance measured at 48 px (em + 1/48) under-reads at 24 px by ~0.02 em per glyph (3 %), over-reads at larger sizes. 1.02 covers sizes >= ~30 px; below that add 1 px per glyph."
+    }
+   },
+   "advance_tracking": {
+    "value": 1,
+    "status": "measured",
+    "below_px": 30,
+    "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg (Text W page: 0000 at 24/48/96 px = 65.0/127.7/250.2 px = 0.64 em + 1 px per glyph)",
+    "date": "2026-09-27",
+    "note": "Fixed tracking in band px added per glyph for text under below_px, to glyphs whose advance is measured (and to every glyph of a string measured whole). Measured advances carry ~1 px per glyph that the em width doesn't scale; the 1.02 measured safety covers it from ~30 px up, not below. Assumed advances (x 1.1) already cover it: assumed letters measured 0.92-1.00 x the table, and 1 px at 26 px is <= 0.04 em. profile.js width() adds value x (tracked glyph count) when px < below_px."
+   },
+   "string_em": {
+    "bold": {
+     "0000": {
+      "value": 2.6363,
+      "status": "measured",
+      "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+      "date": "2026-09-27"
+     },
+     "1111": {
+      "value": 1.8109,
+      "status": "measured",
+      "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+      "date": "2026-09-27"
+     },
+     "2222": {
+      "value": 2.4129,
+      "status": "measured",
+      "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+      "date": "2026-09-27"
+     },
+     "3333": {
+      "value": 2.4763,
+      "status": "measured",
+      "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+      "date": "2026-09-27"
+     },
+     "4444": {
+      "value": 2.4911,
+      "status": "measured",
+      "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+      "date": "2026-09-27"
+     },
+     "5555": {
+      "value": 2.484,
+      "status": "measured",
+      "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+      "date": "2026-09-27"
+     },
+     "8888": {
+      "value": 2.6307,
+      "status": "measured",
+      "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+      "date": "2026-09-27"
+     },
+     "min": {
+      "value": 1.7743,
+      "status": "measured",
+      "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+      "date": "2026-09-27"
+     },
+     "NOW": {
+      "value": 2.6216,
+      "status": "measured",
+      "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+      "date": "2026-09-27"
+     },
+     "6666": {
+      "value": 2.5683,
+      "status": "measured",
+      "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+      "date": "2026-09-27"
+     },
+     "7777": {
+      "value": 2.229,
+      "status": "measured",
+      "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+      "date": "2026-09-27"
+     },
+     "9999": {
+      "value": 2.4765,
+      "status": "measured",
+      "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+      "date": "2026-09-27"
+     },
+     "min, maybe": {
+      "value": 5.688,
+      "status": "measured",
+      "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+      "date": "2026-09-27"
+     },
+     "Checking…": {
+      "value": 5.4987,
+      "status": "measured",
+      "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+      "date": "2026-09-27"
+     },
+     "UPDATING…": {
+      "value": 6.28,
+      "status": "measured",
+      "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+      "date": "2026-09-27"
+     },
+     "abcdefghijklm": {
+      "value": 6.9553,
+      "status": "measured",
+      "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+      "date": "2026-09-27"
+     },
+     "later 21, 36 min": {
+      "value": 7.662,
+      "status": "measured",
+      "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+      "date": "2026-09-27"
+     },
+     "CHANGE AT": {
+      "value": 5.9392,
+      "status": "measured",
+      "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+      "date": "2026-09-27"
+     },
+     "Embarcadero": {
+      "value": 6.5028,
+      "status": "measured",
+      "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+      "date": "2026-09-27"
+     },
+     "Union City": {
+      "value": 5.1485,
+      "status": "measured",
+      "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+      "date": "2026-09-27"
+     },
+     "Alerts ON": {
+      "value": 4.8776,
+      "status": "measured",
+      "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+      "date": "2026-09-27"
+     },
+     "0 0 0 0": {
+      "value": 3.6524,
+      "status": "measured",
+      "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+      "date": "2026-09-27"
+     },
+     "Hg8 min": {
+      "value": 4.1357,
+      "status": "measured",
+      "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+      "date": "2026-09-27"
+     },
+     "nopqrstuvwxyz": {
+      "value": 7.5727,
+      "status": "measured",
+      "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+      "date": "2026-09-27"
+     },
+     "ABCDEFGHIJKLM": {
+      "value": 8.6716,
+      "status": "measured",
+      "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+      "date": "2026-09-27"
+     },
+     "NOPQRSTUVWXYZ": {
+      "value": 9.4613,
+      "status": "measured",
+      "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+      "date": "2026-09-27"
+     },
+     ":.,-/%": {
+      "value": 2.6337,
+      "status": "measured",
+      "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+      "date": "2026-09-27"
+     }
+    },
+    "normal": {
+     "0000": {
+      "value": 2.488,
+      "status": "measured",
+      "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+      "date": "2026-09-27"
+     },
+     "Hg8 min": {
+      "value": 3.9794,
+      "status": "measured",
+      "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+      "date": "2026-09-27"
+     }
+    }
+   },
+   "weights": {
+    "normal_differs_from_bold": {
+     "value": true,
+     "status": "measured",
+     "source": "photos IMG20260927202545.jpg, IMG20260927202550.jpg, IMG20260927202555.jpg, IMG20260927202836.jpg",
+     "date": "2026-09-27",
+     "normal_0000_em": 2.488,
+     "bold_0000_em": 2.6608
+    }
+   }
+  },
+  "text": {
+   "line_height_css": {
+    "value": "honoured",
+    "status": "measured",
+    "source": "photos IMG20260927202613.jpg, IMG20260927202616.jpg",
+    "date": "2026-09-27",
+    "supported": true,
+    "detail": {
+     "css": "48px",
+     "px": 48,
+     "content_h": 48.01
+    }
+   },
+   "wrap": {
+    "lineheight32": {
+     "value": {
+      "lines": 4,
+      "line_pitch": 32.125,
+      "align": "left",
+      "ellipsis": false,
+      "content_h": 127.07988837039267
+     },
+     "status": "measured",
+     "source": "photos IMG20260927202613.jpg, IMG20260927202616.jpg",
+     "date": "2026-09-27"
+    },
+    "lh72-at48": {
+     "value": {
+      "lines": 1,
+      "line_pitch": null,
+      "align": null,
+      "ellipsis": false,
+      "content_h": 72.43824106040685
+     },
+     "status": "measured",
+     "source": "photos IMG20260927202613.jpg, IMG20260927202616.jpg",
+     "date": "2026-09-27"
+    },
+    "lh48-at48": {
+     "value": {
+      "lines": 1,
+      "line_pitch": null,
+      "align": null,
+      "ellipsis": false,
+      "content_h": 48.00663318566299
+     },
+     "status": "measured",
+     "source": "photos IMG20260927202613.jpg, IMG20260927202616.jpg",
+     "date": "2026-09-27"
+    },
+    "lh40-at48-h48": {
+     "value": {
+      "lines": 1,
+      "line_pitch": null,
+      "align": null,
+      "ellipsis": false,
+      "content_h": 46.19157222486666
+     },
+     "status": "measured",
+     "source": "photos IMG20260927202613.jpg, IMG20260927202616.jpg",
+     "date": "2026-09-27"
+    },
+    "lines2-ellipsis": {
+     "value": {
+      "lines": 2,
+      "line_pitch": 27.125,
+      "align": "left",
+      "ellipsis": true,
+      "content_h": 53.222775650751345
+     },
+     "status": "measured",
+     "source": "photos IMG20260927202613.jpg, IMG20260927202616.jpg",
+     "date": "2026-09-27"
+    },
+    "lines2-clip": {
+     "value": {
+      "lines": 2,
+      "line_pitch": 27.75,
+      "align": "left",
+      "ellipsis": false,
+      "content_h": 54.072482843460136
+     },
+     "status": "measured",
+     "source": "photos IMG20260927202613.jpg, IMG20260927202616.jpg",
+     "date": "2026-09-27"
+    },
+    "longword": {
+     "value": {
+      "lines": 2,
+      "line_pitch": 27.125,
+      "align": "left",
+      "ellipsis": false,
+      "content_h": 54.29115200778705
+     },
+     "status": "measured",
+     "source": "photos IMG20260927202613.jpg, IMG20260927202616.jpg",
+     "date": "2026-09-27"
+    },
+    "lines1-ellipsis": {
+     "value": {
+      "lines": 1,
+      "line_pitch": null,
+      "align": null,
+      "ellipsis": true,
+      "content_h": 27.07759715981922
+     },
+     "status": "measured",
+     "source": "photos IMG20260927202613.jpg, IMG20260927202616.jpg",
+     "date": "2026-09-27"
+    }
+   },
+   "row": {
+    "flex-end": {
+     "value": {
+      "box_bottom_diff": 0.625,
+      "ink_bottom_diff": 16.425000000745058
+     },
+     "status": "measured",
+     "source": "photos IMG20260927202613.jpg",
+     "date": "2026-09-27"
+    },
+    "baseline": {
+     "value": {
+      "box_bottom_diff": 0.25,
+      "ink_bottom_diff": 16.08948863297701
+     },
+     "status": "measured",
+     "source": "photos IMG20260927202613.jpg",
+     "date": "2026-09-27"
+    }
+   },
+   "explicit_height_text_too_wide": {
+    "value": "one_line_cut_right_top_anchored",
+    "status": "measured",
+    "source": "photos IMG20260927202616.jpg (Wrap 2, height 40 box: 'The quick bro', one line cut mid-word) and IMG20260927202533/202520 (Hg8 in 1.5 em boxes 0.93x its width: one line, cut at the right, top-anchored not centred; font.regime.taller_box_text_too_wide)",
+    "date": "2026-09-27"
+   },
+   "natural_box_wraps": {
+    "value": "spaces_then_letters",
+    "status": "measured",
+    "source": "photo IMG20260927202616.jpg (Wrap 2): a <text> with no height wraps at spaces and grows; 'Embarcaderoembarcadero' (longer than the box) breaks between letters; every Hg8 natural box on Text V 1-4 narrower than the string wrapped to 'Hg' / '8'",
+    "date": "2026-09-27"
+   },
+   "align": {
+    "value": "left_center_right_honoured",
+    "status": "measured",
+    "source": "photo IMG20260927202616.jpg read by eye (the three boxes overlap their neighbours, so measure.py rejects them): text-align left / center / right lay each wrapped line out as asked",
+    "date": "2026-09-27"
+   },
+   "lines_without_ellipsis": {
+    "value": "last_line_cut_mid_word",
+    "status": "measured",
+    "source": "photo IMG20260927202616.jpg: lines: 2 with no text-overflow shows 'The quick' / 'brown fox jur' (cut at the right, no ellipsis); with text-overflow: ellipsis 'brown fox j...'; lines: 1 + ellipsis 'Embarcade...'",
+    "date": "2026-09-27"
+   }
+  },
+  "colour": {
+   "floor": {
+    "grey": {
+     "value": 16,
+     "status": "measured",
+     "source": "photos IMG20260927202627.jpg",
+     "date": "2026-09-27",
+     "lumas": {
+      "#000000": 6.3,
+      "#080808": 7.4,
+      "#101010": 12.4,
+      "#181818": 20.2,
+      "#202020": 30.0,
+      "#282828": 34.4,
+      "#303030": 46.6,
+      "#383838": 62.0,
+      "#404040": 74.4,
+      "#484848": 88.0,
+      "#505050": 102.2,
+      "#585858": 115.2,
+      "#606060": 122.8
+     },
+     "black_luma": 6.3,
+     "threshold": 5.1,
+     "note": "lowest channel value the camera saw above black; confirm by eye"
+    },
+    "red": {
+     "value": 32,
+     "status": "measured",
+     "source": "photos IMG20260927202627.jpg",
+     "date": "2026-09-27",
+     "lumas": {
+      "#100000": 6.5,
+      "#200000": 12.0,
+      "#300000": 14.9,
+      "#400000": 24.9,
+      "#500000": 36.4,
+      "#600000": 45.3,
+      "#700000": 54.9,
+      "#800000": 65.6
+     },
+     "black_luma": 6.3,
+     "threshold": 5.1,
+     "note": "lowest channel value the camera saw above black; confirm by eye"
+    },
+    "green": {
+     "value": 32,
+     "status": "measured",
+     "source": "photos IMG20260927202627.jpg",
+     "date": "2026-09-27",
+     "lumas": {
+      "#001000": 7.8,
+      "#002000": 16.9,
+      "#003000": 24.8,
+      "#004000": 39.8,
+      "#005000": 59.1,
+      "#006000": 74.3,
+      "#007000": 89.1,
+      "#008000": 103.4
+     },
+     "black_luma": 6.3,
+     "threshold": 5.1,
+     "note": "lowest channel value the camera saw above black; confirm by eye"
+    },
+    "blue": {
+     "value": 32,
+     "status": "measured",
+     "source": "photos IMG20260927202627.jpg",
+     "date": "2026-09-27",
+     "lumas": {
+      "#000010": 8.2,
+      "#000020": 13.6,
+      "#000030": 16.9,
+      "#000040": 23.5,
+      "#000050": 31.4,
+      "#000060": 35.6,
+      "#000070": 42.3,
+      "#000080": 49.8
+     },
+     "black_luma": 6.3,
+     "threshold": 5.1,
+     "note": "lowest channel value the camera saw above black; confirm by eye"
+    },
+    "surface": {
+     "value": 32,
+     "status": "measured",
+     "source": "photos IMG20260927202627.jpg",
+     "date": "2026-09-27",
+     "lumas": {
+      "#202020": 29.2,
+      "#282828": 32.0,
+      "#303030": 44.0,
+      "#383838": 57.2,
+      "#404040": 70.0,
+      "#484848": 83.8
+     },
+     "black_luma": 6.3,
+     "threshold": 5.1,
+     "note": "lowest channel value the camera saw above black; confirm by eye"
+    }
+   },
+   "brand": {
+    "value": {
+     "#ffd60a": [
+      214.0,
+      207.0,
+      92.0
+     ],
+     "#ff2d95": [
+      211.2,
+      105.5,
+      196.4
+     ],
+     "#00e5ff": [
+      10.7,
+      174.3,
+      246.3
+     ],
+     "#3cff3c": [
+      12.3,
+      222.3,
+      113.1
+     ],
+     "#ff0000": [
+      225.2,
+      45.2,
+      33.9
+     ],
+     "#0099cc": [
+      8.9,
+      145.0,
+      244.8
+     ],
+     "#ff9933": [
+      227.3,
+      167.1,
+      113.1
+     ],
+     "#339933": [
+      9.8,
+      167.5,
+      92.8
+     ],
+     "#0a84ff": [
+      8.0,
+      121.5,
+      244.1
+     ],
+     "#c8c8c8": [
+      134.0,
+      182.8,
+      249.6
+     ],
+     "#808080": [
+      99.0,
+      138.4,
+      193.7
+     ],
+     "#ffffff": [
+      152.2,
+      202.4,
+      250.9
+     ]
+    },
+    "status": "measured",
+    "source": "photos IMG20260927202627.jpg",
+    "date": "2026-09-27"
+   }
+  },
+  "css": {
+   "box_sizing": {
+    "value": "border_box",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": null,
+    "what": "width 80 + padding 10 + border 1: outer width of the pink box",
+    "detail": {
+     "bbox": [
+      121.0,
+      30.88,
+      63.38,
+      42.25
+     ],
+     "distances": {
+      "border_box": 7.75,
+      "content_box": 40.5
+     },
+     "margin": 32.75,
+     "missing": false
+    }
+   },
+   "border_radius": {
+    "value": "honoured",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": true,
+    "what": "border-radius 20 on a 72 x 56 white fill",
+    "detail": {
+     "radius": {
+      "tl": 20.49,
+      "tr": 21.34,
+      "bl": 20.91,
+      "br": 23.47
+     },
+     "bbox": [
+      33.38,
+      48.25,
+      71.38,
+      56.0
+     ],
+     "distances": {
+      "honoured": 6.21,
+      "ignored": 86.21
+     },
+     "margin": 80.0
+    }
+   },
+   "border_radius_per_corner": {
+    "value": "ignored",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": false,
+    "what": "border-top-left-radius 24 only",
+    "detail": {
+     "radius": {
+      "tl": 2.56,
+      "tr": 3.84,
+      "bl": 4.69,
+      "br": 3.84
+     },
+     "bbox": [
+      125.88,
+      48.12,
+      72.12,
+      56.38
+     ],
+     "distances": {
+      "honoured": 33.81,
+      "ignored": 14.93,
+      "all_corners": 81.07
+     },
+     "margin": 18.880000000000003
+    }
+   },
+   "overflow_hidden": {
+    "value": "clips_at_padding_box",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": true,
+    "what": "overflow hidden 60 x 40 box, child 90 wide",
+    "detail": {
+     "bbox": [
+      215.38,
+      155.62,
+      59.62,
+      22.25
+     ],
+     "distances": {
+      "clips_at_padding_box": 6.88,
+      "no_clip": 35.62
+     },
+     "margin": 28.74,
+     "missing": false
+    },
+    "note": "Same flex-shrink confound as overflow_visible: the child may have been shrunk rather than clipped."
+   },
+   "overflow_visible": {
+    "value": "child_shrunk|clips",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": null,
+    "what": "default overflow, 60 x 40 box, child 90 wide",
+    "detail": {
+     "bbox": [
+      29.12,
+      259.75,
+      59.5,
+      21.5
+     ],
+     "distances": {
+      "clips": 4.38,
+      "draws_outside": 33.38,
+      "child_shrunk": 4.38
+     },
+     "margin": 0.0,
+     "missing": false
+    },
+    "note": "The 90 px child in a 60 px box (default overflow) ends at the box edge. The child is a flex item (flex-shrink 1), so shrinking and clipping look the same; an earlier BART note said children draw outside their parent. Re-test with flex-shrink: 0 (or an absolute child)."
+   },
+   "negative_margin": {
+    "value": "honoured",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": true,
+    "what": "column: cyan has margin-top -8 under a 40 x 20 white bar",
+    "detail": {
+     "bbox": [
+      27.25,
+      162.75,
+      41.38,
+      12.0
+     ],
+     "distances": {
+      "honoured": 5.38,
+      "ignored": 13.38
+     },
+     "margin": 8.0,
+     "missing": false
+    }
+   },
+   "absolute_origin": {
+    "value": "parent_border_box",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": null,
+    "what": "green 10 x 10, absolute left/top 20 inside a pink box at +10: parent- or page-relative",
+    "detail": {
+     "bbox": [
+      240.38,
+      162.0,
+      13.75,
+      12.38
+     ],
+     "distances": {
+      "parent_border_box": 7.75,
+      "parent_content_box": 9.75,
+      "page": 368.5
+     },
+     "margin": 2.0,
+     "missing": false
+    }
+   },
+   "compiler_accepts": {
+    "value": [
+     "transition",
+     "transition-property",
+     "transition-delay",
+     "transition-duration",
+     "transition-timing-function",
+     "width",
+     "height",
+     "min-height",
+     "min-width",
+     "max-height",
+     "max-width",
+     "padding",
+     "padding-left",
+     "padding-right",
+     "padding-top",
+     "padding-bottom",
+     "margin",
+     "margin-left",
+     "margin-right",
+     "margin-top",
+     "margin-bottom",
+     "border",
+     "border-left",
+     "border-right",
+     "border-top",
+     "border-bottom",
+     "border-width",
+     "border-left-width",
+     "border-top-width",
+     "border-right-width",
+     "border-bottom-width",
+     "border-color",
+     "border-left-color",
+     "border-top-color",
+     "border-right-color",
+     "border-bottom-color",
+     "border-style",
+     "border-radius",
+     "border-bottom-left-radius",
+     "border-bottom-right-radius",
+     "border-top-left-radius",
+     "border-top-right-radius",
+     "indicator-size",
+     "indicator-top",
+     "indicator-right",
+     "indicator-bottom",
+     "indicator-left",
+     "filter",
+     "overflow",
+     "flex",
+     "flex-grow",
+     "flex-shrink",
+     "flex-basis",
+     "flex-direction",
+     "flex-wrap",
+     "justify-content",
+     "align-items",
+     "align-content",
+     "align-self",
+     "position",
+     "top",
+     "bottom",
+     "left",
+     "right",
+     "z-index",
+     "opacity",
+     "background",
+     "background-color",
+     "background-image",
+     "background-size",
+     "background-repeat",
+     "background-position",
+     "display",
+     "visibility",
+     "object-fit",
+     "alt-object-fit",
+     "box-shadow",
+     "background-blend-mode",
+     "text-shadow",
+     "mask-image",
+     "mask-position",
+     "mask-composite",
+     "mask-size",
+     "mask-repeat",
+     "lines",
+     "color",
+     "font-size",
+     "font-style",
+     "font-weight",
+     "text-decoration",
+     "text-align",
+     "line-height",
+     "text-overflow",
+     "text-indent",
+     "transform",
+     "transform-origin",
+     "animation-name",
+     "animation-duration",
+     "animation-timing-function",
+     "page-animation-name",
+     "page-transform-origin",
+     "animation-delay",
+     "animation-iteration-count",
+     "animation-fill-mode",
+     "animation-direction",
+     "placeholder-color",
+     "selected-color",
+     "text-color",
+     "time-color",
+     "text-highlight-color",
+     "stroke-width",
+     "progress-color",
+     "indicator-color",
+     "indicator-selected-color",
+     "slide-width",
+     "slide-margin",
+     "resize-mode",
+     "columns",
+     "column-span",
+     "mask-color",
+     "block-color",
+     "mylocation",
+     "mylocation-fill-color",
+     "mylocation-stroke-color",
+     "mylocation-icon-path",
+     "caret-color",
+     "thumb-color",
+     "track-color",
+     "layer-color",
+     "layout-type",
+     "star-background",
+     "star-foreground",
+     "star-secondary",
+     "font-family",
+     "start-angle",
+     "total-angle",
+     "center-x",
+     "center-y",
+     "radius",
+     "scroll-snap-type",
+     "scroll-snap-align"
+    ],
+    "status": "measured",
+    "source": "aiot-toolkit 2.0.5 StyleAttributeConfig (vela): the compiler accepts these; it does NOT mean the band renders them (border-top-left-radius compiles and is ignored)",
+    "date": "2026-09-27"
+   },
+   "text_auto_width": {
+    "value": "shrink_wrap",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": true,
+    "what": "absolute <text> with no width: box extent",
+    "detail": {
+     "bbox": [
+      157.5,
+      174.38,
+      69.38,
+      46.5
+     ],
+     "distances": {
+      "shrink_wrap": 7.0,
+      "stretch_to_right_edge": 113.25
+     },
+     "margin": 106.25,
+     "missing": false
+    }
+   },
+   "padding": {
+    "value": "honoured",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": true,
+    "what": "padding 10 inside a 1 px pink box: where the white child lands",
+    "detail": {
+     "bbox": [
+      38.12,
+      42.38,
+      20.75,
+      21.0
+     ],
+     "distances": {
+      "honoured": 3.25,
+      "ignored": 20.25
+     },
+     "margin": 17.0,
+     "missing": false
+    }
+   },
+   "margin": {
+    "value": "honoured",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": true,
+    "what": "column: cyan has margin-top 12 under a 40 x 10 white bar",
+    "detail": {
+     "bbox": [
+      214.62,
+      53.5,
+      42.0,
+      11.25
+     ],
+     "distances": {
+      "honoured": 5.12,
+      "ignored": 16.12
+     },
+     "margin": 11.0,
+     "missing": false
+    }
+   },
+   "negative_margin_left": {
+    "value": "honoured",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": true,
+    "what": "row: cyan has margin-left -10 after a 30 x 20 white box",
+    "detail": {
+     "bbox": [
+      141.0,
+      151.12,
+      31.75,
+      21.75
+     ],
+     "distances": {
+      "honoured": 5.38,
+      "ignored": 15.38
+     },
+     "margin": 10.0,
+     "missing": false
+    }
+   },
+   "border_width": {
+    "value": "honoured",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": true,
+    "what": "border-width 8, white, 60 x 50 box: drawn thickness",
+    "detail": {
+     "thickness": {
+      "l": 0.75,
+      "r": 8.12,
+      "t": 7.0,
+      "b": 6.5
+     },
+     "distances": {
+      "honoured": 9.88
+     },
+     "margin": null
+    }
+   },
+   "border_side_width": {
+    "value": "ignored",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": false,
+    "what": "border 1 + border-left-width 8",
+    "detail": {
+     "thickness": {
+      "l": 1.5,
+      "r": 1.38,
+      "t": 0.0,
+      "b": 0.0
+     },
+     "distances": {
+      "honoured": 8.88,
+      "ignored": 2.88
+     },
+     "margin": 6.000000000000001
+    }
+   },
+   "border_side_colour": {
+    "value": "ignored",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": false,
+    "what": "border 4 white + border-left-color pink",
+    "detail": {
+     "colours": {
+      "left": "white",
+      "top": "white"
+     },
+     "distances": {
+      "honoured": 10,
+      "ignored": 0
+     },
+     "margin": 10
+    }
+   },
+   "border_radius_per_corner_override": {
+    "value": "ignored",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": false,
+    "what": "border-radius 20 then border-top-left-radius 0",
+    "detail": {
+     "radius": {
+      "tl": 20.49,
+      "tr": 20.91,
+      "bl": 20.49,
+      "br": 22.19
+     },
+     "bbox": [
+      218.75,
+      48.38,
+      72.0,
+      56.5
+     ],
+     "distances": {
+      "honoured": 24.08,
+      "ignored": 4.08,
+      "all_zero": 84.08
+     },
+     "margin": 20.0
+    }
+   },
+   "border_radius_outline": {
+    "value": "honoured",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": true,
+    "what": "border 3 white + border-radius 16, no fill",
+    "detail": {
+     "radius": {
+      "tl": 17.07,
+      "tr": 17.5,
+      "bl": 16.64,
+      "br": 19.63
+     },
+     "bbox": [
+      33.0,
+      151.12,
+      71.75,
+      57.25
+     ],
+     "distances": {
+      "honoured": 6.84,
+      "ignored": 70.84
+     },
+     "margin": 64.0
+    }
+   },
+   "border_radius_clamp": {
+    "value": "clamped",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": true,
+    "what": "border-radius 999 on 72 x 32: clamped to 16?",
+    "detail": {
+     "radius": {
+      "tl": 16.64,
+      "tr": 17.07,
+      "bl": 16.22,
+      "br": 20.06
+     },
+     "bbox": [
+      126.0,
+      164.0,
+      71.5,
+      32.0
+     ],
+     "distances": {
+      "clamped": 5.99,
+      "square": 69.99
+     },
+     "margin": 63.99999999999999
+    }
+   },
+   "overflow_radius_clip": {
+    "value": "round_clip",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": true,
+    "what": "overflow hidden + radius 20: is a full-size child clipped round?",
+    "detail": {
+     "radius": {
+      "tl": 21.34,
+      "tr": 21.34,
+      "bl": 22.19,
+      "br": 22.19
+     },
+     "bbox": [
+      131.75,
+      253.5,
+      59.62,
+      59.88
+     ],
+     "distances": {
+      "round_clip": 7.06,
+      "square_clip": 87.06
+     },
+     "margin": 80.0
+    }
+   },
+   "opacity": {
+    "value": "honoured",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": true,
+    "what": "white fill at opacity 0.5 beside a #808080 fill",
+    "detail": {
+     "luma_a": 133.7,
+     "luma_b": 138.6,
+     "ratio": 0.964,
+     "distances": {
+      "honoured": 0.04,
+      "ignored_full": 1.04,
+      "invisible": 0.96
+     },
+     "margin": 0.9199999999999999
+    }
+   },
+   "z_index": {
+    "value": "ignored",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": false,
+    "what": "white z-index 2 drawn before cyan z-index 1, overlapping",
+    "detail": {
+     "colours": {
+      "overlap": "cyan"
+     },
+     "distances": {
+      "honoured": 10,
+      "ignored": 0
+     },
+     "margin": 10
+    }
+   },
+   "transform_translate": {
+    "value": "honoured",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": true,
+    "what": "static transform translateX(20px) on a 20 x 20 white square at +10",
+    "detail": {
+     "bbox": [
+      147.5,
+      377.88,
+      20.12,
+      20.25
+     ],
+     "distances": {
+      "honoured": 1.0,
+      "ignored": 20.0
+     },
+     "margin": 19.0,
+     "missing": false
+    }
+   },
+   "transform_rotate": {
+    "value": "honoured",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": true,
+    "what": "static rotate(45deg) on a 56 x 4 bar",
+    "detail": {
+     "bbox": [
+      224.5,
+      386.75,
+      41.5,
+      41.5
+     ],
+     "distances": {
+      "honoured": 31.25,
+      "ignored": 56.25
+     },
+     "margin": 25.0,
+     "missing": false
+    }
+   },
+   "percent_width": {
+    "value": "honoured",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": true,
+    "what": "child width 50% of an 80 px parent",
+    "detail": {
+     "bbox": [
+      27.5,
+      57.62,
+      40.5,
+      20.38
+     ],
+     "distances": {
+      "honoured": 1.75,
+      "ignored_full": 40.75
+     },
+     "margin": 39.0,
+     "missing": false
+    }
+   },
+   "justify_content": {
+    "value": "honoured",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": true,
+    "what": "row, justify-content center, 20 px child in 80",
+    "detail": {
+     "bbox": [
+      150.75,
+      58.0,
+      20.5,
+      20.88
+     ],
+     "distances": {
+      "honoured": 2.62,
+      "ignored": 30.12
+     },
+     "margin": 27.5,
+     "missing": false
+    }
+   },
+   "box_shadow": {
+    "value": "ignored",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": false,
+    "what": "box-shadow 0 0 12px white on a 40 x 40 fill",
+    "detail": {
+     "luma_a": 14.7,
+     "luma_b": 186.0,
+     "ratio": 0.079,
+     "distances": {
+      "honoured": 0.22,
+      "ignored": 0.08
+     },
+     "margin": 0.14
+    }
+   },
+   "text_background": {
+    "value": "honoured",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": true,
+    "what": "text with background-color #505050 and radius 12 (a pill label)",
+    "detail": {
+     "radius": {
+      "tl": 12.8,
+      "tr": 12.8,
+      "bl": 13.66,
+      "br": 12.8
+     },
+     "bbox": [
+      29.75,
+      162.88,
+      79.0,
+      34.12
+     ],
+     "distances": {
+      "honoured": 4.06,
+      "square": 52.06
+     },
+     "margin": 48.0
+    }
+   },
+   "align_items_baseline": {
+    "value": "same_as_flex_end",
+    "status": "measured",
+    "source": "photo IMG20260927202613.jpg (Wrap 1 rows '5' + 'min'): align-items baseline and flex-end both align the box bottoms (ink bottoms 16 px apart), not the baselines",
+    "date": "2026-09-27"
+   }
+  },
+  "animation": {
+   "class_binding_rerender_restarts": {
+    "value": true,
+    "status": "measured",
+    "source": "BART Watch on this band 2026-09-27: a {{...}} in class is re-applied on every render and restarts its CSS animation (train stopped at ~75% with a 1 s tick render)",
+    "date": "2026-09-27",
+    "note": "BART's case: class=\"{{v.anim ? 'pass' : 'still'}}\" with this.v REPLACED on every render (the binding reads a replaced object, so it is re-evaluated to a new array each time). Calibration lane C (a top-level {{cCls}} that never changes, page re-rendered every 1 s) ran smoothly, so an UNCHANGED top-level primitive binding does not restart (animation.unchanged_primitive_binding_rerender_restarts). Lane C did not reproduce BART's pattern."
+   },
+   "steps_timing": {
+    "value": "supported",
+    "status": "measured",
+    "source": "user watching page 18 on the Band 10 Pro, 2026-09-27, lane D choppy",
+    "date": "2026-09-27"
+   },
+   "translate_px_max_seen": {
+    "value": 600,
+    "status": "measured",
+    "source": "user watching page 18 on the Band 10 Pro, 2026-09-27, lane E (translateX 600 px) runs smoothly",
+    "date": "2026-09-27"
+   },
+   "lane_A": {
+    "value": "smooth, slow (control: static class, 0-240 px in 4 s)",
+    "status": "measured",
+    "source": "user watching page 18 on the Band 10 Pro, 2026-09-27",
+    "date": "2026-09-27"
+   },
+   "lane_B": {
+    "value": "smooth, looked slower than A; no jump reported (class k1/k2 rebound every 3 s)",
+    "status": "measured",
+    "source": "user watching page 18 on the Band 10 Pro, 2026-09-27",
+    "date": "2026-09-27",
+    "note": "Follow-up needed: the page has no finish marker, so a restart at 3 s (the square snapping back from 180 of 240 px) can't be told from 'looked slower'."
+   },
+   "lane_C": {
+    "value": "smooth, looked a bit faster than A; no jump reported (unchanged {{cCls}} binding, page re-rendered every 1 s)",
+    "status": "measured",
+    "source": "user watching page 18 on the Band 10 Pro, 2026-09-27",
+    "date": "2026-09-27"
+   },
+   "lane_D": {
+    "value": "choppy (steps(4, end): discrete jumps visible)",
+    "status": "measured",
+    "source": "user watching page 18 on the Band 10 Pro, 2026-09-27",
+    "date": "2026-09-27"
+   },
+   "lane_E": {
+    "value": "fast, smooth (translateX 0-600 px in 6 s)",
+    "status": "measured",
+    "source": "user watching page 18 on the Band 10 Pro, 2026-09-27",
+    "date": "2026-09-27"
+   },
+   "lane_F": {
+    "value": "normal speed, smooth; no jump reported (image src swapped every 3 s)",
+    "status": "measured",
+    "source": "user watching page 18 on the Band 10 Pro, 2026-09-27",
+    "date": "2026-09-27",
+    "note": "Follow-up needed: the page has no finish marker, so a restart at 3 s (the square snapping back from 180 of 240 px) can't be told from 'looked slower'."
+   },
+   "lane_G": {
+    "value": "blinking (opacity 0-1 alternate)",
+    "status": "measured",
+    "source": "user watching page 18 on the Band 10 Pro, 2026-09-27",
+    "date": "2026-09-27"
+   },
+   "opacity_keyframes": {
+    "value": "supported",
+    "status": "measured",
+    "source": "user watching page 18 on the Band 10 Pro, 2026-09-27, lane G blinking",
+    "date": "2026-09-27"
+   },
+   "unchanged_primitive_binding_rerender_restarts": {
+    "value": false,
+    "status": "measured",
+    "source": "user watching page 18 on the Band 10 Pro, 2026-09-27, lane C: a class with a top-level {{binding}} whose value never changes, page re-rendered every 1 s, ran smoothly (a restart every 1 s would cap it at 60 px)",
+    "date": "2026-09-27"
+   },
+   "class_swap_restarts": {
+    "value": null,
+    "status": "unknown",
+    "source": "user watching page 18 on the Band 10 Pro, 2026-09-27, lane B: smooth, no jump reported, but no finish marker; a restart at 3 s (square back from 180 px) was not ruled out",
+    "date": "2026-09-27",
+    "note": "Follow-up needed: the page has no finish marker, so a restart at 3 s (the square snapping back from 180 of 240 px) can't be told from 'looked slower'."
+   },
+   "image_src_swap_restarts": {
+    "value": null,
+    "status": "unknown",
+    "source": "user watching page 18 on the Band 10 Pro, 2026-09-27, lane F: smooth, no jump reported, but no finish marker; a restart at 3 s was not ruled out",
+    "date": "2026-09-27",
+    "note": "Follow-up needed: the page has no finish marker, so a restart at 3 s (the square snapping back from 180 of 240 px) can't be told from 'looked slower'."
+   }
+  },
+  "image": {
+   "format": {
+    "value": "png",
+    "status": "assumed",
+    "source": "Band 11 watch faces: Lua images must be PNG; quick apps use PNG in BART",
+    "date": "2026-09-27"
+   },
+   "natural": {
+    "value": "natural",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": null,
+    "what": "image checker32.png in auto x auto {}",
+    "detail": {
+     "bbox": [
+      23.62,
+      26.75,
+      67.38,
+      36.25
+     ],
+     "distances": {
+      "natural": 41.25
+     },
+     "margin": null,
+     "missing": false
+    }
+   },
+   "x2": {
+    "value": "scaled",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": true,
+    "what": "image checker32.png in 64 x 64 {}",
+    "detail": {
+     "bbox": [
+      66.38,
+      27.25,
+      65.62,
+      65.62
+     ],
+     "distances": {
+      "scaled": 4.38,
+      "natural_top_left": 68.38,
+      "natural_centred": 99.62
+     },
+     "margin": 63.99999999999999,
+     "missing": false
+    }
+   },
+   "stretch": {
+    "value": "stretched",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": true,
+    "what": "image checker32.png in 64 x 32 {}",
+    "detail": {
+     "bbox": [
+      238.25,
+      27.25,
+      66.25,
+      33.62
+     ],
+     "distances": {
+      "stretched": 6.38,
+      "natural_top_left": 38.38,
+      "contain_centred": 54.38
+     },
+     "margin": 32.0,
+     "missing": false
+    }
+   },
+   "png8": {
+    "value": "drawn",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": true,
+    "what": "image checker32_p8.png in 32 x 32 {}",
+    "detail": {
+     "bbox": [
+      23.88,
+      103.12,
+      67.12,
+      34.0
+     ],
+     "distances": {
+      "drawn": 38.12,
+      "missing": 228.12
+     },
+     "margin": 190.0,
+     "missing": false
+    }
+   },
+   "grey8": {
+    "value": "drawn",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": true,
+    "what": "image checker32_l.png in 32 x 32 {}",
+    "detail": {
+     "bbox": [
+      65.75,
+      103.0,
+      67.25,
+      36.0
+     ],
+     "distances": {
+      "drawn": 40.5,
+      "missing": 272.0
+     },
+     "margin": 231.5,
+     "missing": false
+    }
+   },
+   "disc": {
+    "value": "drawn",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": true,
+    "what": "image disc64.png in 64 x 64 {}",
+    "detail": {
+     "bbox": [
+      109.75,
+      105.12,
+      62.5,
+      62.38
+     ],
+     "distances": {
+      "drawn": 6.0
+     },
+     "margin": null,
+     "missing": false
+    }
+   },
+   "disc-p8": {
+    "value": "drawn",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": true,
+    "what": "image disc64_p8.png in 64 x 64 {}",
+    "detail": {
+     "bbox": [
+      182.62,
+      105.0,
+      62.5,
+      62.25
+     ],
+     "distances": {
+      "drawn": 7.12,
+      "missing": 412.38
+     },
+     "margin": 405.26,
+     "missing": false
+    }
+   },
+   "disc-hard": {
+    "value": "drawn",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": true,
+    "what": "image disc64_hard.png in 64 x 64 {}",
+    "detail": {
+     "bbox": [
+      25.88,
+      181.0,
+      62.62,
+      62.38
+     ],
+     "distances": {
+      "drawn": 6.12
+     },
+     "margin": null,
+     "missing": false
+    }
+   },
+   "fit-fill": {
+    "value": "fill",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": true,
+    "what": "image wide64x32.png in 64 x 64 {\"object-fit\":\"fill\"}",
+    "detail": {
+     "bbox": [
+      98.12,
+      181.38,
+      65.62,
+      61.38
+     ],
+     "distances": {
+      "fill": 5.75,
+      "contain": 45.75,
+      "none_top_left": 32.5
+     },
+     "margin": 26.75,
+     "missing": false
+    }
+   },
+   "fit-contain": {
+    "value": "contain",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": true,
+    "what": "image wide64x32.png in 64 x 64 {\"object-fit\":\"contain\"}",
+    "detail": {
+     "bbox": [
+      171.25,
+      195.0,
+      65.62,
+      33.62
+     ],
+     "distances": {
+      "fill": 47.75,
+      "contain": 5.0,
+      "none_top_left": 19.0
+     },
+     "margin": 14.0,
+     "missing": false
+    }
+   },
+   "fit-cover": {
+    "value": "cover|fill",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": null,
+    "what": "image wide64x32.png in 64 x 64 {\"object-fit\":\"cover\"}",
+    "detail": {
+     "bbox": [
+      244.5,
+      181.12,
+      66.0,
+      61.62
+     ],
+     "distances": {
+      "fill": 7.0,
+      "cover": 7.0,
+      "contain": 48.0
+     },
+     "margin": 0.0,
+     "missing": false
+    },
+    "note": "The test image is a uniform rectangle, so cover and fill look identical; needs a patterned image."
+   },
+   "fit-none": {
+    "value": "contain",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": true,
+    "what": "image wide64x32.png in 64 x 64 {\"object-fit\":\"none\"}",
+    "detail": {
+     "bbox": [
+      24.25,
+      271.38,
+      65.5,
+      33.12
+     ],
+     "distances": {
+      "fill": 48.0,
+      "contain": 3.5,
+      "none_top_left": 18.25
+     },
+     "margin": 14.75,
+     "missing": false
+    },
+    "note": "CSS object-fit none (natural size, centred) predicts the same picture as contain for this 64x32 image in 64x64; the page can't tell them apart."
+   },
+   "alpha_blend": {
+    "value": "matches_opaque_grey",
+    "status": "measured",
+    "source": "photos IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "detail": {
+     "alpha": [
+      15.7,
+      54.8,
+      126.8,
+      169.6,
+      178.3
+     ],
+     "grey": [
+      17.1,
+      55.2,
+      126.7,
+      168.9,
+      177.4
+     ],
+     "rms_diff": 1.3
+    }
+   },
+   "x1.5": {
+    "value": "scaled",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": true,
+    "what": "image checker32.png in 48 x 48 {}",
+    "detail": {
+     "bbox": [
+      139.5,
+      27.12,
+      67.5,
+      49.88
+     ],
+     "distances": {
+      "scaled": 22.75,
+      "natural_top_left": 54.75,
+      "natural_centred": 70.75
+     },
+     "margin": 32.0,
+     "missing": false
+    }
+   },
+   "x0.5": {
+    "value": "cropped|scaled",
+    "status": "measured",
+    "source": "photos IMG20260927202550.jpg, IMG20260927202619.jpg, IMG20260927202621.jpg, IMG20260927202623.jpg, IMG20260927202630.jpg",
+    "date": "2026-09-27",
+    "supported": null,
+    "what": "image checker32.png in 16 x 16 {}",
+    "detail": {
+     "bbox": [
+      197.5,
+      27.38,
+      67.5,
+      33.62
+     ],
+     "distances": {
+      "scaled": 70.25,
+      "cropped": 70.25
+     },
+     "margin": 0.0,
+     "missing": false
+    },
+    "note": "By eye (IMG20260927202630.jpg): the 16 px square is a uniform light grey with no checker cells, i.e. resampled (scaled), not cropped."
+   }
+  },
+  "behaviour": {
+   "system_back_swipe_single_page": {
+    "value": "none",
+    "status": "measured",
+    "source": "Band 10 Pro 2026-09-26: the system swipe-right does nothing for a single-page app",
+    "date": "2026-09-27"
+   },
+   "exit_pattern": {
+    "value": "onBackPress + @swipe right + raw touch dx > 60, all calling $app.exit() -> app.terminate() -> router.back()",
+    "status": "measured",
+    "source": "BART 2.0.3 verified exit on the band 2026-09-26",
+    "date": "2026-09-27"
+   },
+   "reinstall_keeps_running_instance": {
+    "value": true,
+    "status": "measured",
+    "source": "BART 2026-09-26: a reinstalled app keeps running its old code until closed on the band",
+    "date": "2026-09-27"
+   }
+  }
+ },
+ "face": {
+  "about": "Watch-face engine facts for this model. Nothing measured yet on the Band 10 Pro: every fact is unknown. Measure before building a face for it.",
+  "colour": {
+   "floor": {
+    "grey": {
+     "value": null,
+     "status": "unknown",
+     "source": "no face calibration yet: build a face-engine calibration face for this model and photograph it (devices/band10pro/CALIBRATION.md)",
+     "date": "2026-09-28"
+    }
+   }
+  },
+  "screen": {
+   "status_clear_top_px": {
+    "value": null,
+    "status": "unknown",
+    "source": "no face calibration yet: build a face-engine calibration face for this model and photograph it (devices/band10pro/CALIBRATION.md)",
+    "date": "2026-09-28"
+   }
+  },
+  "lua": {
+   "image_format": {
+    "value": null,
+    "status": "unknown",
+    "source": "no face calibration yet: build a face-engine calibration face for this model and photograph it (devices/band10pro/CALIBRATION.md)",
+    "date": "2026-09-28"
+   },
+   "runs_on_aod": {
+    "value": null,
+    "status": "unknown",
+    "source": "no face calibration yet: build a face-engine calibration face for this model and photograph it (devices/band10pro/CALIBRATION.md)",
+    "date": "2026-09-28"
+   }
+  },
+  "widgets": {
+   "number_anchor_fixed": {
+    "value": null,
+    "status": "unknown",
+    "source": "no face calibration yet: build a face-engine calibration face for this model and photograph it (devices/band10pro/CALIBRATION.md)",
+    "date": "2026-09-28"
+   },
+   "image_list_frames_same_size": {
+    "value": null,
+    "status": "unknown",
+    "source": "no face calibration yet: build a face-engine calibration face for this model and photograph it (devices/band10pro/CALIBRATION.md)",
+    "date": "2026-09-28"
+   }
+  },
+  "data_sources": {
+   "hour_follows_12_24_setting": {
+    "value": null,
+    "status": "unknown",
+    "source": "no face calibration yet: build a face-engine calibration face for this model and photograph it (devices/band10pro/CALIBRATION.md)",
+    "date": "2026-09-28"
+   },
+   "temperatureF_D031": {
+    "value": null,
+    "status": "unknown",
+    "source": "no face calibration yet: build a face-engine calibration face for this model and photograph it (devices/band10pro/CALIBRATION.md)",
+    "date": "2026-09-28"
+   }
+  }
+ }
+}

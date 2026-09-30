@@ -1,0 +1,174 @@
+{
+ "exposure": {
+  "t": 0.015104,
+  "iso": 363,
+  "f": 1.7
+ },
+ "photo": "PXL_20260929_030603545.MACRO_FOCUS.jpg",
+ "page": 1,
+ "page_key": "geo",
+ "face": 1,
+ "theme": "normal",
+ "taken_at": "2026-09-28T20:06:03",
+ "fit": {
+  "rms_band_px": [
+   0.269,
+   0.164
+  ],
+  "ticks": 66,
+  "dropped": 0,
+  "bloom_px": 0.52,
+  "photo_px_per_band_px": [
+   4.73,
+   4.721
+  ],
+  "edges": {
+   "left_first_visible_x": -0.07826944860498242,
+   "right_last_visible_x": 211.18799105498826,
+   "ticks_seen_left": 33,
+   "ticks_seen_right": 33,
+   "first_tick_y_left": 100,
+   "last_tick_y_left": 420
+  },
+  "ok": true,
+  "notes": [],
+  "rotation": "ccw90 (screen isolated)"
+ },
+ "ruler_edges": {
+  "left": 0.0,
+  "right": 0.77,
+  "rows": 31
+ },
+ "samples": [
+  {
+   "id": "geo.0",
+   "type": "comb",
+   "spec": {
+    "type": "comb",
+    "edge": "top",
+    "xs": [
+     90,
+     98,
+     106,
+     114,
+     122
+    ],
+    "y0": 0,
+    "y1": 24,
+    "centre_x": 106,
+    "id": "geo.0"
+   },
+   "result": {
+    "hidden_px": 0.0,
+    "per_line": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "centre_hidden_px": 0.0
+   }
+  },
+  {
+   "id": "geo.1",
+   "type": "comb",
+   "spec": {
+    "type": "comb",
+    "edge": "bottom",
+    "xs": [
+     90,
+     98,
+     106,
+     114,
+     122
+    ],
+    "y0": 496,
+    "y1": 520,
+    "centre_x": 106,
+    "id": "geo.1"
+   },
+   "result": {
+    "hidden_px": 1.12,
+    "per_line": [
+     1.25,
+     0.88,
+     1.12,
+     0.5,
+     1.38
+    ],
+    "centre_hidden_px": 1.12
+   }
+  },
+  {
+   "id": "geo.2",
+   "type": "capsule_end",
+   "spec": {
+    "type": "capsule_end",
+    "end": "top",
+    "rows": [
+     32,
+     90
+    ],
+    "expect": {
+     "cx": 106,
+     "cy": 106,
+     "r": 106
+    },
+    "id": "geo.2"
+   },
+   "result": {
+    "cx": 105.72,
+    "cy": 102.7,
+    "r": 105.39,
+    "r_raw": 105.91,
+    "points": 232,
+    "fit_rms_px": 0.149,
+    "expect": {
+     "cx": 106,
+     "cy": 106,
+     "r": 106
+    },
+    "hidden_top_px": -2.69,
+    "hidden_left_px": 0.32,
+    "hidden_right_px": 0.89
+   }
+  },
+  {
+   "id": "geo.3",
+   "type": "capsule_end",
+   "spec": {
+    "type": "capsule_end",
+    "end": "bottom",
+    "rows": [
+     430,
+     488
+    ],
+    "expect": {
+     "cx": 106,
+     "cy": 414,
+     "r": 106
+    },
+    "id": "geo.3"
+   },
+   "result": {
+    "cx": 105.99,
+    "cy": 415.43,
+    "r": 104.86,
+    "r_raw": 105.37,
+    "points": 232,
+    "fit_rms_px": 0.156,
+    "expect": {
+     "cx": 106,
+     "cy": 414,
+     "r": 106
+    },
+    "hidden_bottom_px": -0.28,
+    "hidden_left_px": 1.14,
+    "hidden_right_px": 1.15
+   }
+  }
+ ],
+ "layout": "face-calib/band11 b1",
+ "measured_at": "2026-09-29T17:22:13"
+}

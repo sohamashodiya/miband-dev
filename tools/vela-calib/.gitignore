@@ -1,7 +1,0 @@
-# Signing keys are a copy of apps/bandlink/band/sign: never commit them
-sign/
-node_modules
-build/
-dist/
-# Measurement output stays local (photos live in devices/<model>/photos/, also ignored)
-results/

@@ -1,0 +1,647 @@
+{
+ "exposure": {
+  "t": 0.007036,
+  "iso": 155,
+  "f": 1.7
+ },
+ "photo": "PXL_20260929_235245556.MACRO_FOCUS.jpg",
+ "page": 7,
+ "page_key": "aod_normal",
+ "face": 7,
+ "theme": "normal",
+ "taken_at": "2026-09-29T16:52:45",
+ "fit": {
+  "rms_band_px": [
+   0.26,
+   0.147
+  ],
+  "ticks": 63,
+  "dropped": 1,
+  "bloom_px": 0.37,
+  "photo_px_per_band_px": [
+   3.417,
+   3.398
+  ],
+  "edges": {
+   "left_first_visible_x": 0.7732970966316596,
+   "right_last_visible_x": 210.98566382397803,
+   "ticks_seen_left": 31,
+   "ticks_seen_right": 33,
+   "first_tick_y_left": 140,
+   "last_tick_y_left": 450
+  },
+  "ok": true,
+  "notes": [],
+  "rotation": "cw90 (screen isolated)"
+ },
+ "ruler_edges": {
+  "left": 0.62,
+  "right": 0.87,
+  "rows": 31
+ },
+ "samples": [
+  {
+   "id": "aod_normal.0",
+   "type": "overlay",
+   "spec": {
+    "type": "overlay",
+    "region": [
+     24,
+     0,
+     188,
+     42
+    ],
+    "id": "aod_normal.0"
+   },
+   "result": {
+    "found": true,
+    "bbox": [
+     96.4,
+     4.0,
+     115.4,
+     24.0
+    ],
+    "blobs": [
+     [
+      96.4,
+      4.0,
+      115.4,
+      24.0,
+      301.5
+     ]
+    ],
+    "colour": "red",
+    "centre": [
+     105.9,
+     14.0
+    ],
+    "size": [
+     19.0,
+     20.0
+    ]
+   }
+  },
+  {
+   "id": "aod_normal.1",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "aod_grey",
+    "hex": "#000000",
+    "value": 0,
+    "box": {
+     "x": 29,
+     "y": 68,
+     "w": 10,
+     "h": 34
+    },
+    "id": "aod_normal.1"
+   },
+   "result": {
+    "rgb": [
+     59.9,
+     66.3,
+     65.9
+    ],
+    "luma": 64.3,
+    "sd": 1.89
+   }
+  },
+  {
+   "id": "aod_normal.2",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "aod_grey",
+    "hex": "#080808",
+    "value": 8,
+    "box": {
+     "x": 41,
+     "y": 68,
+     "w": 10,
+     "h": 34
+    },
+    "id": "aod_normal.2"
+   },
+   "result": {
+    "rgb": [
+     60.6,
+     67.6,
+     68.2
+    ],
+    "luma": 65.6,
+    "sd": 1.63
+   }
+  },
+  {
+   "id": "aod_normal.3",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "aod_grey",
+    "hex": "#101010",
+    "value": 16,
+    "box": {
+     "x": 53,
+     "y": 68,
+     "w": 10,
+     "h": 34
+    },
+    "id": "aod_normal.3"
+   },
+   "result": {
+    "rgb": [
+     61.2,
+     69.5,
+     69.8
+    ],
+    "luma": 67.1,
+    "sd": 2.02
+   }
+  },
+  {
+   "id": "aod_normal.4",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "aod_grey",
+    "hex": "#181818",
+    "value": 24,
+    "box": {
+     "x": 65,
+     "y": 68,
+     "w": 10,
+     "h": 34
+    },
+    "id": "aod_normal.4"
+   },
+   "result": {
+    "rgb": [
+     63.0,
+     72.3,
+     77.2
+    ],
+    "luma": 70.1,
+    "sd": 1.92
+   }
+  },
+  {
+   "id": "aod_normal.5",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "aod_grey",
+    "hex": "#202020",
+    "value": 32,
+    "box": {
+     "x": 77,
+     "y": 68,
+     "w": 10,
+     "h": 34
+    },
+    "id": "aod_normal.5"
+   },
+   "result": {
+    "rgb": [
+     67.3,
+     77.2,
+     89.0
+    ],
+    "luma": 75.6,
+    "sd": 3.37
+   }
+  },
+  {
+   "id": "aod_normal.6",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "aod_grey",
+    "hex": "#282828",
+    "value": 40,
+    "box": {
+     "x": 89,
+     "y": 68,
+     "w": 10,
+     "h": 34
+    },
+    "id": "aod_normal.6"
+   },
+   "result": {
+    "rgb": [
+     68.8,
+     80.6,
+     96.3
+    ],
+    "luma": 78.8,
+    "sd": 3.35
+   }
+  },
+  {
+   "id": "aod_normal.7",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "aod_grey",
+    "hex": "#303030",
+    "value": 48,
+    "box": {
+     "x": 101,
+     "y": 68,
+     "w": 10,
+     "h": 34
+    },
+    "id": "aod_normal.7"
+   },
+   "result": {
+    "rgb": [
+     70.2,
+     85.0,
+     104.7
+    ],
+    "luma": 82.8,
+    "sd": 5.07
+   }
+  },
+  {
+   "id": "aod_normal.8",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "aod_grey",
+    "hex": "#383838",
+    "value": 56,
+    "box": {
+     "x": 113,
+     "y": 68,
+     "w": 10,
+     "h": 34
+    },
+    "id": "aod_normal.8"
+   },
+   "result": {
+    "rgb": [
+     73.9,
+     90.1,
+     110.6
+    ],
+    "luma": 87.6,
+    "sd": 10.63
+   }
+  },
+  {
+   "id": "aod_normal.9",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "aod_grey",
+    "hex": "#404040",
+    "value": 64,
+    "box": {
+     "x": 125,
+     "y": 68,
+     "w": 10,
+     "h": 34
+    },
+    "id": "aod_normal.9"
+   },
+   "result": {
+    "rgb": [
+     78.5,
+     96.8,
+     123.4
+    ],
+    "luma": 94.4,
+    "sd": 14.91
+   }
+  },
+  {
+   "id": "aod_normal.10",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "aod_grey",
+    "hex": "#484848",
+    "value": 72,
+    "box": {
+     "x": 137,
+     "y": 68,
+     "w": 10,
+     "h": 34
+    },
+    "id": "aod_normal.10"
+   },
+   "result": {
+    "rgb": [
+     81.6,
+     103.3,
+     133.7
+    ],
+    "luma": 100.2,
+    "sd": 18.99
+   }
+  },
+  {
+   "id": "aod_normal.11",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "aod_grey",
+    "hex": "#505050",
+    "value": 80,
+    "box": {
+     "x": 149,
+     "y": 68,
+     "w": 10,
+     "h": 34
+    },
+    "id": "aod_normal.11"
+   },
+   "result": {
+    "rgb": [
+     87.8,
+     110.9,
+     144.6
+    ],
+    "luma": 107.8,
+    "sd": 21.67
+   }
+  },
+  {
+   "id": "aod_normal.12",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "aod_grey",
+    "hex": "#585858",
+    "value": 88,
+    "box": {
+     "x": 161,
+     "y": 68,
+     "w": 10,
+     "h": 34
+    },
+    "id": "aod_normal.12"
+   },
+   "result": {
+    "rgb": [
+     92.0,
+     118.0,
+     157.3
+    ],
+    "luma": 114.7,
+    "sd": 24.39
+   }
+  },
+  {
+   "id": "aod_normal.13",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "aod_grey",
+    "hex": "#606060",
+    "value": 96,
+    "box": {
+     "x": 173,
+     "y": 68,
+     "w": 10,
+     "h": 34
+    },
+    "id": "aod_normal.13"
+   },
+   "result": {
+    "rgb": [
+     97.2,
+     123.7,
+     169.6
+    ],
+    "luma": 121.0,
+    "sd": 26.35
+   }
+  },
+  {
+   "id": "aod_normal.14",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "aod_level",
+    "hex": "#808080",
+    "value": 128,
+    "box": {
+     "x": 30,
+     "y": 112,
+     "w": 48,
+     "h": 28
+    },
+    "id": "aod_normal.14"
+   },
+   "result": {
+    "rgb": [
+     114.6,
+     159.1,
+     208.8
+    ],
+    "luma": 151.5,
+    "sd": 33.06
+   }
+  },
+  {
+   "id": "aod_normal.15",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "aod_level",
+    "hex": "#c0c0c0",
+    "value": 192,
+    "box": {
+     "x": 82,
+     "y": 112,
+     "w": 48,
+     "h": 28
+    },
+    "id": "aod_normal.15"
+   },
+   "result": {
+    "rgb": [
+     95.2,
+     137.6,
+     194.1
+    ],
+    "luma": 131.4,
+    "sd": 34.52
+   }
+  },
+  {
+   "id": "aod_normal.16",
+   "type": "swatch",
+   "spec": {
+    "type": "swatch",
+    "group": "aod_level",
+    "hex": "#ffffff",
+    "value": 255,
+    "box": {
+     "x": 134,
+     "y": 112,
+     "w": 48,
+     "h": 28
+    },
+    "id": "aod_normal.16"
+   },
+   "result": {
+    "rgb": [
+     94.9,
+     143.3,
+     199.3
+    ],
+    "luma": 135.2,
+    "sd": 33.02
+   }
+  },
+  {
+   "id": "aod_normal.17",
+   "type": "number",
+   "spec": {
+    "type": "number",
+    "source": "hour",
+    "x": 30,
+    "y": 160,
+    "align": "left",
+    "count": 2,
+    "spacing": 0,
+    "lz": true,
+    "region": [
+     28,
+     64
+    ],
+    "row": 2,
+    "id": "aod_normal.17"
+   },
+   "result": {
+    "left": 30.42,
+    "right": 62.21,
+    "width": 31.8,
+    "cells": 2,
+    "digits": "04",
+    "value": 4,
+    "verdict": "anchor_left|box_centre|box_right",
+    "distances": {
+     "anchor_left": 0.42,
+     "anchor_centre": 16.42,
+     "anchor_right": 32.42,
+     "box_centre": 0.42,
+     "box_right": 0.42
+    }
+   }
+  },
+  {
+   "id": "aod_normal.18",
+   "type": "number",
+   "spec": {
+    "type": "number",
+    "source": "minute",
+    "x": 70,
+    "y": 160,
+    "align": "left",
+    "count": 2,
+    "spacing": 0,
+    "lz": true,
+    "region": [
+     68,
+     104
+    ],
+    "row": 2,
+    "id": "aod_normal.18"
+   },
+   "result": {
+    "left": 69.97,
+    "right": 101.68,
+    "width": 31.71,
+    "cells": 2,
+    "digits": "52",
+    "value": 52,
+    "verdict": "anchor_left|box_centre|box_right",
+    "distances": {
+     "anchor_left": 0.03,
+     "anchor_centre": 15.97,
+     "anchor_right": 31.97,
+     "box_centre": 0.03,
+     "box_right": 0.03
+    }
+   }
+  },
+  {
+   "id": "aod_normal.19",
+   "type": "number",
+   "spec": {
+    "type": "number",
+    "source": "second",
+    "x": 110,
+    "y": 160,
+    "align": "left",
+    "count": 2,
+    "spacing": 0,
+    "lz": true,
+    "region": [
+     108,
+     144
+    ],
+    "row": 2,
+    "id": "aod_normal.19"
+   },
+   "result": {
+    "left": 109.84,
+    "right": 141.71,
+    "width": 31.87,
+    "cells": 2,
+    "digits": "44",
+    "value": 44,
+    "verdict": "anchor_left|box_centre|box_right",
+    "distances": {
+     "anchor_left": 0.16,
+     "anchor_centre": 15.84,
+     "anchor_right": 31.84,
+     "box_centre": 0.16,
+     "box_right": 0.16
+    }
+   }
+  },
+  {
+   "id": "aod_normal.20",
+   "type": "number",
+   "spec": {
+    "type": "number",
+    "source": "battery",
+    "x": 30,
+    "y": 204,
+    "align": "left",
+    "count": 3,
+    "spacing": 0,
+    "lz": false,
+    "region": [
+     26,
+     78
+    ],
+    "row": 3,
+    "id": "aod_normal.20"
+   },
+   "result": {
+    "left": 30.45,
+    "right": 77.77,
+    "width": 47.31,
+    "cells": 3,
+    "digits": "100",
+    "value": 100,
+    "verdict": "anchor_left|box_centre|box_right",
+    "distances": {
+     "anchor_left": 0.45,
+     "anchor_centre": 24.45,
+     "anchor_right": 48.45,
+     "box_centre": 0.45,
+     "box_right": 0.45
+    }
+   }
+  }
+ ],
+ "layout": "face-calib/band11 b1",
+ "measured_at": "2026-09-29T17:22:26"
+}

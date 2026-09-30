@@ -1,0 +1,32 @@
+{
+ "photo": "PXL_20260929_025758402.MACRO_FOCUS.jpg",
+ "page": 0,
+ "page_key": "start",
+ "kit": "2.0.0",
+ "fit": {
+  "rms_band_px": [
+   0.307,
+   0.296
+  ],
+  "ticks": 76,
+  "dropped": 0,
+  "bloom_px": 0.4,
+  "photo_px_per_band_px": [
+   4.071,
+   4.052
+  ],
+  "edges": {
+   "left_first_visible_x": 0.4347346766388865,
+   "right_last_visible_x": 210.90693900043368,
+   "ticks_seen_left": 31,
+   "ticks_seen_right": 31,
+   "first_tick_y_left": 110,
+   "last_tick_y_left": 410
+  },
+  "ok": true,
+  "notes": []
+ },
+ "samples": [],
+ "layout": "band11.json",
+ "measured_at": "2026-09-29T06:26:19"
+}

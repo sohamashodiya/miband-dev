@@ -1,0 +1,396 @@
+{
+ "exposure": {
+  "t": 0.00287,
+  "iso": 876,
+  "f": 1.7
+ },
+ "photo": "PXL_20260929_030631001.MACRO_FOCUS.MP.jpg",
+ "page": 4,
+ "page_key": "numbers",
+ "face": 4,
+ "theme": "normal",
+ "taken_at": "2026-09-28T20:06:31",
+ "fit": {
+  "rms_band_px": [
+   0.353,
+   0.333
+  ],
+  "ticks": 76,
+  "dropped": 0,
+  "bloom_px": 0.61,
+  "photo_px_per_band_px": [
+   4.499,
+   4.483
+  ],
+  "edges": {
+   "left_first_visible_x": 0.6798193958107229,
+   "right_last_visible_x": 210.75491318328935,
+   "ticks_seen_left": 38,
+   "ticks_seen_right": 38,
+   "first_tick_y_left": 80,
+   "last_tick_y_left": 450
+  },
+  "ok": true,
+  "notes": [],
+  "rotation": "180 (screen isolated)"
+ },
+ "ruler_edges": {
+  "left": 0.0,
+  "right": 1.11,
+  "rows": 31
+ },
+ "samples": [
+  {
+   "id": "numbers.0",
+   "type": "overlay",
+   "spec": {
+    "type": "overlay",
+    "region": [
+     24,
+     0,
+     188,
+     42
+    ],
+    "id": "numbers.0"
+   },
+   "result": {
+    "found": false,
+    "rejected_glare_blobs": 3
+   }
+  },
+  {
+   "id": "numbers.1",
+   "type": "number",
+   "spec": {
+    "type": "number",
+    "source": "steps",
+    "x": 30,
+    "y": 76,
+    "align": "left",
+    "count": 5,
+    "spacing": 0,
+    "lz": false,
+    "unit": 0,
+    "region": [
+     0,
+     212
+    ],
+    "row": 0,
+    "id": "numbers.1"
+   },
+   "result": {
+    "left": 30.08,
+    "right": 93.9,
+    "width": 63.82,
+    "cells": 4,
+    "digits": "1368",
+    "value": 1368,
+    "verdict": "anchor_left",
+    "distances": {
+     "anchor_left": 0.08,
+     "anchor_centre": 32.08,
+     "anchor_right": 64.08,
+     "box_centre": 7.92,
+     "box_right": 15.92
+    }
+   }
+  },
+  {
+   "id": "numbers.2",
+   "type": "number",
+   "spec": {
+    "type": "number",
+    "source": "steps",
+    "x": 106,
+    "y": 120,
+    "align": "center",
+    "count": 5,
+    "spacing": 0,
+    "lz": false,
+    "unit": 0,
+    "region": [
+     0,
+     212
+    ],
+    "row": 1,
+    "id": "numbers.2"
+   },
+   "result": {
+    "left": 74.19,
+    "right": 137.62,
+    "width": 63.43,
+    "cells": 4,
+    "digits": "1368",
+    "value": 1368,
+    "verdict": "anchor_centre",
+    "distances": {
+     "anchor_left": 31.81,
+     "anchor_centre": 0.19,
+     "anchor_right": 32.19,
+     "box_centre": 39.81,
+     "box_right": 47.81
+    }
+   }
+  },
+  {
+   "id": "numbers.3",
+   "type": "number",
+   "spec": {
+    "type": "number",
+    "source": "steps",
+    "x": 110,
+    "y": 164,
+    "align": "right",
+    "count": 5,
+    "spacing": 0,
+    "lz": false,
+    "unit": 0,
+    "region": [
+     0,
+     212
+    ],
+    "row": 2,
+    "id": "numbers.3"
+   },
+   "result": {
+    "left": 46.58,
+    "right": 109.83,
+    "width": 63.25,
+    "cells": 4,
+    "digits": "1368",
+    "value": 1368,
+    "verdict": "anchor_right",
+    "distances": {
+     "anchor_left": 63.42,
+     "anchor_centre": 31.42,
+     "anchor_right": 0.58,
+     "box_centre": 71.42,
+     "box_right": 79.42
+    }
+   }
+  },
+  {
+   "id": "numbers.4",
+   "type": "number",
+   "spec": {
+    "type": "number",
+    "source": "battery",
+    "x": 106,
+    "y": 208,
+    "align": "center",
+    "count": 3,
+    "spacing": 0,
+    "lz": false,
+    "unit": 12,
+    "region": [
+     0,
+     212
+    ],
+    "row": 3,
+    "id": "numbers.4"
+   },
+   "result": {
+    "left": 76.29,
+    "right": 123.37,
+    "width": 47.08,
+    "cells": 3,
+    "digits": "100",
+    "value": 100,
+    "verdict": "anchor_centre",
+    "distances": {
+     "anchor_left": 29.71,
+     "anchor_centre": 5.71,
+     "anchor_right": 18.29,
+     "box_centre": 29.71,
+     "box_right": 29.71
+    },
+    "unit_left": 124.26,
+    "unit_gap": 0.88
+   }
+  },
+  {
+   "id": "numbers.5",
+   "type": "number",
+   "spec": {
+    "type": "number",
+    "source": "minute",
+    "x": 30,
+    "y": 252,
+    "align": "left",
+    "count": 2,
+    "spacing": 0,
+    "lz": true,
+    "region": [
+     0,
+     86
+    ],
+    "row": 4,
+    "id": "numbers.5"
+   },
+   "result": {
+    "left": 30.66,
+    "right": 62.45,
+    "width": 31.79,
+    "cells": 2,
+    "digits": "06",
+    "value": 6,
+    "verdict": "anchor_left|box_centre|box_right",
+    "distances": {
+     "anchor_left": 0.66,
+     "anchor_centre": 16.66,
+     "anchor_right": 32.66,
+     "box_centre": 0.66,
+     "box_right": 0.66
+    }
+   }
+  },
+  {
+   "id": "numbers.6",
+   "type": "number",
+   "spec": {
+    "type": "number",
+    "source": "hour",
+    "x": 110,
+    "y": 252,
+    "align": "left",
+    "count": 2,
+    "spacing": 0,
+    "lz": false,
+    "region": [
+     86,
+     146
+    ],
+    "row": 4,
+    "id": "numbers.6"
+   },
+   "result": {
+    "left": 109.89,
+    "right": 125.74,
+    "width": 15.84,
+    "cells": 1,
+    "digits": "8",
+    "value": 8,
+    "verdict": "anchor_left",
+    "distances": {
+     "anchor_left": 0.11,
+     "anchor_centre": 7.89,
+     "anchor_right": 15.89,
+     "box_centre": 8.11,
+     "box_right": 16.11
+    }
+   }
+  },
+  {
+   "id": "numbers.7",
+   "type": "number",
+   "spec": {
+    "type": "number",
+    "source": "second",
+    "x": 150,
+    "y": 252,
+    "align": "left",
+    "count": 2,
+    "spacing": 0,
+    "lz": true,
+    "region": [
+     146,
+     212
+    ],
+    "row": 4,
+    "id": "numbers.7"
+   },
+   "result": {
+    "left": 149.48,
+    "right": 181.06,
+    "width": 31.58,
+    "cells": 2,
+    "digits": "29",
+    "value": 29,
+    "verdict": "anchor_left|box_centre|box_right",
+    "distances": {
+     "anchor_left": 0.52,
+     "anchor_centre": 15.48,
+     "anchor_right": 31.48,
+     "box_centre": 0.52,
+     "box_right": 0.52
+    }
+   }
+  },
+  {
+   "id": "numbers.8",
+   "type": "number",
+   "spec": {
+    "type": "number",
+    "source": "steps",
+    "x": 30,
+    "y": 296,
+    "align": "left",
+    "count": 5,
+    "spacing": 6,
+    "lz": false,
+    "unit": 0,
+    "region": [
+     0,
+     212
+    ],
+    "row": 5,
+    "id": "numbers.8"
+   },
+   "result": {
+    "left": 30.61,
+    "right": 111.99,
+    "width": 81.38,
+    "cells": 4,
+    "digits": "1368",
+    "value": 1368,
+    "verdict": "anchor_left",
+    "distances": {
+     "anchor_left": 0.61,
+     "anchor_centre": 41.61,
+     "anchor_right": 82.61,
+     "box_centre": 10.39,
+     "box_right": 21.39
+    }
+   }
+  },
+  {
+   "id": "numbers.9",
+   "type": "number",
+   "spec": {
+    "type": "number",
+    "source": "steps",
+    "x": 30,
+    "y": 340,
+    "align": "left",
+    "count": 5,
+    "spacing": -3,
+    "lz": false,
+    "unit": 0,
+    "region": [
+     0,
+     212
+    ],
+    "row": 6,
+    "id": "numbers.9"
+   },
+   "result": {
+    "left": 30.57,
+    "right": 85.25,
+    "width": 54.68,
+    "cells": 4,
+    "digits": "1368",
+    "value": 1368,
+    "verdict": "anchor_left",
+    "distances": {
+     "anchor_left": 0.57,
+     "anchor_centre": 28.07,
+     "anchor_right": 55.57,
+     "box_centre": 5.93,
+     "box_right": 12.43
+    }
+   }
+  }
+ ],
+ "layout": "face-calib/band11 b1",
+ "measured_at": "2026-09-29T17:22:19"
+}
